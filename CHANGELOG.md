@@ -9,6 +9,9 @@ normative_status: "Release record"
 
 ### Documentation
 
+- Add a reusable, machine-readable ecosystem readiness crosswalk method and validated informative mappings for EUDI Wallet ARF v3.0.0 and GLEIF vLEI EGF v4.0.
+- Add comparative implementation takeaways covering authority/reliance boundaries, assurance composition, unknown state, dependency-aware revocation, correction versus remedy, and test generation. These artifacts do not change GAAM v0.9.0 normative requirements or conformance semantics.
+
 - Added a validator-controlled Future Evolution programme with expansion principles, concept classification, a normative boundary, a four-commit delivery roadmap, fifteen candidate concept pages, and a 25-entry machine-readable enhancement register. GAAM v0.9.0 normative requirements, schemas, profiles, vocabularies, conformance semantics, and threat-model content remain unchanged.
 - Reorganised site navigation with four grouped Documentation routes, a top-level Implementation Reports workflow, and an Appendices section for glossary, vocabularies, matrices, mappings, FAQ, style guidance, and publication documentation. Existing file paths and permalinks remain unchanged.
 

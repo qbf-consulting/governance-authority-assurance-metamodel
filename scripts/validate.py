@@ -214,6 +214,25 @@ idx=list(csv.DictReader((ROOT/'matrices/normative-requirements-index.csv').open(
 add('REQ-001-unique',len(ids)==len(set(ids)),f'{len(ids)} identifiers','normative')
 add('REQ-002-index-exact',ids==idxids,f'{len(idxids)} indexed requirements','normative')
 add('REQ-003-normative-language',all(any(k in r['requirement'] for k in ['MUST','SHALL','SHOULD','MAY']) for r in idx),f'{len(idx)} indexed statements classified','normative')
+# Informative ecosystem readiness crosswalks
+crosswalk_errors=[]
+crosswalk_files=sorted((ROOT/'mappings').glob('*-gaam-crosswalk.json'))
+try:
+ crosswalk_schema=load(ROOT/'mappings/ecosystem-crosswalk.schema.json')
+ Draft202012Validator.check_schema(crosswalk_schema)
+ validator=Draft202012Validator(crosswalk_schema,format_checker=FormatChecker())
+ seen_finding_ids=set()
+ for p in crosswalk_files:
+  obj=load(p)
+  errs=list(validator.iter_errors(obj))
+  if errs: crosswalk_errors.append(f'{p.name}: {errs[0].message}'); continue
+  for f in obj.get('findings',[]):
+   if f['id'] in seen_finding_ids: crosswalk_errors.append(f"duplicate finding id {f['id']}")
+   seen_finding_ids.add(f['id'])
+   missing_req=[x for x in f['gaamRequirements'] if x not in set(ids)]
+   if missing_req: crosswalk_errors.append(f"{f['id']}: unknown GAAM requirements {missing_req}")
+except Exception as e: crosswalk_errors.append(str(e))
+add('MAP-ECOSYSTEM-CROSSWALKS',not crosswalk_errors,f'{len(crosswalk_files)} informative ecosystem crosswalks validated against mapping schema and normative requirement identifiers' if not crosswalk_errors else '; '.join(crosswalk_errors[:10]),'mapping')
 # Schemas
 schemas={p.stem.replace('.schema',''):load(p) for p in (ROOT/'schemas').glob('*.schema.json')}
 base=REL['schemaBase']; ids_seen=[]

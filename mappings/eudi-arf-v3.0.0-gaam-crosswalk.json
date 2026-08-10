@@ -1,0 +1,153 @@
+{
+  "id": "gaam:mapping:eudi-arf:3.0.0:2026-08-10",
+  "gaamVersion": "0.9.0",
+  "normativeStatus": "informative",
+  "assessmentType": "readiness-crosswalk",
+  "target": {
+    "name": "EU Digital Identity Wallet Architecture and Reference Framework",
+    "version": "3.0.0",
+    "source": "https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework",
+    "assessedAt": "2026-08-10"
+  },
+  "method": {
+    "statusVocabulary": ["covered", "partial", "gap", "not-applicable", "unknown"],
+    "claimBoundary": "Readiness mapping only. No EUDI compliance, certification, formal audit or GAAM conformance claim is made."
+  },
+  "findings": [
+    {
+      "id": "GAAM-ARF-01",
+      "title": "Action-level authority is not uniformly represented",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-AUTH-001", "GAAM-AUTH-002", "GAAM-AUTH-003", "GAAM-EFF-002"],
+      "observation": "Authority is often derived from role, registration, certification, trusted-list state and protocol rules rather than one common action-level representation.",
+      "actionableTakeaway": "Model authority as a resolvable tuple of source, actor, action, subject or resource, scope, constraints, validity and revocation state where consequential effects depend on authority.",
+      "evidenceExpectation": ["authority-source reference", "scope and constraint record", "current authority status"],
+      "candidateTests": ["reject valid identity without action authority", "reject authority outside declared scope", "accept authority only while source and status remain valid"]
+    },
+    {
+      "id": "GAAM-ARF-02",
+      "title": "Role authority is distributed across governance sources",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-AUTH-001", "GAAM-AUTH-002", "GAAM-EVID-001"],
+      "observation": "Role definitions and their operative authority can depend on legislation, implementing acts, ARF requirements, certification and national arrangements.",
+      "actionableTakeaway": "Publish a role-to-authority register that resolves each governed role to authority sources, permitted effects, constraints and lifecycle conditions.",
+      "evidenceExpectation": ["role definition", "authority-source mapping", "lifecycle and jurisdiction metadata"],
+      "candidateTests": ["resolve every consequential role to at least one authority source", "detect conflicting or missing role-authority mappings"]
+    },
+    {
+      "id": "GAAM-ARF-03",
+      "title": "Authority conflict and precedence require explicit treatment",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-AUTH-006", "GAAM-AUTH-007"],
+      "observation": "Several legitimate legal, supervisory, certification and technical authority sources can apply simultaneously.",
+      "actionableTakeaway": "Represent precedence, coordination, refusal and escalation rules for overlapping authority sources as explicit governance data.",
+      "evidenceExpectation": ["authority precedence rule", "conflict-resolution procedure", "escalation authority"],
+      "candidateTests": ["resolve two applicable authorities with conflicting outcomes", "fail closed when precedence is undefined"]
+    },
+    {
+      "id": "GAAM-ARF-04",
+      "title": "Runtime governance decisions lack a common decision envelope",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-EFF-002", "GAAM-EVID-002", "GAAM-EVID-003"],
+      "observation": "Protocol validation is substantial, but no general envelope consistently records the authority, rule, evidence, constraints and decision behind a consequential effect.",
+      "actionableTakeaway": "Define a privacy-minimised runtime governance envelope for consequential decisions, preserving resolvable evidence references instead of unnecessary transaction data.",
+      "evidenceExpectation": ["policy version", "authority reference", "evidence references", "decision outcome and time"],
+      "candidateTests": ["decision cannot be reconstructed when required evidence is absent", "stale evidence triggers configured denial, restriction or review"]
+    },
+    {
+      "id": "GAAM-ARF-05",
+      "title": "Decision receipts are not systemic",
+      "status": "gap",
+      "gaamRequirements": ["GAAM-EVID-002", "GAAM-ASSUR-002"],
+      "observation": "There is no general privacy-preserving receipt connecting a material effect to the authority and evidence supporting the decision.",
+      "actionableTakeaway": "Prototype bounded decision receipts that expose accountability evidence without creating a cross-context correlation layer.",
+      "evidenceExpectation": ["decision identifier", "authority and policy references", "minimal integrity-protected outcome record"],
+      "candidateTests": ["receipt supports independent reconstruction of the declared decision basis", "receipt omits prohibited or unnecessary correlating data"]
+    },
+    {
+      "id": "GAAM-ARF-06",
+      "title": "Revocation dependency propagation is uneven",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-DEL-005", "GAAM-REL-006"],
+      "observation": "Status and revocation mechanisms exist, but downstream consequences of changing an upstream governance artifact are not represented through one dependency model.",
+      "actionableTakeaway": "Represent authority dependencies explicitly and attach propagation semantics to suspension, expiry, revocation and replacement events.",
+      "evidenceExpectation": ["dependency graph", "revocation event", "propagation rule"],
+      "candidateTests": ["parent revocation invalidates only declared descendants", "unaffected branches remain valid", "stale descendant state is detected"]
+    },
+    {
+      "id": "GAAM-ARF-07",
+      "title": "Registry relationship semantics need stronger typing",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-REG-001", "GAAM-REG-003", "GAAM-REL-001", "GAAM-REL-002", "GAAM-REL-005"],
+      "observation": "Trusted Lists, LoTEs, relying-party registers and related directories can encode different forms of registration, recognition, certification and reliance.",
+      "actionableTakeaway": "Publish machine-readable registry semantics that state what inclusion establishes, what it does not establish, accepted purposes, assurance thresholds and withdrawal conditions.",
+      "evidenceExpectation": ["typed registry relationship", "status and provenance", "negative reliance semantics"],
+      "candidateTests": ["registry inclusion does not imply universal trust", "unrecognised relationship types cannot satisfy authority checks"]
+    },
+    {
+      "id": "GAAM-ARF-08",
+      "title": "Assurance mechanisms need explicit composition rules",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-ASSUR-001", "GAAM-ASSUR-002", "GAAM-ASSUR-005"],
+      "observation": "Certification, functional conformance, security and interoperability assurance establish different claims but do not form one explicit composition model.",
+      "actionableTakeaway": "Define each assurance form's positive scope, limitations, dependencies and allowed composition so assurance cannot silently broaden across domains.",
+      "evidenceExpectation": ["assurance scope", "criteria and evaluator", "limitations", "composition rule"],
+      "candidateTests": ["functional conformance cannot satisfy unrelated security assurance", "composed claim fails when a required assurance dependency expires"]
+    },
+    {
+      "id": "GAAM-ARF-09",
+      "title": "Continuous assurance is not yet continuous governance assurance",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-ASSUR-003", "GAAM-ASSUR-004", "GAAM-ASSUR-008", "GAAM-ASSUR-009"],
+      "observation": "Lifecycle, supervision and continuing obligations exist, but changing authority relationships and assurance blind spots are not uniformly exposed as governance state.",
+      "actionableTakeaway": "Define monitored governance controls, evidence freshness, drift conditions, blind spots, escalation and suspension semantics.",
+      "evidenceExpectation": ["monitored-control register", "evidence freshness metadata", "blind-spot record", "reassessment trigger"],
+      "candidateTests": ["assurance state degrades when evidence becomes stale", "known monitoring gaps are surfaced rather than treated as pass"]
+    },
+    {
+      "id": "GAAM-ARF-10",
+      "title": "Multi-party accountability is difficult to reconstruct end to end",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-EVID-002", "GAAM-DEL-006"],
+      "observation": "A consequential wallet interaction may depend on evidence and decisions from several providers, issuers, relying parties, Member States and assurance actors.",
+      "actionableTakeaway": "Define an accountability lineage that attributes each governed decision and evidence contribution without collapsing responsibilities into a generic ecosystem actor.",
+      "evidenceExpectation": ["actor and decision attribution", "evidence provenance", "accountability boundary"],
+      "candidateTests": ["reconstruct accountable parties for a failed decision", "delegation does not erase accountability established elsewhere"]
+    },
+    {
+      "id": "GAAM-ARF-11",
+      "title": "Challenge and remedy are not represented as one technical lifecycle",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-REG-004", "GAAM-ASSUR-007"],
+      "observation": "Legal and institutional remedies exist, but a common decision-to-challenge-to-correction-to-remedy lifecycle is not evident across the technical architecture.",
+      "actionableTakeaway": "Bind material decisions to challenge channels, review authority, correction state and downstream remedy evidence where the framework governs those effects.",
+      "evidenceExpectation": ["challenge record", "review authority", "correction or remedy status"],
+      "candidateTests": ["materially wrong assurance result is challengeable", "correction propagates to affected decision state"]
+    },
+    {
+      "id": "GAAM-ARF-12",
+      "title": "Systemic harm and exclusion observability is limited",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-EFF-001"],
+      "observation": "Conformance and component assurance do not by themselves demonstrate that combined operation avoids exclusionary or harmful systemic outcomes.",
+      "actionableTakeaway": "For high-impact deployments, define measurable effect classes, affected-party indicators and escalation thresholds in addition to component correctness.",
+      "evidenceExpectation": ["effect taxonomy", "affected-party indicators", "monitoring and escalation criteria"],
+      "candidateTests": ["detect threshold breach in rejection or exclusion indicators", "high-impact review is triggered by defined systemic condition"]
+    },
+    {
+      "id": "GAAM-ARF-13",
+      "title": "Machine-readable technical artifacts do not yet form a machine-actionable governance package",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-AUTH-001", "GAAM-EVID-001", "GAAM-REL-001", "GAAM-ASSUR-005"],
+      "observation": "The architecture contains substantial machine-readable infrastructure, but authority, registry semantics, assurance scope and remedy are not published as one interoperable governance package.",
+      "actionableTakeaway": "Prototype an implementation package containing authority, governance-source, registry-semantics, assurance and dependency registers plus runtime and remedy evidence profiles.",
+      "evidenceExpectation": ["versioned governance package", "integrity metadata", "resolvable source references"],
+      "candidateTests": ["package resolves every declared authority and assurance dependency", "unknown governance artifacts fail validation"]
+    }
+  ],
+  "limitations": [
+    "This mapping is an informative GAAM application exercise and not an official EUDI assessment.",
+    "The mapping is based on the assessed ARF version and implementation-oriented source material available at the assessment date.",
+    "A status of covered or partial is not a GAAM conformance result and does not establish implementation behaviour."
+  ]
+}

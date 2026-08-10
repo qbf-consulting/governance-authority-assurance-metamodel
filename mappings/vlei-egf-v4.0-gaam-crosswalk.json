@@ -1,0 +1,143 @@
+{
+  "id": "gaam:mapping:vlei-egf:4.0:2026-08-10",
+  "gaamVersion": "0.9.0",
+  "normativeStatus": "informative",
+  "assessmentType": "readiness-crosswalk",
+  "target": {
+    "name": "GLEIF vLEI Ecosystem Governance Framework",
+    "version": "4.0",
+    "source": "https://www.gleif.org/en/organizational-identity/become-a-vlei-issuer-qvi/vlei-ecosystem-governance-framework",
+    "assessedAt": "2026-08-10"
+  },
+  "method": {
+    "statusVocabulary": ["covered", "partial", "gap", "not-applicable", "unknown"],
+    "claimBoundary": "Readiness mapping only. No GLEIF or QVI qualification assessment, formal audit or GAAM conformance claim is made."
+  },
+  "findings": [
+    {
+      "id": "GAAM-VLEI-01",
+      "title": "Credential authority and transaction authority must remain distinct",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-AUTH-002", "GAAM-AUTH-003", "GAAM-EFF-002", "GAAM-REL-002"],
+      "observation": "vLEI artifacts can strongly establish organizational identity, role and credential-governance authority, but downstream transaction authority remains context dependent.",
+      "actionableTakeaway": "Require relying systems to evaluate effect-specific authority independently of credential validity or organizational role unless the credential semantics explicitly establish that authority.",
+      "evidenceExpectation": ["credential semantics", "relying-policy authority rule", "effect-specific scope"],
+      "candidateTests": ["valid role credential cannot authorize an unrelated transaction", "transaction exceeding mandate is denied"]
+    },
+    {
+      "id": "GAAM-VLEI-02",
+      "title": "Authorization vLEI is a strong delegated-authority pattern",
+      "status": "covered",
+      "gaamRequirements": ["GAAM-DEL-001", "GAAM-DEL-004", "GAAM-DEL-007"],
+      "observation": "Authorization credentials and delegated identifiers provide explicit, cryptographically verifiable delegation for defined credential-governance actions.",
+      "actionableTakeaway": "Use the Authorization vLEI model as a GAAM reference case for testing delegation source, scope, acceptance, lineage and revocation requirements.",
+      "evidenceExpectation": ["delegator and delegate identifiers", "delegated scope", "activation and status evidence"],
+      "candidateTests": ["delegation lineage resolves to originating authority", "inactive or revoked delegation is rejected"]
+    },
+    {
+      "id": "GAAM-VLEI-03",
+      "title": "Role semantics can be broadened by downstream relying systems",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-REL-001", "GAAM-REL-002", "GAAM-AUTH-003"],
+      "observation": "Official Organizational Role and Engagement Context Role credentials are typed, but external verifiers may infer authority beyond the declared role semantics.",
+      "actionableTakeaway": "Publish positive and negative reliance semantics for each role credential class, including what the artifact does not by itself establish.",
+      "evidenceExpectation": ["typed relationship semantics", "negative assertion semantics", "relying-context rule"],
+      "candidateTests": ["verifier cannot substitute role recognition for unrestricted mandate", "engagement-context authority does not escape its context"]
+    },
+    {
+      "id": "GAAM-VLEI-04",
+      "title": "Delegation lineage is strong but revocation propagation should be explicit",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-DEL-005", "GAAM-DEL-010", "GAAM-REL-006"],
+      "observation": "Technical delegation and credential status are strong, while different upstream state changes can have different downstream consequences.",
+      "actionableTakeaway": "Model parent-child dependency classes and propagation rules across qualification, delegated identifiers, authorization credentials and role credentials.",
+      "evidenceExpectation": ["dependency graph", "parent-child scope relation", "revocation propagation rule"],
+      "candidateTests": ["revoking parent authority invalidates declared descendants", "replacement does not invalidate unrelated branches", "multi-hop validity checks each active hop"]
+    },
+    {
+      "id": "GAAM-VLEI-05",
+      "title": "Trust assurance is strong but assurance scope must stay bounded",
+      "status": "covered",
+      "gaamRequirements": ["GAAM-ASSUR-001", "GAAM-ASSUR-002", "GAAM-ASSUR-005"],
+      "observation": "The Trust Assurance Framework maps requirements to governance, qualification, certification and software enforcement mechanisms that establish different forms of evidence.",
+      "actionableTakeaway": "Use vLEI as a reference case for explicit assurance composition: every assurance artifact should state what it establishes, its limitations and allowed dependencies.",
+      "evidenceExpectation": ["assurance criteria", "evaluator", "scope and limitation", "supporting evidence"],
+      "candidateTests": ["one assurance form cannot satisfy an unrelated claim", "composed assurance exposes each dependency and limitation"]
+    },
+    {
+      "id": "GAAM-VLEI-06",
+      "title": "The framework exposes assurance boundaries outside directly assessed actors",
+      "status": "covered",
+      "gaamRequirements": ["GAAM-ASSUR-002", "GAAM-ASSUR-009"],
+      "observation": "The assurance model acknowledges areas where compliance of ecosystem participants beyond directly assessed parties cannot be determined by the governing authority.",
+      "actionableTakeaway": "Adopt explicit assurance-state vocabulary for assessed, self-attested, externally assured, unobserved and unknown conditions rather than forcing binary trust state.",
+      "evidenceExpectation": ["assurance perimeter", "known blind spots", "evidence-source attribution"],
+      "candidateTests": ["unobserved actor state cannot be reported as assessed", "known monitoring gaps remain visible in composed assurance"]
+    },
+    {
+      "id": "GAAM-VLEI-07",
+      "title": "Periodic qualification is not identical to continuous governance assurance",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-ASSUR-003", "GAAM-ASSUR-004", "GAAM-ASSUR-008", "GAAM-ASSUR-009"],
+      "observation": "Annual qualification, status, incident and operational evidence provide strong recurring assurance inputs but do not by themselves define one event-driven governance assurance state.",
+      "actionableTakeaway": "Separate periodic reassessment from continuous controls and declare freshness, drift, trigger, escalation and suspension semantics for each monitored condition.",
+      "evidenceExpectation": ["control monitoring frequency", "freshness rule", "drift condition", "reassessment trigger"],
+      "candidateTests": ["expired periodic evidence degrades assurance", "material incident triggers reassessment", "blind period is explicitly represented"]
+    },
+    {
+      "id": "GAAM-VLEI-08",
+      "title": "Institutional governance authority is less machine-actionable than credential authority",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-AUTH-001", "GAAM-EVID-002"],
+      "observation": "Credential and identifier authority can be cryptographically resolved, while higher institutional authority remains primarily documentary and organizational.",
+      "actionableTakeaway": "Require resolvable provenance from technical authority through ecosystem governance to institutional authority without requiring constitutional governance to become executable code.",
+      "evidenceExpectation": ["governance-source identifier", "versioned framework reference", "institutional authority provenance"],
+      "candidateTests": ["technical authority resolves to a current governance source", "superseded governance source cannot silently remain authoritative"]
+    },
+    {
+      "id": "GAAM-VLEI-09",
+      "title": "Reliance semantics can be made more explicit",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-EVID-001", "GAAM-REL-001", "GAAM-REL-002", "GAAM-REL-004"],
+      "observation": "A verifier can establish validity, provenance, role and qualification while still needing policy to determine what conclusions or effects are justified.",
+      "actionableTakeaway": "Define machine-readable establishes and does-not-establish semantics for each governed artifact and relationship class.",
+      "evidenceExpectation": ["claim-class semantics", "permitted reliance purpose", "explicit limitations"],
+      "candidateTests": ["credential validity cannot satisfy a claim class outside declared semantics", "accreditation or qualification cannot guarantee every downstream output"]
+    },
+    {
+      "id": "GAAM-VLEI-10",
+      "title": "Challenge exists but downstream remedy is less operationalized",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-REG-004", "GAAM-ASSUR-007"],
+      "observation": "Challenge and correction mechanisms can address incorrect trust data, while remedy for effects already caused by downstream reliance is a separate governance problem.",
+      "actionableTakeaway": "Represent correction and remedy as distinct lifecycle stages and record when downstream effects require additional action after a credential or record is corrected.",
+      "evidenceExpectation": ["challenge record", "determination", "correction state", "downstream remedy obligation"],
+      "candidateTests": ["successful challenge changes future reliance state", "past consequential effects remain flagged for remedy where applicable"]
+    },
+    {
+      "id": "GAAM-VLEI-11",
+      "title": "Downstream accountability spans issuer and relying-system boundaries",
+      "status": "partial",
+      "gaamRequirements": ["GAAM-DEL-006", "GAAM-EVID-002", "GAAM-EFF-002"],
+      "observation": "vLEI can establish authoritative facts while the final consequential decision may be made by an external relying application under separate governance.",
+      "actionableTakeaway": "Define explicit issuer, holder and relying-party accountability boundaries so valid evidence cannot displace responsibility for an overbroad downstream decision.",
+      "evidenceExpectation": ["issuer responsibility", "holder authority scope", "relying-party decision rule and accountability"],
+      "candidateTests": ["valid credential plus invalid relying policy produces a relying-party failure", "issuer accountability is not expanded beyond the credential's supported claim"]
+    },
+    {
+      "id": "GAAM-VLEI-12",
+      "title": "vLEI is suitable for a machine-actionable GAAM reference crosswalk",
+      "status": "covered",
+      "gaamRequirements": ["GAAM-AUTH-001", "GAAM-DEL-004", "GAAM-EVID-002", "GAAM-ASSUR-005"],
+      "observation": "The ecosystem already exposes structured governance documents, roles, credential schemas, delegation, lifecycle and assurance evidence suitable for reproducible mapping.",
+      "actionableTakeaway": "Use vLEI as a benchmark for validating GAAM crosswalk methodology against an ecosystem with substantial existing executable governance.",
+      "evidenceExpectation": ["versioned source mapping", "machine-readable requirement crosswalk", "testable delegation and assurance evidence"],
+      "candidateTests": ["every crosswalk requirement resolves to source and evidence expectation", "crosswalk distinguishes source coverage from observed implementation behaviour"]
+    }
+  ],
+  "limitations": [
+    "This mapping is an informative GAAM application exercise and not an official GLEIF or vLEI ecosystem assessment.",
+    "The mapping evaluates governance semantics and readiness, not the operational conformity of any QVI, legal entity or relying application.",
+    "A status of covered or partial is not a GAAM conformance result and does not establish implementation behaviour."
+  ]
+}

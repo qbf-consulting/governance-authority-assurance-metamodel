@@ -2,8 +2,8 @@
   "gaamVersion": "0.9.0",
   "testSuiteVersion": "0.9.0",
   "status": "pass",
-  "checks": 304,
-  "passed": 304,
+  "checks": 305,
+  "passed": 305,
   "failed": 0,
   "results": [
     {
@@ -133,10 +133,10 @@
       "evidence": "190 indexed statements classified"
     },
     {
-      "id": "SCH-conformance-claim",
-      "kind": "schema",
+      "id": "MAP-ECOSYSTEM-CROSSWALKS",
+      "kind": "mapping",
       "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
+      "evidence": "2 informative ecosystem crosswalks validated against mapping schema and normative requirement identifiers"
     },
     {
       "id": "SCH-decision-receipt",
@@ -145,7 +145,7 @@
       "evidence": "valid Draft 2020-12 schema"
     },
     {
-      "id": "SCH-appeal",
+      "id": "SCH-evidence",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
@@ -157,13 +157,31 @@
       "evidence": "valid Draft 2020-12 schema"
     },
     {
-      "id": "SCH-agent-governance-identity",
+      "id": "SCH-appeal",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
     },
     {
-      "id": "SCH-profile-manifest",
+      "id": "SCH-conformance-claim",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-governance-event",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-gaam-package",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-agent-governance-identity",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
@@ -181,13 +199,7 @@
       "evidence": "valid Draft 2020-12 schema"
     },
     {
-      "id": "SCH-gaam-package",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-assurance",
+      "id": "SCH-profile-manifest",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
@@ -199,13 +211,7 @@
       "evidence": "valid Draft 2020-12 schema"
     },
     {
-      "id": "SCH-governance-event",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-evidence",
+      "id": "SCH-assurance",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
