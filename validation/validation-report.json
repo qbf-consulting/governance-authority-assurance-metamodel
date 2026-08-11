@@ -2,8 +2,8 @@
   "gaamVersion": "0.9.0",
   "testSuiteVersion": "0.9.0",
   "status": "pass",
-  "checks": 312,
-  "passed": 312,
+  "checks": 315,
+  "passed": 315,
   "failed": 0,
   "results": [
     {
@@ -113,6 +113,24 @@
       "kind": "governance",
       "status": "pass",
       "evidence": "25 candidates assessed with explicit non-normative dispositions and independent-review boundary"
+    },
+    {
+      "id": "GOV-PROMOTION-POLICY",
+      "kind": "governance",
+      "status": "pass",
+      "evidence": "promotion schemas, G1-G14 policy and proportional evidence thresholds valid"
+    },
+    {
+      "id": "GOV-PROMOTION-RECORDS",
+      "kind": "governance",
+      "status": "pass",
+      "evidence": "0 operational promotion candidates and 0 decisions are schema-valid and attributable"
+    },
+    {
+      "id": "GOV-PROMOTION-BOUNDARY",
+      "kind": "governance",
+      "status": "pass",
+      "evidence": "research dispositions remain non-normative and normative acceptance is fail-closed behind evidence, authority and release gates"
     },
     {
       "id": "REQ-001-unique",
@@ -1876,7 +1894,7 @@
       "id": "PKG-INTEGRITY",
       "kind": "package",
       "status": "pass",
-      "evidence": "456 checksums verified"
+      "evidence": "464 checksums verified"
     }
   ]
 }

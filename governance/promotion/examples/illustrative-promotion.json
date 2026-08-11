@@ -1,0 +1,157 @@
+{
+  "candidateId": "PC-ILLUSTRATIVE-001",
+  "type": "gaam-promotion-candidate",
+  "gaamVersion": "0.9.0",
+  "enhancementId": "FE-003",
+  "synthetic": true,
+  "targetClass": "normative-profile",
+  "lifecycleState": "promotion-candidate",
+  "problem": "Institutional replacement and continuity require semantics that are not fully captured by revocation alone.",
+  "currentGaamAssessment": {
+    "coverage": "Current lifecycle, emergency authority and transition controls provide partial coverage.",
+    "insufficiencyEvidence": [
+      "governance/reviews/evidence/future-evolution/normative-impact-analysis.md"
+    ]
+  },
+  "alternativesConsidered": [
+    {
+      "remedy": "documentation-clarification",
+      "disposition": "insufficient",
+      "rationale": "Documentation can explain succession but cannot by itself create interoperable profile semantics."
+    },
+    {
+      "remedy": "informative-pattern",
+      "disposition": "sufficient",
+      "rationale": "The existing pattern is sufficient for continued research but not evidence of normative readiness."
+    }
+  ],
+  "implementationEvidence": [
+    "examples/institutional-authority-succession/"
+  ],
+  "impactAssessment": {
+    "requirements": [],
+    "profiles": [
+      "profiles-draft/institutional-continuity/"
+    ],
+    "schemas": [
+      "experimental/schemas/institutional-transition.schema.json"
+    ],
+    "vocabularies": [],
+    "authorityDelegation": "Succession changes which institution may exercise previously recognised authority.",
+    "revocationSupersession": "A future profile must distinguish replacement continuity from revocation and final closure.",
+    "privacySecurityAffectedParty": "Independent privacy, security and affected-party review remains outstanding.",
+    "threatModel": "Succession forgery, stale authority and transition-service compromise require review.",
+    "interoperability": "No cross-implementation exchange evidence exists yet.",
+    "compatibilityMigration": "Migration from generic lifecycle treatment requires explicit compatibility rules.",
+    "conformanceTests": []
+  },
+  "gates": [
+    {
+      "id": "G1",
+      "state": "satisfied",
+      "evidence": [
+        "governance/reviews/evidence/future-evolution/normative-impact-analysis.md"
+      ],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G2",
+      "state": "not-satisfied",
+      "evidence": [],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G3",
+      "state": "satisfied",
+      "evidence": [
+        "governance/reviews/evidence/future-evolution/normative-impact-analysis.md"
+      ],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G4",
+      "state": "satisfied",
+      "evidence": [
+        "governance/reviews/evidence/future-evolution/normative-impact-analysis.md"
+      ],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G5",
+      "state": "not-satisfied",
+      "evidence": [],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G6",
+      "state": "not-satisfied",
+      "evidence": [],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G7",
+      "state": "satisfied",
+      "evidence": [
+        "governance/reviews/evidence/future-evolution/normative-impact-analysis.md"
+      ],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G8",
+      "state": "satisfied",
+      "evidence": [
+        "governance/reviews/evidence/future-evolution/normative-impact-analysis.md"
+      ],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G9",
+      "state": "not-satisfied",
+      "evidence": [],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G10",
+      "state": "not-satisfied",
+      "evidence": [],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G11",
+      "state": "not-satisfied",
+      "evidence": [],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G12",
+      "state": "not-satisfied",
+      "evidence": [],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G13",
+      "state": "satisfied",
+      "evidence": [
+        "governance/reviews/evidence/future-evolution/normative-impact-analysis.md"
+      ],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    },
+    {
+      "id": "G14",
+      "state": "satisfied",
+      "evidence": [
+        "governance/reviews/evidence/future-evolution/normative-impact-analysis.md"
+      ],
+      "rationale": "Illustrative state showing that research maturity is not equivalent to normative readiness."
+    }
+  ],
+  "decisionAuthority": {
+    "role": "GAAM maintainers under GOVERNANCE.md",
+    "scope": "May admit a candidate to review; normative adoption requires a release-managed approval decision."
+  },
+  "releaseImpact": "undetermined",
+  "proposedTargetVersion": null,
+  "notes": [
+    "Synthetic example only. It cannot satisfy a promotion gate or candidate-readiness criterion."
+  ]
+}

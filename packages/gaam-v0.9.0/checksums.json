@@ -76,7 +76,7 @@
     },
     {
       "path": "docs/future-evolution/delivery-roadmap.md",
-      "sha256": "a93a285985b49018c36fc423bf824cc24c4ec2546fe88e699422275c24e2d753"
+      "sha256": "e8bcbfeba676d21c2a02690c3c4581b1422eeeef44d94bd0dc0cdb86a7e349d3"
     },
     {
       "path": "docs/future-evolution/expansion-principles.md",
@@ -84,11 +84,15 @@
     },
     {
       "path": "docs/future-evolution/index.md",
-      "sha256": "d6fbb019bad2563601849dbc7231856c5510bc696575743ccf4f9f458c3a63ff"
+      "sha256": "7785481f3e926cec1947faa7019cd3bd566c97d9d6535ae078382a2772e1c1ab"
     },
     {
       "path": "docs/future-evolution/normative-boundary.md",
       "sha256": "585dec5b02fa2148986201d4ddf57bc59165307fe3c3d323a2b7a26503a55b4d"
+    },
+    {
+      "path": "docs/future-evolution/promotion-governance.md",
+      "sha256": "f01739d31da5b09c7a92652542e908c2bfa8bccd4ef480e56788b9a0d92d3d71"
     },
     {
       "path": "examples/README.md",
@@ -1344,7 +1348,35 @@
     },
     {
       "path": "governance/future-enhancement-register.json",
-      "sha256": "8f7d7ef5063d97abb08032084a6cc244403fb2ab7416c256f1ecc3c51f4f0d40"
+      "sha256": "d89ac7a3fa15aaadb921813c273533fc428aee593272675b884fef87c127c932"
+    },
+    {
+      "path": "governance/promotion/README.md",
+      "sha256": "0e8e040ac3c45099984269f4a00b8337640c3ce00e5c53b899e441bc62cd4f62"
+    },
+    {
+      "path": "governance/promotion/TEMPLATE.md",
+      "sha256": "90a91c4366bab4a6d15cafd9e8b6e1660e87de6ff526ca6de6e972db41799261"
+    },
+    {
+      "path": "governance/promotion/examples/illustrative-decision.json",
+      "sha256": "482a2d72e3a3db0bdf0bb6796a5c566cec1bec0c400bbac9fa2704cbb673f229"
+    },
+    {
+      "path": "governance/promotion/examples/illustrative-promotion.json",
+      "sha256": "8298e7049bd7a084b1b657c4ec6d7dc1b248b5fe971ca6e26536d775dc5efb4f"
+    },
+    {
+      "path": "governance/promotion/promotion-candidate.schema.json",
+      "sha256": "ca26188d2e5c7f301cd11c19013079e65868b2579e3199ec5d48020acb5cc3cd"
+    },
+    {
+      "path": "governance/promotion/promotion-decision.schema.json",
+      "sha256": "8b14c467266639775facaee2852af0d795d8c61abfd7b76dd476afa6f3eeae74"
+    },
+    {
+      "path": "governance/promotion/promotion-gates.json",
+      "sha256": "3d3b3ab9472655ba51dc2b8c1c28977e7ab8c71d86d001817e70dc1fdb5f3b17"
     },
     {
       "path": "governance/reviews/README.md",
@@ -1500,7 +1532,7 @@
     },
     {
       "path": "packages/gaam-v0.9.0/manifest.json",
-      "sha256": "cedab816034c805fe5fa73aa35beb5ba9b27dc2711b37aafc2dc13dcf8ad9a99"
+      "sha256": "eba20adf1608092955a7888f35c1eec9ba7ee8641f59d489d508df13c919d611"
     },
     {
       "path": "profiles-draft/advanced-agent-orchestration/index.md",

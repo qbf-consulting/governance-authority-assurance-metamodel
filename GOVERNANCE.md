@@ -52,3 +52,11 @@ A contributor may request reconsideration by opening a governance issue that sta
 ## v0.9.0 change control
 
 Normative, schema, profile and conformance changes require an identified authority, traceability impact, validation evidence and maintainer approval. Revocation or supersession of published artifacts must preserve reconstructable history.
+
+## Evidence-gated normative promotion
+
+Research, experimental schemas, experimental vocabularies, draft profiles and future-evolution findings do not acquire normative authority through maturity labels or maintainer research dispositions. Any later normative promotion MUST use the repository promotion controls in `governance/promotion/`.
+
+A normative promotion requires a machine-readable candidate, evidence against gates G1-G14, a separately attributable accepted decision, explicit release impact and a target version. The process MUST consider lower-impact informative remedies before changing conformance semantics and MUST identify authority/delegation, revocation/supersession, privacy/security/affected-party, threat, interoperability, compatibility/migration and testability consequences.
+
+Synthetic examples under `governance/promotion/examples/` and research dispositions in `governance/future-enhancement-register.json` are informative evidence only and MUST NOT be treated as normative approval.

@@ -5,7 +5,7 @@
   "status": "active-research",
   "normativeStatus": "informative",
   "programme": "GAAM future evolution",
-  "updatedAt": "2026-07-29",
+  "updatedAt": "2026-08-11",
   "allowedPromotionStatuses": [
     "not-assessed",
     "retain-as-guidance",
@@ -760,5 +760,13 @@
     "under-evaluation",
     "closed"
   ],
-  "assessmentStatus": "maintainer-assessed-pending-independent-review"
+  "assessmentStatus": "maintainer-assessed-pending-independent-review",
+  "promotionControl": {
+    "policy": "governance/promotion/promotion-gates.json",
+    "candidateSchema": "governance/promotion/promotion-candidate.schema.json",
+    "decisionSchema": "governance/promotion/promotion-decision.schema.json",
+    "researchDispositionIsNotNormativeApproval": true,
+    "normativePromotionRequiresSeparateCandidateAndDecision": true,
+    "acceptedNormativePromotionRequiresRelease": true
+  }
 }

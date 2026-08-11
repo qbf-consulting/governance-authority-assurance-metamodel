@@ -100,7 +100,7 @@ add('PUB-IA-TOP-ORDER',not order_errors,'top-level workflow order is determinist
 # Future-evolution programme: informative research boundary and controlled register
 future_root=ROOT/'docs/future-evolution'
 future_required={
- 'index.md','expansion-principles.md','concept-classification.md','normative-boundary.md','delivery-roadmap.md','concepts/index.md',
+ 'index.md','expansion-principles.md','concept-classification.md','normative-boundary.md','delivery-roadmap.md','promotion-governance.md','concepts/index.md',
  'concepts/standing-qualification-and-recognition.md','concepts/framework-composition.md','concepts/institutional-succession.md',
  'concepts/authority-scope-composition.md','concepts/obligation-lifecycle.md','concepts/temporal-governance.md',
  'concepts/evidence-predicates.md','concepts/uncertainty-and-confidence.md','concepts/organisational-authority-chains.md',
@@ -126,6 +126,11 @@ valid_promotion={'not-assessed','retain-as-guidance','retain-as-pattern','retain
 try:
  fr=load(future_register_path)
  if fr.get('gaamVersion')!=VERSION or fr.get('normativeStatus')!='informative' or fr.get('status')!='active-research': future_register_errors.append('register identity or normative boundary invalid')
+ pc=fr.get('promotionControl',{})
+ expected_pc={'policy':'governance/promotion/promotion-gates.json','candidateSchema':'governance/promotion/promotion-candidate.schema.json','decisionSchema':'governance/promotion/promotion-decision.schema.json'}
+ for k,v in expected_pc.items():
+  if pc.get(k)!=v: future_register_errors.append(f'promotion control {k} invalid')
+ if pc.get('researchDispositionIsNotNormativeApproval') is not True or pc.get('normativePromotionRequiresSeparateCandidateAndDecision') is not True or pc.get('acceptedNormativePromotionRequiresRelease') is not True: future_register_errors.append('promotion authority boundary invalid')
  entries=fr.get('entries',[]); feids=[x.get('id') for x in entries]
  if len(entries)!=25 or len(feids)!=len(set(feids)): future_register_errors.append('register must contain 25 unique candidate enhancements')
  for e in entries:
@@ -208,6 +213,73 @@ try:
   if len(obj.get('findings',[]))!=25 or obj.get('normativeStatus')!='informative': readiness_errors.append(name+' boundary or coverage invalid')
 except Exception as e: readiness_errors.append(str(e))
 add('GOV-FUTURE-READINESS',not readiness_errors,'25 candidates assessed with explicit non-normative dispositions and independent-review boundary' if not readiness_errors else '; '.join(readiness_errors[:10]),'governance')
+
+# Evidence-gated research-to-normative promotion governance.
+promotion_errors=[]
+promotion_record_errors=[]
+promotion_boundary_errors=[]
+try:
+ promotion_root=ROOT/'governance/promotion'
+ candidate_schema=load(promotion_root/'promotion-candidate.schema.json'); Draft202012Validator.check_schema(candidate_schema)
+ decision_schema=load(promotion_root/'promotion-decision.schema.json'); Draft202012Validator.check_schema(decision_schema)
+ candidate_validator=Draft202012Validator(candidate_schema,format_checker=FormatChecker())
+ decision_validator=Draft202012Validator(decision_schema,format_checker=FormatChecker())
+ policy=load(promotion_root/'promotion-gates.json')
+ gate_ids=[g.get('id') for g in policy.get('gates',[])]
+ expected_gates=[f'G{i}' for i in range(1,15)]
+ if policy.get('gaamVersion')!=VERSION or policy.get('status')!='active' or policy.get('normativeStatus')!='repository-governance': promotion_errors.append('promotion policy identity/status invalid')
+ if gate_ids!=expected_gates or len(set(gate_ids))!=14: promotion_errors.append('promotion policy must define ordered unique G1-G14')
+ if any(g.get('requiredForNormative') is not True or not g.get('name') or not g.get('question') for g in policy.get('gates',[])): promotion_errors.append('promotion gate metadata incomplete')
+ thresholds=policy.get('targetEvidenceThresholds',{})
+ expected_targets={'guidance','informative-pattern','normative-vocabulary','normative-schema','normative-profile','core-semantics'}
+ if set(thresholds)!=expected_targets: promotion_errors.append('proportional target evidence thresholds incomplete')
+ fr=load(ROOT/'governance/future-enhancement-register.json'); feids={e.get('id') for e in fr.get('entries',[])}
+ ex=load(promotion_root/'examples/illustrative-promotion.json')
+ exerrs=list(candidate_validator.iter_errors(ex))
+ if exerrs: promotion_errors.append('illustrative promotion invalid: '+exerrs[0].message)
+ if ex.get('synthetic') is not True: promotion_errors.append('illustrative promotion must be synthetic')
+ if {g.get('id') for g in ex.get('gates',[])}!=set(expected_gates): promotion_errors.append('illustrative promotion does not cover G1-G14')
+ ed=load(promotion_root/'examples/illustrative-decision.json')
+ ederrs=list(decision_validator.iter_errors(ed))
+ if ederrs: promotion_errors.append('illustrative decision invalid: '+ederrs[0].message)
+ if ed.get('decision')=='accepted': promotion_errors.append('illustrative decision must not model an accepted normative promotion')
+ # Operational candidates and decisions are separate from synthetic examples.
+ candidates={}
+ for cp in sorted((promotion_root/'candidates').glob('*.json')):
+  co=load(cp); errs=list(candidate_validator.iter_errors(co))
+  if errs: promotion_record_errors.append(f'{cp.name}: {errs[0].message}'); continue
+  if co.get('synthetic') is not False: promotion_record_errors.append(f'{cp.name}: operational candidate must be non-synthetic')
+  if co.get('enhancementId') not in feids: promotion_record_errors.append(f'{cp.name}: unknown enhancement ID')
+  gids=[g.get('id') for g in co.get('gates',[])]
+  if gids!=expected_gates: promotion_record_errors.append(f'{cp.name}: gates must be ordered G1-G14')
+  candidates[co.get('candidateId')]=co
+ decisions={}
+ for dp in sorted((promotion_root/'decisions').glob('*.json')):
+  do=load(dp); errs=list(decision_validator.iter_errors(do))
+  if errs: promotion_record_errors.append(f'{dp.name}: {errs[0].message}'); continue
+  cid=do.get('candidateId')
+  if cid not in candidates: promotion_record_errors.append(f'{dp.name}: decision references unknown operational candidate'); continue
+  if cid in decisions: promotion_record_errors.append(f'{dp.name}: duplicate decision for {cid}')
+  decisions[cid]=do
+ # Normative acceptance is fail-closed: all gates, accepted decision, release and target version.
+ normative_targets={'normative-vocabulary','normative-schema','normative-profile','core-semantics'}
+ for cid,co in candidates.items():
+  if co.get('lifecycleState') in {'accepted','normative-change-package'} and co.get('targetClass') in normative_targets:
+   unsat=[g.get('id') for g in co.get('gates',[]) if g.get('state')!='satisfied']
+   if unsat: promotion_boundary_errors.append(f'{cid}: accepted normative candidate has unsatisfied gates {unsat}')
+   do=decisions.get(cid)
+   if not do or do.get('decision')!='accepted': promotion_boundary_errors.append(f'{cid}: accepted normative candidate lacks accepted decision')
+   if co.get('releaseImpact')!='release-required' or not co.get('proposedTargetVersion'): promotion_boundary_errors.append(f'{cid}: accepted normative candidate lacks release target')
+   if do and (do.get('releaseImpact')!='release-required' or not do.get('targetVersion')): promotion_boundary_errors.append(f'{cid}: accepted decision lacks release target')
+ # Current research assessment must not masquerade as operational promotion approval.
+ pf=load(ROOT/'governance/reviews/evidence/future-evolution/promotion-candidates.json')
+ if pf.get('corePromotions') or pf.get('normativeSchemaPromotions'): promotion_boundary_errors.append('maintainer research assessment directly promotes core/schema')
+ if 'No candidate is promoted' not in pf.get('explicitNonDecision',''): promotion_boundary_errors.append('research assessment lacks explicit non-decision')
+except Exception as e:
+ promotion_errors.append(str(e))
+add('GOV-PROMOTION-POLICY',not promotion_errors,'promotion schemas, G1-G14 policy and proportional evidence thresholds valid' if not promotion_errors else '; '.join(promotion_errors[:10]),'governance')
+add('GOV-PROMOTION-RECORDS',not promotion_record_errors,f'{len(candidates) if "candidates" in locals() else 0} operational promotion candidates and {len(decisions) if "decisions" in locals() else 0} decisions are schema-valid and attributable' if not promotion_record_errors else '; '.join(promotion_record_errors[:10]),'governance')
+add('GOV-PROMOTION-BOUNDARY',not promotion_boundary_errors,'research dispositions remain non-normative and normative acceptance is fail-closed behind evidence, authority and release gates' if not promotion_boundary_errors else '; '.join(promotion_boundary_errors[:10]),'governance')
 # Requirements
 ids=re.findall(r'\*\*(GAAM-[A-Z]+-\d{3}):\*\*',spec)
 idx=list(csv.DictReader((ROOT/'matrices/normative-requirements-index.csv').open())); idxids=[r['requirement_id'] for r in idx]
@@ -676,6 +748,7 @@ artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'governance/re
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'examples').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'docs/future-evolution').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
 artifact_paths += ['governance/future-enhancement-register.json','governance/candidate-readiness.json','governance/candidate-readiness.schema.json']
+artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'governance/promotion').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'implementation-reports').glob('*.schema.json'))]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'implementation-reports/examples').iterdir()) if p.is_file() and p.suffix in {'.json','.txt'}]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'implementation-reports/reports').glob('*.json'))]

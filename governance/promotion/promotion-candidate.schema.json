@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/governance/promotion/promotion-candidate.schema.json",
+  "title": "GAAM Promotion Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "candidateId",
+    "type",
+    "gaamVersion",
+    "enhancementId",
+    "synthetic",
+    "targetClass",
+    "lifecycleState",
+    "problem",
+    "currentGaamAssessment",
+    "alternativesConsidered",
+    "implementationEvidence",
+    "impactAssessment",
+    "gates",
+    "decisionAuthority",
+    "releaseImpact"
+  ],
+  "properties": {
+    "candidateId": {
+      "type": "string",
+      "pattern": "^(GAAM-PC-[0-9]{3}|PC-ILLUSTRATIVE-[0-9]{3})$"
+    },
+    "type": {
+      "const": "gaam-promotion-candidate"
+    },
+    "gaamVersion": {
+      "const": "0.9.0"
+    },
+    "enhancementId": {
+      "type": "string",
+      "pattern": "^FE-[0-9]{3}$"
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "targetClass": {
+      "enum": [
+        "guidance",
+        "informative-pattern",
+        "normative-vocabulary",
+        "normative-schema",
+        "normative-profile",
+        "core-semantics"
+      ]
+    },
+    "lifecycleState": {
+      "enum": [
+        "research",
+        "prototype",
+        "implementation-tested",
+        "promotion-candidate",
+        "public-review",
+        "accepted",
+        "deferred",
+        "rejected",
+        "normative-change-package"
+      ]
+    },
+    "problem": {
+      "type": "string",
+      "minLength": 20
+    },
+    "currentGaamAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "coverage",
+        "insufficiencyEvidence"
+      ],
+      "properties": {
+        "coverage": {
+          "type": "string",
+          "minLength": 10
+        },
+        "insufficiencyEvidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "alternativesConsidered": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "remedy",
+          "disposition",
+          "rationale"
+        ],
+        "properties": {
+          "remedy": {
+            "enum": [
+              "documentation-clarification",
+              "implementation-guidance",
+              "informative-pattern",
+              "behavioural-test",
+              "experimental-artifact",
+              "normative-change"
+            ]
+          },
+          "disposition": {
+            "enum": [
+              "sufficient",
+              "insufficient",
+              "not-applicable"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 10
+          }
+        }
+      }
+    },
+    "implementationEvidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "impactAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirements",
+        "profiles",
+        "schemas",
+        "vocabularies",
+        "authorityDelegation",
+        "revocationSupersession",
+        "privacySecurityAffectedParty",
+        "threatModel",
+        "interoperability",
+        "compatibilityMigration",
+        "conformanceTests"
+      ],
+      "properties": {
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "profiles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "vocabularies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "authorityDelegation": {
+          "type": "string",
+          "minLength": 5
+        },
+        "revocationSupersession": {
+          "type": "string",
+          "minLength": 5
+        },
+        "privacySecurityAffectedParty": {
+          "type": "string",
+          "minLength": 5
+        },
+        "threatModel": {
+          "type": "string",
+          "minLength": 5
+        },
+        "interoperability": {
+          "type": "string",
+          "minLength": 5
+        },
+        "compatibilityMigration": {
+          "type": "string",
+          "minLength": 5
+        },
+        "conformanceTests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "state",
+          "evidence",
+          "rationale"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^G([1-9]|1[0-4])$"
+          },
+          "state": {
+            "enum": [
+              "satisfied",
+              "not-satisfied",
+              "not-applicable"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 5
+          }
+        }
+      }
+    },
+    "decisionAuthority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "scope"
+      ],
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 3
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 10
+        }
+      }
+    },
+    "releaseImpact": {
+      "enum": [
+        "commit-only",
+        "release-required",
+        "undetermined"
+      ]
+    },
+    "proposedTargetVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

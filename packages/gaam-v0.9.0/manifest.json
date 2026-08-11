@@ -1945,6 +1945,11 @@
       "mediaType": "text/markdown"
     },
     {
+      "id": "promotion-governance",
+      "path": "docs/future-evolution/promotion-governance.md",
+      "mediaType": "text/markdown"
+    },
+    {
       "id": "future-enhancement-register",
       "path": "governance/future-enhancement-register.json",
       "mediaType": "application/json"
@@ -1957,6 +1962,41 @@
     {
       "id": "candidate-readiness.schema",
       "path": "governance/candidate-readiness.schema.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "README",
+      "path": "governance/promotion/README.md",
+      "mediaType": "text/markdown"
+    },
+    {
+      "id": "TEMPLATE",
+      "path": "governance/promotion/TEMPLATE.md",
+      "mediaType": "text/markdown"
+    },
+    {
+      "id": "illustrative-decision",
+      "path": "governance/promotion/examples/illustrative-decision.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "illustrative-promotion",
+      "path": "governance/promotion/examples/illustrative-promotion.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "promotion-candidate.schema",
+      "path": "governance/promotion/promotion-candidate.schema.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "promotion-decision.schema",
+      "path": "governance/promotion/promotion-decision.schema.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "promotion-gates",
+      "path": "governance/promotion/promotion-gates.json",
       "mediaType": "application/json"
     },
     {

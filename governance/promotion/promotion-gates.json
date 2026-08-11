@@ -1,0 +1,110 @@
+{
+  "id": "urn:gaam:promotion-gates:1.0",
+  "type": "gaam-promotion-gate-policy",
+  "gaamVersion": "0.9.0",
+  "status": "active",
+  "normativeStatus": "repository-governance",
+  "policyVersion": "1.0",
+  "updatedAt": "2026-08-11",
+  "principles": [
+    "Evidence before normative authority",
+    "Informative remedies must be considered before normative change",
+    "Research disposition is not normative approval",
+    "Normative promotion requires a separately attributable decision",
+    "Every accepted normative change must be testable and migration-aware"
+  ],
+  "targetEvidenceThresholds": {
+    "guidance": "documented review and disposition",
+    "informative-pattern": "reproducible implementation example",
+    "normative-vocabulary": "demonstrated cross-use need, compatibility analysis and conformance impact",
+    "normative-schema": "multiple implementation fixtures, implementation evidence, compatibility analysis and conformance coverage",
+    "normative-profile": "independent implementation evidence, behavioural/conformance coverage and independent review",
+    "core-semantics": "independent implementation and interoperability evidence, ADR, threat and affected-party review, migration plan and release-managed change"
+  },
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Problem reproduced",
+      "question": "Is the governance problem concrete, reproducible and attributable?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G2",
+      "name": "Current GAAM insufficiency demonstrated",
+      "question": "Does evidence show that current GAAM cannot adequately address the problem?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G3",
+      "name": "Documentation remedy considered",
+      "question": "Was documentation clarification evaluated before normative change?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G4",
+      "name": "Pattern remedy considered",
+      "question": "Was an informative pattern or implementation-guidance remedy evaluated?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G5",
+      "name": "Implementation evidence",
+      "question": "Is there implementation evidence supporting the proposed construct?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G6",
+      "name": "Interoperability impact",
+      "question": "Are interoperability consequences and cross-implementation assumptions evaluated?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G7",
+      "name": "Authority and delegation impact",
+      "question": "Are authority, delegation and scope consequences explicit?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G8",
+      "name": "Revocation and supersession impact",
+      "question": "Are revocation, withdrawal, replacement and supersession effects explicit?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G9",
+      "name": "Privacy security affected-party impact",
+      "question": "Are privacy, security and affected-party consequences reviewed?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G10",
+      "name": "Threat-model impact",
+      "question": "Are new threats, controls and residual risks identified?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G11",
+      "name": "Compatibility and migration",
+      "question": "Are compatibility, migration and downgrade behaviours specified?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G12",
+      "name": "Conformance testability",
+      "question": "Can the proposed semantics be tested through positive, negative or behavioural evidence?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G13",
+      "name": "Normative surface identified",
+      "question": "Are affected requirements, profiles, schemas and vocabularies explicitly identified?",
+      "requiredForNormative": true
+    },
+    {
+      "id": "G14",
+      "name": "Decision authority recorded",
+      "question": "Is the authority permitted to approve the change identified and bounded?",
+      "requiredForNormative": true
+    }
+  ]
+}

@@ -10,8 +10,8 @@ normative_status: Repository generated
 {% include gaam-meta.html %}
 
 **Status:** PASS  
-**Checks:** 312  
-**Passed:** 312  
+**Checks:** 315  
+**Passed:** 315  
 **Failed:** 0  
 
 This report evidences repository publication, structural and included behavioural checks. It is not an independent L4 assessment.
@@ -36,6 +36,9 @@ This report evidences repository publication, structural and included behavioura
 | `GOV-FUTURE-NO-NORMATIVE-IMPORT` | governance | PASS | canonical v0.9.0 artifacts do not import experimental identifiers |
 | `GOV-FUTURE-BOUNDARY` | governance | PASS | future-evolution assets cannot be mistaken for GAAM v0.9.0 conformance material |
 | `GOV-FUTURE-READINESS` | governance | PASS | 25 candidates assessed with explicit non-normative dispositions and independent-review boundary |
+| `GOV-PROMOTION-POLICY` | governance | PASS | promotion schemas, G1-G14 policy and proportional evidence thresholds valid |
+| `GOV-PROMOTION-RECORDS` | governance | PASS | 0 operational promotion candidates and 0 decisions are schema-valid and attributable |
+| `GOV-PROMOTION-BOUNDARY` | governance | PASS | research dispositions remain non-normative and normative acceptance is fail-closed behind evidence, authority and release gates |
 | `REQ-001-unique` | normative | PASS | 190 identifiers |
 | `REQ-002-index-exact` | normative | PASS | 190 indexed requirements |
 | `REQ-003-normative-language` | normative | PASS | 190 indexed statements classified |
@@ -329,4 +332,4 @@ This report evidences repository publication, structural and included behavioura
 | `ASSURANCE-IMPLEMENTATION-FIXTURES` | assurance | PASS | implementation-report schema accepts the positive fixture and rejects four controlled negative fixtures |
 | `GOV-CANDIDATE-READINESS` | governance | PASS | candidate readiness is schema-valid, generated from authoritative evidence and current |
 | `PKG-MANIFEST` | package | PASS | package manifest conforms |
-| `PKG-INTEGRITY` | package | PASS | 456 checksums verified |
+| `PKG-INTEGRITY` | package | PASS | 464 checksums verified |

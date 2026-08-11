@@ -17,9 +17,10 @@ GAAM v0.9.0 is the unchanged candidate specification. This section records futur
 | [Concept Classification](concept-classification.md) | Allocation of candidate concepts across guidance, profiles, schemas, patterns, and tests |
 | [Normative Boundary](normative-boundary.md) | Controls that keep all work here non-normative for v0.9.0 |
 | [Delivery Roadmap](delivery-roadmap.md) | Four-commit evidence-led development sequence |
+| [Evidence-Gated Promotion](promotion-governance.md) | Rules and evidence gates for any later research-to-normative transition |
 | [Candidate Concepts](concepts/index.md) | Detailed future-facing governance concepts for implementation testing |
 
-The machine-readable [future enhancement register](../../governance/future-enhancement-register.json) is the authoritative programme inventory. A listed item is not approved merely because it appears in the register.
+The machine-readable [future enhancement register](../../governance/future-enhancement-register.json) is the authoritative programme inventory. A listed item is not approved merely because it appears in the register. Research dispositions are explicitly separated from normative promotion, which is governed by the [promotion controls](../../governance/promotion/README.md).
 
 ## Research artefacts
 

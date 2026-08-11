@@ -31,6 +31,7 @@ All notable changes will be documented here. The project uses Semantic Versionin
 
 ### Governance
 
+- Add evidence-gated research-to-normative promotion governance with machine-readable candidate and decision contracts, fourteen promotion gates, proportional evidence thresholds, and explicit separation between research dispositions and normative approval.
 - Add machine-readable implementation-report, evidence-manifest and conformance-result contracts with controlled report lifecycle, provenance, independence, claim-boundary and acceptance controls.
 - Generate candidate readiness from candidate issues, governed reviews and accepted implementation evidence; expose explicit blocking gates and closure predicates in both JSON and the GitHub Pages dashboard.
 - Validate positive and negative implementation-report fixtures, evidence-reference integrity and freshness of the generated readiness view.

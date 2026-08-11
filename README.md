@@ -50,3 +50,7 @@ GAAM is an independent specification. The [Trust Systems Meta-Model](https://git
 ## License
 
 See [LICENSE](LICENSE), [NOTICE](NOTICE.md) and [ATTRIBUTIONS](ATTRIBUTIONS.md).
+
+### Evidence-gated evolution
+
+Future-evolution research remains outside v0.9.0 conformance. Any later research-to-normative transition is governed through machine-readable promotion candidates, fourteen evidence gates and separately attributable promotion decisions under `governance/promotion/`.

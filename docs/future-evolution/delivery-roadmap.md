@@ -23,3 +23,7 @@ A candidate may advance only when the evidence required by its register entry ex
 ## Commit 3 status
 
 Implementation patterns and behavioural evidence are now available for nine cross-cutting future-evolution scenarios. They remain informative and feed the final normative-readiness assessment.
+
+## Post-research promotion control
+
+The four-commit research programme is complete, but its final dispositions do not themselves authorize normative changes. Any later research-to-normative transition must use the evidence-gated promotion process in [`governance/promotion/`](../../governance/promotion/README.md), including a separate candidate record, G1-G14 evidence, an attributable decision, and release-managed adoption for normative targets.

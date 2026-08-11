@@ -28,3 +28,7 @@ The candidate review baseline is content-addressed and reviewers, decision autho
 Candidate readiness is not edited directly. Run `python scripts/build_candidate_readiness.py` after changing candidate issues, review registers, or implementation reports. `python scripts/validate.py` fails when either the generated JSON state or the human-readable dashboard is stale.
 
 Implementation evidence only contributes to candidate gates after a report in `implementation-reports/reports/` is explicitly accepted. Synthetic examples and schema fixtures are excluded by construction, and independent-implementation gates additionally require an independent assessor, disclosed relationships, and no failed or indeterminate result or open exception.
+
+## Evidence-gated evolution
+
+Future-evolution research is governed separately from candidate readiness. [`promotion/`](promotion/README.md) defines the machine-readable gate policy, promotion-candidate contract and separately attributable decision contract for any later move from research into normative GAAM. A research disposition such as `promote-to-profile` admits an item to future review; it does not create a normative profile.
