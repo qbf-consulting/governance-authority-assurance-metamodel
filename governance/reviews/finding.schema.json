@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/governance/reviews/finding.schema.json",
+  "title": "GAAM Candidate Review Finding",
+  "type": "object",
+  "required": [
+    "id",
+    "reviewType",
+    "severity",
+    "status",
+    "statement",
+    "evidence",
+    "decisionAuthority",
+    "blockingV1",
+    "releaseImpact"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^GAAM-RF-[A-Z]+-[0-9]{3}$"
+    },
+    "reviewType": {
+      "enum": [
+        "privacy",
+        "security",
+        "affected-party",
+        "interoperability",
+        "implementation-evidence"
+      ]
+    },
+    "severity": {
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low",
+        "informational"
+      ]
+    },
+    "status": {
+      "enum": [
+        "open",
+        "in-progress",
+        "accepted-risk",
+        "deferred",
+        "closed",
+        "withdrawn"
+      ]
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "affectedRequirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "affectedProfiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorityImpact": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "affectedPartyImpact": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "proposedDisposition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decisionAuthority": {
+      "type": "string",
+      "minLength": 1
+    },
+    "blockingV1": {
+      "type": "boolean"
+    },
+    "releaseImpact": {
+      "enum": [
+        "none",
+        "commit-only",
+        "release-required",
+        "not-assessed"
+      ]
+    },
+    "targetDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "owner": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "closureEvidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

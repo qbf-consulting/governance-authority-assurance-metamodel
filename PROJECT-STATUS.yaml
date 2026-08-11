@@ -1,0 +1,43 @@
+schema_version: '1.0'
+project:
+  name: governance-authority-assurance-metamodel
+  maturity: candidate
+  lifecycle: active
+  operational_status: active-validation
+  specification_status: candidate-specification
+  intended_use:
+  - implementation
+  - evaluation
+  - candidate-interoperability-testing
+  not_asserted:
+  - production-certification
+  - independent-assurance
+  - interoperability-tested
+authority:
+  normative_scope:
+  - governance-authority-assurance-metamodel
+  - gaam-profiles
+  - gaam-canonical-schemas
+  - gaam-governed-vocabularies
+  - gaam-conformance-rules
+  does_not_own:
+  - downstream-implementation-governance
+  - external-ecosystem-governance
+  - upstream-or-aligned-specifications
+  delegation: Maintainers approve repository and candidate changes within the authority defined by GOVERNANCE.md and the candidate stability policy. Normative changes require public review and a recorded disposition.
+  revocation_or_supersession: Published claims, schemas, profiles and releases are withdrawn or superseded through recorded change control while preserving reconstructable history.
+evidence:
+  validation_commands:
+  - python scripts/validate.py
+  - python scripts/validate_learning_paths.py
+  - python scripts/validate_pages.py
+  - npm run validate:mermaid
+  - bundle exec jekyll build
+  evidence_outputs:
+  - validation/validation-report.json
+  - VALIDATION_REPORT.md
+  - packages/gaam-v0.9.0/checksums.json
+  known_limitations:
+  - two independent implementation reports are not yet available
+  - independent interoperability testing has not been completed
+  - privacy, security and affected-party candidate reviews remain open

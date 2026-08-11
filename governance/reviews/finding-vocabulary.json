@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "status": "controlled",
+  "reviewStatuses": [
+    "not-started",
+    "in-progress",
+    "complete",
+    "blocked"
+  ],
+  "reviewIndependence": [
+    "unassigned",
+    "not-independent",
+    "independent",
+    "conflicted"
+  ],
+  "findingStatuses": [
+    "open",
+    "in-progress",
+    "accepted-risk",
+    "deferred",
+    "closed",
+    "withdrawn"
+  ],
+  "severities": [
+    "critical",
+    "high",
+    "medium",
+    "low",
+    "informational"
+  ],
+  "releaseImpact": [
+    "none",
+    "commit-only",
+    "release-required",
+    "not-assessed"
+  ],
+  "attestationStatuses": [
+    "not-attested",
+    "draft",
+    "attested"
+  ]
+}

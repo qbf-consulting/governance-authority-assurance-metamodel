@@ -15,6 +15,11 @@
   ],
   "artifacts": [
     {
+      "id": "PROJECT-STATUS",
+      "path": "PROJECT-STATUS.yaml",
+      "mediaType": "application/yaml"
+    },
+    {
       "id": "governance-authority-assurance-metamodel",
       "path": "specification/governance-authority-assurance-metamodel.md",
       "mediaType": "text/markdown"
@@ -275,9 +280,19 @@
       "mediaType": "application/json"
     },
     {
+      "id": "README",
+      "path": "governance/reviews/README.md",
+      "mediaType": "text/markdown"
+    },
+    {
       "id": "affected-party-review",
       "path": "governance/reviews/affected-party-review.json",
       "mediaType": "application/json"
+    },
+    {
+      "id": "README",
+      "path": "governance/reviews/evidence/README.md",
+      "mediaType": "text/markdown"
     },
     {
       "id": "README",
@@ -355,6 +370,16 @@
       "mediaType": "application/json"
     },
     {
+      "id": "finding-vocabulary",
+      "path": "governance/reviews/finding-vocabulary.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "finding.schema",
+      "path": "governance/reviews/finding.schema.json",
+      "mediaType": "application/json"
+    },
+    {
       "id": "implementation-evidence",
       "path": "governance/reviews/implementation-evidence.json",
       "mediaType": "application/json"
@@ -365,8 +390,28 @@
       "mediaType": "application/json"
     },
     {
+      "id": "joint-disposition-register",
+      "path": "governance/reviews/joint-disposition-register.json",
+      "mediaType": "application/json"
+    },
+    {
       "id": "privacy-review",
       "path": "governance/reviews/privacy-review.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "review-baseline",
+      "path": "governance/reviews/review-baseline.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "review-methodology",
+      "path": "governance/reviews/review-methodology.md",
+      "mediaType": "text/markdown"
+    },
+    {
+      "id": "review-register.schema",
+      "path": "governance/reviews/review-register.schema.json",
       "mediaType": "application/json"
     },
     {

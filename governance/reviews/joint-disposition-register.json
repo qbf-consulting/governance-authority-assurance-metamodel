@@ -1,0 +1,9 @@
+{
+  "gaamVersion": "0.9.0",
+  "baseline": "governance/reviews/review-baseline.json",
+  "status": "not-started",
+  "decisionAuthority": "GAAM maintainers following attributable review input",
+  "entries": [],
+  "requiredForV1": true,
+  "closureRule": "A cross-review entry may be closed only when the accepted disposition, responsible authority, release impact and verification evidence are recorded."
+}

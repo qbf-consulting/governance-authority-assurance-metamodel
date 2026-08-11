@@ -3,6 +3,10 @@
   "scope": "declared source artifacts excluding this checksum file",
   "files": [
     {
+      "path": "PROJECT-STATUS.yaml",
+      "sha256": "7fb5c4524e7b700ed41a53012502831fb56aceb4ad7f82e2aa24e127c5291a0c"
+    },
+    {
       "path": "docs/future-evolution/concept-classification.md",
       "sha256": "7171e3fabf874f54387ced75fb1c1eb6cac82958d7e7c663e07b8b6c4c6149b5"
     },
@@ -1335,8 +1339,16 @@
       "sha256": "8f7d7ef5063d97abb08032084a6cc244403fb2ab7416c256f1ecc3c51f4f0d40"
     },
     {
+      "path": "governance/reviews/README.md",
+      "sha256": "aecb4cc6701da8561ed6412908776d65f9f0984fcec6f4eeebaba9cc6a16010c"
+    },
+    {
       "path": "governance/reviews/affected-party-review.json",
-      "sha256": "64b4b06a1c6c09b163ed82f004e9c3ed18bc3e46cd1c00d80b754311de487780"
+      "sha256": "e2dc69794cb00f16a0f5f772131ffa6d6cf9ecebec20feaea1da4137e8f32af4"
+    },
+    {
+      "path": "governance/reviews/evidence/README.md",
+      "sha256": "613ba54b7b93d3a84868c9f3374475d5f6066db10568ce8fafaff8dcbec76f76"
     },
     {
       "path": "governance/reviews/evidence/future-evolution/README.md",
@@ -1399,20 +1411,44 @@
       "sha256": "71bd89206c1e9108ee037072d8bedb1f171ddcddac0f6e566b854ebfee6b202f"
     },
     {
+      "path": "governance/reviews/finding-vocabulary.json",
+      "sha256": "669254464e40a9e11dad665a077e3e6f3eeca4450f344f34b17fa4c434b81c72"
+    },
+    {
+      "path": "governance/reviews/finding.schema.json",
+      "sha256": "4b1924648b064576e2e0a815ad02cd6e5f8561ce3d64d4d101c0d281bb1660ff"
+    },
+    {
       "path": "governance/reviews/implementation-evidence.json",
-      "sha256": "6bd37760f146bd975f2d00c69f87b7ed8554cd0f823c84c0e91a316ec93f3a0f"
+      "sha256": "70730b6b11474193503df301f055051ad2cd8394d5a164b606c5076de2badf1e"
     },
     {
       "path": "governance/reviews/interoperability-review.json",
-      "sha256": "435ca6977945282ba331a278697d3a05cce9630cd372f955a07503df4e9a079d"
+      "sha256": "00d9117dddd8ee0c574100ad85012536d162d9d6e3adad5867c62244bf4edb5a"
+    },
+    {
+      "path": "governance/reviews/joint-disposition-register.json",
+      "sha256": "e6370480d7ad00c68697a2561903e7523b5221b15dea2f9306e34fa440df21c4"
     },
     {
       "path": "governance/reviews/privacy-review.json",
-      "sha256": "7b4c20998caed39ec902b6a9a240ca1e27aae85019938cf8120f92f771ab3268"
+      "sha256": "78ae1c76e6b32f5564b8a2343895f293904f312fd26ae9ccdd030f409927210d"
+    },
+    {
+      "path": "governance/reviews/review-baseline.json",
+      "sha256": "5004d6954490dfdc2b31b181b667643440460e2375679237f940c48487c7cf0b"
+    },
+    {
+      "path": "governance/reviews/review-methodology.md",
+      "sha256": "468469c2baaaaf1a70a924b1a349e6e33fed45b20e086d5020ffff9ae351f6f8"
+    },
+    {
+      "path": "governance/reviews/review-register.schema.json",
+      "sha256": "e31786d33607de232ac7b56215b4c0fdc30f606fc4657d0179ad80598dbf90e0"
     },
     {
       "path": "governance/reviews/security-review.json",
-      "sha256": "086ae259f7a453689f66ee1c5f1844e84da8f714554f0788cb41889cfb7f08d5"
+      "sha256": "aaad8b990696a1969c86a71a270583bac162f5bcd94acc7a7e2720f331f2f7ca"
     },
     {
       "path": "matrices/normative-requirements-index.csv",
@@ -1432,7 +1468,7 @@
     },
     {
       "path": "packages/gaam-v0.9.0/manifest.json",
-      "sha256": "e8e126b4f4d08942df7e72dc7d080ccd3e25f6badcd47a0ed29e33f20658b73a"
+      "sha256": "c1aa15bbaa76ea60c22ef7a542b9e712aa9e2156364e0158c5568bec85e39c1a"
     },
     {
       "path": "profiles-draft/advanced-agent-orchestration/index.md",

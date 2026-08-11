@@ -29,6 +29,12 @@ All notable changes will be documented here. The project uses Semantic Versionin
 
 ## Unreleased
 
+### Governance
+
+- Add `PROJECT-STATUS.yaml` as GAAM's repository-local status and authority declaration for portfolio consumption.
+- Freeze a content-addressed candidate review baseline and add machine-verifiable review/finding contracts, controlled review vocabulary, evidence directories and a joint disposition register.
+- Strengthen validation so reviewer independence, decision authority, evidence references, blocker state and evidence-backed finding closure are checked without changing the v0.9.0 normative surface.
+
 ### Fixed
 
 - Separate repository README files from GitHub Pages landing pages for all implementation patterns.

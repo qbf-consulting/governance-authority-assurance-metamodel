@@ -8,6 +8,8 @@ GAAM specifies how digital and agentic systems represent and enforce **authority
 
 Version **0.9.0** is the **Candidate Specification**. Its normative surface, eight composable profiles, canonical schemas, governed vocabularies, behavioural test vectors, threat traceability and reproducible governance package are available for implementation and external review. Candidate status does not constitute certification or independent interoperability.
 
+Repository-owned maturity, lifecycle, authority boundaries, validation commands and known limitations are declared in [`PROJECT-STATUS.yaml`](PROJECT-STATUS.yaml). This declaration is the status source consumed by portfolio governance and does not expand GAAM's normative scope.
+
 ## Start here
 
 - [Normative specification](specification/governance-authority-assurance-metamodel.md)

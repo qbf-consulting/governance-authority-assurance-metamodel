@@ -1,0 +1,27 @@
+{
+  "id": "gaam-review-baseline-0.9.0",
+  "gaamVersion": "0.9.0",
+  "releaseStatus": "candidate",
+  "normativeSpecification": "specification/governance-authority-assurance-metamodel.md",
+  "sourceIdentity": {
+    "type": "normative-surface-sha256",
+    "sha256": "eaf3a256e73de7b6c9f7830b1059e38f76a9228a5fb2cd24a19d4255f28f4b99",
+    "gitCommit": null,
+    "gitCommitNote": "The supplied source archive does not contain Git metadata. The frozen candidate baseline is therefore identified by the normative-surface digest. A later repository commit may record the corresponding Git commit without changing the reviewed content."
+  },
+  "normativeSurface": {
+    "paths": [
+      "specification",
+      "schemas",
+      "profiles",
+      "vocabularies",
+      "conformance",
+      "threat-model"
+    ],
+    "fileCount": 43,
+    "sha256": "eaf3a256e73de7b6c9f7830b1059e38f76a9228a5fb2cd24a19d4255f28f4b99",
+    "hashConstruction": "SHA-256 over lexicographically ordered lines of <relative-path> <file-sha256>."
+  },
+  "createdFor": "independent candidate privacy, security, affected-party, interoperability and implementation-evidence review",
+  "status": "frozen"
+}

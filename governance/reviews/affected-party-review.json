@@ -1,1 +1,39 @@
-{"reviewType":"affected-party","gaamVersion":"0.9.0","status":"not-started","reviewAuthority":"unassigned","scope":["notice","standing","review independence","interim protection","remedy execution"],"findings":[],"completedAt":null,"evidence":[]}
+{
+  "reviewType": "affected-party",
+  "status": "not-started",
+  "reviewAuthority": "Independent affected-party reviewer to be assigned",
+  "scope": [
+    "notice",
+    "standing",
+    "review independence",
+    "interim protection",
+    "remedy execution"
+  ],
+  "exitCriteria": [
+    "Review is performed against the frozen candidate baseline.",
+    "Standing, notice, review, remedy and affected-party impacts are recorded as attributable findings.",
+    "Any blocking finding has an accepted disposition and verification evidence.",
+    "Reviewer attestation and evidence references are recorded."
+  ],
+  "gaamVersion": "0.9.0",
+  "baseline": "governance/reviews/review-baseline.json",
+  "reviewer": {
+    "identity": "unassigned",
+    "role": "independent reviewer",
+    "organisation": null,
+    "independence": "unassigned",
+    "conflicts": []
+  },
+  "decisionAuthority": {
+    "role": "GAAM maintainers",
+    "scope": "Disposition findings, accept remediation or risk, and determine release impact under GOVERNANCE.md."
+  },
+  "blockingFindings": [],
+  "findings": [],
+  "completedAt": null,
+  "evidence": [],
+  "attestation": {
+    "status": "not-attested",
+    "recordedAt": null
+  }
+}

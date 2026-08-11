@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import json,re,csv,hashlib,sys,urllib.parse
+import json,re,csv,hashlib,sys,urllib.parse,yaml
 from jsonschema import Draft202012Validator, FormatChecker
 ROOT=Path(__file__).resolve().parents[1]
 REL=json.loads((ROOT/'release.json').read_text()); VERSION=REL['version']; results=[]
@@ -423,6 +423,53 @@ add('DOC-LOCAL-LINKS',not bad,'all local links resolve' if not bad else '; '.joi
 add('DOC-TSMM-CANONICAL','https://github.com/sankarshanmukhopadhyay/trust-systems-meta-model' in (ROOT/'mappings/tsmm-v0.22.0-adoption-crosswalk.md').read_text(),'canonical TSMM repository link present','provenance')
 add('CI-WORKFLOW',(ROOT/'.github/workflows/validate.yml').exists(),'validation workflow present','automation')
 # Candidate governance and v1 readiness controls
+# Repository-local status is authoritative for member-owned operational declarations.
+status_errors=[]
+try:
+ project_status=yaml.safe_load((ROOT/'PROJECT-STATUS.yaml').read_text())
+ allowed_status={
+  'maturity':{'exploratory','working-draft','implementation-draft','candidate','pilot-ready','stable','maintenance','historical'},
+  'lifecycle':{'active','maintenance','superseded','archived'},
+  'operational_status':{'active-development','active-validation','pilot-use','stable-maintenance','upstream-tracking','dormant','superseded'},
+  'specification_status':{'not-applicable','working-draft','community-draft','candidate-specification','stable-specification'},
+ }
+ if project_status.get('schema_version')!='1.0': status_errors.append('schema_version must be 1.0')
+ pr=project_status.get('project',{})
+ if pr.get('name')!='governance-authority-assurance-metamodel': status_errors.append('project name mismatch')
+ for field,values in allowed_status.items():
+  if pr.get(field) not in values: status_errors.append(f'{field}: invalid value {pr.get(field)}')
+ if pr.get('maturity')!='candidate' or pr.get('operational_status')!='active-validation' or pr.get('specification_status')!='candidate-specification': status_errors.append('candidate declaration does not match release state')
+ if not pr.get('intended_use') or not pr.get('not_asserted'): status_errors.append('intended_use and not_asserted must be non-empty')
+ auth=project_status.get('authority',{})
+ if not auth.get('normative_scope') or not auth.get('delegation') or not auth.get('revocation_or_supersession'): status_errors.append('authority contract incomplete')
+ evidence=project_status.get('evidence',{})
+ if not evidence.get('validation_commands') or not evidence.get('known_limitations'): status_errors.append('evidence contract incomplete')
+ for out_path in evidence.get('evidence_outputs',[]):
+  # Generated validation output may not exist until this run completes; all other declared outputs must exist.
+  if out_path!='validation/validation-report.json' and not (ROOT/out_path).exists(): status_errors.append(f'missing declared evidence output {out_path}')
+except Exception as e: status_errors.append(str(e))
+add('GOV-PROJECT-STATUS',not status_errors,'repository-local candidate status, authority and evidence contract valid' if not status_errors else '; '.join(status_errors),'governance')
+
+# The baseline is content-addressed. A Git commit may be absent when the reviewed input is an archive.
+baseline_errors=[]
+try:
+ baseline=load(ROOT/'governance/reviews/review-baseline.json')
+ if baseline.get('gaamVersion')!=VERSION or baseline.get('status')!='frozen': baseline_errors.append('version/status mismatch')
+ ns=baseline.get('normativeSurface',{}); surface_paths=ns.get('paths',[])
+ if surface_paths!=['specification','schemas','profiles','vocabularies','conformance','threat-model']: baseline_errors.append('normative surface path set mismatch')
+ digest_lines=[]; count=0
+ for base_dir in surface_paths:
+  for fp in sorted((ROOT/base_dir).rglob('*')):
+   if fp.is_file():
+    count+=1; digest_lines.append(f'{fp.relative_to(ROOT)} {hashlib.sha256(fp.read_bytes()).hexdigest()}')
+ current_digest=hashlib.sha256(('\n'.join(digest_lines)).encode()).hexdigest()
+ if ns.get('fileCount')!=count: baseline_errors.append(f'normative surface file count changed: expected {ns.get("fileCount")}, found {count}')
+ if ns.get('sha256')!=current_digest: baseline_errors.append('normative surface digest no longer matches frozen review baseline')
+ src=baseline.get('sourceIdentity',{})
+ if src.get('type') not in {'normative-surface-sha256','git-commit'} or not (src.get('sha256') or src.get('gitCommit')): baseline_errors.append('source identity is not content-addressed')
+except Exception as e: baseline_errors.append(str(e))
+add('GOV-REVIEW-BASELINE',not baseline_errors,'candidate review baseline is frozen and normative surface digest matches' if not baseline_errors else '; '.join(baseline_errors),'governance')
+
 register=load(ROOT/'governance/candidate-issues.json')
 review_files={p.stem:load(p) for p in sorted((ROOT/'governance/reviews').glob('*.json'))}
 classes={'editorial','clarification','compatible-extension','breaking-normative-change','security-correction'}
@@ -441,14 +488,61 @@ for issue in register.get('issues',[]):
 add('GOV-CANDIDATE-REGISTER',not gov_errors,f'{len(issue_ids)} candidate issues have valid authority, scope, evidence and disposition fields' if not gov_errors else '; '.join(gov_errors[:10]),'governance')
 add('GOV-CANDIDATE-IDS',len(issue_ids)==len(set(issue_ids)) and all(re.fullmatch(r'GAAM-CR-\d{3}',x or '') for x in issue_ids),f'{len(issue_ids)} unique candidate issue identifiers','governance')
 required_reviews={'privacy-review','security-review','affected-party-review','interoperability-review','implementation-evidence'}
-review_errors=[]
+review_errors=[]; finding_ids=[]
+try:
+ review_schema=load(ROOT/'governance/reviews/review-register.schema.json'); Draft202012Validator.check_schema(review_schema)
+ finding_schema=load(ROOT/'governance/reviews/finding.schema.json'); Draft202012Validator.check_schema(finding_schema)
+ review_validator=Draft202012Validator(review_schema,format_checker=FormatChecker())
+ finding_validator=Draft202012Validator(finding_schema,format_checker=FormatChecker())
+except Exception as e:
+ review_errors.append('review schema invalid: '+str(e)); review_validator=None; finding_validator=None
 for name in required_reviews:
  obj=review_files.get(name)
  if not obj: review_errors.append(f'missing {name}'); continue
+ if review_validator:
+  errs=list(review_validator.iter_errors(obj))
+  if errs: review_errors.append(f'{name}: schema: {errs[0].message}')
  if obj.get('gaamVersion')!=VERSION: review_errors.append(f'{name}: version mismatch')
- if obj.get('status') not in {'not-started','in-progress','complete','blocked'}: review_errors.append(f'{name}: invalid status')
- if not obj.get('reviewAuthority'): review_errors.append(f'{name}: missing review authority')
-add('GOV-REVIEW-REGISTERS',not review_errors,f'{len(required_reviews)} required review registers are structurally complete' if not review_errors else '; '.join(review_errors),'governance')
+ reviewer=obj.get('reviewer',{})
+ if obj.get('status')=='complete':
+  if reviewer.get('independence')=='unassigned': review_errors.append(f'{name}: complete review has unassigned independence')
+  if obj.get('attestation',{}).get('status')!='attested' or not obj.get('completedAt'): review_errors.append(f'{name}: complete review lacks attestation/completion time')
+  if obj.get('blockingFindings'): review_errors.append(f'{name}: complete review retains blocking findings')
+ for finding in obj.get('findings',[]):
+  if finding_validator:
+   errs=list(finding_validator.iter_errors(finding))
+   if errs: review_errors.append(f'{name}/{finding.get("id","unknown")}: {errs[0].message}'); continue
+  finding_ids.append(finding.get('id'))
+  badreq=[x for x in finding.get('affectedRequirements',[]) if x not in pids]
+  badpro=[x for x in finding.get('affectedProfiles',[]) if x not in all_profile_ids]
+  if badreq: review_errors.append(f'{finding.get("id")}: unknown requirements {badreq}')
+  if badpro: review_errors.append(f'{finding.get("id")}: unknown profiles {badpro}')
+  for ref in finding.get('evidence',[])+finding.get('closureEvidence',[]):
+   if ref.startswith(('http://','https://')): continue
+   if not (ROOT/ref).exists(): review_errors.append(f'{finding.get("id")}: missing evidence {ref}')
+  if finding.get('status')=='closed' and not finding.get('closureEvidence'): review_errors.append(f'{finding.get("id")}: closed without closure evidence')
+  if finding.get('status')=='deferred' and (not finding.get('owner') or not finding.get('targetDate')): review_errors.append(f'{finding.get("id")}: deferred without owner/target date')
+  if finding.get('status')=='accepted-risk' and not finding.get('decisionAuthority'): review_errors.append(f'{finding.get("id")}: risk accepted without authority')
+ # Register evidence references must resolve, except governed external URLs.
+ for ref in obj.get('evidence',[]):
+  if ref.startswith(('http://','https://')): continue
+  if not (ROOT/ref).exists(): review_errors.append(f'{name}: missing evidence {ref}')
+ # blockingFindings must point at findings in this register.
+ local_ids={f.get('id') for f in obj.get('findings',[])}
+ if any(x not in local_ids for x in obj.get('blockingFindings',[])): review_errors.append(f'{name}: blockingFindings contains unknown IDs')
+add('GOV-REVIEW-REGISTERS',not review_errors,f'{len(required_reviews)} review registers conform with attributable authority, evidence and closure controls' if not review_errors else '; '.join(review_errors[:12]),'governance')
+add('GOV-REVIEW-FINDING-IDS',len(finding_ids)==len(set(finding_ids)),f'{len(finding_ids)} review finding identifiers are unique','governance')
+
+# Joint disposition is intentionally empty until cross-review findings exist, but its authority and closure rule are explicit.
+joint_errors=[]
+try:
+ joint=load(ROOT/'governance/reviews/joint-disposition-register.json')
+ if joint.get('gaamVersion')!=VERSION or joint.get('baseline')!='governance/reviews/review-baseline.json': joint_errors.append('version/baseline mismatch')
+ if not joint.get('decisionAuthority') or not joint.get('closureRule'): joint_errors.append('authority or closure rule missing')
+ for entry in joint.get('entries',[]):
+  if not entry.get('id') or not entry.get('disposition') or not entry.get('verificationEvidence'): joint_errors.append(f"{entry.get('id','unknown')}: incomplete disposition")
+except Exception as e: joint_errors.append(str(e))
+add('GOV-JOINT-DISPOSITION',not joint_errors,'joint disposition authority and closure rule are explicit' if not joint_errors else '; '.join(joint_errors),'governance')
 # Governed ecosystem applicability evidence
 eco_dir=ROOT/'governance/reviews/evidence/implementation/ecosystems'
 eco_required={'README.md','governed-ecosystem-capability-matrix.csv','governed-ecosystem-capability-matrix.md','governed-ecosystem-enhancement-register.json','governed-ecosystem-normative-impact-analysis.md','reference-ecosystem-comparison.md','reviewer-attestation.json'}
@@ -480,14 +574,14 @@ open_blockers=[x['id'] for x in register.get('issues',[]) if x.get('blockingV1')
 add('GOV-V1-READINESS-STATE',True,f'{len(open_blockers)} explicitly recorded open v1 blockers: {", ".join(open_blockers)}','governance')
 # Package manifest + integrity
 pkg=ROOT/'packages'/f'gaam-v{VERSION}'; pkg.mkdir(parents=True,exist_ok=True)
-artifact_paths=[REL['normativeSpecification'],'release.json','schemas/catalog.json','threat-model/threat-register.json','matrices/normative-requirements-index.csv','matrices/requirement-test-coverage.csv','matrices/requirement-assurance-traceability.csv','matrices/threat-control-test-matrix.csv','governance/candidate-issues.json']
+artifact_paths=['PROJECT-STATUS.yaml',REL['normativeSpecification'],'release.json','schemas/catalog.json','threat-model/threat-register.json','matrices/normative-requirements-index.csv','matrices/requirement-test-coverage.csv','matrices/requirement-assurance-traceability.csv','matrices/threat-control-test-matrix.csv','governance/candidate-issues.json']
 artifact_paths += [str(p.relative_to(ROOT)) for b in ['schemas','vocabularies','profiles/manifests','tests/behavioural'] for p in sorted((ROOT/b).glob('*.json'))]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'governance/reviews').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'examples').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'docs/future-evolution').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
 artifact_paths += ['governance/future-enhancement-register.json']
 artifact_paths += [str(p.relative_to(ROOT)) for b in ['profiles-draft','experimental'] for p in sorted((ROOT/b).rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
-manifest={'id':f'urn:gaam:package:{VERSION}','type':'gaam-governance-package','gaamVersion':VERSION,'status':'active','profiles':sorted(manifests),'artifacts':[{'id':Path(x).stem,'path':x,'mediaType':'application/json' if x.endswith('.json') else 'text/markdown' if x.endswith('.md') else 'text/csv'} for x in artifact_paths if not x.startswith(('schemas/','vocabularies/'))], 'schemas':[p.name for p in sorted((ROOT/'schemas').glob('*.schema.json'))], 'vocabularies':[p.name for p in sorted((ROOT/'vocabularies').glob('*.json'))], 'integrity':{'algorithm':'sha-256','manifest':'checksums.json'}}
+manifest={'id':f'urn:gaam:package:{VERSION}','type':'gaam-governance-package','gaamVersion':VERSION,'status':'active','profiles':sorted(manifests),'artifacts':[{'id':Path(x).stem,'path':x,'mediaType':'application/json' if x.endswith('.json') else 'application/yaml' if x.endswith(('.yaml','.yml')) else 'text/markdown' if x.endswith('.md') else 'text/csv'} for x in artifact_paths if not x.startswith(('schemas/','vocabularies/'))], 'schemas':[p.name for p in sorted((ROOT/'schemas').glob('*.schema.json'))], 'vocabularies':[p.name for p in sorted((ROOT/'vocabularies').glob('*.json'))], 'integrity':{'algorithm':'sha-256','manifest':'checksums.json'}}
 (pkg/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 perrs=list(Draft202012Validator(schemas['gaam-package']).iter_errors(manifest)); add('PKG-MANIFEST',not perrs,'package manifest conforms','package')
 checks=[]

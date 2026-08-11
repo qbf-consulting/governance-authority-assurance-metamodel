@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/governance/reviews/review-register.schema.json",
+  "title": "GAAM Candidate Review Register",
+  "type": "object",
+  "required": [
+    "reviewType",
+    "gaamVersion",
+    "status",
+    "baseline",
+    "reviewAuthority",
+    "reviewer",
+    "decisionAuthority",
+    "scope",
+    "exitCriteria",
+    "findings",
+    "completedAt",
+    "evidence",
+    "attestation"
+  ],
+  "properties": {
+    "reviewType": {
+      "enum": [
+        "privacy",
+        "security",
+        "affected-party",
+        "interoperability",
+        "implementation-evidence"
+      ]
+    },
+    "gaamVersion": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "not-started",
+        "in-progress",
+        "complete",
+        "blocked"
+      ]
+    },
+    "baseline": {
+      "type": "string",
+      "const": "governance/reviews/review-baseline.json"
+    },
+    "reviewAuthority": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewer": {
+      "type": "object",
+      "required": [
+        "identity",
+        "role",
+        "independence"
+      ],
+      "properties": {
+        "identity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "organisation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "independence": {
+          "enum": [
+            "unassigned",
+            "not-independent",
+            "independent",
+            "conflicted"
+          ]
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "decisionAuthority": {
+      "type": "object",
+      "required": [
+        "role",
+        "scope"
+      ],
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "scope": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "exitCriteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockingFindings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "completedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "attestation": {
+      "type": "object",
+      "required": [
+        "status",
+        "recordedAt"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "not-attested",
+            "draft",
+            "attested"
+          ]
+        },
+        "recordedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

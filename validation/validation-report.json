@@ -2,8 +2,8 @@
   "gaamVersion": "0.9.0",
   "testSuiteVersion": "0.9.0",
   "status": "pass",
-  "checks": 305,
-  "passed": 305,
+  "checks": 309,
+  "passed": 309,
   "failed": 0,
   "results": [
     {
@@ -139,37 +139,7 @@
       "evidence": "2 informative ecosystem crosswalks validated against mapping schema and normative requirement identifiers"
     },
     {
-      "id": "SCH-decision-receipt",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
       "id": "SCH-evidence",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-remedy",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-appeal",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-conformance-claim",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-governance-event",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
@@ -181,25 +151,13 @@
       "evidence": "valid Draft 2020-12 schema"
     },
     {
-      "id": "SCH-agent-governance-identity",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-runtime-envelope",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
       "id": "SCH-authority",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
     },
     {
-      "id": "SCH-profile-manifest",
+      "id": "SCH-remedy",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
@@ -212,6 +170,48 @@
     },
     {
       "id": "SCH-assurance",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-profile-manifest",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-agent-governance-identity",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-appeal",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-decision-receipt",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-governance-event",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-conformance-claim",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-runtime-envelope",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
@@ -1783,6 +1783,18 @@
       "evidence": "validation workflow present"
     },
     {
+      "id": "GOV-PROJECT-STATUS",
+      "kind": "governance",
+      "status": "pass",
+      "evidence": "repository-local candidate status, authority and evidence contract valid"
+    },
+    {
+      "id": "GOV-REVIEW-BASELINE",
+      "kind": "governance",
+      "status": "pass",
+      "evidence": "candidate review baseline is frozen and normative surface digest matches"
+    },
+    {
       "id": "GOV-CANDIDATE-REGISTER",
       "kind": "governance",
       "status": "pass",
@@ -1798,7 +1810,19 @@
       "id": "GOV-REVIEW-REGISTERS",
       "kind": "governance",
       "status": "pass",
-      "evidence": "5 required review registers are structurally complete"
+      "evidence": "5 review registers conform with attributable authority, evidence and closure controls"
+    },
+    {
+      "id": "GOV-REVIEW-FINDING-IDS",
+      "kind": "governance",
+      "status": "pass",
+      "evidence": "0 review finding identifiers are unique"
+    },
+    {
+      "id": "GOV-JOINT-DISPOSITION",
+      "kind": "governance",
+      "status": "pass",
+      "evidence": "joint disposition authority and closure rule are explicit"
     },
     {
       "id": "GOV-ECO-EVIDENCE",
@@ -1834,7 +1858,7 @@
       "id": "PKG-INTEGRITY",
       "kind": "package",
       "status": "pass",
-      "evidence": "439 checksums verified"
+      "evidence": "448 checksums verified"
     }
   ]
 }

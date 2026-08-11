@@ -1,1 +1,39 @@
-{"reviewType":"interoperability","gaamVersion":"0.9.0","status":"not-started","reviewAuthority":"unassigned","scope":["decision receipts","lifecycle events","canonical identifiers","unknown extensions"],"implementations":[],"findings":[],"completedAt":null,"evidence":[]}
+{
+  "reviewType": "interoperability",
+  "status": "not-started",
+  "reviewAuthority": "Independent interoperability reviewer(s) to be assigned",
+  "scope": [
+    "decision receipts",
+    "lifecycle events",
+    "canonical identifiers",
+    "unknown extensions"
+  ],
+  "exitCriteria": [
+    "Review is performed against the frozen candidate baseline.",
+    "Interoperability claims are supported by identifiable implementations and reproducible evidence.",
+    "Any blocking finding has an accepted disposition and verification evidence.",
+    "Reviewer attestation and evidence references are recorded."
+  ],
+  "gaamVersion": "0.9.0",
+  "baseline": "governance/reviews/review-baseline.json",
+  "reviewer": {
+    "identity": "unassigned",
+    "role": "independent reviewer",
+    "organisation": null,
+    "independence": "unassigned",
+    "conflicts": []
+  },
+  "decisionAuthority": {
+    "role": "GAAM maintainers",
+    "scope": "Disposition findings, accept remediation or risk, and determine release impact under GOVERNANCE.md."
+  },
+  "blockingFindings": [],
+  "findings": [],
+  "completedAt": null,
+  "evidence": [],
+  "attestation": {
+    "status": "not-attested",
+    "recordedAt": null
+  },
+  "implementations": []
+}

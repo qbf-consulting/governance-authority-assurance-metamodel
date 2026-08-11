@@ -54,5 +54,47 @@
   "candidateChangeProposals": [
     "GAAM-CP-ECO-001",
     "GAAM-CP-ECO-002"
-  ]
+  ],
+  "baseline": "governance/reviews/review-baseline.json",
+  "reviewer": {
+    "identity": "GAAM maintainers",
+    "role": "maintainer-prepared implementation evidence assessment",
+    "organisation": null,
+    "independence": "not-independent",
+    "conflicts": [
+      "Maintainers prepared the current ecosystem applicability evidence and cannot satisfy the independent implementation exit criterion."
+    ]
+  },
+  "decisionAuthority": {
+    "role": "GAAM maintainers",
+    "scope": "Accept implementation evidence for candidate-readiness only when the declared independence and evidence requirements are satisfied."
+  },
+  "scope": [
+    "independent implementation evidence",
+    "Foundation profile coverage",
+    "composed-profile coverage",
+    "governed ecosystem applicability evidence"
+  ],
+  "exitCriteria": [
+    "At least two qualifying independent implementation reports are accepted.",
+    "Foundation profile coverage is evidenced.",
+    "At least one composed profile is evidenced.",
+    "Implementation evidence is attributable, reproducible and version-bound.",
+    "Any blocking implementation finding has an accepted disposition and verification evidence."
+  ],
+  "blockingFindings": [],
+  "findings": [],
+  "evidence": [
+    "governance/reviews/evidence/implementation/ecosystems/README.md",
+    "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.csv",
+    "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.md",
+    "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-enhancement-register.json",
+    "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-normative-impact-analysis.md",
+    "governance/reviews/evidence/implementation/ecosystems/reference-ecosystem-comparison.md",
+    "governance/reviews/evidence/implementation/ecosystems/reviewer-attestation.json"
+  ],
+  "attestation": {
+    "status": "draft",
+    "recordedAt": null
+  }
 }

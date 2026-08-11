@@ -14,6 +14,14 @@ normative_status: "Normative process"
 
 This document governs development of the GAAM specification and supporting materials. It does not govern implementations or ecosystems that use GAAM.
 
+## Repository authority and status
+
+`PROJECT-STATUS.yaml` is the repository-local declaration of GAAM maturity, lifecycle, operational status, specification status, normative scope, validation evidence and known limitations. Portfolio or downstream systems may consume this declaration but do not acquire authority to rewrite GAAM-owned status.
+
+GAAM owns the normative specification, first-party profiles, canonical schemas, governed vocabularies and conformance rules published by this repository. It does not govern downstream implementations, external ecosystems, or specifications that are merely mapped, referenced or aligned.
+
+Status and normative-change authority may be exercised only within the roles and change classes defined here. Superseding or withdrawing a published GAAM artifact must preserve reconstructable history and must not erase prior evidence or dispositions.
+
 ## Roles
 
 - **Maintainers** manage releases, repositories, review queues and editorial consistency.
