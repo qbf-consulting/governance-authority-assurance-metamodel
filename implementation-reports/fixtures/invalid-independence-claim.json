@@ -1,0 +1,61 @@
+{
+  "reportId": "GAAM-IR-FIXTURE-INDEPENDENT-001",
+  "reportVersion": "1.0",
+  "reportStatus": "reviewed",
+  "synthetic": true,
+  "gaamVersion": "0.9.0",
+  "implementation": {
+    "name": "Fixture Implementation",
+    "version": "1.0",
+    "sourceRevision": "abcdef123456",
+    "environment": "fixture",
+    "repository": null
+  },
+  "profiles": [
+    "gaam:profile:foundation:0.9.0"
+  ],
+  "requirementsEvaluated": [
+    "GAAM-AUTH-001"
+  ],
+  "evidenceLevel": "L4",
+  "validator": {
+    "name": "fixture-validator",
+    "version": "1.0"
+  },
+  "results": [
+    {
+      "resultId": "FIX-001",
+      "requirementId": "GAAM-AUTH-001",
+      "method": "review",
+      "status": "pass",
+      "evidenceIds": [
+        "EX-EVD-001"
+      ],
+      "notes": null
+    }
+  ],
+  "exceptions": [],
+  "evidenceManifest": "implementation-reports/examples/illustrative-evidence-manifest.json",
+  "independence": {
+    "classification": "third-party-ish",
+    "assessor": "Fixture Assessor",
+    "relationshipsDisclosed": true,
+    "statement": "Synthetic fixture only."
+  },
+  "claimBoundary": {
+    "conclusion": "Fixture only.",
+    "limitations": [
+      "Synthetic"
+    ],
+    "validFrom": "2026-07-20T00:00:00Z",
+    "validUntil": null
+  },
+  "reassessmentTriggers": [
+    "Fixture change"
+  ],
+  "review": {
+    "acceptedBy": null,
+    "acceptedAt": null,
+    "decisionEvidence": null
+  }
+}

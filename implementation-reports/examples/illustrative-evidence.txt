@@ -1,0 +1,1 @@
+Synthetic evidence artifact for GAAM implementation-report schema validation only.

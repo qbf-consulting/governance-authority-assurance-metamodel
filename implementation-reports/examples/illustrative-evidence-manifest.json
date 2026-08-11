@@ -1,0 +1,50 @@
+{
+  "manifestId": "GAAM-EM-ILLUSTRATIVE-001",
+  "gaamVersion": "0.9.0",
+  "reportId": "GAAM-IR-ILLUSTRATIVE-001",
+  "generatedAt": "2026-07-20T00:00:00Z",
+  "artifacts": [
+    {
+      "evidenceId": "EX-EVD-001",
+      "catalogueClass": "EVD-STR-001",
+      "path": "implementation-reports/examples/illustrative-evidence.txt",
+      "mediaType": "text/plain",
+      "sha256": "c74d24e9e7c057c30cb92da5f157057292a79afd233613036b4d2ebddf35893d",
+      "producer": "Illustrative operator",
+      "collectedAt": "2026-07-20T00:00:00Z",
+      "validUntil": null,
+      "supports": [
+        "GAAM-AUTH-001"
+      ],
+      "independence": "self"
+    },
+    {
+      "evidenceId": "EX-EVD-002",
+      "catalogueClass": "EVD-STR-001",
+      "path": "implementation-reports/examples/illustrative-evidence.txt",
+      "mediaType": "text/plain",
+      "sha256": "c74d24e9e7c057c30cb92da5f157057292a79afd233613036b4d2ebddf35893d",
+      "producer": "Illustrative operator",
+      "collectedAt": "2026-07-20T00:00:00Z",
+      "validUntil": null,
+      "supports": [
+        "GAAM-DEC-001"
+      ],
+      "independence": "self"
+    },
+    {
+      "evidenceId": "EX-EVD-003",
+      "catalogueClass": "EVD-STR-001",
+      "path": "implementation-reports/examples/illustrative-evidence.txt",
+      "mediaType": "text/plain",
+      "sha256": "c74d24e9e7c057c30cb92da5f157057292a79afd233613036b4d2ebddf35893d",
+      "producer": "Illustrative operator",
+      "collectedAt": "2026-07-20T00:00:00Z",
+      "validUntil": null,
+      "supports": [
+        "GAAM-LIFE-001"
+      ],
+      "independence": "self"
+    }
+  ]
+}

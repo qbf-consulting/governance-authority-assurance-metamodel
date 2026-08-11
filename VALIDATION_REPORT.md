@@ -10,8 +10,8 @@ normative_status: Repository generated
 {% include gaam-meta.html %}
 
 **Status:** PASS  
-**Checks:** 309  
-**Passed:** 309  
+**Checks:** 312  
+**Passed:** 312  
 **Failed:** 0  
 
 This report evidences repository publication, structural and included behavioural checks. It is not an independent L4 assessment.
@@ -325,5 +325,8 @@ This report evidences repository publication, structural and included behavioura
 | `GOV-ECO-DISPOSITION` | governance | PASS | 12 ecosystem capabilities classified with controlled dispositions |
 | `GOV-CONTRIBUTION-CONTROLS` | governance | PASS | candidate issue forms and pull-request governance template present |
 | `GOV-V1-READINESS-STATE` | governance | PASS | 5 explicitly recorded open v1 blockers: GAAM-CR-001, GAAM-CR-002, GAAM-CR-003, GAAM-CR-004, GAAM-CR-005 |
+| `ASSURANCE-IMPLEMENTATION-REPORTS` | assurance | PASS | 1 implementation report artifacts conform with provenance, evidence and acceptance controls |
+| `ASSURANCE-IMPLEMENTATION-FIXTURES` | assurance | PASS | implementation-report schema accepts the positive fixture and rejects four controlled negative fixtures |
+| `GOV-CANDIDATE-READINESS` | governance | PASS | candidate readiness is schema-valid, generated from authoritative evidence and current |
 | `PKG-MANIFEST` | package | PASS | package manifest conforms |
-| `PKG-INTEGRITY` | package | PASS | 448 checksums verified |
+| `PKG-INTEGRITY` | package | PASS | 456 checksums verified |

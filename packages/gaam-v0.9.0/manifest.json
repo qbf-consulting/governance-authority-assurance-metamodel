@@ -1950,6 +1950,66 @@
       "mediaType": "application/json"
     },
     {
+      "id": "candidate-readiness",
+      "path": "governance/candidate-readiness.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "candidate-readiness.schema",
+      "path": "governance/candidate-readiness.schema.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "conformance-result.schema",
+      "path": "implementation-reports/conformance-result.schema.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "evidence-manifest.schema",
+      "path": "implementation-reports/evidence-manifest.schema.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "implementation-report.schema",
+      "path": "implementation-reports/implementation-report.schema.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "illustrative-evidence-manifest",
+      "path": "implementation-reports/examples/illustrative-evidence-manifest.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "illustrative-evidence",
+      "path": "implementation-reports/examples/illustrative-evidence.txt",
+      "mediaType": "text/csv"
+    },
+    {
+      "id": "illustrative-report",
+      "path": "implementation-reports/examples/illustrative-report.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "illustrative-evidence-manifest",
+      "path": "implementation-reports/examples/illustrative-evidence-manifest.json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "illustrative-evidence",
+      "path": "implementation-reports/examples/illustrative-evidence.txt",
+      "mediaType": "text/csv"
+    },
+    {
+      "id": "illustrative-evidence",
+      "path": "implementation-reports/examples/illustrative-evidence.txt",
+      "mediaType": "text/csv"
+    },
+    {
+      "id": "illustrative-evidence",
+      "path": "implementation-reports/examples/illustrative-evidence.txt",
+      "mediaType": "text/csv"
+    },
+    {
       "id": "index",
       "path": "profiles-draft/advanced-agent-orchestration/index.md",
       "mediaType": "text/markdown"

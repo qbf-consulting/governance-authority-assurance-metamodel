@@ -53,6 +53,7 @@ exclude:
   - validation
   - packages
   - artifacts
+  - implementation-reports/fixtures
   - Gemfile.lock
   - vendor
   - .bundle

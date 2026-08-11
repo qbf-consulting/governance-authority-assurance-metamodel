@@ -1,0 +1,174 @@
+{
+  "gaamVersion": "0.9.0",
+  "generatedFrom": [
+    "governance/candidate-issues.json",
+    "governance/reviews/privacy-review.json",
+    "governance/reviews/security-review.json",
+    "governance/reviews/affected-party-review.json",
+    "governance/reviews/interoperability-review.json",
+    "governance/reviews/implementation-evidence.json",
+    "implementation-reports/reports/*.json",
+    "matrices/normative-requirements-index.csv",
+    "matrices/requirement-test-coverage.csv"
+  ],
+  "eligibleForV1Decision": false,
+  "acceptedImplementationReports": [],
+  "blockingGates": [
+    "independent-implementations",
+    "foundation-implementation",
+    "composed-profile-implementation",
+    "canonical-identifiers",
+    "privacy-review",
+    "security-review",
+    "affected-party-review",
+    "cross-implementation-interoperability",
+    "candidate-issue-disposition"
+  ],
+  "gates": [
+    {
+      "id": "independent-implementations",
+      "title": "Two independent implementations",
+      "state": "not-satisfied",
+      "blocking": true,
+      "evidence": [],
+      "closurePredicate": "At least two non-synthetic accepted implementation reports declare independent assessment with disclosed relationships and contain no failed or indeterminate result or open exception.",
+      "sourceIssues": [
+        "GAAM-CR-001"
+      ]
+    },
+    {
+      "id": "foundation-implementation",
+      "title": "Foundation implementation coverage",
+      "state": "not-satisfied",
+      "blocking": true,
+      "evidence": [],
+      "closurePredicate": "At least one accepted independent implementation report includes the Foundation Profile.",
+      "sourceIssues": [
+        "GAAM-CR-001"
+      ]
+    },
+    {
+      "id": "composed-profile-implementation",
+      "title": "Composed-profile implementation coverage",
+      "state": "not-satisfied",
+      "blocking": true,
+      "evidence": [],
+      "closurePredicate": "At least one accepted independent implementation report covers Foundation plus at least one additional GAAM profile.",
+      "sourceIssues": [
+        "GAAM-CR-001"
+      ]
+    },
+    {
+      "id": "requirement-testability",
+      "title": "Requirement testability disposition",
+      "state": "satisfied",
+      "blocking": true,
+      "evidence": [
+        "matrices/normative-requirements-index.csv",
+        "matrices/requirement-test-coverage.csv"
+      ],
+      "closurePredicate": "The normative requirement index and requirement-test coverage matrix remain validator-clean.",
+      "sourceIssues": []
+    },
+    {
+      "id": "canonical-identifiers",
+      "title": "Canonical identifier publication",
+      "state": "in-progress",
+      "blocking": true,
+      "evidence": [
+        "governance/candidate-issues.json"
+      ],
+      "closurePredicate": "GAAM-CR-003 is closed with resolvable versioned identifiers, checksum verification and historical-retention evidence.",
+      "sourceIssues": [
+        "GAAM-CR-003"
+      ]
+    },
+    {
+      "id": "privacy-review",
+      "title": "Privacy review",
+      "state": "not-satisfied",
+      "blocking": true,
+      "evidence": [
+        "governance/reviews/privacy-review.json"
+      ],
+      "closurePredicate": "The privacy review is complete, attested, and has no unresolved blocking findings.",
+      "sourceIssues": [
+        "GAAM-CR-004"
+      ]
+    },
+    {
+      "id": "security-review",
+      "title": "Security review",
+      "state": "not-satisfied",
+      "blocking": true,
+      "evidence": [
+        "governance/reviews/security-review.json"
+      ],
+      "closurePredicate": "The security review is complete, attested, and has no unresolved blocking findings or unresolved critical security issue.",
+      "sourceIssues": [
+        "GAAM-CR-005"
+      ]
+    },
+    {
+      "id": "affected-party-review",
+      "title": "Affected-party review",
+      "state": "not-satisfied",
+      "blocking": true,
+      "evidence": [
+        "governance/reviews/affected-party-review.json"
+      ],
+      "closurePredicate": "The affected-party review is complete, attested, and has no unresolved blocking findings.",
+      "sourceIssues": [
+        "GAAM-CR-004"
+      ]
+    },
+    {
+      "id": "cross-implementation-interoperability",
+      "title": "Cross-implementation interoperability",
+      "state": "not-satisfied",
+      "blocking": true,
+      "evidence": [
+        "governance/reviews/interoperability-review.json"
+      ],
+      "closurePredicate": "The interoperability review is complete and GAAM-CR-002 is closed with cross-validator evidence from independent implementations.",
+      "sourceIssues": [
+        "GAAM-CR-002"
+      ]
+    },
+    {
+      "id": "governed-ecosystem-applicability",
+      "title": "Governed ecosystem applicability",
+      "state": "in-progress",
+      "blocking": false,
+      "evidence": [
+        "governance/reviews/implementation-evidence.json",
+        "governance/reviews/evidence/implementation/ecosystems/README.md",
+        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.csv",
+        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.md",
+        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-enhancement-register.json",
+        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-normative-impact-analysis.md",
+        "governance/reviews/evidence/implementation/ecosystems/reference-ecosystem-comparison.md",
+        "governance/reviews/evidence/implementation/ecosystems/reviewer-attestation.json"
+      ],
+      "closurePredicate": "The governed ecosystem capability assessment receives independent attestation and candidate enhancement dispositions are reviewed.",
+      "sourceIssues": []
+    },
+    {
+      "id": "candidate-issue-disposition",
+      "title": "Breaking candidate issue disposition",
+      "state": "not-satisfied",
+      "blocking": true,
+      "evidence": [
+        "governance/candidate-issues.json"
+      ],
+      "closurePredicate": "Every candidate issue with blockingV1=true is closed with its required evidence.",
+      "sourceIssues": [
+        "GAAM-CR-001",
+        "GAAM-CR-002",
+        "GAAM-CR-003",
+        "GAAM-CR-004",
+        "GAAM-CR-005"
+      ]
+    }
+  ]
+}

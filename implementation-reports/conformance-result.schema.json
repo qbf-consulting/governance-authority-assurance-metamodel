@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gaam:schema:implementation-conformance-result:0.9.0",
+  "title": "GAAM Implementation Conformance Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["resultId", "requirementId", "method", "status", "evidenceIds"],
+  "properties": {
+    "resultId": {"type": "string", "minLength": 1},
+    "requirementId": {"type": "string", "pattern": "^GAAM-[A-Z]+-[0-9]{3}$"},
+    "method": {"enum": ["structural-test", "behavioural-test", "observation", "inspection", "review", "mixed"]},
+    "status": {"enum": ["pass", "fail", "skipped", "indeterminate", "not-applicable"]},
+    "evidenceIds": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "notes": {"type": ["string", "null"]}
+  }
+}

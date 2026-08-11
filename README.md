@@ -20,6 +20,8 @@ Repository-owned maturity, lifecycle, authority boundaries, validation commands 
 - [Schemas](schemas/index.md)
 - [Threat model](threat-model/README.md)
 - [Candidate stability policy](docs/candidate-stability-policy.md)
+- [Candidate readiness dashboard](docs/candidate-readiness.md) — generated from review and implementation evidence
+- [Implementation reports](implementation-reports/README.md) — human and machine-readable evidence workflow
 - [Migration from v0.5.0](docs/migration-v0.5.0-to-v0.9.0.md)
 - [v0.9.0 release notes](releases/v0.9.0.md)
 

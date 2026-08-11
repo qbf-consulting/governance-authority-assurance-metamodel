@@ -2,8 +2,8 @@
   "gaamVersion": "0.9.0",
   "testSuiteVersion": "0.9.0",
   "status": "pass",
-  "checks": 309,
-  "passed": 309,
+  "checks": 312,
+  "passed": 312,
   "failed": 0,
   "results": [
     {
@@ -1849,6 +1849,24 @@
       "evidence": "5 explicitly recorded open v1 blockers: GAAM-CR-001, GAAM-CR-002, GAAM-CR-003, GAAM-CR-004, GAAM-CR-005"
     },
     {
+      "id": "ASSURANCE-IMPLEMENTATION-REPORTS",
+      "kind": "assurance",
+      "status": "pass",
+      "evidence": "1 implementation report artifacts conform with provenance, evidence and acceptance controls"
+    },
+    {
+      "id": "ASSURANCE-IMPLEMENTATION-FIXTURES",
+      "kind": "assurance",
+      "status": "pass",
+      "evidence": "implementation-report schema accepts the positive fixture and rejects four controlled negative fixtures"
+    },
+    {
+      "id": "GOV-CANDIDATE-READINESS",
+      "kind": "governance",
+      "status": "pass",
+      "evidence": "candidate readiness is schema-valid, generated from authoritative evidence and current"
+    },
+    {
       "id": "PKG-MANIFEST",
       "kind": "package",
       "status": "pass",
@@ -1858,7 +1876,7 @@
       "id": "PKG-INTEGRITY",
       "kind": "package",
       "status": "pass",
-      "evidence": "448 checksums verified"
+      "evidence": "456 checksums verified"
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gaam:schema:implementation-evidence-manifest:0.9.0",
+  "title": "GAAM Implementation Evidence Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifestId", "gaamVersion", "reportId", "generatedAt", "artifacts"],
+  "properties": {
+    "manifestId": {"type": "string", "pattern": "^GAAM-EM-[A-Z0-9][A-Z0-9._-]*$"},
+    "gaamVersion": {"const": "0.9.0"},
+    "reportId": {"type": "string", "pattern": "^GAAM-IR-[A-Z0-9][A-Z0-9._-]*$"},
+    "generatedAt": {"type": "string", "format": "date-time"},
+    "artifacts": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["evidenceId", "path", "mediaType", "sha256", "producer", "collectedAt", "supports", "independence"],
+        "properties": {
+          "evidenceId": {"type": "string", "minLength": 1},
+          "catalogueClass": {"type": ["string", "null"]},
+          "path": {"type": "string", "minLength": 1},
+          "mediaType": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "producer": {"type": "string", "minLength": 1},
+          "collectedAt": {"type": "string", "format": "date-time"},
+          "validUntil": {"type": ["string", "null"], "format": "date-time"},
+          "supports": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "independence": {"enum": ["self", "second-party", "independent"]}
+        }
+      }
+    }
+  }
+}

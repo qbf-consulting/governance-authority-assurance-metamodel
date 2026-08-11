@@ -1335,6 +1335,14 @@
       "sha256": "89bdb851d31c8b88a68dcdf29a9053e9854f707f326da51ca2a5bf9eb3ae2922"
     },
     {
+      "path": "governance/candidate-readiness.json",
+      "sha256": "1aa71b400da90366ea86ffaa96e12e89cf2b8d184c7ec9362084452e43aeda39"
+    },
+    {
+      "path": "governance/candidate-readiness.schema.json",
+      "sha256": "31d37c7f8c5d3025dfb9432379a738c6497bc7a65de1a34a58c1d17737e96f33"
+    },
+    {
       "path": "governance/future-enhancement-register.json",
       "sha256": "8f7d7ef5063d97abb08032084a6cc244403fb2ab7416c256f1ecc3c51f4f0d40"
     },
@@ -1451,6 +1459,30 @@
       "sha256": "aaad8b990696a1969c86a71a270583bac162f5bcd94acc7a7e2720f331f2f7ca"
     },
     {
+      "path": "implementation-reports/conformance-result.schema.json",
+      "sha256": "26f54fc720fb91f50cc8f1689b98bdc8216449e7f40192e4a4b9112fc0cab4e6"
+    },
+    {
+      "path": "implementation-reports/evidence-manifest.schema.json",
+      "sha256": "88edabcadbd4f2fb43f1f263f3d80f0ead06c0808b15abd87ec778253d1e23c1"
+    },
+    {
+      "path": "implementation-reports/examples/illustrative-evidence-manifest.json",
+      "sha256": "4d3ab1b5fa73135715108ada46772554d690a5907a352384f0128d3d84e2d33a"
+    },
+    {
+      "path": "implementation-reports/examples/illustrative-evidence.txt",
+      "sha256": "c74d24e9e7c057c30cb92da5f157057292a79afd233613036b4d2ebddf35893d"
+    },
+    {
+      "path": "implementation-reports/examples/illustrative-report.json",
+      "sha256": "79a0e05446c9dbfc93e799dadd717c498afd5632050edd88905dcbb959c31f9a"
+    },
+    {
+      "path": "implementation-reports/implementation-report.schema.json",
+      "sha256": "176c2691197ae111ff3890b31a45cc9f289e86424aec758e66c2079d7e173302"
+    },
+    {
       "path": "matrices/normative-requirements-index.csv",
       "sha256": "c1abcac2b6414ff20b4e8a84d9faa48578a75a29654fe143c86fdae46eb54363"
     },
@@ -1468,7 +1500,7 @@
     },
     {
       "path": "packages/gaam-v0.9.0/manifest.json",
-      "sha256": "c1aa15bbaa76ea60c22ef7a542b9e712aa9e2156364e0158c5568bec85e39c1a"
+      "sha256": "cedab816034c805fe5fa73aa35beb5ba9b27dc2711b37aafc2dc13dcf8ad9a99"
     },
     {
       "path": "profiles-draft/advanced-agent-orchestration/index.md",

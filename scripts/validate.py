@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import json,re,csv,hashlib,sys,urllib.parse,yaml
+import json,re,csv,hashlib,sys,urllib.parse,yaml,subprocess
 from jsonschema import Draft202012Validator, FormatChecker
 ROOT=Path(__file__).resolve().parents[1]
 REL=json.loads((ROOT/'release.json').read_text()); VERSION=REL['version']; results=[]
@@ -572,6 +572,102 @@ missing_templates=[x for x in templates if not (ROOT/'.github/ISSUE_TEMPLATE'/x)
 add('GOV-CONTRIBUTION-CONTROLS',not missing_templates and (ROOT/'.github/pull_request_template.md').exists(),'candidate issue forms and pull-request governance template present' if not missing_templates else str(missing_templates),'governance')
 open_blockers=[x['id'] for x in register.get('issues',[]) if x.get('blockingV1') and x.get('status')!='closed']
 add('GOV-V1-READINESS-STATE',True,f'{len(open_blockers)} explicitly recorded open v1 blockers: {", ".join(open_blockers)}','governance')
+# Portable implementation evidence and evidence-driven candidate readiness
+implementation_evidence_errors=[]
+try:
+ report_schema=load(ROOT/'implementation-reports/implementation-report.schema.json'); Draft202012Validator.check_schema(report_schema)
+ evidence_manifest_schema=load(ROOT/'implementation-reports/evidence-manifest.schema.json'); Draft202012Validator.check_schema(evidence_manifest_schema)
+ conformance_result_schema=load(ROOT/'implementation-reports/conformance-result.schema.json'); Draft202012Validator.check_schema(conformance_result_schema)
+ report_validator=Draft202012Validator(report_schema,format_checker=FormatChecker())
+ evidence_manifest_validator=Draft202012Validator(evidence_manifest_schema,format_checker=FormatChecker())
+ result_validator=Draft202012Validator(conformance_result_schema,format_checker=FormatChecker())
+except Exception as e:
+ implementation_evidence_errors.append('schema error: '+str(e)); report_validator=evidence_manifest_validator=result_validator=None
+
+# Example and future submitted reports must be structurally valid. Only reports/ can contribute to readiness.
+report_paths=[]
+example_report=ROOT/'implementation-reports/examples/illustrative-report.json'
+if example_report.exists(): report_paths.append(example_report)
+reports_dir=ROOT/'implementation-reports/reports'
+if reports_dir.exists(): report_paths += sorted(reports_dir.glob('*.json'))
+seen_report_ids=[]
+for rp in report_paths:
+ try:
+  report=load(rp)
+  if report_validator:
+   errs=list(report_validator.iter_errors(report))
+   if errs: implementation_evidence_errors.append(f'{rp.relative_to(ROOT)}: schema: {errs[0].message}'); continue
+  rid=report.get('reportId'); seen_report_ids.append(rid)
+  badreq=[x for x in report.get('requirementsEvaluated',[]) if x not in pids]
+  badpro=[x for x in report.get('profiles',[]) if x not in all_profile_ids]
+  if badreq: implementation_evidence_errors.append(f'{rid}: unknown requirements {badreq}')
+  if badpro: implementation_evidence_errors.append(f'{rid}: unknown profiles {badpro}')
+  result_ids=[]
+  for result in report.get('results',[]):
+   if result_validator:
+    errs=list(result_validator.iter_errors(result))
+    if errs: implementation_evidence_errors.append(f'{rid}/{result.get("resultId","unknown")}: {errs[0].message}')
+   result_ids.append(result.get('resultId'))
+   if result.get('requirementId') not in report.get('requirementsEvaluated',[]): implementation_evidence_errors.append(f'{rid}: result requirement not declared in requirementsEvaluated')
+   if result.get('requirementId') not in pids: implementation_evidence_errors.append(f'{rid}: result references unknown requirement {result.get("requirementId")}')
+  if len(result_ids)!=len(set(result_ids)): implementation_evidence_errors.append(f'{rid}: duplicate result IDs')
+  for exc in report.get('exceptions',[]):
+   bad=[x for x in exc.get('affectedRequirements',[]) if x not in pids]
+   if bad: implementation_evidence_errors.append(f'{rid}/{exc.get("id")}: unknown exception requirements {bad}')
+  mp=ROOT/report.get('evidenceManifest','')
+  if not mp.exists(): implementation_evidence_errors.append(f'{rid}: evidence manifest missing')
+  else:
+   manifest=json.loads(mp.read_text())
+   if evidence_manifest_validator:
+    errs=list(evidence_manifest_validator.iter_errors(manifest))
+    if errs: implementation_evidence_errors.append(f'{rid}: evidence manifest schema: {errs[0].message}')
+   if manifest.get('reportId')!=rid: implementation_evidence_errors.append(f'{rid}: evidence manifest reportId mismatch')
+   evidence_ids=[]
+   for art in manifest.get('artifacts',[]):
+    evidence_ids.append(art.get('evidenceId'))
+    ap=ROOT/art.get('path','')
+    if not ap.exists(): implementation_evidence_errors.append(f'{rid}/{art.get("evidenceId")}: evidence artifact missing')
+    elif hashlib.sha256(ap.read_bytes()).hexdigest()!=art.get('sha256'): implementation_evidence_errors.append(f'{rid}/{art.get("evidenceId")}: evidence digest mismatch')
+   if len(evidence_ids)!=len(set(evidence_ids)): implementation_evidence_errors.append(f'{rid}: duplicate evidence IDs')
+   referenced={x for result in report.get('results',[]) for x in result.get('evidenceIds',[])}
+   missing=sorted(referenced-set(evidence_ids))
+   if missing: implementation_evidence_errors.append(f'{rid}: result evidence IDs missing from manifest {missing}')
+  if report.get('evidenceLevel')=='L4' and report.get('independence',{}).get('classification')!='independent': implementation_evidence_errors.append(f'{rid}: L4 requires independent assessment')
+  if report.get('reportStatus')=='accepted':
+   if report.get('synthetic'): implementation_evidence_errors.append(f'{rid}: synthetic report cannot be accepted')
+   review=report.get('review',{})
+   if not review.get('acceptedBy') or not review.get('acceptedAt') or not review.get('decisionEvidence'): implementation_evidence_errors.append(f'{rid}: accepted report lacks attributable acceptance decision')
+   elif not (ROOT/review.get('decisionEvidence')).exists(): implementation_evidence_errors.append(f'{rid}: acceptance decision evidence missing')
+ except Exception as e: implementation_evidence_errors.append(f'{rp.relative_to(ROOT)}: {e}')
+if len(seen_report_ids)!=len(set(seen_report_ids)): implementation_evidence_errors.append('duplicate implementation report IDs')
+add('ASSURANCE-IMPLEMENTATION-REPORTS',not implementation_evidence_errors,f'{len(report_paths)} implementation report artifacts conform with provenance, evidence and acceptance controls' if not implementation_evidence_errors else '; '.join(implementation_evidence_errors[:12]),'assurance')
+
+# Fixture contract proves positive and negative validation behaviour.
+fixture_errors=[]
+try:
+ valid_fixture=load(ROOT/'implementation-reports/fixtures/valid-independent-report.json')
+ if list(report_validator.iter_errors(valid_fixture)): fixture_errors.append('valid-independent-report rejected')
+ for name in ['invalid-missing-source-revision.json','invalid-unknown-profile.json','invalid-independence-claim.json','invalid-missing-evidence.json']:
+  obj=load(ROOT/'implementation-reports/fixtures'/name)
+  if not list(report_validator.iter_errors(obj)): fixture_errors.append(f'{name} unexpectedly accepted')
+except Exception as e: fixture_errors.append(str(e))
+add('ASSURANCE-IMPLEMENTATION-FIXTURES',not fixture_errors,'implementation-report schema accepts the positive fixture and rejects four controlled negative fixtures' if not fixture_errors else '; '.join(fixture_errors),'assurance')
+
+# Candidate readiness is generated, schema-valid and current with its authoritative inputs.
+readiness_errors=[]
+try:
+ readiness_schema=load(ROOT/'governance/candidate-readiness.schema.json'); Draft202012Validator.check_schema(readiness_schema)
+ readiness=load(ROOT/'governance/candidate-readiness.json')
+ errs=list(Draft202012Validator(readiness_schema).iter_errors(readiness))
+ if errs: readiness_errors.append('schema: '+errs[0].message)
+ cp=subprocess.run([sys.executable,str(ROOT/'scripts/build_candidate_readiness.py'),'--check'],cwd=ROOT,capture_output=True,text=True)
+ if cp.returncode!=0: readiness_errors.append((cp.stderr or cp.stdout).strip())
+ if readiness.get('eligibleForV1Decision') != (len(readiness.get('blockingGates',[]))==0): readiness_errors.append('eligibility inconsistent with blocking gates')
+ gate_ids=[x.get('id') for x in readiness.get('gates',[])]
+ if len(gate_ids)!=len(set(gate_ids)): readiness_errors.append('duplicate readiness gate IDs')
+except Exception as e: readiness_errors.append(str(e))
+add('GOV-CANDIDATE-READINESS',not readiness_errors,'candidate readiness is schema-valid, generated from authoritative evidence and current' if not readiness_errors else '; '.join(readiness_errors[:8]),'governance')
+
 # Package manifest + integrity
 pkg=ROOT/'packages'/f'gaam-v{VERSION}'; pkg.mkdir(parents=True,exist_ok=True)
 artifact_paths=['PROJECT-STATUS.yaml',REL['normativeSpecification'],'release.json','schemas/catalog.json','threat-model/threat-register.json','matrices/normative-requirements-index.csv','matrices/requirement-test-coverage.csv','matrices/requirement-assurance-traceability.csv','matrices/threat-control-test-matrix.csv','governance/candidate-issues.json']
@@ -579,7 +675,22 @@ artifact_paths += [str(p.relative_to(ROOT)) for b in ['schemas','vocabularies','
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'governance/reviews').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'examples').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'docs/future-evolution').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
-artifact_paths += ['governance/future-enhancement-register.json']
+artifact_paths += ['governance/future-enhancement-register.json','governance/candidate-readiness.json','governance/candidate-readiness.schema.json']
+artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'implementation-reports').glob('*.schema.json'))]
+artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'implementation-reports/examples').iterdir()) if p.is_file() and p.suffix in {'.json','.txt'}]
+artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'implementation-reports/reports').glob('*.json'))]
+# Include locally retained evidence referenced by implementation reports so packaged report evidence remains reconstructable.
+for rp in report_paths:
+ try:
+  ro=load(rp); mp=ROOT/ro.get('evidenceManifest','')
+  if mp.exists():
+   artifact_paths.append(str(mp.relative_to(ROOT)))
+   mo=load(mp)
+   for art in mo.get('artifacts',[]):
+    ap=ROOT/art.get('path','')
+    if ap.exists(): artifact_paths.append(str(ap.relative_to(ROOT)))
+ except Exception:
+  pass
 artifact_paths += [str(p.relative_to(ROOT)) for b in ['profiles-draft','experimental'] for p in sorted((ROOT/b).rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
 manifest={'id':f'urn:gaam:package:{VERSION}','type':'gaam-governance-package','gaamVersion':VERSION,'status':'active','profiles':sorted(manifests),'artifacts':[{'id':Path(x).stem,'path':x,'mediaType':'application/json' if x.endswith('.json') else 'application/yaml' if x.endswith(('.yaml','.yml')) else 'text/markdown' if x.endswith('.md') else 'text/csv'} for x in artifact_paths if not x.startswith(('schemas/','vocabularies/'))], 'schemas':[p.name for p in sorted((ROOT/'schemas').glob('*.schema.json'))], 'vocabularies':[p.name for p in sorted((ROOT/'vocabularies').glob('*.json'))], 'integrity':{'algorithm':'sha-256','manifest':'checksums.json'}}
 (pkg/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')

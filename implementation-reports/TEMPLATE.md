@@ -12,6 +12,8 @@ normative_status: "Informative"
 
 > This template records the scope, method, evidence and limitations of an implementation assessment. Completing it does not by itself establish GAAM conformance or assessment independence.
 
+> **Machine-readable companion:** reports intended for candidate-readiness evaluation should include a JSON record conforming to [`implementation-report.schema.json`](implementation-report.schema.json) and an evidence manifest conforming to [`evidence-manifest.schema.json`](evidence-manifest.schema.json). Repository acceptance of that record is a separate governance decision.
+
 ## 1. Report control
 
 | Field | Entry |

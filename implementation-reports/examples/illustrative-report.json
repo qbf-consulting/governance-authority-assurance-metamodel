@@ -1,0 +1,45 @@
+{
+  "reportId": "GAAM-IR-ILLUSTRATIVE-001",
+  "reportVersion": "1.0",
+  "reportStatus": "structurally-valid",
+  "synthetic": true,
+  "gaamVersion": "0.9.0",
+  "implementation": {
+    "name": "Illustrative Delegated Purchase Service",
+    "version": "2026.07.18-test1",
+    "sourceRevision": "example-revision-001",
+    "environment": "isolated synthetic test environment",
+    "repository": null
+  },
+  "profiles": [
+    "gaam:profile:foundation:0.9.0",
+    "gaam:profile:delegated-authority:0.9.0",
+    "gaam:profile:runtime-governance:0.9.0"
+  ],
+  "requirementsEvaluated": ["GAAM-AUTH-001", "GAAM-DEC-001", "GAAM-LIFE-001"],
+  "evidenceLevel": "L1",
+  "validator": {"name": "illustrative-validator", "version": "0.1"},
+  "results": [
+    {"resultId": "EX-RES-001", "requirementId": "GAAM-AUTH-001", "method": "structural-test", "status": "pass", "evidenceIds": ["EX-EVD-001"], "notes": "Synthetic fixture only."},
+    {"resultId": "EX-RES-002", "requirementId": "GAAM-DEC-001", "method": "behavioural-test", "status": "pass", "evidenceIds": ["EX-EVD-002"], "notes": "Synthetic fixture only."},
+    {"resultId": "EX-RES-003", "requirementId": "GAAM-LIFE-001", "method": "behavioural-test", "status": "fail", "evidenceIds": ["EX-EVD-003"], "notes": "Revocation propagation is intentionally failed in this example."}
+  ],
+  "exceptions": [
+    {"id": "EX-DEV-001", "statement": "Revocation propagation may remain stale for up to twelve minutes.", "status": "open", "affectedRequirements": ["GAAM-LIFE-001"]}
+  ],
+  "evidenceManifest": "implementation-reports/examples/illustrative-evidence-manifest.json",
+  "independence": {
+    "classification": "self",
+    "assessor": "Illustrative operator",
+    "relationshipsDisclosed": true,
+    "statement": "Synthetic self-produced evidence; no independent assessment is claimed."
+  },
+  "claimBoundary": {
+    "conclusion": "Illustrative schema-valid report only; no conformance claim is issued.",
+    "limitations": ["Synthetic implementation", "Failed lifecycle result", "No independent evidence"],
+    "validFrom": "2026-07-20T00:00:00Z",
+    "validUntil": null
+  },
+  "reassessmentTriggers": ["Any change to the illustrative fixture"],
+  "review": {"acceptedBy": null, "acceptedAt": null, "decisionEvidence": null}
+}
