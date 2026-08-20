@@ -29,6 +29,8 @@ authority:
 evidence:
   validation_commands:
   - python scripts/validate.py
+  - python scripts/gaam.py validate-package conformance-kit/starter
+  - python scripts/gaam.py run-vectors python conformance-kit/reference_adapter.py
   - python scripts/validate_learning_paths.py
   - python scripts/validate_pages.py
   - npm run validate:mermaid
@@ -36,7 +38,8 @@ evidence:
   evidence_outputs:
   - validation/validation-report.json
   - VALIDATION_REPORT.md
-  - packages/gaam-v0.9.0/checksums.json
+  - packages/gaam-v0.9.1/checksums.json
+  - validation/canonical-publication-report.json
   known_limitations:
   - two independent implementation reports are not yet available
   - independent interoperability testing has not been completed

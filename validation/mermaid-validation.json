@@ -1,99 +1,117 @@
 {
   "mermaidVersion": "11.16.0",
   "status": "pass",
-  "markdownFilesChecked": 75,
-  "diagramsChecked": 15,
-  "passed": 15,
+  "markdownFilesChecked": 265,
+  "diagramsChecked": 18,
+  "passed": 18,
   "failed": 0,
   "results": [
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 1,
-      "line": 16,
+      "line": 18,
       "status": "pass"
     },
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 2,
-      "line": 33,
+      "line": 35,
       "status": "pass"
     },
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 3,
-      "line": 51,
+      "line": 53,
       "status": "pass"
     },
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 4,
-      "line": 63,
+      "line": 65,
       "status": "pass"
     },
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 5,
-      "line": 87,
+      "line": 89,
       "status": "pass"
     },
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 6,
-      "line": 103,
+      "line": 105,
       "status": "pass"
     },
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 7,
-      "line": 121,
+      "line": 123,
       "status": "pass"
     },
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 8,
-      "line": 142,
+      "line": 144,
       "status": "pass"
     },
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 9,
-      "line": 166,
+      "line": 168,
       "status": "pass"
     },
     {
       "file": "diagrams/architecture-diagrams.md",
       "block": 10,
-      "line": 189,
+      "line": 191,
       "status": "pass"
     },
     {
       "file": "docs/architecture-overview.md",
       "block": 1,
-      "line": 38,
+      "line": 40,
       "status": "pass"
     },
     {
       "file": "docs/control-document-schedule.md",
       "block": 1,
-      "line": 52,
+      "line": 53,
       "status": "pass"
     },
     {
       "file": "docs/control-document-schedule.md",
       "block": 2,
-      "line": 84,
+      "line": 85,
+      "status": "pass"
+    },
+    {
+      "file": "docs/guided-learning.md",
+      "block": 1,
+      "line": 14,
       "status": "pass"
     },
     {
       "file": "docs/implementation-guide.md",
       "block": 1,
-      "line": 33,
+      "line": 35,
       "status": "pass"
     },
     {
       "file": "docs/lifecycle-model.md",
       "block": 1,
-      "line": 26,
+      "line": 28,
+      "status": "pass"
+    },
+    {
+      "file": "examples/delegated-agent-purchase/architecture.md",
+      "block": 1,
+      "line": 12,
+      "status": "pass"
+    },
+    {
+      "file": "examples/high-impact-multi-agent-service/architecture.md",
+      "block": 1,
+      "line": 12,
       "status": "pass"
     }
   ]

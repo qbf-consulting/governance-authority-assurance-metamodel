@@ -17,7 +17,7 @@ GAAM defines protocol-neutral, executable governance semantics for authority, de
 
 | Attribute | Value |
 |---|---|
-| Current release | v0.9.0 |
+| Current release | v0.9.1 (preserving the v0.9.0 normative baseline) |
 | Status | Candidate Specification |
 | Primary artifact | Governance metamodel specification |
 | Validation | Automated schema, conformance and publication checks |
@@ -32,6 +32,7 @@ GAAM defines protocol-neutral, executable governance semantics for authority, de
 - [Inspect the schemas](schemas/)
 - [Browse the controlled vocabularies](vocabularies/)
 - [Run or review conformance checks](conformance/)
+- [Exercise the portable conformance kit](conformance-kit/README.md)
 - [Explore examples](examples/)
 - [Review releases and migration guidance](releases/)
 

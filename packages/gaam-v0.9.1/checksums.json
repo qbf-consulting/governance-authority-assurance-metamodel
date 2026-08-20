@@ -1,0 +1,1918 @@
+{
+  "algorithm": "sha-256",
+  "scope": "declared source artifacts excluding this checksum file",
+  "files": [
+    {
+      "path": "PROJECT-STATUS.yaml",
+      "sha256": "a7f46fa563f3eb0702cf4bcd9ada223d7f3751d70ec6887c6abc76487ecebc15"
+    },
+    {
+      "path": "conformance-kit/README.md",
+      "sha256": "dcb0b905602b8a1a1d7967fa4b82bf1d4e919ecd2f711d1e9dd15669ab5427ce"
+    },
+    {
+      "path": "conformance-kit/manifest.json",
+      "sha256": "6395f7e9b563270d62f2679d3757894bd664b148b76f2936552bd1aba742fa95"
+    },
+    {
+      "path": "conformance-kit/reference_adapter.py",
+      "sha256": "b02d6d3c753682ef36656d1f118d364a28c795f7fd5273d3d6df01264f2f85ed"
+    },
+    {
+      "path": "conformance-kit/result.schema.json",
+      "sha256": "4ea7cec5a64b71fda9fa32089425557304ddd7651355ed60ad763c728cd38ef4"
+    },
+    {
+      "path": "conformance-kit/starter/README.md",
+      "sha256": "8512971c15c0a762da6be96a759f0ff831b795be9ce7f8bf85c9677959389cb2"
+    },
+    {
+      "path": "conformance-kit/starter/artifacts/authority.json",
+      "sha256": "25552095da1aa5d28f9eac41569481700eb0a8c1cc6a52a15f98f0ffc0ab2ada"
+    },
+    {
+      "path": "conformance-kit/starter/artifacts/conformance-claim.json",
+      "sha256": "2381ca93005fa19d71ec0bbbc31ded634029ab40ca0c97aa60993fda564c4161"
+    },
+    {
+      "path": "conformance-kit/starter/artifacts/decision-receipt.json",
+      "sha256": "a641df47f0a61b5e7264c80d42f6e299fa21533688e18ac5bbcfa8844d09f0a3"
+    },
+    {
+      "path": "conformance-kit/starter/checksums.json",
+      "sha256": "d28274933f4355d3b847bd25643ed18a05a9858c917bf7e033d5ff0ee723bbbf"
+    },
+    {
+      "path": "conformance-kit/starter/manifest.json",
+      "sha256": "378413771cd8c8da6e9f2823d9c04227dce222aac45b6159021faa894fa5967c"
+    },
+    {
+      "path": "docs/future-evolution/concept-classification.md",
+      "sha256": "7171e3fabf874f54387ced75fb1c1eb6cac82958d7e7c663e07b8b6c4c6149b5"
+    },
+    {
+      "path": "docs/future-evolution/concepts/affected-parties-and-remedy.md",
+      "sha256": "74383ee0a80b03df4d7cd823ad7c6511e4138f32223f48d24826cfe832e1383e"
+    },
+    {
+      "path": "docs/future-evolution/concepts/agent-and-composite-action-governance.md",
+      "sha256": "d42f04f097f2c57d8f530ba9792da9bb2edf64baa38e8f90a2cd852274074c6a"
+    },
+    {
+      "path": "docs/future-evolution/concepts/assurance-composition-and-dependency.md",
+      "sha256": "0fc241ee7a516417927fc15db3ab30a9d5c3d5cd2367c4cd274913e9923b46d8"
+    },
+    {
+      "path": "docs/future-evolution/concepts/authority-scope-composition.md",
+      "sha256": "1ec83900a2797edb35405417b573d1fa86c3089c2ccedcadfdee976797650f0f"
+    },
+    {
+      "path": "docs/future-evolution/concepts/continuity-caching-and-revocation.md",
+      "sha256": "6865954f15c47908755d1e81c947a16d3a6325c5639ce1691f8bb8e65af80454"
+    },
+    {
+      "path": "docs/future-evolution/concepts/evidence-predicates.md",
+      "sha256": "eb33670baf307b88c6171602d545a6d04fba38e25d73a92b7341dd07fa180f17"
+    },
+    {
+      "path": "docs/future-evolution/concepts/framework-composition.md",
+      "sha256": "46ccee600ddb1726fdf5a0624320bdf848578053e561776c0e5a7b2ce3d10ea8"
+    },
+    {
+      "path": "docs/future-evolution/concepts/index.md",
+      "sha256": "0d260e972bdd2d126f16d3729ddbc831df07775e1b91e6a4e7c4331aa84d2830"
+    },
+    {
+      "path": "docs/future-evolution/concepts/institutional-succession.md",
+      "sha256": "263a19ebf31af24e587ac8e016c89f3cbcb7aa59e3ee91347acf70d0508f21d5"
+    },
+    {
+      "path": "docs/future-evolution/concepts/jurisdiction-market-and-systemic-governance.md",
+      "sha256": "000a07460b71d61dc428a446eab259b3aa00ad581c0b85b027dbf7837751b053"
+    },
+    {
+      "path": "docs/future-evolution/concepts/obligation-lifecycle.md",
+      "sha256": "dc21dca5db3fa31c04f33c87be0f15101c0c3f00b1a75629041b768856e3499c"
+    },
+    {
+      "path": "docs/future-evolution/concepts/organisational-authority-chains.md",
+      "sha256": "243fec36973934ea87b7175f0899a91e660471868a72237a8747381d3c3250cd"
+    },
+    {
+      "path": "docs/future-evolution/concepts/privacy-inference-and-observability.md",
+      "sha256": "9ddd2102207c9df57472acaf0a51f4db546c35636236a947f52ba05bf8ad76f7"
+    },
+    {
+      "path": "docs/future-evolution/concepts/standing-qualification-and-recognition.md",
+      "sha256": "5f3591394ecd24eccc64e3c2c70edc2a9b207d2c63b8a04c70ff24d228289539"
+    },
+    {
+      "path": "docs/future-evolution/concepts/temporal-governance.md",
+      "sha256": "959b9439516350306d1a569ff0eedaf11adbe1ba29c4e626068b3124b34a17d4"
+    },
+    {
+      "path": "docs/future-evolution/concepts/uncertainty-and-confidence.md",
+      "sha256": "f8bd946aee1944731ed89496cd0c205c4ec8a618b601fb4bc075108bc4e18d66"
+    },
+    {
+      "path": "docs/future-evolution/delivery-roadmap.md",
+      "sha256": "e8bcbfeba676d21c2a02690c3c4581b1422eeeef44d94bd0dc0cdb86a7e349d3"
+    },
+    {
+      "path": "docs/future-evolution/expansion-principles.md",
+      "sha256": "3370068387188076cf255b5d4bb4bc33b155f8e1ee94b3ff4071266a1a850166"
+    },
+    {
+      "path": "docs/future-evolution/index.md",
+      "sha256": "7785481f3e926cec1947faa7019cd3bd566c97d9d6535ae078382a2772e1c1ab"
+    },
+    {
+      "path": "docs/future-evolution/normative-boundary.md",
+      "sha256": "585dec5b02fa2148986201d4ddf57bc59165307fe3c3d323a2b7a26503a55b4d"
+    },
+    {
+      "path": "docs/future-evolution/promotion-governance.md",
+      "sha256": "f01739d31da5b09c7a92652542e908c2bfa8bccd4ef480e56788b9a0d92d3d71"
+    },
+    {
+      "path": "examples/README.md",
+      "sha256": "da62beece5c90dafe7196511591b7d355fabd4e00c27b516d9a6b270d2496d26"
+    },
+    {
+      "path": "examples/agent-state-change-control/README.md",
+      "sha256": "8ceea95bddec4425c8b924520810d72e20a112f77123a99cfbd0858d367e07d9"
+    },
+    {
+      "path": "examples/agent-state-change-control/conformance-claim.json",
+      "sha256": "d86bbb4f2ef2acc1c58f250a31c1f7056864a252031e094cb89f9b23c06a2d61"
+    },
+    {
+      "path": "examples/agent-state-change-control/experimental-agent-state-lineage.example.json",
+      "sha256": "7f9436c390da1fe841d703a7de797d9f0d99e53b2f33826c666ce30e3ce409ef"
+    },
+    {
+      "path": "examples/agent-state-change-control/index.md",
+      "sha256": "17ecc4bb3badcb7c39a2681d0ef809890dca00aaeb50e659a33282dfbf0f3526"
+    },
+    {
+      "path": "examples/agent-state-change-control/pattern.json",
+      "sha256": "150623a494db67f2656fe58d11ed961ab8f548163cddf78c6f1d8729fd6917a4"
+    },
+    {
+      "path": "examples/assurance-composition/README.md",
+      "sha256": "349d689fad4c95c4bd4ff1495d2ccfe7469bc36bfeafcc1bdc1c2c1dd1f5cf22"
+    },
+    {
+      "path": "examples/assurance-composition/conformance-claim.json",
+      "sha256": "61454f610ba097af762f485215c293a8cd0a60b39bc1d32b8b1b6aa24788627b"
+    },
+    {
+      "path": "examples/assurance-composition/experimental-assurance-dependency.example.json",
+      "sha256": "11edf2ee3b165e45065f802126728ccd0b6421102c094389841d790f2f313551"
+    },
+    {
+      "path": "examples/assurance-composition/index.md",
+      "sha256": "0079f444e33f534937a732c32e099777347b5bf0cd5eecceb6d4216b6652baa5"
+    },
+    {
+      "path": "examples/assurance-composition/pattern.json",
+      "sha256": "51f6df2db4953dbec7aaaeab0cc0dd568fe32b336d5dd9b0b83cd6b52450e559"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/README.md",
+      "sha256": "9c6c3a2ca662b79aaf7dd4eebd5e99e8bf0d0a18c0903884939dd5ecff1a547f"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/architecture.md",
+      "sha256": "3caac15c857b4007b9093484448ba4fb0784641eb26bba3b33d9f0dfc705f4a1"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/authority-model.md",
+      "sha256": "b20968ad0b2c74aa842fd885059a5fe95fec6b7d98900acc0c66a666c60b9849"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/authority.invalid.json",
+      "sha256": "f865c2eb78f2cc7639f8f91b1e05c95040eb86b2c2c43231a9506bb4a9bd74e3"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/authority.valid.json",
+      "sha256": "8b92fcb0578089b62a8e9d3dc32d019009db1350cd9ae0053dd569a0aca33db6"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/conformance-claim.json",
+      "sha256": "a44397cd48c7109345a072e273e3e56987984ac67b8b3f7ac1987a461bdf3927"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/decision-input.json",
+      "sha256": "72f95892389e9b44bf9d15fd94aea6e2b3305948708b13b54d2e8f2282b641b0"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/decision-receipt.invalid.json",
+      "sha256": "e746e0e372f686eb901dccbd2e5ba523ee2d6a90b514b6e7c8d7998d90c3fa9b"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/decision-receipt.valid.json",
+      "sha256": "9f5261e494d36b564e213b3c812f31f8b83a416ce76a26460962c1c9b522b98b"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/delegation.invalid.json",
+      "sha256": "e95e3d6b7a23f2b9b3187e6c5f10cead67b343de126c086a81293b11dd2be98b"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/delegation.valid.json",
+      "sha256": "434e8603c5876e4d3eadb4188d03819b79a401aec3c3383655b24424dee23ab6"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/evidence-manifest.json",
+      "sha256": "053bda4654f0fcc78b9adc7c1cb7ad7f15db65dc35e19dca1f90deb91848ccbb"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/evidence-model.md",
+      "sha256": "97dbe2647b6980b6c52268c544e803aadcb7f3e693cefc75fb0892880cf2c350"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/governance-event.invalid.json",
+      "sha256": "3e8a98a05c65e16e9f7dcb2af5231ccb698c2cc5bf1dc229232ca19a45ca3885"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/governance-event.valid.json",
+      "sha256": "965c579e1119123f16a9edad004dea00da2ad3f02c7d7dea1cc636e37cd6d040"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/index.md",
+      "sha256": "f8b29d4384ec39463b77a4a17d1903f98b5102d79562efa785aae1f90f7795d5"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/lifecycle-and-revocation.md",
+      "sha256": "b9d4d70db891957e76d9ef50247719fc7b8534da62870b817758847ef6c54d8a"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/notice-review-remedy.md",
+      "sha256": "bd758980b328efb8ead251b8f541834dab16657b15ee4a817e6400787c828b3a"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/pattern.json",
+      "sha256": "c1d689f8c1c42a2ae2e4126fbc5a760022d9a622b8d44574d3f131e6fc3cbde5"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/privacy-security-analysis.md",
+      "sha256": "8c41df36f5155c298d83ba989e3151cb27a672849bc11d7c63d0d3ed93f91004"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/remedy.invalid.json",
+      "sha256": "78097ef0a62078677fd9c507ee4dbd149c64a7943c4b639b734c9e87574579c2"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/remedy.valid.json",
+      "sha256": "f7352bf6cc1a714f0af7104c67ff4364775bf2701195808a1fead5afbe283720"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/requirement-mapping.md",
+      "sha256": "67a49ba84a2c2b0c17c41f2c484308bc75469b5181dc884a75cffd54178e9aeb"
+    },
+    {
+      "path": "examples/authority-lifecycle-and-revocation/runtime-sequence.md",
+      "sha256": "ea4c0acb281158f8d17eb27458f6e66f6142ad71309f6547bb34244193eb4775"
+    },
+    {
+      "path": "examples/basic-governed-decision/README.md",
+      "sha256": "b90ab8d6979fcb018ce0563996cb4b4d2978a66c3bd88a1a606b9bbdf1dd0b8a"
+    },
+    {
+      "path": "examples/basic-governed-decision/architecture.md",
+      "sha256": "2d3d202f94ea3fe88f29f148f60f5ad65c430de2d6f8cd4439a75d2564444ae9"
+    },
+    {
+      "path": "examples/basic-governed-decision/authority-model.md",
+      "sha256": "cf17260125f2bb1c77cd5a4b9ecec38112a340e5638e0462460225a000e2452a"
+    },
+    {
+      "path": "examples/basic-governed-decision/authority.invalid.json",
+      "sha256": "d80d5b35d482bc0af9cf962be7808c255f88e4dd1cce361ff37d101e430a359f"
+    },
+    {
+      "path": "examples/basic-governed-decision/authority.valid.json",
+      "sha256": "21c2101dcee309ee3eae4a1a4ada40531abe204e467e20ff70f5f2d9df0ae6db"
+    },
+    {
+      "path": "examples/basic-governed-decision/conformance-claim.json",
+      "sha256": "b53cc0ae7360b2cf52b737f07cb091adc7e8c4b9e371f3eeaa6d15f88a9acd48"
+    },
+    {
+      "path": "examples/basic-governed-decision/decision-input.json",
+      "sha256": "72f95892389e9b44bf9d15fd94aea6e2b3305948708b13b54d2e8f2282b641b0"
+    },
+    {
+      "path": "examples/basic-governed-decision/decision-receipt.invalid.json",
+      "sha256": "23fb1417c4b84d66c5baf32fd96219c2b9a04dc50bad017a75e222a09d9f2654"
+    },
+    {
+      "path": "examples/basic-governed-decision/decision-receipt.valid.json",
+      "sha256": "5fd9c0b3e8766ea1c9b5c3c408e284321fca46f38b307cda637c0b2b83b8ccd2"
+    },
+    {
+      "path": "examples/basic-governed-decision/delegation.invalid.json",
+      "sha256": "cc9eca54ec8299681e10e1a84e3b1041da12cd4a7d12e26840f2bb5aebbfd185"
+    },
+    {
+      "path": "examples/basic-governed-decision/delegation.valid.json",
+      "sha256": "1ac70371bed4c1cab40a541f1af390a32ca8c919fc06fc4d9f3aacf6bb0bdfc0"
+    },
+    {
+      "path": "examples/basic-governed-decision/evidence-manifest.json",
+      "sha256": "053bda4654f0fcc78b9adc7c1cb7ad7f15db65dc35e19dca1f90deb91848ccbb"
+    },
+    {
+      "path": "examples/basic-governed-decision/evidence-model.md",
+      "sha256": "646da98ad36318a27640fd2dffcfa1beb6d9da5ad5dd90715c26a1a35e46230d"
+    },
+    {
+      "path": "examples/basic-governed-decision/governance-event.invalid.json",
+      "sha256": "21b5e456365a48e1f52ce1f3578c8b6a98f945246f0076e994ee2d4444aa740d"
+    },
+    {
+      "path": "examples/basic-governed-decision/governance-event.valid.json",
+      "sha256": "76fb6af214625645272dafb99ca236518350e7fbd33ee4324762c4e920d54d06"
+    },
+    {
+      "path": "examples/basic-governed-decision/index.md",
+      "sha256": "109489acc46adf482a8776a58f6eb2b6293b2db4ba2d0f91a4f6744cd3ad6f92"
+    },
+    {
+      "path": "examples/basic-governed-decision/lifecycle-and-revocation.md",
+      "sha256": "787668ae79d18b863fa06e8cc8b3f0ae439f4f93fe692bb9e1117a18acba73cd"
+    },
+    {
+      "path": "examples/basic-governed-decision/notice-review-remedy.md",
+      "sha256": "6e4b0251b0ab6d69a5a53a4acc963cb52b132acf9829e20e139f73b831efdbba"
+    },
+    {
+      "path": "examples/basic-governed-decision/pattern.json",
+      "sha256": "ba02a6ae0c6ede125c836f0c31dc23df511fe8f1a8879552ec5603a6b643ddae"
+    },
+    {
+      "path": "examples/basic-governed-decision/privacy-security-analysis.md",
+      "sha256": "c2ba658ddff23d3a83b50f4adfc6a8e1782bcecb84e4f8194067c623a1a6392f"
+    },
+    {
+      "path": "examples/basic-governed-decision/remedy.invalid.json",
+      "sha256": "a964a0e30e397d1d0ba7e359544369ebf79eeac7b1dff4a6dbb179dd6df0c1d9"
+    },
+    {
+      "path": "examples/basic-governed-decision/remedy.valid.json",
+      "sha256": "66be44866ff39e01ca05327ee9dc1482356960ad11f82c9b0dc427bce5b5cbb4"
+    },
+    {
+      "path": "examples/basic-governed-decision/requirement-mapping.md",
+      "sha256": "c5e1100fe4808cc08febcc46187ccbf3318cae0b4fcbcedcab511b6e6c0c5aa9"
+    },
+    {
+      "path": "examples/basic-governed-decision/runtime-sequence.md",
+      "sha256": "3a061e59902a3b17264444c2611f20553d225e882991bb44360b56e246927ff7"
+    },
+    {
+      "path": "examples/catalog.json",
+      "sha256": "1c71de1d0159a58a67a9c93a38b1310da3f168c07fce8a0918342b84085909b1"
+    },
+    {
+      "path": "examples/composed-pattern-comparison.md",
+      "sha256": "3ba4091c4f79367fb4f7e5be0faf0967ed06230e4e0402388b446fd694418afc"
+    },
+    {
+      "path": "examples/cross-jurisdiction-policy-conflict/README.md",
+      "sha256": "475c95761685b2a57c248242bcefde84f9c43231a87d26b611c7e46ee716b449"
+    },
+    {
+      "path": "examples/cross-jurisdiction-policy-conflict/conformance-claim.json",
+      "sha256": "606d571cd6ff7ba8539f64cd6b6c3fb3f57fd29c4fc1514e92cd38ee62f61b2f"
+    },
+    {
+      "path": "examples/cross-jurisdiction-policy-conflict/experimental-risk-acceptance.example.json",
+      "sha256": "4dfea7b79f544984cab883b7caf4fdcf744ef288b13d07f5fb7838a04cea5941"
+    },
+    {
+      "path": "examples/cross-jurisdiction-policy-conflict/index.md",
+      "sha256": "f6d112e4a21185b49ed888eea126597f4b2c56b95418435e5522bcafcaecfff4"
+    },
+    {
+      "path": "examples/cross-jurisdiction-policy-conflict/pattern.json",
+      "sha256": "4f24fa6466e54ef744b6fd38ccb49fc7f3b6fff9267833b0ad2f8e35a876941e"
+    },
+    {
+      "path": "examples/cross-registry-recognition/README.md",
+      "sha256": "3883f831536c492a7a8f7f54d6554eb583db355207956c17fd4a4c1325a85adc"
+    },
+    {
+      "path": "examples/cross-registry-recognition/affected-party-analysis.md",
+      "sha256": "778744910a2378f52a08b30c8f819fd289b89658544bba1089b9ffa128f785f5"
+    },
+    {
+      "path": "examples/cross-registry-recognition/authority-model.md",
+      "sha256": "b34d4803592306c1addc0bc17a37f1e3477df3e276a8ac996ad15b45af51c92e"
+    },
+    {
+      "path": "examples/cross-registry-recognition/authority.invalid.json",
+      "sha256": "fb1dc3dafab02da016f49ae120c966d16529ca4fcccb5cc7dc91c4d7801efcf9"
+    },
+    {
+      "path": "examples/cross-registry-recognition/authority.valid.json",
+      "sha256": "de4e24b34e251313911018c9b1635a13ca6a32d08e73b30aea5a14b51d4ffb38"
+    },
+    {
+      "path": "examples/cross-registry-recognition/conformance-claim.json",
+      "sha256": "e898aee19d59c837cd911734aad78a94330c9ed8108057ba7d28135cc5f92536"
+    },
+    {
+      "path": "examples/cross-registry-recognition/decision-input.json",
+      "sha256": "6bc8108856047e5006e089322ed465d72be756b347f7a020df8b0d8bc2c28214"
+    },
+    {
+      "path": "examples/cross-registry-recognition/decision-receipt.invalid.json",
+      "sha256": "080c8d37d5fca8b7423c119b01a8d94785c24368e78ddad6c174726f293e730d"
+    },
+    {
+      "path": "examples/cross-registry-recognition/decision-receipt.valid.json",
+      "sha256": "78a4d209737e538ca43e2983415a9eb137efd6decf52e836bc0a0e6a5ee70df1"
+    },
+    {
+      "path": "examples/cross-registry-recognition/delegation.invalid.json",
+      "sha256": "889c4a386425e9e2091c51767518ceb2dae962a7b08e2ff45a6744394dbdb4cb"
+    },
+    {
+      "path": "examples/cross-registry-recognition/delegation.valid.json",
+      "sha256": "b7be92671b226a51008f0220faa7c985b85e2a930f190789d87d8d63f51dd74b"
+    },
+    {
+      "path": "examples/cross-registry-recognition/evidence-manifest.json",
+      "sha256": "d28494ec0b8bf321ca02578cb787f12a5d064c6adc43f2308b558778ccd46ef9"
+    },
+    {
+      "path": "examples/cross-registry-recognition/evidence-model.md",
+      "sha256": "24a557da8066eee8414aafac882752408c6be9fd40b22c6e7fd68c5358bb86b8"
+    },
+    {
+      "path": "examples/cross-registry-recognition/governance-event.invalid.json",
+      "sha256": "80ef5c0a5bc1a05fbd2ba09d980440b73a4d0e76282ce371283dae1cd06ca78d"
+    },
+    {
+      "path": "examples/cross-registry-recognition/governance-event.valid.json",
+      "sha256": "1759e18c45e4f81bf8bc0df4d3d088bb7fd62555965b42c68db3c7e26a9a22b7"
+    },
+    {
+      "path": "examples/cross-registry-recognition/index.md",
+      "sha256": "0b42593f1e51e034e6d48c324f2adb2d3bbb8a79de6fb37c27a327c3f0082714"
+    },
+    {
+      "path": "examples/cross-registry-recognition/lifecycle-and-suspension.md",
+      "sha256": "bd3556d0cff809753d86ff066c5d5a481e407432bfadf79faaa58c5a725a7322"
+    },
+    {
+      "path": "examples/cross-registry-recognition/pattern.json",
+      "sha256": "2447ffb8568f490461fc3e15a7d2a907ef8ee4498aca5423d83b34712f11c7b6"
+    },
+    {
+      "path": "examples/cross-registry-recognition/privacy-security-analysis.md",
+      "sha256": "fdc1f1703b56daf36fbac606d53269f09eceec26a913420f64fb10e77696f922"
+    },
+    {
+      "path": "examples/cross-registry-recognition/recognition-model.md",
+      "sha256": "fd7d8b8ba18848d1c3294df9ae3d2ffd585a7977ed5d03fa0428ff106360d3f3"
+    },
+    {
+      "path": "examples/cross-registry-recognition/remedy.invalid.json",
+      "sha256": "9f0800513f977c400c511023e79a5b313d3e1fb8b4cddb7dac267dcb82ae76bd"
+    },
+    {
+      "path": "examples/cross-registry-recognition/remedy.valid.json",
+      "sha256": "5c9fe44c996a0f91347e37eb8ad5cc702128a5db9fd902d6794b116532112712"
+    },
+    {
+      "path": "examples/cross-registry-recognition/requirement-mapping.md",
+      "sha256": "d1e6cff3df075b5288f9a0bd8ebe0d43476e9a7c66ff4dc255993a08d5a170ac"
+    },
+    {
+      "path": "examples/cross-registry-recognition/review-and-correction.md",
+      "sha256": "63737e46e69caf95bea85c350150c98093e495828f343c51fcde9dcf7faaa2c8"
+    },
+    {
+      "path": "examples/cross-registry-recognition/trust-boundaries.md",
+      "sha256": "66de8a79a5467a9092152aaaf53fb7a7cbd2dd43678fe82ed565dc746b04e852"
+    },
+    {
+      "path": "examples/degraded-trust-service-operation/README.md",
+      "sha256": "4f26ce01a00065008b636eae82e402aa07bf3528e8873a0af1a533cc817fe524"
+    },
+    {
+      "path": "examples/degraded-trust-service-operation/conformance-claim.json",
+      "sha256": "458ed8f4bea7951d22e0c4f1eb8d67beed16191ac150832b50da6662e0516c07"
+    },
+    {
+      "path": "examples/degraded-trust-service-operation/experimental-governance-state.example.json",
+      "sha256": "a3b4d3f00c01ca86a5d80edd56d3d6474b16217ab530f77abd60a932dcd8fc83"
+    },
+    {
+      "path": "examples/degraded-trust-service-operation/index.md",
+      "sha256": "c5cfb2a90de8d047a378e56da379d79e0b685045c256dfc5fe89b664d1766022"
+    },
+    {
+      "path": "examples/degraded-trust-service-operation/pattern.json",
+      "sha256": "7283b0949850ce343d73635f292e0183cbfad88f7e4931aa53ad303201fab258"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/README.md",
+      "sha256": "e7b6262f265b88cf95f0ac774be6d905d55d00f4ac38560ce3848fbf7211c367"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/affected-party-analysis.md",
+      "sha256": "572000cb335e604ce0f7729b1c995a04df5c9891e1c57ccc47f0f92a738b8472"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/architecture.md",
+      "sha256": "3724a81982841819061d36e363c25c20adc01abf106016951b0cc9bdb724e31a"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/authority-model.md",
+      "sha256": "2f8c7e8b73a295048a6ae830b69921cd0aba668369ac7c1be8e842d771708770"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/authority.invalid.json",
+      "sha256": "fbbbfb837202c163c23bac67e1383f72aeeaf4fd66664517a6b5411549a436aa"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/authority.valid.json",
+      "sha256": "5887f6ffad56c4c955481ba14ee3fb2745b9ac6a1fd96dbec98a43dcee7a2453"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/conformance-claim.json",
+      "sha256": "bb9b2af87ad7be6e37279b756e9c4045042a8e2a135664a3318ec968a42098f1"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/decision-input.json",
+      "sha256": "72f95892389e9b44bf9d15fd94aea6e2b3305948708b13b54d2e8f2282b641b0"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/decision-receipt.invalid.json",
+      "sha256": "b09e91a65bcb4d1cf77fa0ebeafa8924067d3a301037f4e2f57edc1178f2b34c"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/decision-receipt.valid.json",
+      "sha256": "1efbc3c5dcfeb1ffb7eca1d34053dfa6306ef2c954db99856f7fb6a8058ab7da"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/delegation.invalid.json",
+      "sha256": "987738c0226c510f0017b600aca2e4ac629985ff97711fecc9bcd4db235b3594"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/delegation.valid.json",
+      "sha256": "cb3142c10da3898893c0bcf2e946130d4e74a2266585d8c2cc845d0a9b15057e"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/evidence-manifest.json",
+      "sha256": "053bda4654f0fcc78b9adc7c1cb7ad7f15db65dc35e19dca1f90deb91848ccbb"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/evidence-model.md",
+      "sha256": "a1ab1cb9ab81f8f48164dfa8881fa46300074afaf4f429d893f718a66d489ad0"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/governance-event.invalid.json",
+      "sha256": "83e4599c351d0a44503dd2b1fe34932a7bd14e6fe1b4e8ae6ead4948de1d0839"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/governance-event.valid.json",
+      "sha256": "72a25a805e200c196105c21f10c793a5ee9bfce4fb4ef5fa1df1d03ceb6beae8"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/index.md",
+      "sha256": "2b4ee70968e8014521c0b31a58da772ad48ffca699ac9e50bf3566bb816d37d4"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/lifecycle-and-revocation.md",
+      "sha256": "bfd8472b4b0f2b0615455f1ccd2e705691b5c3c63b73ffd2db3c4f8986d15d7e"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/notice-review-remedy.md",
+      "sha256": "29f740f5c10b12ee2da8ee952596a707cec53b488ed1d19e620330ad607716f3"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/pattern.json",
+      "sha256": "ca7900b08c993ae7881e91aa4375c04f6b64faa1a74c333aec84af7ed70deed3"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/privacy-security-analysis.md",
+      "sha256": "2809464d51a1c7e8b91c1aa228c62b74b85f8fd9cfdc7961224bf2ef296e9f1e"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/remedy.invalid.json",
+      "sha256": "5e0f4c7d484989f369ba004796358cad369622e027f2fb58cb8f31760cd077ba"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/remedy.valid.json",
+      "sha256": "07f70fe556564efaee95e5c13527a98be353aed4e24c3d74d8255bffddd7e2c6"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/requirement-mapping.md",
+      "sha256": "be566ffa5469b515e8ee49f05fe3a102d1d966e00220a55333fe18824de2a7da"
+    },
+    {
+      "path": "examples/delegated-agent-purchase/sequence.md",
+      "sha256": "aed9dcc379471d7828b6928cc8b48f3ff0a332caacd23032bab5dde7c72419d3"
+    },
+    {
+      "path": "examples/downstream-remedy-propagation/README.md",
+      "sha256": "aee832ff12b96461d933c6db88c02d31ae50dbc6adfe18536f04ae02682f22e9"
+    },
+    {
+      "path": "examples/downstream-remedy-propagation/conformance-claim.json",
+      "sha256": "c7a8da2cd4a50d1202cc78e42b906e7f56529b2eb1808b48d7b9d7952a8df944"
+    },
+    {
+      "path": "examples/downstream-remedy-propagation/experimental-remedy-execution.example.json",
+      "sha256": "359dfd59711ac396c3cd5af7c347dfb998b6f4fa55c0ad0f2f85a71aa66ff915"
+    },
+    {
+      "path": "examples/downstream-remedy-propagation/index.md",
+      "sha256": "e453f54aba61727defd77be2a5f789cbe1b5f3e54427af6e1864a51cf1cf7114"
+    },
+    {
+      "path": "examples/downstream-remedy-propagation/pattern.json",
+      "sha256": "8e10e52b214b1dcaca71e6380c78485b42bd865fae753c58f10f4869c1807319"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/README.md",
+      "sha256": "53faf4987c1a1a3a01e8d40b9a6fa9a221a3a4cea4930396460dc2d1e4c310ef"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/authority-chain.md",
+      "sha256": "da21c5694d1bab89a4ba10079b70fd7be373e40f3be8e44783aec71d5496fe29"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/authority.invalid.json",
+      "sha256": "b2acf19e9768731d9e51c3be6cd80be12b3e1b190d498d8916c3f7aee5d2d7ec"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/authority.valid.json",
+      "sha256": "ecaabac4a328cf99e02e0156e793401ac9da21b09298769918dcd851c4418453"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/conformance-claim.json",
+      "sha256": "f55adb5a4a7fadd3e5499b8ff5e710b1f21400e9b4dcf86aa094df27215c7e0d"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/contractual-governance.md",
+      "sha256": "de03611a527ce07219cf042b9067dd80b493210df565eee53b8dc73b02cb124b"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/decision-input.json",
+      "sha256": "72f95892389e9b44bf9d15fd94aea6e2b3305948708b13b54d2e8f2282b641b0"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/decision-receipt.invalid.json",
+      "sha256": "c3a79b57381ac65c04a0b2b88f7f9faad1e925261ef07dc9744a4aa9cc1ecfc9"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/decision-receipt.valid.json",
+      "sha256": "f1a5589c306d90b22c8925240a1d36b0d4ca323d5152d6b6c537afee4a42da14"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/delegation.invalid.json",
+      "sha256": "6805df64c7daec57057346ad1bf9afe7505fa6c27d8d73b72d1282bb23f23686"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/delegation.valid.json",
+      "sha256": "0b6b28f8480de1312636576746f2b38ee35fa01a652e210d0d1054a6a8c18c01"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/ecosystem-topology.md",
+      "sha256": "0c3f017c0f1dd63ea9eb91c47d32af2d4f477b8b140fdd1b846baac6a2f6e7f6"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/evidence-manifest.json",
+      "sha256": "053bda4654f0fcc78b9adc7c1cb7ad7f15db65dc35e19dca1f90deb91848ccbb"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/framework-composition-example.json",
+      "sha256": "011feaa6a5d2f3c8dea1c3c14a82831738ae6d76800a0563ac0f746694ece585"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/framework-composition.md",
+      "sha256": "f4ec487fdd2a811f90e7eb6d0b84be66e0f88d9aacb23ae29f1eeaa09e1ea4aa"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/governance-event.invalid.json",
+      "sha256": "9de6875c05ccc65b48a4ab11ac73311202d11bb8f7bb1c946c422a83ab56093b"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/governance-event.valid.json",
+      "sha256": "653bca640681f37f2f5e1955e85a630d9e4192c54a2322c5b0eabffad3fe124d"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/index.md",
+      "sha256": "fa0538471ad0cb61cb3561298af76d01eb48568482467f582062d57def214bb9"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/intermediary-exit-and-continuity.md",
+      "sha256": "178f3d8da0fe51d03ccc472b9429be6d0c2bccf5303593c9368cf5351551093c"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/notice-review-remedy.md",
+      "sha256": "70f18a4f069d783aa4a9f083e3ac462a2c3aa3621c06e566d14d7cfed78db1a3"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/participant-model.md",
+      "sha256": "667ee8d058ba1d48906e646eab005aee608d950e715d769841a6b064f4b150d6"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/pattern.json",
+      "sha256": "bd6183e6477e3dd2875cc602ce829bb5cd7e8343418c47d2ab7539f82bac82ec"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/privacy-security-analysis.md",
+      "sha256": "1311c54ef1f907d4b6bbcbe1542dcf9320a7f014f671c55f68be780e139ad8fd"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/qualification-lifecycle.md",
+      "sha256": "164596c67838f1bafba3fbfa15d617043d3ebed6d69d28e7543c4f6568b24f75"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/qualification-record-example.json",
+      "sha256": "f9e7873c8188f4c77bd37531b8b9eaab96b2089422c643fe373290f0f27b4597"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/remedy.invalid.json",
+      "sha256": "cdbd494ee81fbb6a4b39c75ddc1964edc1fc7e481120e4b3e73d0136e40640ea"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/remedy.valid.json",
+      "sha256": "32336ba6b1bc57892438477f4ff713495b0636a82294c209a72b892f5b4905b4"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/requirement-mapping.md",
+      "sha256": "cf5acf2a3e558a4b9e7a39d806e922b715419fefdc4a51452e274fdc9cf5795e"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/risk-acceptance-example.json",
+      "sha256": "fdcc71e7b70c79257ac5cd2726f75512a52ea18ebb85079cc56ee48987d76988"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/risk-and-residual-risk.md",
+      "sha256": "07e3043915a1ace6e42644f39358261f710a1771b7618c9e9f8624e0c682684e"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/service-and-assurance-model.md",
+      "sha256": "c591c7016d8b9ba6efaecddc58ef9a203cb82355da41032309cdc235edbceec4"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/service-obligation-example.json",
+      "sha256": "5451d5b5be07638a7a8819942315caf6cbf716742d4b134973e023e813ffc06b"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/third-party-dependencies.md",
+      "sha256": "d6111ba5e94baa63cc9e12287e5a043efd154f82c9caef4ca62d92627ecb3c34"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/third-party-dependency-example.json",
+      "sha256": "523c5093e1c49623bf1365977dccf8c1dc0d73e930599484f0f6de6dcbc7181c"
+    },
+    {
+      "path": "examples/governed-ecosystem-operations/transition-plan-example.json",
+      "sha256": "ea5bf6cd554f1e9ffb2dfc3f59348cbeba987ae2443ab380b5afd961c0fa1e0e"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/README.md",
+      "sha256": "91d1e4d40de270606e7fa9524b58a4c4708c07dd5cb49cb9276785d58dc3a359"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/affected-party-analysis.md",
+      "sha256": "33d5358069b3d54f622496d99a1742ca0626566f8ada014da13ba62eb5f2d8a5"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/architecture.md",
+      "sha256": "c7b1e6844c97efedfb94d8b2bbfcd8b2f0394566378fdf659a225a0a66ccaf96"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/authority-model.md",
+      "sha256": "9c338f5b2fd3f161f6d91354d954bcff66f6b5724fa1fc63ae8127de0fcdef6e"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/authority.invalid.json",
+      "sha256": "5aea4c2e277bd1cc2de98aee80196cd4a3d1d0b8d325bf3fed7c2ac725daf450"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/authority.valid.json",
+      "sha256": "83a116c177663bd0819f516542a0ad35903c4f27eeb28bbba1e9540b0ed8f435"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/conformance-claim.json",
+      "sha256": "3ff36a887cf1b8a3fbf41631c4ff53142e9a91c50b56187ca8fdd2b528b782eb"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/decision-input.json",
+      "sha256": "6d3849fa29767aaaa56ce1a419eed8065ba6bf6e5ec0a2ba8294d276efbfd60b"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/decision-receipt.invalid.json",
+      "sha256": "8237ed8b557680fa289a9545736824bda79374cda33f592787b01326101b85f6"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/decision-receipt.valid.json",
+      "sha256": "dfe011c99946f21993cb3439a31840df197c6230cd850d5e34bbffd55ee08daa"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/delegation.invalid.json",
+      "sha256": "09c05513c8641ae105cfe5e89e569367a78f5e124f6d0baeff02149434ea7d01"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/delegation.valid.json",
+      "sha256": "0297c6f78becff6ca2b0feff934662468bed0bd24ba8c14b19772f023637f49e"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/evidence-lineage.md",
+      "sha256": "6194430ba2c08b28ecbe776aa7f6418c1067839d964dd9138874959894b672f7"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/evidence-manifest.json",
+      "sha256": "b3111f79c7f5f7e6d855211d0a39458eb0e598d2cd8d46ed01d7b87d02a6e46f"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/governance-event.invalid.json",
+      "sha256": "a7edbb94394cf84bfb9e0506f85a2f3d097e3ecfedef96d1aaf8a00b68809f31"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/governance-event.valid.json",
+      "sha256": "350fa7a80d8b8b6d171008d1fa78cd8bc04ef1c9aa5d3c016d644016c554a898"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/index.md",
+      "sha256": "3a2eaec74c7c73058afc481dc356bec5d56a258fa58b560398690ef5483dcb47"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/lifecycle-and-interruption.md",
+      "sha256": "b6bb67c14d7627bbb92764c4dda724e26d6bfbf79eaf035b11a9f03c5db74f7e"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/notice-review-remedy.md",
+      "sha256": "2d7ec2dc3756d009a9dcb3b68823d6df7ae76c7fe1d91885180976b17db8cbd0"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/orchestration-sequence.md",
+      "sha256": "75459fe2e73031020175d46781ea50186816b0ef72186744e1652f1d75b59e75"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/pattern.json",
+      "sha256": "b9d05b9a210d7c85fa87bc1dc39d73d3862bb80d0b4fa281b23ddfa5677821ae"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/privacy-security-analysis.md",
+      "sha256": "57bc6d24da2f6347ed5cd40ad2474f1ea966eee2a166b75413fde641c230a232"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/remedy.invalid.json",
+      "sha256": "168ef4192a77b8c5f467750edde260411c711880a9e6d3eb7904f7a6dded0eb6"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/remedy.valid.json",
+      "sha256": "a96777ab09ae6f4cb4fcd7d05af8c0a847827559a2494742c296401c10dad401"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/requirement-mapping.md",
+      "sha256": "2f1912e9d0fd7f58f685fab1ad1dd19bec883d2dd03ef9ef54b01378e1d9be9d"
+    },
+    {
+      "path": "examples/high-impact-multi-agent-service/responsibility-model.md",
+      "sha256": "9e96c9feca5f08db89656b92233560ab5aa69bb29934266226d3f5025d9ab957"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/README.md",
+      "sha256": "20dfd1d20dcc04beede3aa414edebfd982fa939675a9ed77b2ef1436ce213eb0"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/architecture.md",
+      "sha256": "7a0ecb4aeffd8df9a0b2d7a374e670062d544644b4dc6f169d3d847964965164"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/authority-model.md",
+      "sha256": "8dcaa909f456353f8c836cae46dbe3afa225070ba9145c4f942a3b6cc834e2b6"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/authority.invalid.json",
+      "sha256": "714d92c69df4d2f6f2319a758cc244a26e24aadc82b8c957b464933d3c856998"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/authority.valid.json",
+      "sha256": "9138286bf372be7cfec5a06ec19ade78b22974415d3f0414c2c72c561221ac59"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/conformance-claim.json",
+      "sha256": "628bdecd9f6cc8d0801a5e5782d2847708c306ffe7d696d92e7615c37ef4d68b"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/decision-input.json",
+      "sha256": "72f95892389e9b44bf9d15fd94aea6e2b3305948708b13b54d2e8f2282b641b0"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/decision-receipt.invalid.json",
+      "sha256": "108ac5c13808310f814a01d0f103854358bbe14372c03b96e3f2428a0ca65db8"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/decision-receipt.valid.json",
+      "sha256": "01ae0fef844e7dfc00d5df7dd34d1bf52714cd80b06d62867eb3b9ba33686e14"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/delegation.invalid.json",
+      "sha256": "9ef267ad6ceb3493bdc2527df0ce1552b1dbbb35154bcbf432f23a35d5e8ba5a"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/delegation.valid.json",
+      "sha256": "e1bf2229798ae7290139f89dad8dee8bc3bd52cfe11ffef42bd56ed8d934f8b3"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/evidence-manifest.json",
+      "sha256": "053bda4654f0fcc78b9adc7c1cb7ad7f15db65dc35e19dca1f90deb91848ccbb"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/evidence-model.md",
+      "sha256": "75e1ce11f62ff36fd058fb1b7ef36dbb697cfe8388c6521a433a9051674cbdbd"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/governance-event.invalid.json",
+      "sha256": "34764fea8402a543d3b0bb6b3b2a5b404c85ceb3fee3bf3a2ddec90d0c89cc6a"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/governance-event.valid.json",
+      "sha256": "e9dcf54c9c7e393cae6cc77e3af6f62feb9c869187bf1d416d4bb4f5aee7c7b1"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/index.md",
+      "sha256": "2efd6aa949a755c6a5a53675123bada4d5806f5a4def0c3e35f8243e87cd3031"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/lifecycle-and-revocation.md",
+      "sha256": "0acf5758cc35810e1987e8b92529289b144a5a831c07988e3b7488714c73dca8"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/notice-review-remedy.md",
+      "sha256": "8c782c5611db9a3a089cc3c49f178d9070dab837d350eb5cdb932494be77ec84"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/pattern.json",
+      "sha256": "de428e7fe0418b07b0d196a5d6c970061cd2c273ea11196fea6abcc669e82692"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/privacy-security-analysis.md",
+      "sha256": "403d0360f4221eb3bf497b503644cff9496b9654c3d5808b12555e873343a0f5"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/remedy.invalid.json",
+      "sha256": "db771801b56aa04ac06d5598d0defe7bfa8e7eae6eb001b1cb0088cfca4e56b9"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/remedy.valid.json",
+      "sha256": "ecbe356be7be1da5911d083643cc8c60b09ba167be69a556b8e49c3c1c702f19"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/requirement-mapping.md",
+      "sha256": "45a31843c3ac9273115f583b9659d91ddeb3153adebee51784d9e468170f6c79"
+    },
+    {
+      "path": "examples/independent-assurance-assessment/runtime-sequence.md",
+      "sha256": "13be99538f4e520e798b25046381b482d1c1be854c60e2969b1e03af1e454e52"
+    },
+    {
+      "path": "examples/index.md",
+      "sha256": "9a37df6bf4fff51bbb33b5b97ca063814458a37dd60e9c3beb6bc4c6d12170e3"
+    },
+    {
+      "path": "examples/inferred-evidence-governance/README.md",
+      "sha256": "0e5eb64e3d9d8e948039c9e73eba65dbe26f6910c59137994c31f189eb1a8d34"
+    },
+    {
+      "path": "examples/inferred-evidence-governance/conformance-claim.json",
+      "sha256": "c0037be6e023d21b4413335b0be86c2bbc08f618f70138394fa3feb4d181294a"
+    },
+    {
+      "path": "examples/inferred-evidence-governance/experimental-risk-acceptance.example.json",
+      "sha256": "4dfea7b79f544984cab883b7caf4fdcf744ef288b13d07f5fb7838a04cea5941"
+    },
+    {
+      "path": "examples/inferred-evidence-governance/index.md",
+      "sha256": "72f2285db68eceb8bcd6ba9650bc160b1add9805a92a8c39f3eda435fd09609e"
+    },
+    {
+      "path": "examples/inferred-evidence-governance/pattern.json",
+      "sha256": "4960324a69f2075b08137b118a44b6a926d332f7851646f226d3f087d4982cd8"
+    },
+    {
+      "path": "examples/institutional-authority-succession/README.md",
+      "sha256": "58f04a344b035e28ac0da60b888d9a840f83041f770f4dae1956ec67588578b1"
+    },
+    {
+      "path": "examples/institutional-authority-succession/conformance-claim.json",
+      "sha256": "4fcd41332b4b3a098806d07317d1e2bfb06848e52d23d7ec900d29a32c12f824"
+    },
+    {
+      "path": "examples/institutional-authority-succession/experimental-institutional-transition.example.json",
+      "sha256": "0a4a0c58e108efd0ae79218400c1a01e8599d1388304e3cb0c9032927af49890"
+    },
+    {
+      "path": "examples/institutional-authority-succession/index.md",
+      "sha256": "2d47f50307b83cebffbc6f4bb71d93a993172821046db6e17d4786a7dfa8b6fe"
+    },
+    {
+      "path": "examples/institutional-authority-succession/pattern.json",
+      "sha256": "c755fb3fe69ab202f78cf51f12f5477bc01524b73ca597a7e8175a8f75c18d9d"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/README.md",
+      "sha256": "4f9acaa95a2f9b60261488a27305a4b0ff36a5ef0b9fcb94ce9a7aaff1ad50ff"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/architecture.md",
+      "sha256": "1d0c0ab52db9cff0b7abbe6bd7e6c9327c12e7c0896a6923615000c07faa59e2"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/authority-model.md",
+      "sha256": "cbbf8875ffeb876fab8713e47e5e88af3043741da5648313a68da078da680e68"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/authority.invalid.json",
+      "sha256": "cf01b24ce09c389ff0b63a847848537d3e895e64270638d6ffc701147889633f"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/authority.valid.json",
+      "sha256": "d2e9dc27f1d60734c0e27d04f84f8028027e3a7c3f583278b893efe3ba16cf88"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/conformance-claim.json",
+      "sha256": "c69345c35f0cf304d6438de2a490a1a2c6d1e4ef1fe4cd1a77c2615b46c6a778"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/decision-input.json",
+      "sha256": "72f95892389e9b44bf9d15fd94aea6e2b3305948708b13b54d2e8f2282b641b0"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/decision-receipt.invalid.json",
+      "sha256": "4b03f5b969ea60a02f6a542acea7fa3e9437064cae0a27f78acae329a665a5d3"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/decision-receipt.valid.json",
+      "sha256": "243cfe4eb1a152361ba1e8640027e8c3b2d46d3669545ff7f46cc193a6377224"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/delegation.invalid.json",
+      "sha256": "429e89a2d3fac4f0dbe3dedb244448854b16c2f84bec9e0f88098c05e04f8131"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/delegation.valid.json",
+      "sha256": "64808bc0dc5b61e70315e9b6a10199b1e0ba74bdc287a5b552398f0cab8b282f"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/evidence-manifest.json",
+      "sha256": "053bda4654f0fcc78b9adc7c1cb7ad7f15db65dc35e19dca1f90deb91848ccbb"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/evidence-model.md",
+      "sha256": "be1560ad9470625d2e3b1cb3fb4042b1a2efac3749c4d6721367ae371df64e32"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/governance-event.invalid.json",
+      "sha256": "c1c4573a474a407cbd3b83642f56402585df3158f461d078a365c4719c805265"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/governance-event.valid.json",
+      "sha256": "2a533e73a0120a8e44def05bbd3d337dce3c7999c97f1e43f33d9dfdea8c1626"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/index.md",
+      "sha256": "f404b9caa94b60951a606ccbbda5c0e4fd68945a4ea41fa86795a5cffe88b903"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/lifecycle-and-revocation.md",
+      "sha256": "b0561cd12ac8a99eb8e765f1e12f5c0b2d5ae9c94b68108ac56543d86a01e6a5"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/notice-review-remedy.md",
+      "sha256": "46a6aa26371e0e912d042482c7d362f69c5f4d5ff982c85f46de4b77146f4c0f"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/pattern.json",
+      "sha256": "f4c438d573401b65cb874b59aba6f47d79750e0b34e0f0c59613a8189a0fc39a"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/privacy-security-analysis.md",
+      "sha256": "6d8bae448d7a4ca97e455991ab2bba665cf82675c7e576a4b9bedeb4a8db6026"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/remedy.invalid.json",
+      "sha256": "6fbf80ad6580be27b30347c731124d16589fd5c2f01b294b41fb043daf5ee1e9"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/remedy.valid.json",
+      "sha256": "1adbc0bd3ddd35d0b9ebbf583c9e161d4098dd393400df74fa3c61b286a1ec7a"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/requirement-mapping.md",
+      "sha256": "d9b99971d4a7d8f0556277df7c48e25edc3ecfe04be817fb8f909f3ba4539e8c"
+    },
+    {
+      "path": "examples/machine-actionable-governance-package/runtime-sequence.md",
+      "sha256": "1673ea7ed97bbb4df84fd145c8e35927c3a00424985217d542e6ecb71c11f2ac"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/README.md",
+      "sha256": "3792b525b6dc35793bdd69296436649f447b09b93a6fe0c81ff48cba1722dbe1"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/architecture.md",
+      "sha256": "b814287f15255468237ae389ce990f11f83b8e772e02cdbc057c66894242a437"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/authority-model.md",
+      "sha256": "15f96c4b378c5e871eb6655aa7aa4ef194c8004821f1e80e6d00653a24d5b7e4"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/authority.invalid.json",
+      "sha256": "40b862cc35b44cdedc416db9e1027a0901f6e49b3b25cf7ef57647b3585d2b10"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/authority.valid.json",
+      "sha256": "c99b7de5e90e83231fb6f6ab81a89489ea751d55b091916bf79e90080f7e667e"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/conformance-claim.json",
+      "sha256": "c53c137ffe7377bdafa5103dcc3a7e18e554375273903991f3b81f1dce034f85"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/decision-input.json",
+      "sha256": "72f95892389e9b44bf9d15fd94aea6e2b3305948708b13b54d2e8f2282b641b0"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/decision-receipt.invalid.json",
+      "sha256": "0a11b79d8e134d4240ff037c97e2d32838e08c2a28ed7836b87680e55b6cf24e"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/decision-receipt.valid.json",
+      "sha256": "77acc8fef9d68fb1bb7b158ffa0a79d1dafd4bf0893c9381cbf2c31f3311996b"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/delegation.invalid.json",
+      "sha256": "cd226d52edff1b800c0bb37194c573fa7db9293b5a8f9b5b8663f535fbffe9e8"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/delegation.valid.json",
+      "sha256": "3c55a85e42eeca221a259f07d9d19bbf370b727732f91522108982992fc3cf2a"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/evidence-manifest.json",
+      "sha256": "053bda4654f0fcc78b9adc7c1cb7ad7f15db65dc35e19dca1f90deb91848ccbb"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/evidence-model.md",
+      "sha256": "e6ad6cbbf3979b9fb2cc236f8d8474c70780d60d626e3fa9ff026c0bbfe10afa"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/governance-event.invalid.json",
+      "sha256": "fc004e36a3e9fc5fbf8b71b38f5e65734d462c1be3575c90102dfffefd2db544"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/governance-event.valid.json",
+      "sha256": "c1acf5219c9fe4d73ccb8e70b6b6e22fd9a124ff3520b85c8c22e56baf3f77af"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/index.md",
+      "sha256": "fb0acf48c3d9578c4cbb8d169f0b66a233765a911e10557309cf1d980ff40d24"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/lifecycle-and-revocation.md",
+      "sha256": "f626574257c240c5f3130db1dfb7b4a812e0ca8c5db4f7d2709f7fb2a9d8f3ea"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/notice-review-remedy.md",
+      "sha256": "b178bfb00129b91beae6ed9a6ef6ff8f64edd8d3dc8fd133502fb25171ca95b1"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/pattern.json",
+      "sha256": "86ba57f3043e305a62f086d93d926fe09abf13925ff164385e8c43a7d369d567"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/privacy-security-analysis.md",
+      "sha256": "0eeae895403aad108f82404038af33cdfdc4304daa780bb99ff38820d405253a"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/remedy.invalid.json",
+      "sha256": "6f8428c09f454739a5ad01d426568d9fa0fbc532b16175310733a7ff58c22e69"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/remedy.valid.json",
+      "sha256": "093525f9ce24258edf5b85e0a44e28e1de0b50b5b820cdf2fe128ea8e4a38efb"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/requirement-mapping.md",
+      "sha256": "20413452705ee1e04e8546c09e5a82194f701624c227ac18ee79c0e4877ef486"
+    },
+    {
+      "path": "examples/notice-challenge-and-remedy/runtime-sequence.md",
+      "sha256": "343529db710ef223d25d6a56b9d6d797c13bbd19667ceff510ca1e3b7adaad58"
+    },
+    {
+      "path": "examples/pattern-manifest.schema.json",
+      "sha256": "8a0e18d00867248760c50ddb776b41c4592867e7ef39705d63e38faf854be805"
+    },
+    {
+      "path": "examples/pattern-maturity-model.md",
+      "sha256": "ff6b5ba9b04a24b84c1550f9aebf015a908a9ee5d48fe64c4c118c3a89c92625"
+    },
+    {
+      "path": "examples/pattern-template.md",
+      "sha256": "3bce5cd79257556d88a1b27fa9408e6a491f73ccc12d2477fba761c7f7698867"
+    },
+    {
+      "path": "examples/pattern-validation-guide.md",
+      "sha256": "a9c3e59c229a491b1c1792403b4d691097484fedcda3334a93f82fc5dd475cdb"
+    },
+    {
+      "path": "examples/post-decision-obligation-lifecycle/README.md",
+      "sha256": "265d5ddb68def738ccc62cccc510a88839974ac78390e8c54078493d286e2edf"
+    },
+    {
+      "path": "examples/post-decision-obligation-lifecycle/conformance-claim.json",
+      "sha256": "48ab685673587813e2b39d95fbcfc6e8ccbc9519d2d6b41eefafe7e675ad02c9"
+    },
+    {
+      "path": "examples/post-decision-obligation-lifecycle/experimental-obligation.example.json",
+      "sha256": "c29f2ec4b5d47bb717f3cfb72dee8f7823019931cdc8534086a32da8b4de7a67"
+    },
+    {
+      "path": "examples/post-decision-obligation-lifecycle/index.md",
+      "sha256": "2514ed59497fb5438785f87342bf2b234acb66fa8967de51a15cc6614d376a44"
+    },
+    {
+      "path": "examples/post-decision-obligation-lifecycle/pattern.json",
+      "sha256": "f29becba84c68038df84cf3717492570b17a02658ab80c0f2d72aeeba65c069e"
+    },
+    {
+      "path": "examples/revocation-propagation-boundaries/README.md",
+      "sha256": "05e2e8637380583e2665b8b19ecc54b135a3fde393e04cddc4b373c0af17a301"
+    },
+    {
+      "path": "examples/revocation-propagation-boundaries/conformance-claim.json",
+      "sha256": "ffe7ad7817fc925aa8db47aa11b214d6bf00bd1b0fbb65ff730168ad317dc009"
+    },
+    {
+      "path": "examples/revocation-propagation-boundaries/experimental-governance-state.example.json",
+      "sha256": "a3b4d3f00c01ca86a5d80edd56d3d6474b16217ab530f77abd60a932dcd8fc83"
+    },
+    {
+      "path": "examples/revocation-propagation-boundaries/index.md",
+      "sha256": "cc4e9a3f6a27fc993f09a5e6a60e5ba59e97b988ee474fa2f4465cf78b523feb"
+    },
+    {
+      "path": "examples/revocation-propagation-boundaries/pattern.json",
+      "sha256": "db720039dd05ddca9f9033f83996ccfa2d00fbdcdd368acf7c89456260cad44d"
+    },
+    {
+      "path": "experimental/README.md",
+      "sha256": "42dbbdbe4869b9a7885a3321cea48cd857ac18cb850079e439f42b8be10805b7"
+    },
+    {
+      "path": "experimental/catalog.json",
+      "sha256": "daa788b0324862a3fd05b76438a27e8d71e9dec0fee45e1e3eed77b204913918"
+    },
+    {
+      "path": "experimental/examples/agent-state-lineage.valid.json",
+      "sha256": "7f9436c390da1fe841d703a7de797d9f0d99e53b2f33826c666ce30e3ce409ef"
+    },
+    {
+      "path": "experimental/examples/assurance-dependency.valid.json",
+      "sha256": "11edf2ee3b165e45065f802126728ccd0b6421102c094389841d790f2f313551"
+    },
+    {
+      "path": "experimental/examples/authority-scope.valid.json",
+      "sha256": "461b7ef0e7bb2a4b330a87e42088a72d9059588c24f5d8cd355a83d1328f7341"
+    },
+    {
+      "path": "experimental/examples/framework-composition.valid.json",
+      "sha256": "9abb4b96566780cf3ec0a249015ae435128262eedd5b883cad67b510048e75dc"
+    },
+    {
+      "path": "experimental/examples/governance-state.valid.json",
+      "sha256": "a3b4d3f00c01ca86a5d80edd56d3d6474b16217ab530f77abd60a932dcd8fc83"
+    },
+    {
+      "path": "experimental/examples/institutional-transition.valid.json",
+      "sha256": "0a4a0c58e108efd0ae79218400c1a01e8599d1388304e3cb0c9032927af49890"
+    },
+    {
+      "path": "experimental/examples/obligation.valid.json",
+      "sha256": "c29f2ec4b5d47bb717f3cfb72dee8f7823019931cdc8534086a32da8b4de7a67"
+    },
+    {
+      "path": "experimental/examples/qualification-record.valid.json",
+      "sha256": "fc9db36c053bbb978998f2fc23fc6afa09aeed64e60295743ed47331799337be"
+    },
+    {
+      "path": "experimental/examples/remedy-execution.valid.json",
+      "sha256": "359dfd59711ac396c3cd5af7c347dfb998b6f4fa55c0ad0f2f85a71aa66ff915"
+    },
+    {
+      "path": "experimental/examples/risk-acceptance.valid.json",
+      "sha256": "4dfea7b79f544984cab883b7caf4fdcf744ef288b13d07f5fb7838a04cea5941"
+    },
+    {
+      "path": "experimental/schemas/agent-state-lineage.schema.json",
+      "sha256": "a5e7ea9e3e95985b839a0a9303d4eee91cf51d530a185e1b42d302a9b2be1ccf"
+    },
+    {
+      "path": "experimental/schemas/assurance-dependency.schema.json",
+      "sha256": "bdce59170bba445adf95729135f5f3b676658cf4b8d73e6d7c87a2a1ccc7ae09"
+    },
+    {
+      "path": "experimental/schemas/authority-scope.schema.json",
+      "sha256": "9ebac698e5cbd240d1034eeecb2389be36b13b678b12a7c2187c6dc1e478f439"
+    },
+    {
+      "path": "experimental/schemas/framework-composition.schema.json",
+      "sha256": "d9053d60ecb901cff195fb9ea20af84d64357e46313eeb5b9c4623397c61f2a3"
+    },
+    {
+      "path": "experimental/schemas/governance-state.schema.json",
+      "sha256": "d35812319e49b315548aceebf280248a2844052c509008048cc74f3f559577d7"
+    },
+    {
+      "path": "experimental/schemas/institutional-transition.schema.json",
+      "sha256": "e5863e70037a6fab32035ea8a37f6277dcab541aac35b265732ba888ae5e6290"
+    },
+    {
+      "path": "experimental/schemas/obligation.schema.json",
+      "sha256": "83f7e3f670d461e50c0f47408e09dfb7068076ab6252a4e33335acc1aac88548"
+    },
+    {
+      "path": "experimental/schemas/qualification-record.schema.json",
+      "sha256": "57e6360c28a31a9326cd899b001e2afdde0f920858ed22c37776405f721c8ab9"
+    },
+    {
+      "path": "experimental/schemas/remedy-execution.schema.json",
+      "sha256": "19d35b82be0f5d8bc67d7409d2d4da599af28c2e3ac9fa5600a9363118a86780"
+    },
+    {
+      "path": "experimental/schemas/risk-acceptance.schema.json",
+      "sha256": "0f37201c5983ea8c7605ce807561b440109f42fce2b7051377b39cbc444e86fc"
+    },
+    {
+      "path": "experimental/vocabularies/agent-control-modes.json",
+      "sha256": "2c89efc55fa9db659302ac056bfa74fda4fc7d356cffa0c2082267e45955bbd6"
+    },
+    {
+      "path": "experimental/vocabularies/confidence-dimensions.json",
+      "sha256": "8aa1747adc5f8ce75332c769fb7613430fbde6152b566dc83c11122596b24721"
+    },
+    {
+      "path": "experimental/vocabularies/continuity-states.json",
+      "sha256": "6bafbe98400022a104fbfac7d1a7bb5c333a33401c600af6238149dbca9c99bb"
+    },
+    {
+      "path": "experimental/vocabularies/framework-composition-relationships.json",
+      "sha256": "526c66199fa803bc74704a80896b83bf49fbf80c15c82e184324bb2f6653b8c2"
+    },
+    {
+      "path": "governance/candidate-issues.json",
+      "sha256": "89bdb851d31c8b88a68dcdf29a9053e9854f707f326da51ca2a5bf9eb3ae2922"
+    },
+    {
+      "path": "governance/candidate-readiness.json",
+      "sha256": "1aa71b400da90366ea86ffaa96e12e89cf2b8d184c7ec9362084452e43aeda39"
+    },
+    {
+      "path": "governance/candidate-readiness.schema.json",
+      "sha256": "31d37c7f8c5d3025dfb9432379a738c6497bc7a65de1a34a58c1d17737e96f33"
+    },
+    {
+      "path": "governance/future-enhancement-register.json",
+      "sha256": "d89ac7a3fa15aaadb921813c273533fc428aee593272675b884fef87c127c932"
+    },
+    {
+      "path": "governance/promotion/README.md",
+      "sha256": "0e8e040ac3c45099984269f4a00b8337640c3ce00e5c53b899e441bc62cd4f62"
+    },
+    {
+      "path": "governance/promotion/TEMPLATE.md",
+      "sha256": "90a91c4366bab4a6d15cafd9e8b6e1660e87de6ff526ca6de6e972db41799261"
+    },
+    {
+      "path": "governance/promotion/examples/illustrative-decision.json",
+      "sha256": "482a2d72e3a3db0bdf0bb6796a5c566cec1bec0c400bbac9fa2704cbb673f229"
+    },
+    {
+      "path": "governance/promotion/examples/illustrative-promotion.json",
+      "sha256": "8298e7049bd7a084b1b657c4ec6d7dc1b248b5fe971ca6e26536d775dc5efb4f"
+    },
+    {
+      "path": "governance/promotion/promotion-candidate.schema.json",
+      "sha256": "ca26188d2e5c7f301cd11c19013079e65868b2579e3199ec5d48020acb5cc3cd"
+    },
+    {
+      "path": "governance/promotion/promotion-decision.schema.json",
+      "sha256": "8b14c467266639775facaee2852af0d795d8c61abfd7b76dd476afa6f3eeae74"
+    },
+    {
+      "path": "governance/promotion/promotion-gates.json",
+      "sha256": "3d3b3ab9472655ba51dc2b8c1c28977e7ab8c71d86d001817e70dc1fdb5f3b17"
+    },
+    {
+      "path": "governance/reviews/README.md",
+      "sha256": "aecb4cc6701da8561ed6412908776d65f9f0984fcec6f4eeebaba9cc6a16010c"
+    },
+    {
+      "path": "governance/reviews/affected-party-review.json",
+      "sha256": "e2dc69794cb00f16a0f5f772131ffa6d6cf9ecebec20feaea1da4137e8f32af4"
+    },
+    {
+      "path": "governance/reviews/evidence/README.md",
+      "sha256": "613ba54b7b93d3a84868c9f3374475d5f6066db10568ce8fafaff8dcbec76f76"
+    },
+    {
+      "path": "governance/reviews/evidence/future-evolution/README.md",
+      "sha256": "bdbb02d6187a0da5c6b6d49afd3423ef4142c90e32814ba99f9e4f5392949528"
+    },
+    {
+      "path": "governance/reviews/evidence/future-evolution/capability-matrix.csv",
+      "sha256": "68040d55e24860043e0460e3d4ee70f093a2813268109b7f0415999aff83912f"
+    },
+    {
+      "path": "governance/reviews/evidence/future-evolution/capability-matrix.md",
+      "sha256": "5176919900cd4f4b92cba861beeb4b0153f35efcd2ba301c385b0c20580e90a4"
+    },
+    {
+      "path": "governance/reviews/evidence/future-evolution/implementation-findings.json",
+      "sha256": "c472d51301a4662110653e6fe8ece285ea3a1c6df4794d2c38a385333b716163"
+    },
+    {
+      "path": "governance/reviews/evidence/future-evolution/interoperability-findings.json",
+      "sha256": "6dfd7685e5d4196a4524adc1fb8b8891cf5dfdaf5963c30c60eaa404bbc149fc"
+    },
+    {
+      "path": "governance/reviews/evidence/future-evolution/normative-impact-analysis.md",
+      "sha256": "84899db861fdd4580582785001fe9f9189baab88072f2fcba99fc96ad744699a"
+    },
+    {
+      "path": "governance/reviews/evidence/future-evolution/promotion-candidates.json",
+      "sha256": "489661d3fb9cf210794e92ffe4c73317665ab950681fd1c8d3ab6fd75b1b2591"
+    },
+    {
+      "path": "governance/reviews/evidence/future-evolution/reviewer-attestation.json",
+      "sha256": "8ac2fae0d5509410511912cf929a8272d59988d9fea99762835b36e1b04eccdb"
+    },
+    {
+      "path": "governance/reviews/evidence/implementation/ecosystems/README.md",
+      "sha256": "9b38d93a118d44f7f0c721cafceb0f6c59907d341cc1a2d789583132e5f91c01"
+    },
+    {
+      "path": "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.csv",
+      "sha256": "b9bbb1c9c759296e27fa4e2472f127406c35651f4e3c3afb71758fbb5f6c921c"
+    },
+    {
+      "path": "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.md",
+      "sha256": "4fe6eff678b4d18813ee57554d75b0787dadb074c6a96ade6cb27b287973051e"
+    },
+    {
+      "path": "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-enhancement-register.json",
+      "sha256": "b3545ae82ef0ffd9e1486d05b07e2399bd984ca4907f02f375a3f58cd00d328d"
+    },
+    {
+      "path": "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-normative-impact-analysis.md",
+      "sha256": "eb91432408b004c90150d7674daf067a2a6a8cb52e92750ce78bd738a78d6373"
+    },
+    {
+      "path": "governance/reviews/evidence/implementation/ecosystems/reference-ecosystem-comparison.md",
+      "sha256": "8d48acd03e24346f4525bae4738583da732a7d737ee4af1270b0c540724600f1"
+    },
+    {
+      "path": "governance/reviews/evidence/implementation/ecosystems/reviewer-attestation.json",
+      "sha256": "71bd89206c1e9108ee037072d8bedb1f171ddcddac0f6e566b854ebfee6b202f"
+    },
+    {
+      "path": "governance/reviews/finding-vocabulary.json",
+      "sha256": "669254464e40a9e11dad665a077e3e6f3eeca4450f344f34b17fa4c434b81c72"
+    },
+    {
+      "path": "governance/reviews/finding.schema.json",
+      "sha256": "4b1924648b064576e2e0a815ad02cd6e5f8561ce3d64d4d101c0d281bb1660ff"
+    },
+    {
+      "path": "governance/reviews/implementation-evidence.json",
+      "sha256": "70730b6b11474193503df301f055051ad2cd8394d5a164b606c5076de2badf1e"
+    },
+    {
+      "path": "governance/reviews/interoperability-review.json",
+      "sha256": "00d9117dddd8ee0c574100ad85012536d162d9d6e3adad5867c62244bf4edb5a"
+    },
+    {
+      "path": "governance/reviews/joint-disposition-register.json",
+      "sha256": "e6370480d7ad00c68697a2561903e7523b5221b15dea2f9306e34fa440df21c4"
+    },
+    {
+      "path": "governance/reviews/privacy-review.json",
+      "sha256": "78ae1c76e6b32f5564b8a2343895f293904f312fd26ae9ccdd030f409927210d"
+    },
+    {
+      "path": "governance/reviews/review-baseline.json",
+      "sha256": "5004d6954490dfdc2b31b181b667643440460e2375679237f940c48487c7cf0b"
+    },
+    {
+      "path": "governance/reviews/review-methodology.md",
+      "sha256": "468469c2baaaaf1a70a924b1a349e6e33fed45b20e086d5020ffff9ae351f6f8"
+    },
+    {
+      "path": "governance/reviews/review-register.schema.json",
+      "sha256": "e31786d33607de232ac7b56215b4c0fdc30f606fc4657d0179ad80598dbf90e0"
+    },
+    {
+      "path": "governance/reviews/security-review.json",
+      "sha256": "aaad8b990696a1969c86a71a270583bac162f5bcd94acc7a7e2720f331f2f7ca"
+    },
+    {
+      "path": "implementation-reports/conformance-result.schema.json",
+      "sha256": "26f54fc720fb91f50cc8f1689b98bdc8216449e7f40192e4a4b9112fc0cab4e6"
+    },
+    {
+      "path": "implementation-reports/evidence-manifest.schema.json",
+      "sha256": "88edabcadbd4f2fb43f1f263f3d80f0ead06c0808b15abd87ec778253d1e23c1"
+    },
+    {
+      "path": "implementation-reports/examples/illustrative-evidence-manifest.json",
+      "sha256": "4d3ab1b5fa73135715108ada46772554d690a5907a352384f0128d3d84e2d33a"
+    },
+    {
+      "path": "implementation-reports/examples/illustrative-evidence.txt",
+      "sha256": "c74d24e9e7c057c30cb92da5f157057292a79afd233613036b4d2ebddf35893d"
+    },
+    {
+      "path": "implementation-reports/examples/illustrative-report.json",
+      "sha256": "79a0e05446c9dbfc93e799dadd717c498afd5632050edd88905dcbb959c31f9a"
+    },
+    {
+      "path": "implementation-reports/implementation-report.schema.json",
+      "sha256": "176c2691197ae111ff3890b31a45cc9f289e86424aec758e66c2079d7e173302"
+    },
+    {
+      "path": "matrices/normative-requirements-index.csv",
+      "sha256": "c1abcac2b6414ff20b4e8a84d9faa48578a75a29654fe143c86fdae46eb54363"
+    },
+    {
+      "path": "matrices/requirement-assurance-traceability.csv",
+      "sha256": "9c7e6394e5b2a9d8e8bb49f4c2d3857ad259ef3590adbaefdff9fe0fa432955a"
+    },
+    {
+      "path": "matrices/requirement-test-coverage.csv",
+      "sha256": "fa78a3f870fa0d6441ce7a37fc2a0f1e50bd34d04bbe1db3797b233198833000"
+    },
+    {
+      "path": "matrices/threat-control-test-matrix.csv",
+      "sha256": "daec4cff709b67a87b0bf945a8ccedf8b7795d846dd33ad1f7a4b3513d3d91c9"
+    },
+    {
+      "path": "packages/gaam-v0.9.1/manifest.json",
+      "sha256": "4ff2f4d7f33112910bb5a0386a44499273470a443ccca68dd879588efbe6bc10"
+    },
+    {
+      "path": "profiles-draft/advanced-agent-orchestration/index.md",
+      "sha256": "eeeb33324c70b63de51696979cafd00e21befdcfb1592a1ea548763d0962a20e"
+    },
+    {
+      "path": "profiles-draft/advanced-agent-orchestration/profile-candidate.json",
+      "sha256": "0f452ad2255659ff3bbebee1e68fd9910d09a035ecf263f2eb41f2159fb3243a"
+    },
+    {
+      "path": "profiles-draft/cross-jurisdiction-governance/index.md",
+      "sha256": "abac53a16192317d33141e9f5c70afd55061fc0a53a3d5bf79adab38cbe37dff"
+    },
+    {
+      "path": "profiles-draft/cross-jurisdiction-governance/profile-candidate.json",
+      "sha256": "46dc91907c097a776f19b16839879a8eb6f6eaf5925b018c83bb2b31a86cd433"
+    },
+    {
+      "path": "profiles-draft/governed-ecosystem-operations/index.md",
+      "sha256": "260df08f8aa8763189af54dee52486556f9cf973bcf67d520711cac3c06f16fa"
+    },
+    {
+      "path": "profiles-draft/governed-ecosystem-operations/profile-candidate.json",
+      "sha256": "240f2a0a4e7d07c4cc73fc92a3485504a240339e1fa283fb6a7ad758c84ccde7"
+    },
+    {
+      "path": "profiles-draft/index.md",
+      "sha256": "f506f87b4bf427710cdca787a3cd4520e21f5efab143ccdf1ecff1f494e8a214"
+    },
+    {
+      "path": "profiles-draft/institutional-continuity/index.md",
+      "sha256": "4542f13370853f8f2b388e5e95706e3de4834e566ced55c667343260d999bcc5"
+    },
+    {
+      "path": "profiles-draft/institutional-continuity/profile-candidate.json",
+      "sha256": "b7af2f4c8f18980845c3466c7b096651b73e5df7e101d210bc698b4491498785"
+    },
+    {
+      "path": "profiles-draft/market-and-infrastructure-governance/index.md",
+      "sha256": "e7de0a889194220e10f21797f2e54573763f90582ce275f71881cbd5748626f1"
+    },
+    {
+      "path": "profiles-draft/market-and-infrastructure-governance/profile-candidate.json",
+      "sha256": "4e0df7d361ab4c0b72aad6a51d21b7996063cb831e9bdbd0722f453767b67817"
+    },
+    {
+      "path": "profiles-draft/organisational-authority/index.md",
+      "sha256": "9095748dd8f89e96a9acd2098069f01d346d537d25601f26d4be6ab3a3300017"
+    },
+    {
+      "path": "profiles-draft/organisational-authority/profile-candidate.json",
+      "sha256": "38307123e902adf864735f60ce58a080eb22e8695eedf74d358805996a654fd3"
+    },
+    {
+      "path": "profiles-draft/privacy-and-inference-governance/index.md",
+      "sha256": "958ca8ba9df4fba66ed650c0de3e21a2b2934f40f9b530f56ecf4c4b6dfecc6d"
+    },
+    {
+      "path": "profiles-draft/privacy-and-inference-governance/profile-candidate.json",
+      "sha256": "59a85ba98f5595bcbdea3613d1071a1ee00b67711286d05466aa3466c91851ba"
+    },
+    {
+      "path": "profiles/manifests/agentic-systems.json",
+      "sha256": "f1576c254dee5a16bc378df36dea84ebad98411701c410761133d1ed0d1f3544"
+    },
+    {
+      "path": "profiles/manifests/continuous-assurance.json",
+      "sha256": "c86baa9cb7768db6dd02a993213521f1c52a34601ac5cf25769db8242f078cf8"
+    },
+    {
+      "path": "profiles/manifests/delegated-authority.json",
+      "sha256": "42f760ef8cec2e6f9470ede9d6923c923b094910dd20de8cc1aed6c361cfef79"
+    },
+    {
+      "path": "profiles/manifests/foundation.json",
+      "sha256": "c7c03ca95e3df61409b175692f2edff9dfe031d592da2b8084bb34376fcd4120"
+    },
+    {
+      "path": "profiles/manifests/high-impact-systems.json",
+      "sha256": "a71133d538aeb2407e407c9b6c25ec4e761b3560dc95452f9c870c0b4f400af8"
+    },
+    {
+      "path": "profiles/manifests/machine-actionable-governance.json",
+      "sha256": "e529a004eb14343c500af12208865ff389803455b437eb8c4f65a3b0a99bf91b"
+    },
+    {
+      "path": "profiles/manifests/runtime-governance.json",
+      "sha256": "c2ebdad5fdabdf3549387b8ced74e2c730c6b6d1ca557ab41bbbd82adc4be85a"
+    },
+    {
+      "path": "profiles/manifests/trust-graph.json",
+      "sha256": "7f824ac5e05096a1d6f83ddfca92882e0a5b631f78e0118c7719bf33a68e16ce"
+    },
+    {
+      "path": "release.json",
+      "sha256": "c4ef4e1f8c2cc030f540f78fd89935d645318c518a77edfe20d75371a0fb5d08"
+    },
+    {
+      "path": "schemas/agent-governance-identity.schema.json",
+      "sha256": "6120fc1b75b10c2c8f86a4ddde06e2e4bf724c73eee3e4cabcea27a4e0e45e27"
+    },
+    {
+      "path": "schemas/appeal.schema.json",
+      "sha256": "f25c9db49d854e6ebeec380db7c835b7f0609bf9671e5b37b7f553d57d708302"
+    },
+    {
+      "path": "schemas/assurance.schema.json",
+      "sha256": "4c1c87eeccca5fd549712a572769c6a34c4b56a7245e2353a8f2c99f251cb283"
+    },
+    {
+      "path": "schemas/authority.schema.json",
+      "sha256": "ef7cb1aa8a097fb61e1638e410f57fcdcfb3946480c7b8286e48cb093ba9a7db"
+    },
+    {
+      "path": "schemas/catalog.json",
+      "sha256": "d54cdb3825e00cfef39177d6387b045035620a3f03bce05ade48573e1c6dd5bb"
+    },
+    {
+      "path": "schemas/conformance-claim.schema.json",
+      "sha256": "f185fab5745e8c72d86aab9ee5f9545586e7272b98efd26a1f2fd65877a894a9"
+    },
+    {
+      "path": "schemas/decision-receipt.schema.json",
+      "sha256": "2d8827a42df42f46f6914cb1123a04682133460c2e97d04f037a0a8f5be85984"
+    },
+    {
+      "path": "schemas/delegation.schema.json",
+      "sha256": "81c0ed7b975ca28c8f217fce9e42e74eeffc4e70f95a60cf45a9848731d60a9f"
+    },
+    {
+      "path": "schemas/evidence.schema.json",
+      "sha256": "76b246fc6b55674279d8efeef50e211bdda20a932e43db85f729b1720fc3f399"
+    },
+    {
+      "path": "schemas/gaam-package.schema.json",
+      "sha256": "ff851a41c3e142d0ef5edccb6241c64646c7a58b39164b39b221a8401aea2bc6"
+    },
+    {
+      "path": "schemas/governance-event.schema.json",
+      "sha256": "5c0b2e5a413d174b0e4a9af0bad1b4d9eb627d8c7439df839cfbc191db870f77"
+    },
+    {
+      "path": "schemas/profile-manifest.schema.json",
+      "sha256": "a2cccfb6c330f8e1f40a02d8fdc73db5e27785123465a2263081cb5af7b5724b"
+    },
+    {
+      "path": "schemas/remedy.schema.json",
+      "sha256": "90849bcbf3273f8a14609001ac4e01c41c8cffc7b48ab73f3aa8749a12138794"
+    },
+    {
+      "path": "schemas/runtime-envelope.schema.json",
+      "sha256": "9049946c231319f5fa72d9cbeca88b69225431d6538d5019729c92369b71ca89"
+    },
+    {
+      "path": "specification/governance-authority-assurance-metamodel.md",
+      "sha256": "6af9ed2a222780e61fcce35ecd25f329485195a3c3ed7c9cee539b540c0c6011"
+    },
+    {
+      "path": "tests/behavioural/agent-state-change-reauthorised-valid.json",
+      "sha256": "bed750d07b63a30880c043645a3889f3b4da714d2f9ff14fa6718125fee3282a"
+    },
+    {
+      "path": "tests/behavioural/assurance-expired-rejected.json",
+      "sha256": "d4e9f56b41a86c7ea710855cb5145e370466647470bff6a364a73facb3d643a7"
+    },
+    {
+      "path": "tests/behavioural/assurance-independence-insufficient-rejected.json",
+      "sha256": "184873e9f8497e9d38553ae1c63fa0611cec4c9f2738e3cb2b5b772d9c0d9f98"
+    },
+    {
+      "path": "tests/behavioural/authority-active-valid.json",
+      "sha256": "b4b8ff5c9644d97abb3cd968605ed410d578c3c4a9d28b46774bc59dfc55f4c7"
+    },
+    {
+      "path": "tests/behavioural/authority-expired-rejected.json",
+      "sha256": "13cc3ef7c3bebfbd760562b760a92f25d35202049a13f8aa514d01dfed3a91ca"
+    },
+    {
+      "path": "tests/behavioural/authority-not-yet-effective-rejected.json",
+      "sha256": "9e6ebc21596e6355cd54dfc780963eab1206d4c7d154af8bbddf4c2cce65453d"
+    },
+    {
+      "path": "tests/behavioural/authority-revoked-rejected.json",
+      "sha256": "61df5f3625a0b1c31015aba4433f3e4db1b388e4b621fce160102cb70128b75e"
+    },
+    {
+      "path": "tests/behavioural/authority-source-invalid-rejected.json",
+      "sha256": "25cd855f5f93768b209e60bbd30dced4161a72110011ebf57e8562f93989e5ed"
+    },
+    {
+      "path": "tests/behavioural/decision-missing-evidence-rejected.json",
+      "sha256": "43ccba8bbe3a9efedbcff25be23fd3f6fb6c9f2cd328c25dbdde7de0bf7fa800"
+    },
+    {
+      "path": "tests/behavioural/decision-policy-superseded-rejected.json",
+      "sha256": "8b03ec7c7fa3cf338a9d022549c7b7059897151335c8b3f4164cf0bc4f60e0ca"
+    },
+    {
+      "path": "tests/behavioural/decision-receipt-digest-mismatch-rejected.json",
+      "sha256": "269e14747d444fd67d413fdecc82bff428d939822629f877872a2d025ccf0453"
+    },
+    {
+      "path": "tests/behavioural/decision-replay-rejected.json",
+      "sha256": "1cb0098960dbc000f383436997ddf93631ace347abf0feacf65520c9dc78b3e9"
+    },
+    {
+      "path": "tests/behavioural/decision-stale-evidence-rejected.json",
+      "sha256": "ce7c2f2a436026a7e34fb6116ce755f6d96581be36b5553843b20144468af24c"
+    },
+    {
+      "path": "tests/behavioural/decision-traceable-valid.json",
+      "sha256": "a735d0d6e1ed2589fbdd9df6ad181d401792999707870610c8caaed0adb4f818"
+    },
+    {
+      "path": "tests/behavioural/degraded-operation-fail-safe-valid.json",
+      "sha256": "b07e8c4cf442555d2e8c3eff1f4a41425a19088e83a518ea675cd6886a512461"
+    },
+    {
+      "path": "tests/behavioural/delegation-amplification-rejected.json",
+      "sha256": "08d29bacb7a158a0cf08f8a19a74f9eb76f872298da29498bc4cf72dd79b8139"
+    },
+    {
+      "path": "tests/behavioural/delegation-attenuated-valid.json",
+      "sha256": "af29dfabe6df289198d9a656e49d5e2944f526f6db5daace225c21041ef60ba1"
+    },
+    {
+      "path": "tests/behavioural/delegation-child-outlives-parent-rejected.json",
+      "sha256": "938a150ed49b1a3fac34a711f1c4afd774b2136898f5c7d6bd2f0ad8a2cabf74"
+    },
+    {
+      "path": "tests/behavioural/delegation-cycle-rejected.json",
+      "sha256": "d2c90fe7529fdb9b3623049efb768c0f461e5edb809aff90672a72d0bc195272"
+    },
+    {
+      "path": "tests/behavioural/delegation-depth-rejected.json",
+      "sha256": "e8c8bf136bd3af3f826a2c545d169af8c3591afc26ed17dc68e68f928087e9a4"
+    },
+    {
+      "path": "tests/behavioural/delegation-parent-revoked-rejected.json",
+      "sha256": "0c3c4998125540f7ea2ef98fa4d49c8ccac32f43d1b987f403de09d8aa084093"
+    },
+    {
+      "path": "tests/behavioural/delegation-redelegation-prohibited-rejected.json",
+      "sha256": "778af84435a4d8f0ca2adf32354d36bf565220355cbd4802b939060730b6da90"
+    },
+    {
+      "path": "tests/behavioural/future-assurance-composition-bounded-valid.json",
+      "sha256": "ddb02c8ca7fb0baae934dd24c6029bf773071177f3fde42661272a899d0fad53"
+    },
+    {
+      "path": "tests/behavioural/high-impact-no-remedy-rejected.json",
+      "sha256": "cf31cca1424f8fd23d6bac223a649c57919d6230ea292ba68a5ce6273fa782d1"
+    },
+    {
+      "path": "tests/behavioural/high-impact-notice-missing-rejected.json",
+      "sha256": "c6f6513831604994c7ddac171e9e6be5c77d66baff41aca46dd08876c37c5c7a"
+    },
+    {
+      "path": "tests/behavioural/high-impact-remedy-valid.json",
+      "sha256": "963308667b2abd1ebad21502e9b26b5501bebabc654c1a76f66978c5cc70b6d5"
+    },
+    {
+      "path": "tests/behavioural/high-impact-review-not-independent-rejected.json",
+      "sha256": "6e84c8266ed1345d7b4810e711791fcf58f0293885f571d29ffbf5927ea0febe"
+    },
+    {
+      "path": "tests/behavioural/inferred-evidence-bounded-valid.json",
+      "sha256": "8cfe24324fb90b47eb696db0b663b7f93a5ee6efa569fdcc9fd8a68b94eeb95e"
+    },
+    {
+      "path": "tests/behavioural/institutional-succession-valid.json",
+      "sha256": "340c9b91db51632f486bbb144e2670ee1133be2d0480181c4791690c9387fa2c"
+    },
+    {
+      "path": "tests/behavioural/jurisdiction-conflict-escalated-valid.json",
+      "sha256": "59db6f2872f93e2ecb7393e39d47d597cfd436e7ad6f0c0fd8a9a79fa892a519"
+    },
+    {
+      "path": "tests/behavioural/lifecycle-event-order-invalid-rejected.json",
+      "sha256": "3274ebeb12bc038ea296af8c2d79f0d9feaa2c044c29b4898ca3759d85929990"
+    },
+    {
+      "path": "tests/behavioural/lifecycle-event-order-replay-rejected.json",
+      "sha256": "d636820edeb8babf8fbcd348a589fca608f9fbba76d487a9836327afa1a09cad"
+    },
+    {
+      "path": "tests/behavioural/lifecycle-event-order-valid.json",
+      "sha256": "a39fa570bba471f33f2b19e02d85a897c9d83ed5433cdd85d5a7c848a19d448f"
+    },
+    {
+      "path": "tests/behavioural/obligation-fulfilled-valid.json",
+      "sha256": "ee5165b4d5a7593f861c95cf0c51f45dc51d9a8d0816c57aa671d171d3d3869e"
+    },
+    {
+      "path": "tests/behavioural/profile-composition-foundation-delegated-valid.json",
+      "sha256": "0232860dc0114a22bf84ceef8bd722a4ee67618580a3ae058828957c6b375144"
+    },
+    {
+      "path": "tests/behavioural/profile-composition-missing-foundation-rejected.json",
+      "sha256": "d586a9ceccee845a7a1a6b43b35181b99cd4d7ee382d262b21db05f6c4e82efe"
+    },
+    {
+      "path": "tests/behavioural/remedy-propagation-verified-valid.json",
+      "sha256": "0d5a95ec6dd608d981941aeab168f0913ca14bcfcac2801863a7c5300d1fa51f"
+    },
+    {
+      "path": "tests/behavioural/revocation-propagation-bounded-valid.json",
+      "sha256": "ac8846eeeef79fcb3400252fa5d8c607d3e809b99f37e9389c6fabc0fd9ede27"
+    },
+    {
+      "path": "tests/behavioural/runtime-revocation-fail-closed-valid.json",
+      "sha256": "a68965fc418c5b9058b03bb91c162db2f21d47c07c0fc7d978bac45ab9910561"
+    },
+    {
+      "path": "tests/behavioural/runtime-stale-state-fail-open-rejected.json",
+      "sha256": "45bf2da090e51bb60028cf5e6fcc0d2754293ad6d0fca6958e0fddb428eeb1ba"
+    },
+    {
+      "path": "threat-model/threat-register.json",
+      "sha256": "6730c280126139f2f9551fa6535f3db3ef7ab3372b9a43bf3395e964deaa908a"
+    },
+    {
+      "path": "vocabularies/assurance-statuses.json",
+      "sha256": "1c3a31bc467b216ae644b937a6be063e3b6b92c94a8d1a01784653fb1ba69577"
+    },
+    {
+      "path": "vocabularies/decision-outcomes.json",
+      "sha256": "bc5ba4e52332624248dc0c4823b08be32ee18098cdb806156fbc70fc657eac95"
+    },
+    {
+      "path": "vocabularies/governance-event-types.json",
+      "sha256": "7c3a40cad5959b88a1fa084e390f878afaa9953dc940f546db2d15ebab477e7c"
+    },
+    {
+      "path": "vocabularies/lifecycle-states.json",
+      "sha256": "c7f39087ed37bc529de8d723d80a15f3fc7ccf9610888eff8a2557a65def5082"
+    },
+    {
+      "path": "vocabularies/relationship-types.json",
+      "sha256": "9542098c92638e4cb89c41e175ed388414483c4f981f0c07a8a8f5bdb636284c"
+    }
+  ]
+}

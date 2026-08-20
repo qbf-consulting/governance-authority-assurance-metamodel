@@ -7,6 +7,21 @@ normative_status: "Release record"
 ---
 # Changelog
 
+## [0.9.1] - 2026-08-20
+
+### Added
+
+- Portable external-package and conformance-claim validation with a language-neutral adapter protocol.
+- Informative conformance-kit manifest, result schema, reference adapter and Foundation starter package.
+- Delegation-cycle, decision-receipt integrity, decision replay and lifecycle-event replay vectors.
+- Local and scheduled remote canonical-schema byte verification.
+
+### Changed
+
+- Separate the v0.9.1 distribution and test-suite identity from the frozen v0.9.0 normative baseline and canonical schema namespace.
+- Make release ZIP construction scope-controlled and byte-reproducible through `SOURCE_DATE_EPOCH`.
+- Generate v0.9.1 package and validation evidence without changing v0.9.0 normative semantics or identifiers.
+
 ### Documentation
 
 - Add a reusable, machine-readable ecosystem readiness crosswalk method and validated informative mappings for EUDI Wallet ARF v3.0.0 and GLEIF vLEI EGF v4.0.

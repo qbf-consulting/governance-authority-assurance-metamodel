@@ -1,26 +1,28 @@
 ---
-title: GAAM v0.9.0 Validation Report
+title: GAAM v0.9.1 Validation Report
 permalink: /validation-report/
 nav_exclude: true
 artifact_type: Validation evidence
 normative_status: Repository generated
 ---
-# GAAM v0.9.0 Validation Report
+# GAAM v0.9.1 Validation Report
 
 {% include gaam-meta.html %}
 
-**Status:** PASS  
-**Checks:** 315  
-**Passed:** 315  
-**Failed:** 0  
+**Normative baseline:** v0.9.0
+**Status:** PASS
+**Checks:** 321
+**Passed:** 321
+**Failed:** 0
 
 This report evidences repository publication, structural and included behavioural checks. It is not an independent L4 assessment.
 
 | ID | Kind | Status | Evidence |
 |---|---|---|---|
-| `PUB-001-version-source` | publication | PASS | authoritative version=0.9.0 |
+| `PUB-001-version-source` | publication | PASS | distribution version=0.9.1 |
 | `PUB-002-active-version-coherence` | publication | PASS | no stale active v0.5.0 references |
 | `PUB-003-specification-identity` | publication | PASS | normative specification identifies candidate release |
+| `PUB-004-maintenance-boundary` | publication | PASS | v0.9.1 preserves v0.9.0 normative baseline and canonical schema namespace |
 | `PUB-HYG-README-EXCLUDE` | publication | PASS | all implementation-pattern README files excluded from Jekyll publication |
 | `PUB-HYG-LANDINGS` | publication | PASS | 18 canonical pattern landing pages use clean directory URLs |
 | `PUB-HYG-SUPPORT-NAV` | publication | PASS | all supporting pattern pages excluded from primary navigation |
@@ -43,19 +45,19 @@ This report evidences repository publication, structural and included behavioura
 | `REQ-002-index-exact` | normative | PASS | 190 indexed requirements |
 | `REQ-003-normative-language` | normative | PASS | 190 indexed statements classified |
 | `MAP-ECOSYSTEM-CROSSWALKS` | mapping | PASS | 2 informative ecosystem crosswalks validated against mapping schema and normative requirement identifiers |
-| `SCH-evidence` | schema | PASS | valid Draft 2020-12 schema |
-| `SCH-gaam-package` | schema | PASS | valid Draft 2020-12 schema |
-| `SCH-authority` | schema | PASS | valid Draft 2020-12 schema |
-| `SCH-remedy` | schema | PASS | valid Draft 2020-12 schema |
-| `SCH-delegation` | schema | PASS | valid Draft 2020-12 schema |
-| `SCH-assurance` | schema | PASS | valid Draft 2020-12 schema |
-| `SCH-profile-manifest` | schema | PASS | valid Draft 2020-12 schema |
-| `SCH-agent-governance-identity` | schema | PASS | valid Draft 2020-12 schema |
 | `SCH-appeal` | schema | PASS | valid Draft 2020-12 schema |
-| `SCH-decision-receipt` | schema | PASS | valid Draft 2020-12 schema |
-| `SCH-governance-event` | schema | PASS | valid Draft 2020-12 schema |
 | `SCH-conformance-claim` | schema | PASS | valid Draft 2020-12 schema |
 | `SCH-runtime-envelope` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-agent-governance-identity` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-authority` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-decision-receipt` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-gaam-package` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-remedy` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-evidence` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-profile-manifest` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-governance-event` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-assurance` | schema | PASS | valid Draft 2020-12 schema |
+| `SCH-delegation` | schema | PASS | valid Draft 2020-12 schema |
 | `SCH-IDS` | schema | PASS | 13 unique canonical identifiers |
 | `SCH-CATALOG` | schema | PASS | catalog covers all schemas |
 | `VOC-assurance-statuses` | vocabulary | PASS | 7 governed values |
@@ -283,12 +285,15 @@ This report evidences repository publication, structural and included behavioura
 | `BEH-authority-source-invalid-rejected` | behavioural | PASS | expected=False; actual=False |
 | `BEH-decision-missing-evidence-rejected` | behavioural | PASS | expected=False; actual=False |
 | `BEH-decision-policy-superseded-rejected` | behavioural | PASS | expected=False; actual=False |
+| `BEH-decision-receipt-digest-mismatch-rejected` | behavioural | PASS | expected=False; actual=False |
+| `BEH-decision-replay-rejected` | behavioural | PASS | expected=False; actual=False |
 | `BEH-decision-stale-evidence-rejected` | behavioural | PASS | expected=False; actual=False |
 | `BEH-decision-traceable-valid` | behavioural | PASS | expected=True; actual=True |
 | `BEH-degraded-operation-fail-safe-valid` | behavioural | PASS | expected=True; actual=True |
 | `BEH-delegation-amplification-rejected` | behavioural | PASS | expected=False; actual=False |
 | `BEH-delegation-attenuated-valid` | behavioural | PASS | expected=True; actual=True |
 | `BEH-delegation-child-outlives-parent-rejected` | behavioural | PASS | expected=False; actual=False |
+| `BEH-delegation-cycle-rejected` | behavioural | PASS | expected=False; actual=False |
 | `BEH-delegation-depth-rejected` | behavioural | PASS | expected=False; actual=False |
 | `BEH-delegation-parent-revoked-rejected` | behavioural | PASS | expected=False; actual=False |
 | `BEH-delegation-redelegation-prohibited-rejected` | behavioural | PASS | expected=False; actual=False |
@@ -301,6 +306,7 @@ This report evidences repository publication, structural and included behavioura
 | `BEH-institutional-succession-valid` | behavioural | PASS | expected=True; actual=True |
 | `BEH-jurisdiction-conflict-escalated-valid` | behavioural | PASS | expected=True; actual=True |
 | `BEH-lifecycle-event-order-invalid-rejected` | behavioural | PASS | expected=False; actual=False |
+| `BEH-lifecycle-event-order-replay-rejected` | behavioural | PASS | expected=False; actual=False |
 | `BEH-lifecycle-event-order-valid` | behavioural | PASS | expected=True; actual=True |
 | `BEH-obligation-fulfilled-valid` | behavioural | PASS | expected=True; actual=True |
 | `BEH-profile-composition-foundation-delegated-valid` | behavioural | PASS | expected=True; actual=True |
@@ -310,7 +316,7 @@ This report evidences repository publication, structural and included behavioura
 | `BEH-runtime-revocation-fail-closed-valid` | behavioural | PASS | expected=True; actual=True |
 | `BEH-runtime-stale-state-fail-open-rejected` | behavioural | PASS | expected=False; actual=False |
 | `TRC-REQUIREMENTS` | traceability | PASS | 190 requirements have testability and evidence dispositions |
-| `TRC-TEST-ORPHANS` | traceability | PASS | 36 behavioural tests referenced by requirement traceability |
+| `TRC-TEST-ORPHANS` | traceability | PASS | 40 behavioural tests referenced by requirement traceability |
 | `THR-TRACE` | threat | PASS | 7 threats mapped to requirements and tests |
 | `DOC-PAGE-TITLE-CONTRACT` | documentation | PASS | all rendered Markdown pages declare exactly one H1 matching front matter |
 | `DOC-CTWG-GLOSSARY-ALIGNMENT` | documentation | PASS | 26 glossary terms covered by CTWG alignment register |
@@ -331,5 +337,6 @@ This report evidences repository publication, structural and included behavioura
 | `ASSURANCE-IMPLEMENTATION-REPORTS` | assurance | PASS | 1 implementation report artifacts conform with provenance, evidence and acceptance controls |
 | `ASSURANCE-IMPLEMENTATION-FIXTURES` | assurance | PASS | implementation-report schema accepts the positive fixture and rejects four controlled negative fixtures |
 | `GOV-CANDIDATE-READINESS` | governance | PASS | candidate readiness is schema-valid, generated from authoritative evidence and current |
+| `CONF-PORTABLE-KIT` | conformance | PASS | portable validator, starter package and all adapter vectors pass without normative effect |
 | `PKG-MANIFEST` | package | PASS | package manifest conforms |
-| `PKG-INTEGRITY` | package | PASS | 464 checksums verified |
+| `PKG-INTEGRITY` | package | PASS | 478 checksums verified |
