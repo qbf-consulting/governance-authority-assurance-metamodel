@@ -1,0 +1,15 @@
+{
+  "id": "urn:gaam:starter:receipt:001",
+  "type": "decision-receipt",
+  "decision": "urn:gaam:starter:decision:001",
+  "authority": ["urn:gaam:starter:authority:purchase-review"],
+  "policy": ["urn:gaam:starter:policy:purchase-review"],
+  "evidence": ["urn:gaam:starter:evidence:purchase-request"],
+  "assurance": ["urn:gaam:starter:assurance:structural-validation"],
+  "outcome": "route-for-review",
+  "conditions": ["human-approval-required"],
+  "decisionTime": "2026-08-20T00:01:00Z",
+  "enforcementPoint": "urn:gaam:starter:service:reviewer",
+  "accountableParty": "urn:gaam:starter:organisation:example",
+  "reviewRoute": "urn:gaam:starter:review:purchase"
+}

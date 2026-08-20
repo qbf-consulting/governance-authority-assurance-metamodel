@@ -1,16 +1,17 @@
 {
+  "releaseVersion": "0.9.1",
   "gaamVersion": "0.9.0",
-  "testSuiteVersion": "0.9.0",
+  "testSuiteVersion": "0.9.1",
   "status": "pass",
-  "checks": 315,
-  "passed": 315,
+  "checks": 321,
+  "passed": 321,
   "failed": 0,
   "results": [
     {
       "id": "PUB-001-version-source",
       "kind": "publication",
       "status": "pass",
-      "evidence": "authoritative version=0.9.0"
+      "evidence": "distribution version=0.9.1"
     },
     {
       "id": "PUB-002-active-version-coherence",
@@ -23,6 +24,12 @@
       "kind": "publication",
       "status": "pass",
       "evidence": "normative specification identifies candidate release"
+    },
+    {
+      "id": "PUB-004-maintenance-boundary",
+      "kind": "publication",
+      "status": "pass",
+      "evidence": "v0.9.1 preserves v0.9.0 normative baseline and canonical schema namespace"
     },
     {
       "id": "PUB-HYG-README-EXCLUDE",
@@ -157,67 +164,7 @@
       "evidence": "2 informative ecosystem crosswalks validated against mapping schema and normative requirement identifiers"
     },
     {
-      "id": "SCH-evidence",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-gaam-package",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-authority",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-remedy",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-delegation",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-assurance",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-profile-manifest",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-agent-governance-identity",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
       "id": "SCH-appeal",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-decision-receipt",
-      "kind": "schema",
-      "status": "pass",
-      "evidence": "valid Draft 2020-12 schema"
-    },
-    {
-      "id": "SCH-governance-event",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
@@ -230,6 +177,66 @@
     },
     {
       "id": "SCH-runtime-envelope",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-agent-governance-identity",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-authority",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-decision-receipt",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-gaam-package",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-remedy",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-evidence",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-profile-manifest",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-governance-event",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-assurance",
+      "kind": "schema",
+      "status": "pass",
+      "evidence": "valid Draft 2020-12 schema"
+    },
+    {
+      "id": "SCH-delegation",
       "kind": "schema",
       "status": "pass",
       "evidence": "valid Draft 2020-12 schema"
@@ -1597,6 +1604,18 @@
       "evidence": "expected=False; actual=False"
     },
     {
+      "id": "BEH-decision-receipt-digest-mismatch-rejected",
+      "kind": "behavioural",
+      "status": "pass",
+      "evidence": "expected=False; actual=False"
+    },
+    {
+      "id": "BEH-decision-replay-rejected",
+      "kind": "behavioural",
+      "status": "pass",
+      "evidence": "expected=False; actual=False"
+    },
+    {
       "id": "BEH-decision-stale-evidence-rejected",
       "kind": "behavioural",
       "status": "pass",
@@ -1628,6 +1647,12 @@
     },
     {
       "id": "BEH-delegation-child-outlives-parent-rejected",
+      "kind": "behavioural",
+      "status": "pass",
+      "evidence": "expected=False; actual=False"
+    },
+    {
+      "id": "BEH-delegation-cycle-rejected",
       "kind": "behavioural",
       "status": "pass",
       "evidence": "expected=False; actual=False"
@@ -1705,6 +1730,12 @@
       "evidence": "expected=False; actual=False"
     },
     {
+      "id": "BEH-lifecycle-event-order-replay-rejected",
+      "kind": "behavioural",
+      "status": "pass",
+      "evidence": "expected=False; actual=False"
+    },
+    {
       "id": "BEH-lifecycle-event-order-valid",
       "kind": "behavioural",
       "status": "pass",
@@ -1762,7 +1793,7 @@
       "id": "TRC-TEST-ORPHANS",
       "kind": "traceability",
       "status": "pass",
-      "evidence": "36 behavioural tests referenced by requirement traceability"
+      "evidence": "40 behavioural tests referenced by requirement traceability"
     },
     {
       "id": "THR-TRACE",
@@ -1885,6 +1916,12 @@
       "evidence": "candidate readiness is schema-valid, generated from authoritative evidence and current"
     },
     {
+      "id": "CONF-PORTABLE-KIT",
+      "kind": "conformance",
+      "status": "pass",
+      "evidence": "portable validator, starter package and all adapter vectors pass without normative effect"
+    },
+    {
       "id": "PKG-MANIFEST",
       "kind": "package",
       "status": "pass",
@@ -1894,7 +1931,7 @@
       "id": "PKG-INTEGRITY",
       "kind": "package",
       "status": "pass",
-      "evidence": "464 checksums verified"
+      "evidence": "478 checksums verified"
     }
   ]
 }

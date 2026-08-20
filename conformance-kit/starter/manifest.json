@@ -1,0 +1,15 @@
+{
+  "id": "urn:gaam:starter:package:0.9.1",
+  "type": "gaam-governance-package",
+  "gaamVersion": "0.9.0",
+  "status": "draft",
+  "profiles": ["gaam:profile:foundation:0.9.0"],
+  "artifacts": [
+    {"id": "starter-authority", "path": "artifacts/authority.json", "mediaType": "application/json"},
+    {"id": "starter-decision-receipt", "path": "artifacts/decision-receipt.json", "mediaType": "application/json"},
+    {"id": "starter-conformance-claim", "path": "artifacts/conformance-claim.json", "mediaType": "application/json"}
+  ],
+  "schemas": ["authority.schema.json", "decision-receipt.schema.json", "conformance-claim.schema.json"],
+  "vocabularies": ["decision-outcomes.json", "lifecycle-states.json"],
+  "integrity": {"algorithm": "sha-256", "manifest": "checksums.json"}
+}

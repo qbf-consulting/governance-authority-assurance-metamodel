@@ -1,0 +1,14 @@
+{
+  "id": "decision-receipt-digest-mismatch-rejected",
+  "expectedValid": false,
+  "input": {
+    "authorityId": "authority-1",
+    "policyId": "policy-1",
+    "evidenceIds": ["evidence-1"],
+    "assuranceIds": ["assurance-1"],
+    "accountableParty": "operator-1",
+    "evidenceFresh": true,
+    "policyCurrent": true,
+    "receiptDigestMatches": false
+  }
+}

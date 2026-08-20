@@ -4,7 +4,8 @@ from pathlib import Path
 import json,sys
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION=(ROOT/'VERSION').read_text().strip()
+RELEASE=json.loads((ROOT/'release.json').read_text())
+VERSION=RELEASE.get('normativeVersion',RELEASE['version'])
 
 def load(path):
     return json.loads((ROOT/path).read_text())

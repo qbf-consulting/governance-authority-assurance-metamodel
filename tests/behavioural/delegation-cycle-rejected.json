@@ -1,0 +1,15 @@
+{
+  "id": "delegation-cycle-rejected",
+  "expectedValid": false,
+  "input": {
+    "parentEffects": ["read"],
+    "childEffects": ["read"],
+    "delegationPermitted": true,
+    "depth": 2,
+    "maxDepth": 3,
+    "delegationEdges": [
+      {"from": "authority-a", "to": "authority-b"},
+      {"from": "authority-b", "to": "authority-a"}
+    ]
+  }
+}

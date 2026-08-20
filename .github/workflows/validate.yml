@@ -65,6 +65,19 @@ jobs:
       - name: Validate rendered publication
         run: python scripts/validate_pages.py
 
+      - name: Verify canonical schema mirror bytes
+        run: python scripts/verify_canonical_publication.py --site-root _site --output validation/canonical-publication-report.json
+
+      - name: Build reproducible release archive twice
+        env:
+          SOURCE_DATE_EPOCH: "1787184000"
+        run: |
+          python scripts/build_release.py
+          first=$(sha256sum dist/governance-authority-assurance-metamodel-v0.9.1.zip | cut -d' ' -f1)
+          python scripts/build_release.py
+          second=$(sha256sum dist/governance-authority-assurance-metamodel-v0.9.1.zip | cut -d' ' -f1)
+          test "$first" = "$second"
+
       - name: Upload validation evidence
         uses: actions/upload-artifact@v7
         if: always()
@@ -73,5 +86,6 @@ jobs:
           path: |
             VALIDATION_REPORT.md
             validation/
-            packages/gaam-v0.9.0/checksums.json
+            packages/gaam-v0.9.1/checksums.json
+            dist/*.release.json
             _site/
