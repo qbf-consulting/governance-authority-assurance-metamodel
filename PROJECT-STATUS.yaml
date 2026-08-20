@@ -16,6 +16,7 @@ project:
 authority:
   normative_scope:
   - governance-authority-assurance-metamodel
+  implementation_scope:
   - gaam-profiles
   - gaam-canonical-schemas
   - gaam-governed-vocabularies
