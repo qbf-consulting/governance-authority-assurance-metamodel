@@ -1,11 +1,15 @@
 {
   "specification": "Governance, Authority and Assurance Metamodel",
   "shortName": "GAAM",
-  "version": "0.9.0",
+  "version": "0.9.1",
+  "normativeVersion": "0.9.0",
+  "candidateBaseline": "0.9.0",
   "status": "candidate",
   "statusLabel": "Candidate Specification",
-  "releaseDate": "2026-07-16",
+  "releaseDate": "2026-08-20",
   "normativeSpecification": "specification/governance-authority-assurance-metamodel.md",
   "canonicalRepository": "https://github.com/sankarshanmukhopadhyay/governance-authority-assurance-metamodel",
-  "schemaBase": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/"
+  "schemaBase": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/",
+  "retainedSchemaVersions": ["0.9.0"],
+  "normativeChange": false
 }

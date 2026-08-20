@@ -1,0 +1,10 @@
+{
+  "id": "lifecycle-event-order-replay-rejected",
+  "expectedValid": false,
+  "input": {
+    "events": [
+      {"eventId": "event-1", "sequence": 1, "type": "issued"},
+      {"eventId": "event-1", "sequence": 2, "type": "activated"}
+    ]
+  }
+}

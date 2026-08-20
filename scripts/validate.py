@@ -3,7 +3,8 @@ from pathlib import Path
 import json,re,csv,hashlib,sys,urllib.parse,yaml,subprocess
 from jsonschema import Draft202012Validator, FormatChecker
 ROOT=Path(__file__).resolve().parents[1]
-REL=json.loads((ROOT/'release.json').read_text()); VERSION=REL['version']; results=[]
+REL=json.loads((ROOT/'release.json').read_text())
+RELEASE_VERSION=REL['version']; VERSION=REL.get('normativeVersion',RELEASE_VERSION); results=[]
 def add(cid,ok,detail,kind='structural'):
  results.append({'id':cid,'kind':kind,'status':'pass' if ok else 'fail','evidence':detail})
 def load(p): return json.loads(p.read_text())
@@ -17,10 +18,12 @@ for p in active:
  if p.is_file() and p.suffix in {'.md','.json','.csv','.txt'}:
   t=p.read_text(errors='ignore')
   if re.search(r'(?<![\d.])0\.5\.0(?![\d.])|v0\.5\.0',t) and 'migration-v0.5.0' not in str(p) and p.name not in {'migration-v0.5.0-to-v0.9.0.md','README.md'}: stale.append(str(p.relative_to(ROOT)))
-add('PUB-001-version-source',(ROOT/'VERSION').read_text().strip()==VERSION,f'authoritative version={VERSION}','publication')
+add('PUB-001-version-source',(ROOT/'VERSION').read_text().strip()==RELEASE_VERSION,f'distribution version={RELEASE_VERSION}','publication')
 add('PUB-002-active-version-coherence',not stale,'no stale active v0.5.0 references' if not stale else ', '.join(stale),'publication')
 spec=(ROOT/REL['normativeSpecification']).read_text()
 add('PUB-003-specification-identity',f'**Version:** {VERSION}' in spec and '**Status:** Candidate Specification' in spec,'normative specification identifies candidate release','publication')
+stable_identity=(REL.get('candidateBaseline')==VERSION and REL.get('normativeChange') is False and f'/v{VERSION}/schemas/' in REL['schemaBase'])
+add('PUB-004-maintenance-boundary',stable_identity,f'v{RELEASE_VERSION} preserves v{VERSION} normative baseline and canonical schema namespace','publication')
 # Publication hygiene: repository source files, published landing pages and sidebar entries
 
 def front_matter(path):
@@ -400,12 +403,21 @@ def behaviour(o):
  if i.startswith('authority-'):
   valid=x.get('status')=='active' and x.get('withinScope') and x.get('withinTime') and x.get('sourceValid')
  elif i.startswith('delegation-'):
+  edges=x.get('delegationEdges',[]); graph={}
+  for edge in edges: graph.setdefault(edge['from'],[]).append(edge['to'])
+  def cyclic(node,visiting,visited):
+   if node in visiting: return True
+   if node in visited: return False
+   visiting.add(node); found=any(cyclic(child,visiting,visited) for child in graph.get(node,[])); visiting.remove(node); visited.add(node)
+   return found
+  has_cycle=any(cyclic(node,set(),set()) for node in graph)
   valid=(x.get('delegationPermitted') and set(x.get('childEffects',[]))<=set(x.get('parentEffects',[]))
          and x.get('depth',0)<=x.get('maxDepth',0) and x.get('parentActive',True)
-         and x.get('childWithinParentTime',True))
+         and x.get('childWithinParentTime',True) and not has_cycle)
  elif i.startswith('decision-'):
   valid=(all([x.get('authorityId'),x.get('policyId'),x.get('evidenceIds'),x.get('assuranceIds'),x.get('accountableParty')])
-         and x.get('evidenceFresh',True) and x.get('policyCurrent',True))
+         and x.get('evidenceFresh',True) and x.get('policyCurrent',True)
+         and x.get('receiptDigestMatches',True) and not x.get('replayed',False))
  elif i.startswith('assurance-'):
   ranks={'self':1,'reviewed':2,'independent':3}
   valid=(x.get('evidencePresent') and x.get('withinValidity')
@@ -415,7 +427,8 @@ def behaviour(o):
   valid=valid and x.get('noticeProvided',True) and x.get('reviewIndependent',True)
  elif i.startswith('lifecycle-event-order-'):
   seq=[e.get('sequence') for e in x.get('events',[])]
-  valid=bool(seq) and seq==sorted(seq) and len(seq)==len(set(seq)) and x['events'][0].get('type')=='issued'
+  ids=[e.get('eventId') for e in x.get('events',[]) if e.get('eventId')]
+  valid=bool(seq) and seq==sorted(seq) and len(seq)==len(set(seq)) and len(ids)==len(set(ids)) and x['events'][0].get('type')=='issued'
  elif i.startswith('runtime-'):
   valid=(x.get('stateFresh') and x.get('authorityStatusKnown')) or (x.get('failurePolicy')=='fail-closed' and not x.get('effectAdmitted'))
  elif i.startswith('profile-composition-'):
@@ -740,8 +753,29 @@ try:
 except Exception as e: readiness_errors.append(str(e))
 add('GOV-CANDIDATE-READINESS',not readiness_errors,'candidate readiness is schema-valid, generated from authoritative evidence and current' if not readiness_errors else '; '.join(readiness_errors[:8]),'governance')
 
+# Portable, informative conformance tooling
+kit_errors=[]
+try:
+ kit=load(ROOT/'conformance-kit/manifest.json')
+ result_schema=load(ROOT/'conformance-kit/result.schema.json'); Draft202012Validator.check_schema(result_schema)
+ if kit.get('releaseVersion')!=RELEASE_VERSION or kit.get('normativeVersion')!=VERSION or kit.get('status')!='informative' or kit.get('normativeEffect')!='none': kit_errors.append('portable kit identity or normative boundary invalid')
+ commands=[
+  [sys.executable,str(ROOT/'scripts/gaam.py'),'validate-package',str(ROOT/'conformance-kit/starter')],
+  [sys.executable,str(ROOT/'scripts/gaam.py'),'validate-claim',str(ROOT/'conformance-kit/starter/artifacts/conformance-claim.json')],
+  [sys.executable,str(ROOT/'scripts/gaam.py'),'run-vectors',sys.executable,str(ROOT/'conformance-kit/reference_adapter.py')],
+ ]
+ for command in commands:
+  cp=subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
+  if cp.returncode!=0: kit_errors.append((cp.stderr or cp.stdout).strip()[:500])
+  else:
+   result=json.loads(cp.stdout)
+   errs=list(Draft202012Validator(result_schema).iter_errors(result))
+   if errs: kit_errors.append(f'{result.get("command")}: {errs[0].message}')
+except Exception as err: kit_errors.append(str(err))
+add('CONF-PORTABLE-KIT',not kit_errors,'portable validator, starter package and all adapter vectors pass without normative effect' if not kit_errors else '; '.join(kit_errors[:6]),'conformance')
+
 # Package manifest + integrity
-pkg=ROOT/'packages'/f'gaam-v{VERSION}'; pkg.mkdir(parents=True,exist_ok=True)
+pkg=ROOT/'packages'/f'gaam-v{RELEASE_VERSION}'; pkg.mkdir(parents=True,exist_ok=True)
 artifact_paths=['PROJECT-STATUS.yaml',REL['normativeSpecification'],'release.json','schemas/catalog.json','threat-model/threat-register.json','matrices/normative-requirements-index.csv','matrices/requirement-test-coverage.csv','matrices/requirement-assurance-traceability.csv','matrices/threat-control-test-matrix.csv','governance/candidate-issues.json']
 artifact_paths += [str(p.relative_to(ROOT)) for b in ['schemas','vocabularies','profiles/manifests','tests/behavioural'] for p in sorted((ROOT/b).glob('*.json'))]
 artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'governance/reviews').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
@@ -765,11 +799,12 @@ for rp in report_paths:
  except Exception:
   pass
 artifact_paths += [str(p.relative_to(ROOT)) for b in ['profiles-draft','experimental'] for p in sorted((ROOT/b).rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
-manifest={'id':f'urn:gaam:package:{VERSION}','type':'gaam-governance-package','gaamVersion':VERSION,'status':'active','profiles':sorted(manifests),'artifacts':[{'id':Path(x).stem,'path':x,'mediaType':'application/json' if x.endswith('.json') else 'application/yaml' if x.endswith(('.yaml','.yml')) else 'text/markdown' if x.endswith('.md') else 'text/csv'} for x in artifact_paths if not x.startswith(('schemas/','vocabularies/'))], 'schemas':[p.name for p in sorted((ROOT/'schemas').glob('*.schema.json'))], 'vocabularies':[p.name for p in sorted((ROOT/'vocabularies').glob('*.json'))], 'integrity':{'algorithm':'sha-256','manifest':'checksums.json'}}
+artifact_paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'conformance-kit').rglob('*')) if p.is_file() and p.name not in {'.gitkeep'}]
+manifest={'id':f'urn:gaam:package:{RELEASE_VERSION}','type':'gaam-governance-package','gaamVersion':VERSION,'status':'active','profiles':sorted(manifests),'artifacts':[{'id':Path(x).stem,'path':x,'mediaType':'application/json' if x.endswith('.json') else 'application/yaml' if x.endswith(('.yaml','.yml')) else 'text/markdown' if x.endswith('.md') else 'text/csv'} for x in artifact_paths if not x.startswith(('schemas/','vocabularies/'))], 'schemas':[p.name for p in sorted((ROOT/'schemas').glob('*.schema.json'))], 'vocabularies':[p.name for p in sorted((ROOT/'vocabularies').glob('*.json'))], 'integrity':{'algorithm':'sha-256','manifest':'checksums.json'}}
 (pkg/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 perrs=list(Draft202012Validator(schemas['gaam-package']).iter_errors(manifest)); add('PKG-MANIFEST',not perrs,'package manifest conforms','package')
 checks=[]
-for x in sorted(set(artifact_paths+[f'packages/gaam-v{VERSION}/manifest.json'])):
+for x in sorted(set(artifact_paths+[f'packages/gaam-v{RELEASE_VERSION}/manifest.json'])):
  p=ROOT/x
  if p.exists(): checks.append({'path':x,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
 (pkg/'checksums.json').write_text(json.dumps({'algorithm':'sha-256','scope':'declared source artifacts excluding this checksum file','files':checks},indent=2)+'\n')
@@ -777,9 +812,9 @@ verified=all(hashlib.sha256((ROOT/x['path']).read_bytes()).hexdigest()==x['sha25
 add('PKG-INTEGRITY',verified,f'{len(checks)} checksums verified','package')
 # Reports
 out=ROOT/'validation'; out.mkdir(exist_ok=True)
-summary={'gaamVersion':VERSION,'testSuiteVersion':VERSION,'status':'pass' if all(r['status']=='pass' for r in results) else 'fail','checks':len(results),'passed':sum(r['status']=='pass' for r in results),'failed':sum(r['status']=='fail' for r in results),'results':results}
+summary={'releaseVersion':RELEASE_VERSION,'gaamVersion':VERSION,'testSuiteVersion':RELEASE_VERSION,'status':'pass' if all(r['status']=='pass' for r in results) else 'fail','checks':len(results),'passed':sum(r['status']=='pass' for r in results),'failed':sum(r['status']=='fail' for r in results),'results':results}
 (out/'validation-report.json').write_text(json.dumps(summary,indent=2)+'\n')
-md=['---','title: GAAM v0.9.0 Validation Report','permalink: /validation-report/','nav_exclude: true','artifact_type: Validation evidence','normative_status: Repository generated','---','# GAAM v0.9.0 Validation Report','','{% include gaam-meta.html %}','',f'**Status:** {summary["status"].upper()}  ',f'**Checks:** {summary["checks"]}  ',f'**Passed:** {summary["passed"]}  ',f'**Failed:** {summary["failed"]}  ','','This report evidences repository publication, structural and included behavioural checks. It is not an independent L4 assessment.','','| ID | Kind | Status | Evidence |','|---|---|---|---|']
+md=['---',f'title: GAAM v{RELEASE_VERSION} Validation Report','permalink: /validation-report/','nav_exclude: true','artifact_type: Validation evidence','normative_status: Repository generated','---',f'# GAAM v{RELEASE_VERSION} Validation Report','','{% include gaam-meta.html %}','',f'**Normative baseline:** v{VERSION}',f'**Status:** {summary["status"].upper()}',f'**Checks:** {summary["checks"]}',f'**Passed:** {summary["passed"]}',f'**Failed:** {summary["failed"]}','','This report evidences repository publication, structural and included behavioural checks. It is not an independent L4 assessment.','','| ID | Kind | Status | Evidence |','|---|---|---|---|']
 md += [f'| `{r["id"]}` | {r["kind"]} | {r["status"].upper()} | {r["evidence"].replace("|","/")} |' for r in results]
 (ROOT/'VALIDATION_REPORT.md').write_text('\n'.join(md)+'\n')
 print(json.dumps({k:summary[k] for k in ['status','checks','passed','failed']},indent=2)); sys.exit(0 if summary['status']=='pass' else 1)

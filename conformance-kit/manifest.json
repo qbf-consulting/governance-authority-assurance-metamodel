@@ -1,0 +1,11 @@
+{
+  "id": "urn:gaam:informative:portable-conformance-kit:0.9.1",
+  "releaseVersion": "0.9.1",
+  "normativeVersion": "0.9.0",
+  "status": "informative",
+  "normativeEffect": "none",
+  "vectorLocation": "tests/behavioural/*.json",
+  "adapterProtocol": "stdin-single-json-to-stdout-valid-boolean",
+  "resultSchema": "conformance-kit/result.schema.json",
+  "runner": "scripts/gaam.py"
+}

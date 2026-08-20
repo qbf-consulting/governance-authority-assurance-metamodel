@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gaam:informative:portable-conformance-result:0.9.1",
+  "title": "GAAM Portable Conformance Result",
+  "type": "object",
+  "required": ["tool", "command", "releaseVersion", "normativeVersion", "status", "checks"],
+  "properties": {
+    "tool": {"const": "gaam-portable-validator"},
+    "command": {"enum": ["validate-claim", "validate-package", "run-vectors"]},
+    "releaseVersion": {"const": "0.9.1"},
+    "normativeVersion": {"const": "0.9.0"},
+    "status": {"enum": ["pass", "fail"]},
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "detail"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "status": {"enum": ["pass", "fail"]},
+          "detail": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

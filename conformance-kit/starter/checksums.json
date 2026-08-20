@@ -1,0 +1,9 @@
+{
+  "algorithm": "sha-256",
+  "scope": "starter package artifacts",
+  "files": [
+    {"path": "artifacts/authority.json", "sha256": "25552095da1aa5d28f9eac41569481700eb0a8c1cc6a52a15f98f0ffc0ab2ada"},
+    {"path": "artifacts/conformance-claim.json", "sha256": "2381ca93005fa19d71ec0bbbc31ded634029ab40ca0c97aa60993fda564c4161"},
+    {"path": "artifacts/decision-receipt.json", "sha256": "a641df47f0a61b5e7264c80d42f6e299fa21533688e18ac5bbcfa8844d09f0a3"}
+  ]
+}
