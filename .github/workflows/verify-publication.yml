@@ -1,0 +1,29 @@
+name: Verify canonical publication
+
+on:
+  schedule:
+    - cron: "23 4 * * 1"
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Deploy GitHub Pages"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Verify canonical URLs and retained v0.9.0 bytes
+        run: python scripts/verify_canonical_publication.py --remote --output validation/canonical-publication-report.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: canonical-publication-evidence
+          path: validation/canonical-publication-report.json

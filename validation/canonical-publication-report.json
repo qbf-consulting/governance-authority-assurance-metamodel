@@ -1,0 +1,99 @@
+{
+  "releaseVersion": "0.9.1",
+  "normativeVersion": "0.9.0",
+  "mode": "remote",
+  "status": "pass",
+  "checks": [
+    {
+      "schema": "agent-governance-identity.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/agent-governance-identity.schema.json",
+      "status": "pass",
+      "sourceSha256": "6120fc1b75b10c2c8f86a4ddde06e2e4bf724c73eee3e4cabcea27a4e0e45e27",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "appeal.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/appeal.schema.json",
+      "status": "pass",
+      "sourceSha256": "f25c9db49d854e6ebeec380db7c835b7f0609bf9671e5b37b7f553d57d708302",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "assurance.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/assurance.schema.json",
+      "status": "pass",
+      "sourceSha256": "4c1c87eeccca5fd549712a572769c6a34c4b56a7245e2353a8f2c99f251cb283",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "authority.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/authority.schema.json",
+      "status": "pass",
+      "sourceSha256": "ef7cb1aa8a097fb61e1638e410f57fcdcfb3946480c7b8286e48cb093ba9a7db",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "conformance-claim.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/conformance-claim.schema.json",
+      "status": "pass",
+      "sourceSha256": "f185fab5745e8c72d86aab9ee5f9545586e7272b98efd26a1f2fd65877a894a9",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "decision-receipt.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/decision-receipt.schema.json",
+      "status": "pass",
+      "sourceSha256": "2d8827a42df42f46f6914cb1123a04682133460c2e97d04f037a0a8f5be85984",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "delegation.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/delegation.schema.json",
+      "status": "pass",
+      "sourceSha256": "81c0ed7b975ca28c8f217fce9e42e74eeffc4e70f95a60cf45a9848731d60a9f",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "evidence.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/evidence.schema.json",
+      "status": "pass",
+      "sourceSha256": "76b246fc6b55674279d8efeef50e211bdda20a932e43db85f729b1720fc3f399",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "gaam-package.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/gaam-package.schema.json",
+      "status": "pass",
+      "sourceSha256": "ff851a41c3e142d0ef5edccb6241c64646c7a58b39164b39b221a8401aea2bc6",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "governance-event.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/governance-event.schema.json",
+      "status": "pass",
+      "sourceSha256": "5c0b2e5a413d174b0e4a9af0bad1b4d9eb627d8c7439df839cfbc191db870f77",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "profile-manifest.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/profile-manifest.schema.json",
+      "status": "pass",
+      "sourceSha256": "a2cccfb6c330f8e1f40a02d8fdc73db5e27785123465a2263081cb5af7b5724b",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "remedy.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/remedy.schema.json",
+      "status": "pass",
+      "sourceSha256": "90849bcbf3273f8a14609001ac4e01c41c8cffc7b48ab73f3aa8749a12138794",
+      "detail": "canonical bytes match source"
+    },
+    {
+      "schema": "runtime-envelope.schema.json",
+      "canonicalId": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/runtime-envelope.schema.json",
+      "status": "pass",
+      "sourceSha256": "9049946c231319f5fa72d9cbeca88b69225431d6538d5019729c92369b71ca89",
+      "detail": "canonical bytes match source"
+    }
+  ]
+}
