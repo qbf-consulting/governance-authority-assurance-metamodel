@@ -1,3 +1,8 @@
+---
+layout: default
+title: Assurance Evidence
+---
+
 # Assurance evidence contract
 
 The governance metamodel uses repository-native controls as executable assurance evidence.
