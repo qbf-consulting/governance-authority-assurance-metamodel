@@ -33,15 +33,15 @@
     {
       "id": "GAAM-CR-003",
       "title": "Canonical identifier publication demonstration",
-      "status": "open",
+      "status": "closed",
       "severity": "high",
       "blockingV1": true,
       "changeClass": "editorial",
       "affectedRequirements": ["GAAM-ART-001"],
       "affectedProfiles": ["gaam:profile:foundation:0.9.0"],
       "decisionAuthority": "maintainers",
-      "requiredEvidence": ["Resolvable versioned schema identifiers", "Published checksum verification", "Historical-version retention check"],
-      "disposition": "Publication workflow exists; external durability evidence pending"
+      "requiredEvidence": ["validation/canonical-publication-report.json", "packages/gaam-v0.9.1/checksums.json", "governance/reviews/evidence/publication/canonical-identifier-evidence.json"],
+      "disposition": "Closed: remote v0.9.0 canonical identifiers resolve byte-for-byte after the v0.9.1 maintenance release, release checksums are published, and historical-retention evidence plus reassessment triggers are recorded."
     },
     {
       "id": "GAAM-CR-004",
