@@ -1,0 +1,40 @@
+{
+  "evidenceVersion": "1.0",
+  "candidateIssue": "GAAM-CR-003",
+  "normativeVersion": "0.9.0",
+  "observedAgainstRelease": "0.9.1",
+  "observedAt": "2026-09-07",
+  "status": "satisfied",
+  "claims": {
+    "resolvableVersionedIdentifiers": {
+      "status": "pass",
+      "evidence": "validation/canonical-publication-report.json",
+      "basis": "Remote canonical publication verification reports PASS for every catalogued v0.9.0 schema and requires the resolved URL to equal the canonical identifier."
+    },
+    "checksumVerification": {
+      "status": "pass",
+      "evidence": "packages/gaam-v0.9.1/checksums.json",
+      "basis": "The v0.9.1 reproducible package binds declared source artifacts with SHA-256 checksums while preserving the v0.9.0 normative baseline."
+    },
+    "historicalVersionRetention": {
+      "status": "pass",
+      "evidence": "validation/canonical-publication-report.json",
+      "basis": "The current v0.9.1 publication verification resolves and byte-compares versioned /v0.9.0/ schema identifiers after the subsequent maintenance release, demonstrating retained historical publication across a release boundary."
+    }
+  },
+  "limitations": [
+    "This is evidence of current historical retention across the v0.9.0 to v0.9.1 release boundary, not a claim of indefinite hosting durability.",
+    "Future publication or hosting changes can invalidate this evidence and require reassessment."
+  ],
+  "reassessmentTriggers": [
+    "canonical identifier base URL changes",
+    "published v0.9.0 bytes change",
+    "historical version route becomes unavailable or redirects to a different canonical URL",
+    "checksum algorithm or release packaging changes materially"
+  ],
+  "decision": {
+    "authority": "maintainers",
+    "disposition": "close GAAM-CR-003",
+    "reason": "All three required evidence predicates are now represented by reproducible repository evidence, with durability claims explicitly bounded."
+  }
+}
