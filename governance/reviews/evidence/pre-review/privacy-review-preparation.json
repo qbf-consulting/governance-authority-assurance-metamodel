@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "reviewType": "privacy",
+  "gaamVersion": "0.9.0",
+  "baseline": "governance/reviews/review-baseline.json",
+  "status": "prepared-not-attested",
+  "independence": "repository-controlled",
+  "cannotSatisfyIndependentReview": true,
+  "purpose": "Provide an independent privacy reviewer with a bounded, evidence-linked pressure-test dossier without pre-judging findings or attesting review completion.",
+  "pressureTests": [
+    {
+      "id": "GAAM-PRIV-PT-001",
+      "topic": "persistent authority identifiers",
+      "question": "Can authority identifiers or decision receipts create durable correlation across contexts beyond the purpose needed to evaluate authority?",
+      "requirements": ["GAAM-AUTH-001", "GAAM-AUTH-002", "GAAM-EVID-002"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/authority.schema.json", "schemas/decision-receipt.schema.json"],
+      "falsification": "A reviewer can construct two otherwise independent contexts in which stable authority or evidence references enable unintended linkage without an explicit privacy boundary or mitigation."
+    },
+    {
+      "id": "GAAM-PRIV-PT-002",
+      "topic": "delegation lineage disclosure",
+      "question": "Does proving delegation lineage require disclosure of more principals, intermediaries, relationships or historical hops than the relying decision needs?",
+      "requirements": ["GAAM-DEL-004", "GAAM-EVID-001", "GAAM-EVID-002"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/delegation.schema.json"],
+      "falsification": "A valid narrow authority decision cannot be verified without exposing unrelated delegation hops or principal relationships."
+    },
+    {
+      "id": "GAAM-PRIV-PT-003",
+      "topic": "lifecycle and revocation observability",
+      "question": "Can suspension, revocation or lifecycle evidence reveal sensitive relationship state or activity to parties that do not require it?",
+      "requirements": ["GAAM-DEL-005", "GAAM-EVID-003", "GAAM-LIFE-001"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/governance-event.schema.json"],
+      "falsification": "A status check exposes protected relationship history or lifecycle detail rather than the minimum decision-relevant state."
+    },
+    {
+      "id": "GAAM-PRIV-PT-004",
+      "topic": "appeal and remedy records",
+      "question": "Do accountability and remedy records retain or redistribute sensitive evidence beyond what is required for challenge, review and redress?",
+      "requirements": ["GAAM-EVID-002", "GAAM-ACC-001", "GAAM-RED-001"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/appeal.schema.json", "schemas/remedy.schema.json"],
+      "falsification": "A party exercising challenge or remedy rights is forced to disclose unrelated evidence, or retained case records become a new cross-context correlation surface."
+    },
+    {
+      "id": "GAAM-PRIV-PT-005",
+      "topic": "assurance evidence minimisation",
+      "question": "Can a relying party establish the required assurance conclusion without receiving the underlying evidence graph when only the conclusion is decision-relevant?",
+      "requirements": ["GAAM-EVID-001", "GAAM-EVID-004"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "docs/conformance-guide.md"],
+      "falsification": "The model structurally requires disclosure of raw evidence or stable evidence references where a bounded assurance result would suffice."
+    }
+  ],
+  "reviewerOutputsRequired": [
+    "attributable findings conforming to governance/reviews/finding.schema.json",
+    "explicit independence and conflict disclosure",
+    "disposition of every material privacy risk",
+    "closure evidence for any remediated blocking finding",
+    "completion attestation against governance/reviews/privacy-review.json exit criteria"
+  ],
+  "closureBoundary": "This preparation artifact is repository-controlled and cannot change privacy-review status from not-started/independent-review-required to complete."
+}
