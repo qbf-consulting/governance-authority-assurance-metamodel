@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0",
+  "reviewType": "affected-party",
+  "gaamVersion": "0.9.0",
+  "baseline": "governance/reviews/review-baseline.json",
+  "status": "prepared-not-attested",
+  "independence": "repository-controlled",
+  "cannotSatisfyIndependentReview": true,
+  "purpose": "Prepare an independent affected-party reviewer to test whether notice, standing, review and remedy operate as consequential governance controls rather than nominal metadata.",
+  "pressureTests": [
+    {
+      "id": "GAAM-AP-PT-001",
+      "topic": "notice and intelligibility",
+      "question": "Can an affected party determine what happened, which consequential effect occurred and which authority/evidence basis was relied upon?",
+      "requirements": ["GAAM-ACC-001", "GAAM-RED-001"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/decision-receipt.schema.json", "schemas/appeal.schema.json"],
+      "falsification": "A technically attributable decision cannot be explained to the affected party sufficiently to support meaningful challenge."
+    },
+    {
+      "id": "GAAM-AP-PT-002",
+      "topic": "standing",
+      "question": "Can a materially affected person or organisation challenge an effect without first being a participant, credential holder or contractual member of the governance framework?",
+      "requirements": ["GAAM-RED-001"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/appeal.schema.json"],
+      "falsification": "A materially affected non-participant lacks a defined path to establish standing or initiate review."
+    },
+    {
+      "id": "GAAM-AP-PT-003",
+      "topic": "review independence",
+      "question": "Can the actor that caused, approved or materially benefits from the challenged effect unilaterally control its review?",
+      "requirements": ["GAAM-ACC-001", "GAAM-RED-001"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/appeal.schema.json"],
+      "falsification": "The only available review path is controlled by the same decision authority without an independent escalation or conflict mechanism."
+    },
+    {
+      "id": "GAAM-AP-PT-004",
+      "topic": "interim protection",
+      "question": "Where an effect is continuing or irreversible, can the governance framework represent suspension, restriction or other interim protection while review is pending?",
+      "requirements": ["GAAM-LIFE-001", "GAAM-RED-001"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/governance-event.schema.json", "schemas/appeal.schema.json"],
+      "falsification": "A credible challenge exists but the model has no way to prevent a continuing harmful effect before final disposition."
+    },
+    {
+      "id": "GAAM-AP-PT-005",
+      "topic": "remedy execution",
+      "question": "Does a remedy record produce or evidence an actual state change, correction, reversal, compensation or other governed outcome rather than merely recording that an appeal occurred?",
+      "requirements": ["GAAM-RED-001"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/remedy.schema.json", "schemas/governance-event.schema.json"],
+      "falsification": "Appeal/remedy metadata can be complete while the original consequential effect remains unchanged and no completion evidence is required."
+    },
+    {
+      "id": "GAAM-AP-PT-006",
+      "topic": "accountability continuity",
+      "question": "After delegation, agent replacement, provider exit or authority revocation, does an accountable party remain identifiable for challenge and remedy?",
+      "requirements": ["GAAM-DEL-006", "GAAM-RED-001"],
+      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/delegation.schema.json", "schemas/remedy.schema.json"],
+      "falsification": "Lifecycle or delegation change breaks the accountability path for an already-affected party."
+    }
+  ],
+  "reviewerOutputsRequired": [
+    "attributable affected-party findings conforming to governance/reviews/finding.schema.json",
+    "explicit independence and conflict disclosure",
+    "assessment of notice, standing, review independence, interim protection and remedy execution",
+    "closure evidence for remediated blocking findings",
+    "completion attestation against governance/reviews/affected-party-review.json exit criteria"
+  ],
+  "closureBoundary": "This repository-controlled preparation cannot satisfy the independent affected-party review or close GAAM-CR-004."
+}
