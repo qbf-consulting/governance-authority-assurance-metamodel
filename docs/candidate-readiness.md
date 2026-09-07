@@ -18,7 +18,7 @@ This dashboard exposes the evidence currently available for progression from GAA
 ## Current decision state
 
 **Eligible for a v1.0.0 release decision:** **NO**  
-**Blocking gates:** 9  
+**Blocking gates:** 8  
 **Accepted implementation reports:** 0
 
 ## Candidate gates
@@ -29,7 +29,7 @@ This dashboard exposes the evidence currently available for progression from GAA
 | Foundation implementation coverage | Not started | Yes | At least one accepted independent implementation report includes the Foundation Profile. |
 | Composed-profile implementation coverage | Not started | Yes | At least one accepted independent implementation report covers Foundation plus at least one additional GAAM profile. |
 | Requirement testability disposition | Complete | Yes | The normative requirement index and requirement-test coverage matrix remain validator-clean. |
-| Canonical identifier publication | In progress | Yes | GAAM-CR-003 is closed with resolvable versioned identifiers, checksum verification and historical-retention evidence. |
+| Canonical identifier publication | Complete | Yes | GAAM-CR-003 is closed with resolvable versioned identifiers, checksum verification and historical-retention evidence. |
 | Privacy review | Not started | Yes | The privacy review is complete, attested, and has no unresolved blocking findings. |
 | Security review | Not started | Yes | The security review is complete, attested, and has no unresolved blocking findings or unresolved critical security issue. |
 | Affected-party review | Not started | Yes | The affected-party review is complete, attested, and has no unresolved blocking findings. |
@@ -42,12 +42,11 @@ This dashboard exposes the evidence currently available for progression from GAA
 - `independent-implementations` — Two independent implementations. Source issue(s): GAAM-CR-001.
 - `foundation-implementation` — Foundation implementation coverage. Source issue(s): GAAM-CR-001.
 - `composed-profile-implementation` — Composed-profile implementation coverage. Source issue(s): GAAM-CR-001.
-- `canonical-identifiers` — Canonical identifier publication. Source issue(s): GAAM-CR-003.
 - `privacy-review` — Privacy review. Source issue(s): GAAM-CR-004.
 - `security-review` — Security review. Source issue(s): GAAM-CR-005.
 - `affected-party-review` — Affected-party review. Source issue(s): GAAM-CR-004.
 - `cross-implementation-interoperability` — Cross-implementation interoperability. Source issue(s): GAAM-CR-002.
-- `candidate-issue-disposition` — Breaking candidate issue disposition. Source issue(s): GAAM-CR-001, GAAM-CR-002, GAAM-CR-003, GAAM-CR-004, GAAM-CR-005.
+- `candidate-issue-disposition` — Breaking candidate issue disposition. Source issue(s): GAAM-CR-001, GAAM-CR-002, GAAM-CR-004, GAAM-CR-005.
 
 ## Evidence acceptance boundary
 
