@@ -1,5 +1,5 @@
 {
-  "registerVersion": "1.0",
+  "registerVersion": "1.1",
   "gaamVersion": "0.9.0",
   "status": "active",
   "changeClasses": ["editorial", "clarification", "compatible-extension", "breaking-normative-change", "security-correction"],
@@ -9,26 +9,30 @@
       "title": "Independent implementation feasibility",
       "status": "open",
       "severity": "high",
-      "blockingV1": true,
+      "blockingV1": false,
+      "controlBoundary": "external",
+      "evidenceLevel": "E2",
       "changeClass": "clarification",
       "affectedRequirements": ["GAAM-CONF-001"],
       "affectedProfiles": ["gaam:profile:foundation:0.9.0"],
       "decisionAuthority": "maintainers",
       "requiredEvidence": ["Two independent implementation reports", "Foundation Profile coverage", "At least one composed-profile implementation"],
-      "disposition": "Awaiting independent implementation evidence"
+      "disposition": "Waiting external: independent implementation evidence advances E2 and does not veto specification maturation. Material findings produced by implementation re-enter governed reassessment."
     },
     {
       "id": "GAAM-CR-002",
       "title": "Cross-implementation receipt and lifecycle interoperability",
       "status": "open",
       "severity": "high",
-      "blockingV1": true,
+      "blockingV1": false,
+      "controlBoundary": "external",
+      "evidenceLevel": "E3",
       "changeClass": "clarification",
       "affectedRequirements": ["GAAM-DEC-001", "GAAM-LIFE-001"],
       "affectedProfiles": ["gaam:profile:runtime-governance:0.9.0"],
       "decisionAuthority": "maintainers",
       "requiredEvidence": ["Artifacts from two independent implementations", "Cross-validator results", "Documented semantic differences"],
-      "disposition": "Interoperability event not yet completed"
+      "disposition": "Waiting external: interoperability evidence advances E3 and does not veto specification maturation. Semantic divergence remains a reassessment trigger."
     },
     {
       "id": "GAAM-CR-003",
@@ -36,6 +40,8 @@
       "status": "closed",
       "severity": "high",
       "blockingV1": true,
+      "controlBoundary": "repository-controlled",
+      "evidenceLevel": "E1",
       "changeClass": "editorial",
       "affectedRequirements": ["GAAM-ART-001"],
       "affectedProfiles": ["gaam:profile:foundation:0.9.0"],
@@ -48,26 +54,30 @@
       "title": "Privacy and affected-party review",
       "status": "open",
       "severity": "high",
-      "blockingV1": true,
+      "blockingV1": false,
+      "controlBoundary": "shared",
+      "evidenceLevel": "E2",
       "changeClass": "clarification",
       "affectedRequirements": ["GAAM-RED-001"],
       "affectedProfiles": ["gaam:profile:high-impact-systems:0.9.0"],
       "decisionAuthority": "maintainers",
-      "requiredEvidence": ["Completed privacy review", "Completed affected-party review", "Disposition of material findings"],
-      "disposition": "Structured reviews not yet completed"
+      "requiredEvidence": ["Independent privacy review", "Independent affected-party review", "Disposition of material findings"],
+      "disposition": "Waiting external attestation. Independent review advances E2; any known unresolved material finding remains independently capable of blocking Stable through repository-controlled finding disposition."
     },
     {
       "id": "GAAM-CR-005",
       "title": "Security review and critical issue disposition",
       "status": "open",
       "severity": "critical",
-      "blockingV1": true,
+      "blockingV1": false,
+      "controlBoundary": "shared",
+      "evidenceLevel": "E2",
       "changeClass": "security-correction",
       "affectedRequirements": ["GAAM-AUTH-001"],
       "affectedProfiles": ["gaam:profile:foundation:0.9.0"],
       "decisionAuthority": "maintainers",
-      "requiredEvidence": ["Completed security review", "Threat-register reconciliation", "No unresolved critical security finding"],
-      "disposition": "Formal candidate security review pending"
+      "requiredEvidence": ["Independent security review", "Threat-register reconciliation", "No unresolved critical security finding"],
+      "disposition": "Waiting external attestation. Independent review advances E2; any known unresolved critical security finding remains independently capable of blocking Stable through repository-controlled finding disposition."
     }
   ]
 }
