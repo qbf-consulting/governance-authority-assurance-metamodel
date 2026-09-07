@@ -4,9 +4,11 @@
   "title": "GAAM Maturity and Evidence State",
   "type": "object",
   "additionalProperties": false,
-  "required": ["gaamVersion", "maturityModel", "gateClassification", "specification", "evidence", "gates"],
+  "required": ["gaamVersion", "eligibleForV1Decision", "blockingGates", "maturityModel", "gateClassification", "specification", "evidence", "gates"],
   "properties": {
     "gaamVersion": {"const": "0.9.0"},
+    "eligibleForV1Decision": {"type": "boolean", "description": "Compatibility alias for specification.eligibleForStableDecision."},
+    "blockingGates": {"type": "array", "uniqueItems": true, "items": {"type": "string"}, "description": "Compatibility alias for specification.blockingGates."},
     "maturityModel": {"const": "governance/maturity-model.json"},
     "gateClassification": {"const": "governance/v1-gate-classification.json"},
     "specification": {
