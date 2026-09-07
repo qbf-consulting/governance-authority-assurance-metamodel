@@ -35,6 +35,9 @@ jobs:
       - name: Validate guided learning paths
         run: python scripts/validate_learning_paths.py
 
+      - name: Validate clean-room implementation path
+        run: python scripts/validate_clean_room.py
+
       - uses: actions/setup-node@v7
         with:
           node-version: "22"

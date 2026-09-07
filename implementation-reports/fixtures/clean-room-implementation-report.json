@@ -1,0 +1,56 @@
+{
+  "reportId": "GAAM-IR-CLEANROOM-001",
+  "reportVersion": "1.0",
+  "reportStatus": "structurally-valid",
+  "synthetic": true,
+  "gaamVersion": "0.9.0",
+  "implementation": {
+    "name": "GAAM Foundation Starter Clean-Room Fixture",
+    "version": "0.9.1",
+    "sourceRevision": "clean-room-starter-v0.9.1",
+    "environment": "fresh CI checkout using published repository artifacts",
+    "repository": "https://github.com/sankarshanmukhopadhyay/governance-authority-assurance-metamodel"
+  },
+  "profiles": ["gaam:profile:foundation:0.9.0"],
+  "requirementsEvaluated": ["GAAM-AUTH-001"],
+  "evidenceLevel": "L1",
+  "validator": {
+    "name": "GAAM portable conformance kit",
+    "version": "0.9.1"
+  },
+  "results": [
+    {
+      "resultId": "CR-RESULT-001",
+      "requirementId": "GAAM-AUTH-001",
+      "method": "structural-test",
+      "status": "pass",
+      "evidenceIds": ["CR-EVID-001"],
+      "notes": "The starter authority artifact validates in the published package. This bounded result does not establish full Foundation Profile conformance."
+    }
+  ],
+  "exceptions": [],
+  "evidenceManifest": "implementation-reports/fixtures/clean-room-evidence-manifest.json",
+  "independence": {
+    "classification": "self",
+    "assessor": "GAAM repository clean-room fixture",
+    "relationshipsDisclosed": true,
+    "statement": "Repository-controlled synthetic exercise. It is intentionally not independent and cannot contribute to independent-implementation readiness."
+  },
+  "claimBoundary": {
+    "conclusion": "The published starter and evidence-reporting contracts are sufficient to execute a bounded clean-room validation path for the included authority artifact.",
+    "limitations": [
+      "Synthetic repository-controlled evidence only.",
+      "Evaluates one Foundation requirement and does not establish full Foundation Profile conformance.",
+      "Does not contribute to GAAM candidate-readiness independent implementation or interoperability gates."
+    ],
+    "validFrom": "2026-09-07T05:00:00Z",
+    "validUntil": null
+  },
+  "reassessmentTriggers": [
+    "GAAM normative version changes",
+    "Foundation Profile requirement set changes",
+    "starter package structure changes",
+    "portable conformance kit behaviour changes",
+    "implementation-report or evidence-manifest contract changes"
+  ]
+}

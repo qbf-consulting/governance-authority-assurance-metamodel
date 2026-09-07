@@ -1,0 +1,19 @@
+{
+  "manifestId": "GAAM-EM-CLEANROOM-001",
+  "gaamVersion": "0.9.0",
+  "reportId": "GAAM-IR-CLEANROOM-001",
+  "generatedAt": "2026-09-07T05:00:00Z",
+  "artifacts": [
+    {
+      "evidenceId": "CR-EVID-001",
+      "path": "conformance-kit/starter/artifacts/authority.json",
+      "mediaType": "application/json",
+      "sha256": "25552095da1aa5d28f9eac41569481700eb0a8c1cc6a52a15f98f0ffc0ab2ada",
+      "producer": "GAAM repository clean-room fixture",
+      "collectedAt": "2026-09-07T05:00:00Z",
+      "validUntil": null,
+      "supports": ["GAAM-AUTH-001"],
+      "independence": "self"
+    }
+  ]
+}
