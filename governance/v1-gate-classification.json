@@ -1,0 +1,17 @@
+{
+  "modelVersion": "1.0",
+  "gaamBaseline": "0.9.0",
+  "gates": [
+    {"id":"independent-implementations","control":"external","proves":"E2 independent implementation evidence","blocksSpecificationStable":false,"evidenceLevel":"E2"},
+    {"id":"foundation-implementation","control":"external","proves":"E2 independent Foundation Profile implementation coverage","blocksSpecificationStable":false,"evidenceLevel":"E2"},
+    {"id":"composed-profile-implementation","control":"external","proves":"E2 independent composed-profile implementation coverage","blocksSpecificationStable":false,"evidenceLevel":"E2"},
+    {"id":"requirement-testability","control":"repository-controlled","proves":"Normative requirements are deterministically indexed and testable","blocksSpecificationStable":true,"evidenceLevel":"E1"},
+    {"id":"canonical-identifiers","control":"repository-controlled","proves":"Canonical/versioned normative identifiers are stable and publication-bound","blocksSpecificationStable":true,"evidenceLevel":"E1"},
+    {"id":"privacy-review","control":"shared","proves":"Independent privacy attestation at E2; repository preparation and disposition remain maintainer-controlled","blocksSpecificationStable":false,"evidenceLevel":"E2","stableBlocker":"Any known unresolved material privacy finding recorded by the repository remains a specification blocker regardless of attestation status."},
+    {"id":"security-review","control":"shared","proves":"Independent security attestation at E2; repository threat analysis and disposition remain maintainer-controlled","blocksSpecificationStable":false,"evidenceLevel":"E2","stableBlocker":"Any known unresolved critical security finding recorded by the repository remains a specification blocker regardless of attestation status."},
+    {"id":"affected-party-review","control":"shared","proves":"Independent affected-party/redress attestation at E2; repository preparation and disposition remain maintainer-controlled","blocksSpecificationStable":false,"evidenceLevel":"E2","stableBlocker":"Any known unresolved material affected-party or redress finding recorded by the repository remains a specification blocker regardless of attestation status."},
+    {"id":"cross-implementation-interoperability","control":"external","proves":"E3 cross-implementation interoperability evidence","blocksSpecificationStable":false,"evidenceLevel":"E3"},
+    {"id":"governed-ecosystem-applicability","control":"shared","proves":"Independent applicability evidence for the declared ecosystem boundary","blocksSpecificationStable":false,"evidenceLevel":"E2"},
+    {"id":"candidate-issue-disposition","control":"repository-controlled","proves":"All repository-controlled candidate findings that affect the Stable claim have governed disposition","blocksSpecificationStable":true,"evidenceLevel":"E1"}
+  ]
+}

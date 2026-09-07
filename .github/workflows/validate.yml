@@ -29,8 +29,17 @@ jobs:
       - name: Install Python dependencies
         run: python -m pip install -r requirements-dev.txt
 
+      - name: Generate maturity and evidence state
+        run: python scripts/build_candidate_readiness.py
+
+      - name: Test maturity authority boundaries
+        run: python scripts/test_maturity_model.py
+
       - name: Run GAAM validation
         run: python scripts/validate.py
+
+      - name: Validate generated maturity state is current
+        run: python scripts/build_candidate_readiness.py --check
 
       - name: Validate guided learning paths
         run: python scripts/validate_learning_paths.py

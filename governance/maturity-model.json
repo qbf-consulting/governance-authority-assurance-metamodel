@@ -1,0 +1,30 @@
+{
+  "modelVersion": "1.0",
+  "gaamBaseline": "0.9.0",
+  "governingInvariant": "A GAAM specification release must not require evidence whose successful production is exclusively controlled by an external actor unless absence of that evidence makes the release claim itself logically unsupportable.",
+  "specificationMaturity": {
+    "states": ["draft", "candidate", "stable"],
+    "decisionAuthority": "GAAM maintainers under GOVERNANCE.md",
+    "stableClaim": "The normative GAAM specification is stable, internally coherent, deterministically testable, governed by bounded change control, and free of unresolved repository-controlled blocking findings.",
+    "doesNotAssert": [
+      "independent implementation",
+      "independent assurance",
+      "cross-implementation interoperability",
+      "operational deployment fitness",
+      "certification"
+    ]
+  },
+  "evidenceMaturity": {
+    "levels": [
+      {"id": "E0", "claim": "Specification published; no repository validation claim required."},
+      {"id": "E1", "claim": "Repository/reference validation and internally controlled conformance evidence are complete for the declared baseline."},
+      {"id": "E2", "claim": "Admissible independent implementation and/or independent review evidence exists for the explicitly declared claim boundary."},
+      {"id": "E3", "claim": "Admissible cross-implementation interoperability evidence exists for the explicitly declared claim boundary."},
+      {"id": "E4", "claim": "Admissible operational/deployment evidence exists for the explicitly declared claim boundary."}
+    ],
+    "nonSubstitution": "Synthetic, self-assessed, maintainer-authored, or repository-owned fixtures MUST NOT satisfy E2 or E3 claims requiring independence."
+  },
+  "gateControlClasses": ["repository-controlled", "shared", "external"],
+  "externalEvidenceRule": "Missing external evidence leaves the corresponding evidence claim unproven; it is not evidence that the specification is unstable.",
+  "reassessmentRule": "External evidence that reveals a material ambiguity, security/privacy defect, semantic divergence, or invalid normative assumption MUST enter the governed finding/change lifecycle and may invalidate Stable readiness until disposition and reassessment complete."
+}
