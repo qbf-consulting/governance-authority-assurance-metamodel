@@ -17,7 +17,6 @@
     "independent-implementations",
     "foundation-implementation",
     "composed-profile-implementation",
-    "canonical-identifiers",
     "privacy-review",
     "security-review",
     "affected-party-review",
@@ -73,7 +72,7 @@
     {
       "id": "canonical-identifiers",
       "title": "Canonical identifier publication",
-      "state": "in-progress",
+      "state": "satisfied",
       "blocking": true,
       "evidence": [
         "governance/candidate-issues.json"
@@ -165,7 +164,6 @@
       "sourceIssues": [
         "GAAM-CR-001",
         "GAAM-CR-002",
-        "GAAM-CR-003",
         "GAAM-CR-004",
         "GAAM-CR-005"
       ]
