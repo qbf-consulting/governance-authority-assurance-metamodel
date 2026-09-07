@@ -38,6 +38,9 @@ jobs:
       - name: Validate clean-room implementation path
         run: python scripts/validate_clean_room.py
 
+      - name: Validate candidate pre-review dossiers
+        run: python scripts/validate_pre_review.py
+
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
