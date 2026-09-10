@@ -1,8 +1,8 @@
 title: Governance, Authority and Assurance Metamodel
 description: Protocol-neutral governance semantics for authority, delegation, evidence, assurance and accountable digital trust.
-url: https://sankarshanmukhopadhyay.github.io
+url: https://qbf-consulting.github.io
 baseurl: /governance-authority-assurance-metamodel
-repository: sankarshanmukhopadhyay/governance-authority-assurance-metamodel
+repository: qbf-consulting/governance-authority-assurance-metamodel
 version: 0.9.1
 normative_version: 0.9.0
 status: Candidate Maintenance Release
@@ -12,9 +12,6 @@ search_enabled: true
 heading_anchors: true
 back_to_top: true
 back_to_top_text: "Back to top"
-# Mermaid diagram rendering for ```mermaid fenced code blocks (docs/diagrams).
-# Disabled by default when consuming the theme as a gem; version pinned to
-# match the publication-grade version-pinning requirement for this repo.
 mermaid:
   version: "11.16.0"
 markdown: kramdown
@@ -31,7 +28,7 @@ relative_links:
   collections: true
 aux_links:
   "GAAM on GitHub":
-    - "https://github.com/sankarshanmukhopadhyay/governance-authority-assurance-metamodel"
+    - "https://github.com/qbf-consulting/governance-authority-assurance-metamodel"
 aux_links_new_tab: true
 callouts:
   candidate:
@@ -70,13 +67,6 @@ exclude:
   - examples/independent-assurance-assessment/README.md
   - examples/machine-actionable-governance-package/README.md
   - examples/notice-challenge-and-remedy/README.md
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: default
-      version: "0.9.1"
-      release_status: "Candidate Maintenance Release"
   - examples/institutional-authority-succession/README.md
   - examples/cross-jurisdiction-policy-conflict/README.md
   - examples/agent-state-change-control/README.md
@@ -86,3 +76,10 @@ defaults:
   - examples/degraded-trust-service-operation/README.md
   - examples/assurance-composition/README.md
   - examples/revocation-propagation-boundaries/README.md
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      version: "0.9.1"
+      release_status: "Candidate Maintenance Release"
