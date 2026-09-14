@@ -1,0 +1,22 @@
+{
+  "profile_id": "tsmm-external-conformance-core-2026.1",
+  "profile_version": "1.0.0",
+  "implementation": {
+    "name": "Governance, Authority and Assurance Metamodel",
+    "version": "0.9.1",
+    "repository": "https://github.com/qbf-consulting/governance-authority-assurance-metamodel"
+  },
+  "requirements": [
+    {"id":"TSMM-CONF-AUTHORITY","support":"supported","evidence":["schemas/authority.schema.json","specification/governance-authority-assurance-metamodel.md","GOVERNANCE.md"]},
+    {"id":"TSMM-CONF-DELEGATION","support":"supported","evidence":["schemas/delegation.schema.json","specification/governance-authority-assurance-metamodel.md"]},
+    {"id":"TSMM-CONF-SCOPE","support":"supported","evidence":["schemas/authority.schema.json","schemas/delegation.schema.json","schemas/decision-receipt.schema.json"]},
+    {"id":"TSMM-CONF-CURRENT-STATE","support":"supported","evidence":["schemas/governance-event.schema.json","schemas/authority.schema.json","specification/governance-authority-assurance-metamodel.md"]},
+    {"id":"TSMM-CONF-EVIDENCE","support":"supported","evidence":["schemas/evidence.schema.json","schemas/assurance.schema.json","docs/conformance-guide.md"]}
+  ],
+  "authority_boundary": {
+    "gaam_remains_independent": true,
+    "tsmm_normative_dependency": false,
+    "tis_serialization_authority_only": true,
+    "external_certification_claimed": false
+  }
+}

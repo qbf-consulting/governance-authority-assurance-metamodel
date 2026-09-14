@@ -1,0 +1,15 @@
+{
+  "profile_id": "tsmm-external-conformance-core-2026.1",
+  "profile_version": "1.0.0",
+  "cases": [
+    {"id":"GAAM-TSMS-001","scenario":"baseline","authority":true,"delegation":true,"scope":true,"current_state":true,"evidence":true,"known_requirement":true,"supported_profile":true,"assurance_only_override":false,"expected":"PASS"},
+    {"id":"GAAM-TSMS-002","scenario":"missing-authority","authority":false,"delegation":true,"scope":true,"current_state":true,"evidence":true,"known_requirement":true,"supported_profile":true,"assurance_only_override":false,"expected":"FAIL"},
+    {"id":"GAAM-TSMS-003","scenario":"delegation-without-authority","authority":false,"delegation":true,"scope":true,"current_state":true,"evidence":true,"known_requirement":true,"supported_profile":true,"assurance_only_override":false,"expected":"FAIL"},
+    {"id":"GAAM-TSMS-004","scenario":"out-of-scope-effect","authority":true,"delegation":true,"scope":false,"current_state":true,"evidence":true,"known_requirement":true,"supported_profile":true,"assurance_only_override":false,"expected":"FAIL"},
+    {"id":"GAAM-TSMS-005","scenario":"revoked-or-superseded-authority","authority":true,"delegation":true,"scope":true,"current_state":false,"evidence":true,"known_requirement":true,"supported_profile":true,"assurance_only_override":false,"expected":"FAIL"},
+    {"id":"GAAM-TSMS-006","scenario":"missing-required-evidence","authority":true,"delegation":true,"scope":true,"current_state":true,"evidence":false,"known_requirement":true,"supported_profile":true,"assurance_only_override":false,"expected":"INDETERMINATE"},
+    {"id":"GAAM-TSMS-007","scenario":"unknown-semantic-requirement","authority":true,"delegation":true,"scope":true,"current_state":true,"evidence":true,"known_requirement":false,"supported_profile":true,"assurance_only_override":false,"expected":"FAIL"},
+    {"id":"GAAM-TSMS-008","scenario":"unsupported-profile-version","authority":true,"delegation":true,"scope":true,"current_state":true,"evidence":true,"known_requirement":true,"supported_profile":false,"assurance_only_override":false,"expected":"FAIL"},
+    {"id":"GAAM-TSMS-009","scenario":"high-assurance-without-authority","authority":false,"delegation":true,"scope":true,"current_state":true,"evidence":true,"known_requirement":true,"supported_profile":true,"assurance_only_override":true,"expected":"FAIL"}
+  ]
+}
