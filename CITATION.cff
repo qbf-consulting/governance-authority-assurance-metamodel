@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: Governance, Authority and Assurance Metamodel
+type: generic
+version: 0.9.1
+message: "Please cite GAAM using this metadata and identify the version used."
+authors:
+  - family-names: Mukhopadhyay
+    given-names: Sankarshan
+    email: sankarshan@qbfconsulting.digital
+    affiliation: QBF Consulting LLP
+repository-code: https://github.com/qbf-consulting/governance-authority-assurance-metamodel
+url: https://qbf-consulting.github.io/governance-authority-assurance-metamodel/
+license: CC-BY-4.0
+abstract: "GAAM specifies protocol-neutral governance semantics for authority, delegation, revocation, evidence, assurance, accountable decisions, appeal and remedy in digital and agentic systems."
