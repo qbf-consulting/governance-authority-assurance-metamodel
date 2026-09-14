@@ -38,6 +38,9 @@ jobs:
       - name: Run GAAM validation
         run: python scripts/validate.py
 
+      - name: Pressure-test TSMM/TIS external conformance boundary
+        run: python scripts/validate_tsms_external_conformance.py
+
       - name: Validate generated maturity state is current
         run: python scripts/build_candidate_readiness.py --check
 
