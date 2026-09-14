@@ -5,7 +5,7 @@ parent: Assurance and Governance Tracking
 grand_parent: Documentation
 nav_order: 7
 ---
-# TSMM/TIS external conformance experiment
+# TSMM/TIS External Conformance Experiment
 
 GAAM is the second external adopter used to pressure-test the bounded TSMM/TIS conformance interface. The experiment asks whether a governance-authority metamodel can declare a TSMM semantic profile and produce portable evidence without making TSMM or TIS normative dependencies of GAAM.
 
