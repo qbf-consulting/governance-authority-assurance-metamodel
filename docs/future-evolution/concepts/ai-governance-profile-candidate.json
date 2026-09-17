@@ -1,0 +1,65 @@
+{
+  "id": "gaam:profile-candidate:ai-governance:research-2026-09-17",
+  "type": "gaam-research-profile-candidate",
+  "gaamVersion": "0.9.0",
+  "status": "research-candidate",
+  "normativeStatus": "informative-non-conformant",
+  "conformanceClaimPermitted": false,
+  "issue": 32,
+  "candidateTargets": [
+    "ai-system",
+    "ai-agent",
+    "ai-agent-platform",
+    "ai-runtime-enforcement-point",
+    "ai-assurance-service"
+  ],
+  "composes": [
+    "gaam:profile:foundation:0.9.0",
+    "gaam:profile:agentic-systems:0.9.0",
+    "gaam:profile:runtime-governance:0.9.0",
+    "gaam:profile:continuous-assurance:0.9.0",
+    "gaam:profile:delegated-authority:0.9.0",
+    "gaam:profile:machine-actionable-governance:0.9.0"
+  ],
+  "conditionalComposition": [
+    {
+      "profile": "gaam:profile:high-impact-systems:0.9.0",
+      "condition": "consequential impact or applicable external risk classification requires elevated controls"
+    }
+  ],
+  "candidateConstraints": [
+    "declare governed AI artifacts and accountable parties",
+    "keep capability distinct from authority",
+    "bind consequential actions to explicit authority scope and runtime policy",
+    "treat telemetry and attestation as bounded evidence inputs",
+    "define freshness, invalidation and reassessment triggers for AI assurance",
+    "preserve indeterminate and degraded states",
+    "govern proposed effects rather than globally labeling an AI system trusted or safe",
+    "define human-confirmation or escalation conditions for specified effect classes",
+    "record AI-relevant provenance without prescribing a single protocol",
+    "bind incident evidence to operational reassessment, restriction, suspension, review or remedy where policy requires"
+  ],
+  "externalMappingTopics": [
+    "risk-tier classification",
+    "training-data governance and lawful use",
+    "bias fairness and disparate-impact assessment",
+    "explainability and transparency",
+    "model documentation",
+    "statutory incident reporting",
+    "conformity assessment and auditor accreditation",
+    "content provenance protocol bindings"
+  ],
+  "prohibitedInferences": [
+    "model identity implies authority",
+    "credential possession implies authority",
+    "runtime attestation implies authorization",
+    "telemetry implies assurance",
+    "successful probe proves uncompromised cognitive state",
+    "GAAM conformance implies statutory AI conformity"
+  ],
+  "promotion": {
+    "recommended": false,
+    "reason": "research supports profile composition, but no normative profile promotion decision has been made",
+    "coreChangeRequired": false
+  }
+}

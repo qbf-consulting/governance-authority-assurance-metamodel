@@ -28,3 +28,4 @@ These pages refine future-facing governance concepts for implementation testing.
 | [Privacy, Inference, and Governed Observability](privacy-inference-and-observability.md) | Who may collect, infer, observe, retain, and reuse governance data? |
 | [Affected Parties and Remedy Execution](affected-parties-and-remedy.md) | How do standing, representation, correction, and downstream remedy operate? |
 | [Jurisdiction, Market, and Systemic Governance](jurisdiction-market-and-systemic-governance.md) | How are conflicts of law, gatekeeper power, and concentration governed? |
+| [AI Governance Profile Candidate](ai-governance-profile.md) | Can AI governance be expressed by composing existing GAAM semantics plus AI-specific evidence and external mappings without changing the core? |

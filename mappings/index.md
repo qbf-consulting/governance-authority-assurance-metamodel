@@ -31,6 +31,9 @@ GAAM mapping documents are informative artifacts. They explain source provenance
 - [GAAM Source Adoption and Architectural Differentiation Crosswalk](tsmm-v0.22.0-adoption-crosswalk.md)  
   Documents how the ToIP Governance Metamodel Specification v1.0, its Companion Guide and TSMM v0.22.0 informed GAAM while preserving GAAM's independent normative boundary.
 
+- [AI Governance Source-to-GAAM Crosswalk](ai-governance-source-to-gaam.md)  
+  Tests AI-governance and agentic-AI concerns against GAAM v0.9.0 and distinguishes existing coverage, AI-profile constraints, external mappings and genuine core gaps.
+
 ## Interpretation rule
 
 A mapping or source citation does not make an external specification normative for GAAM. Only requirements and artifacts designated normative within the GAAM repository establish GAAM conformance obligations.

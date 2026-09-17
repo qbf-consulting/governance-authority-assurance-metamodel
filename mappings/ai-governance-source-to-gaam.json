@@ -1,0 +1,70 @@
+{
+  "id": "gaam:research:ai-governance-source-crosswalk:2026-09-17",
+  "type": "gaam-informative-research-mapping",
+  "gaamVersion": "0.9.0",
+  "normativeStatus": "informative",
+  "issue": 32,
+  "source": {
+    "title": "AI Governance and ToIP Framework",
+    "date": "2026-09-17",
+    "basis": "user-supplied comparative GenAI synthesis",
+    "authority": "research-input-only"
+  },
+  "disposition": {
+    "state": "profile-plus-external-mappings",
+    "coreChangeRequired": false,
+    "profileCandidateSupported": true,
+    "normativePromotionAuthorized": false
+  },
+  "profileComposition": [
+    "gaam:profile:foundation:0.9.0",
+    "gaam:profile:agentic-systems:0.9.0",
+    "gaam:profile:runtime-governance:0.9.0",
+    "gaam:profile:continuous-assurance:0.9.0",
+    "gaam:profile:delegated-authority:0.9.0",
+    "gaam:profile:machine-actionable-governance:0.9.0",
+    "gaam:profile:high-impact-systems:0.9.0"
+  ],
+  "semanticBoundaries": [
+    "telemetry-is-not-assurance",
+    "attestation-is-not-authority",
+    "verification-is-not-assessment",
+    "assessment-is-not-assurance",
+    "assurance-is-not-authorization",
+    "capability-is-not-authority",
+    "identity-is-not-authority",
+    "effect-admission-is-contextual"
+  ],
+  "mappings": [
+    {"concern":"model-agent-identity-accountability","state":"covered","profiles":["agentic-systems"],"coreGap":false},
+    {"concern":"agent-delegation","state":"covered","profiles":["delegated-authority","agentic-systems"],"coreGap":false},
+    {"concern":"capability-scoping-excessive-agency","state":"covered","profiles":["agentic-systems","runtime-governance"],"coreGap":false},
+    {"concern":"runtime-authorization","state":"covered","profiles":["runtime-governance","agentic-systems"],"coreGap":false},
+    {"concern":"machine-testable-rules","state":"covered","profiles":["machine-actionable-governance"],"coreGap":false},
+    {"concern":"runtime-telemetry-observability","state":"profile-extension","profiles":["continuous-assurance","runtime-governance"],"coreGap":false},
+    {"concern":"runtime-attestation","state":"profile-extension","profiles":["continuous-assurance","runtime-governance"],"coreGap":false},
+    {"concern":"cognitive-state-challenge-response","state":"profile-extension","profiles":["continuous-assurance"],"coreGap":false,"constraint":"bounded-technical-claim-only"},
+    {"concern":"continuous-capability-risk-evaluation","state":"profile-extension","profiles":["continuous-assurance","high-impact-systems"],"coreGap":false},
+    {"concern":"human-oversight-override","state":"profile-extension","profiles":["runtime-governance","high-impact-systems"],"coreGap":false},
+    {"concern":"consequential-effect-boundaries","state":"covered","profiles":["runtime-governance","high-impact-systems"],"coreGap":false},
+    {"concern":"incident-post-deployment-monitoring","state":"profile-extension","profiles":["continuous-assurance","runtime-governance"],"coreGap":false},
+    {"concern":"model-provenance","state":"profile-extension","profiles":["continuous-assurance"],"coreGap":false},
+    {"concern":"training-data-provenance-quality","state":"external-mapping","profiles":["continuous-assurance"],"coreGap":false},
+    {"concern":"retrieval-context-provenance","state":"profile-extension","profiles":["continuous-assurance","runtime-governance"],"coreGap":false},
+    {"concern":"output-content-provenance","state":"profile-extension","profiles":["continuous-assurance"],"coreGap":false},
+    {"concern":"bias-fairness-disparate-impact","state":"external-mapping","profiles":["high-impact-systems"],"coreGap":false},
+    {"concern":"explainability-transparency","state":"external-mapping","profiles":["high-impact-systems"],"coreGap":false},
+    {"concern":"model-cards-technical-documentation","state":"external-mapping","profiles":[],"coreGap":false},
+    {"concern":"ai-risk-tier-classification","state":"external-mapping","profiles":["high-impact-systems"],"coreGap":false},
+    {"concern":"independent-ai-audit-conformity-assessment","state":"external-mapping","profiles":["continuous-assurance"],"coreGap":false},
+    {"concern":"regulatory-mapping-mutual-recognition","state":"external-mapping","profiles":[],"coreGap":false},
+    {"concern":"revocation-suspension-after-evidence-change","state":"covered","profiles":["delegated-authority","continuous-assurance","runtime-governance"],"coreGap":false},
+    {"concern":"redress-ai-mediated-decisions","state":"covered","profiles":["high-impact-systems"],"coreGap":false}
+  ],
+  "falsificationConditions": [
+    "material AI governance requirement cannot be represented by existing GAAM concepts",
+    "requirement cannot be expressed as a profile constraint, evidence class, external obligation, or implementation binding without semantic loss",
+    "new authority or decision semantic is required for safe representation",
+    "existing GAAM requirements produce contradictory governance outcomes for the material AI use case"
+  ]
+}
