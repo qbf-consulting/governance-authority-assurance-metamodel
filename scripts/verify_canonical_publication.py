@@ -14,11 +14,28 @@ import json
 import time
 import urllib.error
 import urllib.request
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = json.loads((ROOT / "schemas/catalog.json").read_text())
 RELEASE = json.loads((ROOT / "release.json").read_text())
 PUBLICATION_BASE = RELEASE.get("publicationBase", RELEASE["schemaBase"])
+ALLOWED_PUBLICATION_BASES = RELEASE.get("allowedPublicationBases", [PUBLICATION_BASE])
+
+
+def publication_url_allowed(requested_url, resolved_url):
+    """Require HTTPS and preserve the schema-relative path across approved publication origins."""
+    requested = urlparse(requested_url)
+    resolved = urlparse(resolved_url)
+    if requested.scheme != "https" or resolved.scheme != "https":
+        return False
+    relative_path = requested.path[len(urlparse(PUBLICATION_BASE).path):].lstrip("/")
+    for base in ALLOWED_PUBLICATION_BASES:
+        parsed_base = urlparse(base)
+        expected_path = parsed_base.path.rstrip("/") + "/" + relative_path
+        if (resolved.scheme, resolved.netloc, resolved.path) == (parsed_base.scheme, parsed_base.netloc, expected_path):
+            return True
+    return False
 
 
 def remote_bytes(url, attempts):
@@ -58,7 +75,7 @@ for entry in CATALOG["schemas"]:
             ok = actual == expected
         else:
             actual, resolved = remote_bytes(publication_url, args.attempts)
-            ok = actual == expected and resolved == publication_url
+            ok = actual == expected and publication_url_allowed(publication_url, resolved)
         detail = "published bytes match retained source" if ok else f"content or publication URL mismatch; resolved={resolved}"
     except Exception as error:
         ok = False
