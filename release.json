@@ -11,6 +11,12 @@
   "canonicalRepository": "https://github.com/qbf-consulting/governance-authority-assurance-metamodel",
   "schemaBase": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/",
   "publicationBase": "https://qbf-consulting.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/",
-  "retainedSchemaVersions": ["0.9.0"],
-  "normativeChange": false
+  "retainedSchemaVersions": [
+    "0.9.0"
+  ],
+  "normativeChange": false,
+  "allowedPublicationBases": [
+    "https://qbf-consulting.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/",
+    "https://qbfconsulting.digital/governance-authority-assurance-metamodel/v0.9.0/schemas/"
+  ]
 }
