@@ -74,6 +74,13 @@
       "example": "examples/governance-state.valid.json",
       "status": "experimental",
       "normativeStatus": "non-normative"
+    },
+    {
+      "id": "authority-at-commitment",
+      "schema": "schemas/authority-at-commitment.schema.json",
+      "example": "examples/authority-at-commitment.valid.json",
+      "status": "experimental",
+      "normativeStatus": "non-normative"
     }
   ],
   "vocabularies": [
