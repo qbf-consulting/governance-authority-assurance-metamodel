@@ -29,7 +29,7 @@ def render_json(rows):
         "derivative": True,
         "requirementCount": len(rows),
         "requirements": rows,
-    }, indent=2) + "\\n"
+    }, indent=2) + "\n"
 
 def render_md(rows):
     groups = {}
