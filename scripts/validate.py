@@ -440,6 +440,33 @@ def behaviour(o):
  return bool(valid)
 for p in sorted((ROOT/'tests/behavioural').glob('*.json')):
  o=load(p); actual=behaviour(o); add('BEH-'+o['id'],actual==o['expectedValid'],f'expected={o["expectedValid"]}; actual={actual}','behavioural')
+# Informative collective-authority pressure fixture. This is deliberately
+# outside tests/behavioural so it cannot be mistaken for v0.9.0 normative
+# conformance evidence.
+collective_errors=[]
+try:
+ ca=load(ROOT/'experimental/examples/collective-authority-pressure-cases.json')
+ if ca.get('status')!='experimental' or ca.get('normativeStatus')!='non-normative':
+  collective_errors.append('experimental boundary invalid')
+ def collective_result(x):
+  if x.get('membershipEvidence') in {None,'missing','unknown','unavailable'} or x.get('ruleEvidence') in {None,'missing','unknown','unavailable'}:
+   return 'INDETERMINATE'
+  if x.get('membershipEvidence')!='current' or x.get('ruleEvidence')!='current':
+   return 'DENY'
+  if x.get('exactActionBinding') is not True:
+   return 'DENY'
+  threshold=x.get('threshold'); members=set(x.get('currentMembers') or []); approvals=x.get('approvals')
+  if not isinstance(threshold,int) or threshold<1 or not members or approvals is None:
+   return 'INDETERMINATE'
+  if threshold>len(members) or any(a not in members for a in approvals):
+   return 'DENY'
+  return 'PERMIT' if len(set(approvals))>=threshold else 'DENY'
+ for case in ca.get('cases',[]):
+  actual=collective_result(case)
+  if actual!=case.get('expected'): collective_errors.append(f"{case.get('id')}: expected={case.get('expected')} actual={actual}")
+except Exception as e: collective_errors.append(str(e))
+add('EXP-COLLECTIVE-AUTHORITY',not collective_errors,'collective authority negative and positive pressure cases preserve principal/controller and composition boundaries' if not collective_errors else '; '.join(collective_errors),'behavioural')
+
 # Requirement-level assurance traceability
 trace=list(csv.DictReader((ROOT/'matrices/requirement-assurance-traceability.csv').open()))
 trace_ids=[r['requirement_id'] for r in trace]
