@@ -1,0 +1,125 @@
+{
+  "schema": "gaam-experimental-collective-authority-pressure/v1",
+  "status": "experimental",
+  "normativeStatus": "non-normative",
+  "cases": [
+    {
+      "id": "GAAM-CA-001",
+      "membershipEvidence": "current",
+      "ruleEvidence": "current",
+      "threshold": 2,
+      "currentMembers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "approvals": [
+        "a",
+        "b"
+      ],
+      "exactActionBinding": true,
+      "expected": "PERMIT"
+    },
+    {
+      "id": "GAAM-CA-002",
+      "membershipEvidence": "current",
+      "ruleEvidence": "current",
+      "threshold": 2,
+      "currentMembers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "approvals": [
+        "a"
+      ],
+      "exactActionBinding": true,
+      "expected": "DENY"
+    },
+    {
+      "id": "GAAM-CA-003",
+      "membershipEvidence": "current",
+      "ruleEvidence": "missing",
+      "threshold": 2,
+      "currentMembers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "approvals": [
+        "a",
+        "b"
+      ],
+      "exactActionBinding": true,
+      "expected": "INDETERMINATE"
+    },
+    {
+      "id": "GAAM-CA-004",
+      "membershipEvidence": "stale",
+      "ruleEvidence": "current",
+      "threshold": 2,
+      "currentMembers": [
+        "a",
+        "c",
+        "d"
+      ],
+      "approvals": [
+        "a",
+        "b"
+      ],
+      "exactActionBinding": true,
+      "expected": "DENY"
+    },
+    {
+      "id": "GAAM-CA-005",
+      "membershipEvidence": "current",
+      "ruleEvidence": "stale",
+      "threshold": 2,
+      "currentMembers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "approvals": [
+        "a",
+        "b"
+      ],
+      "exactActionBinding": true,
+      "expected": "DENY"
+    },
+    {
+      "id": "GAAM-CA-006",
+      "membershipEvidence": "current",
+      "ruleEvidence": "current",
+      "threshold": 2,
+      "currentMembers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "approvals": [
+        "a",
+        "a"
+      ],
+      "exactActionBinding": true,
+      "expected": "DENY"
+    },
+    {
+      "id": "GAAM-CA-007",
+      "membershipEvidence": "current",
+      "ruleEvidence": "current",
+      "threshold": 2,
+      "currentMembers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "approvals": [
+        "a",
+        "b"
+      ],
+      "exactActionBinding": false,
+      "expected": "DENY"
+    }
+  ]
+}
