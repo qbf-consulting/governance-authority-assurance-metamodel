@@ -7,6 +7,25 @@ normative_status: "Release record"
 ---
 # Changelog
 
+## [0.9.2] - 2026-09-22
+
+### Added
+
+- Promote the EUDI Wallet ARF v3.0.0 and GLEIF vLEI EGF v4.0 reviews into coordinated implementation-validation cases using ecosystem crosswalk schema v1.1.
+- Add five behavioural vectors derived from those cases for effect-specific authority scope, upstream delegation invalidation, fail-closed unknown authority state, assurance freshness and attributable decision accountability.
+- Add explicit source-finding provenance to each new vector and map every vector into requirement assurance traceability.
+
+### Changed
+
+- Advance the maintenance distribution, portable conformance-kit contract and test-suite identity from v0.9.1 to v0.9.2.
+- Preserve the frozen v0.9.0 normative baseline, canonical schema namespace, requirement identifiers, profile identifiers and conformance semantics.
+- Keep framework-readiness mappings separate from implementation evidence and GAAM L0-L4 conformance claims.
+
+### Documentation
+
+- Record explicit-authority and distributed-authority benchmark roles for the vLEI and EUDI validation cases.
+- Make authority sources, governed actors/relationships/effects, enforcement, revocation, assurance mechanisms, positive/negative semantics and limitations explicit in the common crosswalk contract.
+
 ## [0.9.1] - 2026-08-20
 
 ### Added
@@ -29,15 +48,6 @@ normative_status: "Release record"
 
 - Added a validator-controlled Future Evolution programme with expansion principles, concept classification, a normative boundary, a four-commit delivery roadmap, fifteen candidate concept pages, and a 25-entry machine-readable enhancement register. GAAM v0.9.0 normative requirements, schemas, profiles, vocabularies, conformance semantics, and threat-model content remain unchanged.
 - Reorganised site navigation with four grouped Documentation routes, a top-level Implementation Reports workflow, and an Appendices section for glossary, vocabularies, matrices, mappings, FAQ, style guidance, and publication documentation. Existing file paths and permalinks remain unchanged.
-
-## Unreleased: paired ecosystem implementation validation
-
-### Documentation
-
-- Promote the EUDI Wallet ARF v3.0.0 and GLEIF vLEI EGF v4.0 readiness reviews into coordinated GAAM implementation-validation cases.
-- Evolve the informative ecosystem crosswalk contract to schema v1.1 with explicit case roles, authority sources, governed actors/relationships/effects, enforcement, revocation, assurance mechanisms, positive/negative semantics and known limitations.
-- Preserve the `covered / partial / gap / not-applicable / unknown` readiness vocabulary and the separation between framework readiness, implementation evidence and GAAM L0-L4 conformance.
-- Record the release boundary: these changes do not alter the frozen v0.9.0 normative baseline; any publication-only follow-up would use a patch maintenance release rather than a normative minor-candidate bump.
 
 ## Unreleased: assurance-ready composed patterns
 
