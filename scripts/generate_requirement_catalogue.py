@@ -38,8 +38,7 @@ def render_md(rows):
     out = """---
 title: "Normative Requirement Catalogue"
 permalink: /specification/requirements/
-parent: "Documentation"
-nav_order: 6
+nav_exclude: true
 artifact_type: "Generated normative requirement catalogue"
 normative_status: "Derivative index"
 ---
@@ -50,10 +49,10 @@ normative_status: "Derivative index"
 > This catalogue is generated from the authoritative human-readable Candidate Specification. It is a navigation and traceability aid, not an independent normative source. If this catalogue and the specification differ, the specification controls.
 
 **Source:** [Governance, Authority and Assurance Metamodel v0.9.0](../specification/governance-authority-assurance-metamodel.md)  
-**Requirement count:** %d  
+**Requirement count:** {count}  
 **Identifier form:** `GAAM-<SECTION>-<NUMBER>`
 
-""" % len(rows)
+""".replace("{count}", str(len(rows)))
     for group, items in groups.items():
         out += f"## {group}\\n\\n| Requirement | Normative text |\\n|---|---|\\n"
         for row in items:
