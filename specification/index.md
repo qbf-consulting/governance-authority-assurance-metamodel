@@ -11,7 +11,9 @@ normative_status: Normative
 {% include gaam-meta.html %}
 
 
-The [Governance, Authority and Assurance Metamodel v0.9.0](governance-authority-assurance-metamodel.md) is the authoritative human-readable specification.
+The [Governance, Authority and Assurance Metamodel v0.9.0](governance-authority-assurance-metamodel.md) is the authoritative human-readable Candidate Specification. It is published from a single Markdown source and rendered through the repository's existing GitHub Pages pipeline.
+
+For standards-oriented review and implementation, use the [Normative Requirement Catalogue](requirements.md) for requirement-level navigation and the [Specification Publication and Reading Guide](publication.md) for artifact precedence, canonical publication and print/archive guidance.
 
 ## Publication model
 
