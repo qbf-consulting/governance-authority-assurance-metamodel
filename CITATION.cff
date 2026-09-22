@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 title: Governance, Authority and Assurance Metamodel
 type: generic
-version: 0.9.1
+version: 0.9.2
 message: "Please cite GAAM using this metadata and identify the version used."
 authors:
   - family-names: Mukhopadhyay
