@@ -1,0 +1,770 @@
+{
+  "title": "GAAM v0.9.0 Normative Requirement Catalogue",
+  "version": "0.9.0",
+  "status": "Candidate Specification",
+  "normativeSource": "specification/governance-authority-assurance-metamodel.md",
+  "derivative": true,
+  "requirementCount": 190,
+  "requirements": [
+    {
+      "id": "GAAM-CORE-001",
+      "text": "A governance framework **MUST** identify the classes of governed entities within its scope."
+    },
+    {
+      "id": "GAAM-CORE-002",
+      "text": "Where a governed entity is a machine, software component or agent, the framework **MUST** identify one or more accountable persons or organisations and the basis of their accountability."
+    },
+    {
+      "id": "GAAM-CORE-003",
+      "text": "A framework **MUST** define each governed actor role, including its responsibilities, eligibility, authority limits, obligations and lifecycle."
+    },
+    {
+      "id": "GAAM-CORE-004",
+      "text": "A framework permitting agent participation **MUST** state which agent classes are permitted and which effects each class may request, recommend, approve or perform."
+    },
+    {
+      "id": "GAAM-CORE-005",
+      "text": "A role definition **MUST** specify the conditions under which the role is assigned, activated, suspended, transferred and terminated."
+    },
+    {
+      "id": "GAAM-AUTH-001",
+      "text": "Every authority recognised by a framework **MUST** identify its source."
+    },
+    {
+      "id": "GAAM-AUTH-002",
+      "text": "Authority **MUST** be bounded by sufficient scope information to determine whether a proposed effect falls within it."
+    },
+    {
+      "id": "GAAM-AUTH-003",
+      "text": "Identification, authentication, possession of a credential, registry inclusion or technical capability **MUST NOT** be treated as sufficient proof of authority unless the framework explicitly defines and validates the authority semantics represented by that artifact or state."
+    },
+    {
+      "id": "GAAM-AUTH-004",
+      "text": "A framework **MUST** distinguish capability from authority."
+    },
+    {
+      "id": "GAAM-AUTH-005",
+      "text": "Systems enforcing a framework **MUST NOT** admit a consequential effect solely because an actor possesses the technical means to cause it."
+    },
+    {
+      "id": "GAAM-DEL-001",
+      "text": "A delegation **MUST** identify the delegator, delegate, delegated authority, effective period and termination conditions."
+    },
+    {
+      "id": "GAAM-DEL-002",
+      "text": "Redelegation **MUST** be expressly authorised."
+    },
+    {
+      "id": "GAAM-DEL-003",
+      "text": "Each delegation hop **MUST NOT** enlarge the authority available at the parent hop unless an independently valid authority source authorises the enlargement."
+    },
+    {
+      "id": "GAAM-DEL-004",
+      "text": "Delegated authority **MUST** remain traceable to its authority source and, where applicable, to the originating principal."
+    },
+    {
+      "id": "GAAM-DEL-005",
+      "text": "Suspension, revocation or expiry of parent authority **MUST** affect descendant authority according to explicit propagation rules."
+    },
+    {
+      "id": "GAAM-DEL-006",
+      "text": "Delegation **MUST NOT** extinguish the accountability of a delegator, principal, operator, provider or other party whose accountability is established by law, agreement or framework policy."
+    },
+    {
+      "id": "GAAM-POL-001",
+      "text": "A framework **MUST** define how conflicts among permissions, prohibitions, obligations and constraints are resolved."
+    },
+    {
+      "id": "GAAM-POL-002",
+      "text": "A framework **MUST** identify the authority under which a permission, prohibition, obligation or constraint is established."
+    },
+    {
+      "id": "GAAM-POL-003",
+      "text": "Machine-actionable rules **MUST** be traceable to their normative policy source and the authority that approved that source."
+    },
+    {
+      "id": "GAAM-POL-004",
+      "text": "A governance framework **MUST** define precedence when human-readable normative text and machine-actionable representations conflict."
+    },
+    {
+      "id": "GAAM-POL-005",
+      "text": "Unless the framework explicitly designates a machine-actionable representation as co-normative and defines equivalence tests, the human-readable normative text **MUST** prevail."
+    },
+    {
+      "id": "GAAM-EVID-001",
+      "text": "A framework **MUST** define the classes of claims that may be relied upon and the evidence, provenance, status and assurance needed for each class."
+    },
+    {
+      "id": "GAAM-EVID-002",
+      "text": "Evidence relied upon for a consequential decision **MUST** have sufficient provenance to identify its origin and relevant transformations."
+    },
+    {
+      "id": "GAAM-EVID-003",
+      "text": "A framework **MUST** define freshness requirements for evidence whose relevance may change over time."
+    },
+    {
+      "id": "GAAM-EVID-004",
+      "text": "An inability to validate required evidence **MUST** result in denial, restriction, suspension or human review according to framework policy; it **MUST NOT** silently result in acceptance."
+    },
+    {
+      "id": "GAAM-ASSUR-001",
+      "text": "A framework **MUST** distinguish verification results from broader assurance conclusions."
+    },
+    {
+      "id": "GAAM-ASSUR-002",
+      "text": "Verification and assessment results **MUST** identify the criteria, evaluator, time, scope, limitations and evidence used."
+    },
+    {
+      "id": "GAAM-ASSUR-003",
+      "text": "Assurance **MUST NOT** be represented as permanent where the underlying conditions, evidence or system state may change."
+    },
+    {
+      "id": "GAAM-ASSUR-004",
+      "text": "A framework **MUST** define the validity, renewal, suspension, withdrawal and review conditions of each assurance conclusion it recognises."
+    },
+    {
+      "id": "GAAM-DEC-001",
+      "text": "A trust decision **MUST** be attributable to a decision-maker or accountable decision service."
+    },
+    {
+      "id": "GAAM-DEC-002",
+      "text": "A trust path, credential, registry entry, reputation value or assurance mark **MUST NOT** by itself constitute a trust decision."
+    },
+    {
+      "id": "GAAM-DEC-003",
+      "text": "A decision **MUST** be evaluated in the context of the relying party\u2019s applicable policy, purpose and risk tolerance."
+    },
+    {
+      "id": "GAAM-EFF-001",
+      "text": "A framework **MUST** identify the consequential effect classes within its scope."
+    },
+    {
+      "id": "GAAM-EFF-002",
+      "text": "A consequential effect **MUST NOT** be admitted unless the applicable authority, policy, evidence and runtime conditions have been evaluated to the level required by the framework."
+    },
+    {
+      "id": "GAAM-CTX-001",
+      "text": "A framework **MUST** identify the governance contexts in which its requirements apply."
+    },
+    {
+      "id": "GAAM-CTX-002",
+      "text": "Cross-context reliance **MUST** be governed by explicit recognition, mapping or conflict-resolution rules."
+    },
+    {
+      "id": "GAAM-EVT-001",
+      "text": "A framework **MUST** define the governance events that materially affect authority, assurance, status, eligibility, policy or accountability."
+    },
+    {
+      "id": "GAAM-EVT-002",
+      "text": "Material governance events **MUST** be attributable, time-stamped and reconstructable."
+    },
+    {
+      "id": "GAAM-ACC-001",
+      "text": "Every consequential effect **MUST** have at least one identifiable accountable party."
+    },
+    {
+      "id": "GAAM-ACC-002",
+      "text": "Machine actors and agents **MUST NOT** be treated as the terminal point of accountability."
+    },
+    {
+      "id": "GAAM-ACC-003",
+      "text": "A framework **MUST** define how accountability is allocated when multiple actors, agents, services, registries or authorities contribute to an effect."
+    },
+    {
+      "id": "GAAM-HARM-001",
+      "text": "A framework **MUST** identify material harms that may arise from governed effects, including cumulative and systemic harms where applicable."
+    },
+    {
+      "id": "GAAM-HARM-002",
+      "text": "A framework governing consequential effects **MUST** define accessible challenge, review and remedy mechanisms."
+    },
+    {
+      "id": "GAAM-REL-001",
+      "text": "A relationship used in an automated trust decision **MUST** have an unambiguous type and declared semantics."
+    },
+    {
+      "id": "GAAM-REL-002",
+      "text": "A relationship **MUST NOT** imply broader authority or recognition than its declared scope."
+    },
+    {
+      "id": "GAAM-REL-003",
+      "text": "Recognition **MUST NOT** be treated as delegation unless the relationship explicitly grants authority."
+    },
+    {
+      "id": "GAAM-REL-004",
+      "text": "Accreditation **MUST NOT** be treated as a guarantee of every output produced by the accredited actor."
+    },
+    {
+      "id": "GAAM-REL-005",
+      "text": "Registry inclusion **MUST NOT** be treated as universal trustworthiness."
+    },
+    {
+      "id": "GAAM-REL-006",
+      "text": "Revocation and suspension semantics **MUST** identify the affected relationship, effective time, authority and propagation consequences."
+    },
+    {
+      "id": "GAAM-GF-001",
+      "text": "A conforming governance framework **MUST** include a Primary Document and an authoritative Schedule of Controlled Documents."
+    },
+    {
+      "id": "GAAM-GF-002",
+      "text": "The Primary Document **MUST** identify the exact framework version using a persistent identifier."
+    },
+    {
+      "id": "GAAM-GF-003",
+      "text": "The framework **MUST** publish a conformance statement identifying the profiles and conformance targets claimed."
+    },
+    {
+      "id": "GAAM-GF-004",
+      "text": "The framework **MUST** identify its official language or languages and SHOULD use BCP 47 language tags."
+    },
+    {
+      "id": "GAAM-GF-005",
+      "text": "Where multiple official versions exist, the framework **MUST** define how inconsistencies are resolved."
+    },
+    {
+      "id": "GAAM-GF-006",
+      "text": "The framework **MUST** identify where decision rights, enforcement powers, revision powers and emergency powers reside."
+    },
+    {
+      "id": "GAAM-GF-007",
+      "text": "Where no single governing authority exists, the framework **MUST** identify the authority topology and the process by which valid governance decisions are formed."
+    },
+    {
+      "id": "GAAM-GF-008",
+      "text": "Every framework **MUST** declare whether agents may participate and, if so, whether they may recommend, decide, transact, delegate, use tools, create sub-agents or produce binding effects."
+    },
+    {
+      "id": "GAAM-GF-009",
+      "text": "Governance state required for a runtime decision **MUST** be discoverable, authenticated and sufficiently current for the decision context."
+    },
+    {
+      "id": "GAAM-GF-010",
+      "text": "The framework **MUST** define how revisions are proposed, reviewed, approved, versioned, published, deprecated and withdrawn."
+    },
+    {
+      "id": "GAAM-GF-011",
+      "text": "A publicly available framework **SHOULD** include a public review period for substantive revisions."
+    },
+    {
+      "id": "GAAM-GF-012",
+      "text": "Material policy changes affecting active authority or runtime decisions **MUST** define transition and notification rules."
+    },
+    {
+      "id": "GAAM-AUTH-006",
+      "text": "A framework **MUST** identify conflicts that may arise among authorities and the procedure for resolving or containing them."
+    },
+    {
+      "id": "GAAM-AUTH-007",
+      "text": "Where authorities overlap, the framework **MUST** define precedence, coordination, refusal or escalation semantics."
+    },
+    {
+      "id": "GAAM-DEL-007",
+      "text": "A delegation **MUST NOT** become active before required acceptance, registration, verification or other activation conditions are met."
+    },
+    {
+      "id": "GAAM-DEL-008",
+      "text": "The framework **MUST** define whether delegation is transferable and whether an agent or actor may substitute another delegate."
+    },
+    {
+      "id": "GAAM-DEL-009",
+      "text": "Material substitution of an agent, model, operator, toolchain or execution environment **MUST** trigger reassessment where it may affect authority, assurance or risk."
+    },
+    {
+      "id": "GAAM-DEL-010",
+      "text": "A multi-hop delegation decision **MUST** validate each active hop, parent-child scope compatibility, originating-principal continuity, redelegation permission and revocation state."
+    },
+    {
+      "id": "GAAM-DEL-011",
+      "text": "A framework **MUST** define maximum delegation depth or the policy by which depth is determined."
+    },
+    {
+      "id": "GAAM-DEL-012",
+      "text": "Where authority is divided among multiple delegates, the framework **MUST** define whether branches are independent, cumulative, mutually exclusive or jointly controlled."
+    },
+    {
+      "id": "GAAM-DEL-013",
+      "text": "Where delegated branches converge on one effect, the aggregate effect **MUST** be evaluated against the originating authority and applicable aggregate limits."
+    },
+    {
+      "id": "GAAM-AUTH-008",
+      "text": "Emergency authority **MUST** be narrowly scoped, time-limited, attributable, reviewable and subject to post-event accountability."
+    },
+    {
+      "id": "GAAM-RUN-001",
+      "text": "A framework governing consequential effects **MUST** define the minimum runtime governance envelope required for each effect class."
+    },
+    {
+      "id": "GAAM-RUN-002",
+      "text": "A runtime decision **MUST** fail safely when required authority, policy, evidence, status or context cannot be validated."
+    },
+    {
+      "id": "GAAM-RUN-003",
+      "text": "Runtime governance **MUST** evaluate current revocation and suspension state to the freshness required by the effect\u2019s risk."
+    },
+    {
+      "id": "GAAM-RUN-004",
+      "text": "Outcome semantics **MUST** be unambiguous to the enforcement point."
+    },
+    {
+      "id": "GAAM-RUN-005",
+      "text": "Each consequential effect **MUST** produce or reference a decision receipt proportionate to the effect\u2019s risk and accountability requirements."
+    },
+    {
+      "id": "GAAM-RUN-006",
+      "text": "A receipt **MUST NOT** expose confidential evidence beyond what is necessary for authorised audit, review or challenge."
+    },
+    {
+      "id": "GAAM-RUN-007",
+      "text": "The framework **MUST** define retention, access, disclosure, correction and deletion rules for receipts."
+    },
+    {
+      "id": "GAAM-RUN-008",
+      "text": "Where authority, risk or evidence may materially change during execution, the framework **MUST** define conditions for re-evaluation, interruption or containment."
+    },
+    {
+      "id": "GAAM-RUN-009",
+      "text": "Runtime revocation **MUST** be capable of stopping or constraining ongoing activity where technically and legally feasible."
+    },
+    {
+      "id": "GAAM-AGT-001",
+      "text": "A framework **MUST** define the attributes needed to identify an agent for governance purposes."
+    },
+    {
+      "id": "GAAM-AGT-002",
+      "text": "A framework **MUST** define when changes to model, instructions, memory, tools, operator, provider, execution environment or policy configuration constitute a material change of agent state or identity."
+    },
+    {
+      "id": "GAAM-AGT-003",
+      "text": "Material changes **MUST** trigger re-registration, renewed assurance, restricted operation or another declared lifecycle response where necessary."
+    },
+    {
+      "id": "GAAM-AGT-004",
+      "text": "An agent performing an effect on behalf of a principal **MUST** carry or reference verifiable authority for that effect."
+    },
+    {
+      "id": "GAAM-AGT-005",
+      "text": "The framework **MUST** identify the principal, operator, provider, deployer and supervisor roles applicable to each agent class and allocate accountability among them."
+    },
+    {
+      "id": "GAAM-AGT-006",
+      "text": "Agent authority **SHOULD** be bound to a task, purpose or effect class wherever practical."
+    },
+    {
+      "id": "GAAM-AGT-007",
+      "text": "Tool access **SHOULD** be limited to what is necessary for the authorised task."
+    },
+    {
+      "id": "GAAM-AGT-008",
+      "text": "An agent **MUST NOT** infer authority from mere access to accounts, credentials, data, APIs or tools."
+    },
+    {
+      "id": "GAAM-AGT-009",
+      "text": "An agent or supervising service **MUST** evaluate applicable governance constraints before executing a consequential plan step."
+    },
+    {
+      "id": "GAAM-AGT-010",
+      "text": "Where an agent cannot determine whether a planned effect is authorised, it **MUST** deny, restrict or escalate rather than assume permission."
+    },
+    {
+      "id": "GAAM-AGT-011",
+      "text": "An agent **MUST NOT** create a sub-agent, substitute another agent or redelegate authority unless explicitly permitted."
+    },
+    {
+      "id": "GAAM-AGT-012",
+      "text": "A sub-agent **MUST** receive no more authority than the delegating agent is authorised to redelegate."
+    },
+    {
+      "id": "GAAM-AGT-013",
+      "text": "The originating principal and accountable-party chain **MUST** remain discoverable across sub-agent relationships."
+    },
+    {
+      "id": "GAAM-AGT-014",
+      "text": "A framework permitting multi-agent coordination **MUST** define how authority, task state, evidence, obligations and accountability are partitioned and reconciled."
+    },
+    {
+      "id": "GAAM-AGT-015",
+      "text": "Coordination protocols **MUST NOT** be assumed to provide governance semantics unless those semantics are explicitly defined and validated."
+    },
+    {
+      "id": "GAAM-AGT-016",
+      "text": "Where multiple agents contribute to one effect, the decision receipt **MUST** identify the material contributions and accountable parties."
+    },
+    {
+      "id": "GAAM-AGT-017",
+      "text": "Tools capable of producing consequential effects **MUST** enforce or receive sufficient authority and policy context to prevent unauthorised invocation."
+    },
+    {
+      "id": "GAAM-AGT-018",
+      "text": "Tool outputs used as evidence **MUST** carry provenance and integrity appropriate to the decision."
+    },
+    {
+      "id": "GAAM-AGT-019",
+      "text": "A framework requiring human oversight **MUST** specify who performs it, when it occurs, what information is available, and what intervention powers exist."
+    },
+    {
+      "id": "GAAM-AGT-020",
+      "text": "A guardian or supervisory agent **MUST** itself be governed by explicit authority, constraints and accountability."
+    },
+    {
+      "id": "GAAM-AGT-021",
+      "text": "A framework **MUST** define mechanisms to suspend, isolate, contain or terminate an agent when authority, assurance or safety conditions fail."
+    },
+    {
+      "id": "GAAM-AGT-022",
+      "text": "Termination **MUST** address outstanding tasks, delegated authority, retained data, tools, obligations and evidence preservation."
+    },
+    {
+      "id": "GAAM-GRAPH-001",
+      "text": "Graph relationships used for automated decisions **MUST** be typed, scoped, attributable, time-bounded where applicable and linked to status or revocation semantics."
+    },
+    {
+      "id": "GAAM-GRAPH-002",
+      "text": "A graph path **MUST** be treated as evidence for a decision, not as the decision itself."
+    },
+    {
+      "id": "GAAM-GRAPH-003",
+      "text": "Each material graph assertion **MUST** identify the asserting party and authority basis."
+    },
+    {
+      "id": "GAAM-GRAPH-004",
+      "text": "A graph implementation **MUST** provide integrity and provenance sufficient to detect unauthorised alteration of relied-upon assertions."
+    },
+    {
+      "id": "GAAM-GRAPH-005",
+      "text": "Derived edges or computed trust values **MUST** identify their derivation method, input sources and applicable policy."
+    },
+    {
+      "id": "GAAM-GRAPH-006",
+      "text": "A framework **MUST** define permitted traversal depth, relationship types, path constraints and evidence thresholds for each automated decision class."
+    },
+    {
+      "id": "GAAM-GRAPH-007",
+      "text": "A relying party **MUST** apply its own policy to determine whether a discovered path is sufficient."
+    },
+    {
+      "id": "GAAM-GRAPH-008",
+      "text": "A framework **MUST** define how conflicting, stale, superseded or contested graph assertions are represented and evaluated."
+    },
+    {
+      "id": "GAAM-GRAPH-009",
+      "text": "Absence of a negative assertion **MUST NOT** automatically be interpreted as positive trust unless the framework explicitly justifies that inference."
+    },
+    {
+      "id": "GAAM-REG-001",
+      "text": "Registry inclusion **MUST** have explicit semantics and **MUST NOT** be represented as general trustworthiness."
+    },
+    {
+      "id": "GAAM-REG-002",
+      "text": "A registry framework **MUST** define who may create, update, suspend, revoke, correct and archive each record class."
+    },
+    {
+      "id": "GAAM-REG-003",
+      "text": "Registry records used for decisions **MUST** expose sufficient status, provenance, authority and version information."
+    },
+    {
+      "id": "GAAM-REG-004",
+      "text": "A registry **MUST** provide a correction and dispute path for materially incorrect or unauthorised records."
+    },
+    {
+      "id": "GAAM-REG-005",
+      "text": "Federation **MUST** distinguish data replication, technical interoperability, recognition of authority and reliance upon determinations."
+    },
+    {
+      "id": "GAAM-REG-006",
+      "text": "Recognition of another registry **MUST** state the accepted record classes, purposes, assurance thresholds, jurisdictional limits and withdrawal conditions."
+    },
+    {
+      "id": "GAAM-ASSUR-005",
+      "text": "The framework **MUST** define what each assurance form establishes and what it does not establish."
+    },
+    {
+      "id": "GAAM-ASSUR-006",
+      "text": "Assurance providers **MUST** disclose material conflicts of interest and the basis of their competence and authority."
+    },
+    {
+      "id": "GAAM-ASSUR-007",
+      "text": "Assurance results **MUST** be challengeable and correctable when materially wrong."
+    },
+    {
+      "id": "GAAM-ASSUR-008",
+      "text": "A Continuous Assurance Profile framework **MUST** define monitored controls, evidence sources, sampling or event frequency, thresholds, drift conditions, escalation and suspension actions."
+    },
+    {
+      "id": "GAAM-ASSUR-009",
+      "text": "A continuous assurance service **MUST** identify data gaps, blind spots and periods during which assurance could not be maintained."
+    },
+    {
+      "id": "GAAM-OBS-001",
+      "text": "Observability requirements **MUST** be proportionate and **MUST** account for privacy, confidentiality, minimisation and security."
+    },
+    {
+      "id": "GAAM-OBS-002",
+      "text": "The absence of observable data **MUST NOT** be presented as evidence of compliant behaviour."
+    },
+    {
+      "id": "GAAM-ASSUR-010",
+      "text": "A trust mark **MUST** identify or resolve to its issuer, scope, criteria, validity, status and limitations."
+    },
+    {
+      "id": "GAAM-ASSUR-011",
+      "text": "A trust mark **MUST NOT** imply broader assurance than the underlying assessment supports."
+    },
+    {
+      "id": "GAAM-RISK-001",
+      "text": "Risk assessment **MUST** examine authority paths, evidence paths, dependencies, graph edges, delegated capabilities and affected parties, not only roles and processes."
+    },
+    {
+      "id": "GAAM-RISK-002",
+      "text": "A framework **MUST** define effect classes or thresholds that require enhanced evidence, approval, assurance, monitoring or human review."
+    },
+    {
+      "id": "GAAM-HARM-003",
+      "text": "A framework **MUST** consider harms arising cumulatively across repeated low-level decisions where such harms are reasonably foreseeable."
+    },
+    {
+      "id": "GAAM-HARM-004",
+      "text": "A framework **SHOULD** identify concentration, lock-in, exclusion, manipulation and market-power risks created by trust infrastructure."
+    },
+    {
+      "id": "GAAM-RISK-003",
+      "text": "Controls relied upon to prevent high-impact effects **MUST** be testable or auditable and linked to accountable owners."
+    },
+    {
+      "id": "GAAM-RED-001",
+      "text": "A framework **MUST** identify affected-party classes, including persons who are not members of the trust community."
+    },
+    {
+      "id": "GAAM-RED-002",
+      "text": "Affected parties **SHOULD** receive notice of consequential decisions where lawful and practicable."
+    },
+    {
+      "id": "GAAM-RED-003",
+      "text": "A framework **MUST** define the explanation information available for consequential decisions, including reason codes, applicable policy and review route."
+    },
+    {
+      "id": "GAAM-RED-004",
+      "text": "A challenge mechanism **MUST** permit submission of corrections, contrary evidence and claims of unauthorised action."
+    },
+    {
+      "id": "GAAM-RED-005",
+      "text": "Review **MUST** be performed by an actor or process with authority to confirm, modify, reverse or remedy the decision."
+    },
+    {
+      "id": "GAAM-RED-006",
+      "text": "A framework **MUST** define response and resolution time expectations proportionate to the potential harm."
+    },
+    {
+      "id": "GAAM-RED-007",
+      "text": "A framework **MUST** identify which remedies are available, who may order them and how compliance is verified."
+    },
+    {
+      "id": "GAAM-RED-008",
+      "text": "Where an effect depends on multiple governance frameworks, the frameworks **SHOULD** define coordination, evidence sharing, jurisdiction and fallback procedures for disputes."
+    },
+    {
+      "id": "GAAM-MAG-001",
+      "text": "A machine-actionable package **MUST** be traceable to the authoritative human-readable framework."
+    },
+    {
+      "id": "GAAM-MAG-002",
+      "text": "The package **MUST** identify its version, effective period, status and integrity mechanism."
+    },
+    {
+      "id": "GAAM-MAG-003",
+      "text": "A material package change **MUST** follow the framework\u2019s revision and transition requirements."
+    },
+    {
+      "id": "GAAM-MAG-004",
+      "text": "A package **MUST NOT** silently broaden authority or reduce obligations relative to the authoritative framework."
+    },
+    {
+      "id": "GAAM-MAG-005",
+      "text": "Conformance tests **SHOULD** include valid, invalid and boundary-condition examples."
+    },
+    {
+      "id": "GAAM-PROF-001",
+      "text": "A profile claim **MUST** identify the specification version, profile version, applicable conformance targets, exclusions and evidence location."
+    },
+    {
+      "id": "GAAM-PROF-002",
+      "text": "A framework **MUST NOT** claim a profile when a mandatory category or requirement is omitted without an explicitly permitted exception."
+    },
+    {
+      "id": "GAAM-CONF-001",
+      "text": "Conformance claims **MUST** be scoped to an identified target and **MUST NOT** be generalised to related entities or transactions without evidence."
+    },
+    {
+      "id": "GAAM-CONF-002",
+      "text": "Framework conformance **MUST NOT** be presented as proof that every governed actor, agent, decision or transaction conforms."
+    },
+    {
+      "id": "GAAM-CONF-003",
+      "text": "An agent conformance claim **MUST NOT** be presented as proof that every future action of that agent is authorised or safe."
+    },
+    {
+      "id": "GAAM-CONF-004",
+      "text": "Evidence **MUST** be sufficient to reproduce or independently evaluate the conformance conclusion to the degree required by the claimed profile."
+    },
+    {
+      "id": "GAAM-CONF-005",
+      "text": "Exceptions **MUST** identify the requirement, rationale, authority, duration, risk, compensating control and review date."
+    },
+    {
+      "id": "GAAM-CONF-006",
+      "text": "A framework **MUST** define classification, notification, remediation, suspension and appeal procedures for non-conformance."
+    },
+    {
+      "id": "GAAM-SEC-001",
+      "text": "Governance-critical artifacts **MUST** be protected against unauthorised modification and rollback."
+    },
+    {
+      "id": "GAAM-SEC-002",
+      "text": "Frameworks **MUST** define recovery and continuity procedures for unavailable or compromised governance services."
+    },
+    {
+      "id": "GAAM-PRIV-001",
+      "text": "Evidence, receipts and observability data **MUST** be minimised to what is necessary for governance, assurance, accountability and lawful obligations."
+    },
+    {
+      "id": "GAAM-PRIV-002",
+      "text": "Access to sensitive governance records **MUST** be controlled, auditable and purpose-bound."
+    },
+    {
+      "id": "GAAM-RES-001",
+      "text": "A framework **MUST** identify critical dependencies and define safe behaviour when they are unavailable or untrustworthy."
+    },
+    {
+      "id": "GAAM-ART-001",
+      "text": "A machine-actionable authority record **MUST** identify its authority source, issuer, subject, permitted effects, scope, effective period, status, revocation authority and accountable parties."
+    },
+    {
+      "id": "GAAM-ART-002",
+      "text": "An authority record **MUST** distinguish permissions, prohibitions, obligations and constraints."
+    },
+    {
+      "id": "GAAM-ART-003",
+      "text": "A system **MUST NOT** treat an authority record as operative when its status, effective period, governing context or integrity cannot be validated."
+    },
+    {
+      "id": "GAAM-ART-004",
+      "text": "A delegation record **MUST** identify its parent authority, delegator, delegate, delegated scope, effective period, redelegation rule, status and propagation behaviour."
+    },
+    {
+      "id": "GAAM-ART-005",
+      "text": "Effective child authority **MUST** be no broader than the intersection of valid parent authority, delegated scope, applicable policy, current context, active status, valid time and applicable constraints."
+    },
+    {
+      "id": "GAAM-ART-006",
+      "text": "A delegation transition **MUST** emit or preserve a governance event sufficient to reconstruct the transition authority, time, prior state, new state and supporting evidence."
+    },
+    {
+      "id": "GAAM-LIFE-001",
+      "text": "A conformant implementation **MUST** apply declared lifecycle states and transitions to governance-critical artifacts."
+    },
+    {
+      "id": "GAAM-LIFE-002",
+      "text": "Lifecycle transition rules **MUST** identify the authority permitted to cause each transition and the evidence required for that transition."
+    },
+    {
+      "id": "GAAM-LIFE-003",
+      "text": "An invalid, unauthorised or out-of-sequence lifecycle transition **MUST** fail without activating the requested governance state."
+    },
+    {
+      "id": "GAAM-LIFE-004",
+      "text": "Suspension, revocation, expiry, supersession and termination **MUST** have explicit effects on dependent artifacts and active decisions."
+    },
+    {
+      "id": "GAAM-LIFE-005",
+      "text": "Archived governance artifacts **MUST** remain reconstructable but **MUST NOT** be treated as operative unless explicitly restored through an authorised transition."
+    },
+    {
+      "id": "GAAM-ASR-001",
+      "text": "An assurance assertion **MUST** identify its subject, evaluated property, criteria, evaluator, method, evidence, scope, governance context, validity period, status, limitations and challenge route."
+    },
+    {
+      "id": "GAAM-ASR-002",
+      "text": "Assurance labels from different domains or profiles **MUST NOT** be treated as equivalent without an explicit mapping of criteria, scope, evidence, evaluator competence, context and validity."
+    },
+    {
+      "id": "GAAM-ASR-003",
+      "text": "Stale, suspended, withdrawn or contradicted assurance **MUST** trigger profile-defined safe behaviour."
+    },
+    {
+      "id": "GAAM-PCOMP-001",
+      "text": "Every profile other than the Foundation Profile **MUST** declare the Foundation Profile as a dependency."
+    },
+    {
+      "id": "GAAM-PCOMP-002",
+      "text": "A profile **MUST** declare its conformance targets, normative requirement mappings, required artifacts, required evidence, required tests, permitted exclusions and dependencies."
+    },
+    {
+      "id": "GAAM-PROF-003",
+      "text": "A composite profile claim **MUST** satisfy dependency closure and **MUST NOT** suppress conflicting or additional requirements without an explicit resolution rule."
+    },
+    {
+      "id": "GAAM-PROF-004",
+      "text": "A partial implementation **MUST NOT** claim full profile conformance."
+    },
+    {
+      "id": "GAAM-OUT-001",
+      "text": "A trust decision **MUST** use a declared outcome vocabulary and identify any conditions attached to the outcome."
+    },
+    {
+      "id": "GAAM-OUT-002",
+      "text": "The base outcome vocabulary **MUST** support permit, deny, permit-with-conditions, restrict, suspend, require-additional-evidence, require-additional-approval, route-for-review and terminate."
+    },
+    {
+      "id": "GAAM-OUT-003",
+      "text": "A decision receipt for a consequential effect **MUST** identify the decision, applicable authority, policy, evidence references, assurance references, outcome, conditions, decision time, enforcement point and accountable party."
+    },
+    {
+      "id": "GAAM-DEC-004",
+      "text": "A receipt **MUST** minimise disclosed information while preserving sufficient provenance for review and reconstruction."
+    },
+    {
+      "id": "GAAM-SAFE-001",
+      "text": "Governance evidence and receipts **MUST** be limited to information necessary for the declared purpose and review obligations."
+    },
+    {
+      "id": "GAAM-SAFE-002",
+      "text": "A high-impact system **MUST** define interruption authority, degraded operation, safe failure, recovery and post-event review."
+    },
+    {
+      "id": "GAAM-SAFE-003",
+      "text": "Emergency authority **MUST** be time-bounded, purpose-bounded, attributable and subject to independent or otherwise conflict-controlled review."
+    },
+    {
+      "id": "GAAM-APR-001",
+      "text": "A consequential effect **MUST** identify affected-party notice, explanation, challenge, review and remedy arrangements proportionate to the effect."
+    },
+    {
+      "id": "GAAM-APR-002",
+      "text": "A review mechanism **MUST** have practical authority to suspend, reverse, correct or remediate an outcome."
+    },
+    {
+      "id": "GAAM-APR-003",
+      "text": "Remedy completion **MUST** produce evidence linked to the original decision and effect."
+    },
+    {
+      "id": "GAAM-SYS-001",
+      "text": "A high-impact framework **MUST** define how individual effect records are aggregated to detect recurring, cohort-level or systemic harm."
+    },
+    {
+      "id": "GAAM-SYS-002",
+      "text": "Detection of a declared systemic-harm threshold **MUST** trigger a governed intervention and preserve evidence of the response."
+    },
+    {
+      "id": "GAAM-MKT-001",
+      "text": "Registry inclusion, accreditation or recognition **MUST NOT** be represented as universal trustworthiness."
+    },
+    {
+      "id": "GAAM-MKT-002",
+      "text": "A framework **MUST** disclose material conflicts of interest affecting registry, accreditation or assurance decisions."
+    },
+    {
+      "id": "GAAM-MKT-003",
+      "text": "A high-impact recognition arrangement **MUST** address opaque exclusion, portability barriers, self-preferencing and unsupported equivalence claims."
+    }
+  ]
+}

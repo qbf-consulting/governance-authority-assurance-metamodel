@@ -1,1 +1,13 @@
-<!-- Intentionally empty. Just the Docs includes this file unconditionally from its own templates; GAAM has no additional content to inject here. See docs/github-pages-publication.md. -->
+<!-- GAAM publication customizations. Keep web presentation theme-owned; add only print-safe standards rendering. -->
+<style>
+@media print {
+  .side-bar, .site-header, .search, .aux-nav, .breadcrumb-nav, .site-footer { display: none !important; }
+  .main { margin-left: 0 !important; }
+  .main-content-wrap { max-width: none !important; }
+  .main-content { max-width: 100% !important; font-size: 10.5pt; line-height: 1.45; }
+  h1, h2, h3 { break-after: avoid-page; page-break-after: avoid; }
+  table, pre, blockquote { break-inside: avoid-page; page-break-inside: avoid; }
+  a[href]::after { content: none !important; }
+  @page { margin: 18mm 16mm 20mm; }
+}
+</style>

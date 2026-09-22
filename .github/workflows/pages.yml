@@ -27,6 +27,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Verify generated normative requirement catalogue
+        run: python scripts/generate_requirement_catalogue.py --check
+
       - name: Validate guided learning paths
         run: python scripts/validate_learning_paths.py
 
