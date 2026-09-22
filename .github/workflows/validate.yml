@@ -63,6 +63,9 @@ jobs:
       - name: Install diagram validation dependencies
         run: npm ci
 
+      - name: Verify generated normative requirement catalogue
+        run: python scripts/generate_requirement_catalogue.py --check
+
       - name: Validate Mermaid diagrams
         run: npm run validate:mermaid
 
