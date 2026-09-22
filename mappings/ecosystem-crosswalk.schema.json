@@ -1,35 +1,102 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/mappings/ecosystem-crosswalk.schema.json",
-  "title": "GAAM Informative Ecosystem Assessment Crosswalk",
-  "description": "Informative schema for reproducible GAAM readiness mappings. It does not define GAAM conformance.",
+  "title": "GAAM Informative Ecosystem Implementation-Validation Crosswalk",
+  "description": "Informative schema for reproducible GAAM readiness and implementation-validation mappings. It does not define GAAM conformance.",
   "type": "object",
-  "required": ["id", "gaamVersion", "normativeStatus", "assessmentType", "target", "method", "findings", "limitations"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "gaamVersion",
+    "normativeStatus",
+    "assessmentType",
+    "caseRole",
+    "target",
+    "method",
+    "findings",
+    "limitations"
+  ],
   "properties": {
-    "id": {"type": "string", "minLength": 1},
-    "gaamVersion": {"const": "0.9.0"},
-    "normativeStatus": {"const": "informative"},
-    "assessmentType": {"const": "readiness-crosswalk"},
+    "schemaVersion": {
+      "const": "1.1"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gaamVersion": {
+      "const": "0.9.0"
+    },
+    "normativeStatus": {
+      "const": "informative"
+    },
+    "assessmentType": {
+      "const": "readiness-crosswalk"
+    },
+    "caseRole": {
+      "enum": [
+        "explicit-authority-benchmark",
+        "distributed-authority-benchmark",
+        "other"
+      ]
+    },
+    "sourceDiscussions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "uniqueItems": true
+    },
     "target": {
       "type": "object",
-      "required": ["name", "version", "source", "assessedAt"],
+      "required": [
+        "name",
+        "version",
+        "source",
+        "assessedAt"
+      ],
       "properties": {
-        "name": {"type": "string", "minLength": 1},
-        "version": {"type": "string", "minLength": 1},
-        "source": {"type": "string", "format": "uri"},
-        "assessedAt": {"type": "string", "format": "date"}
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "format": "uri"
+        },
+        "assessedAt": {
+          "type": "string",
+          "format": "date"
+        }
       },
       "additionalProperties": false
     },
     "method": {
       "type": "object",
-      "required": ["statusVocabulary", "claimBoundary"],
+      "required": [
+        "statusVocabulary",
+        "claimBoundary"
+      ],
       "properties": {
         "statusVocabulary": {
           "type": "array",
-          "const": ["covered", "partial", "gap", "not-applicable", "unknown"]
+          "const": [
+            "covered",
+            "partial",
+            "gap",
+            "not-applicable",
+            "unknown"
+          ]
         },
-        "claimBoundary": {"type": "string", "minLength": 1}
+        "claimBoundary": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": false
     },
@@ -38,26 +105,187 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "title", "status", "gaamRequirements", "observation", "actionableTakeaway", "evidenceExpectation", "candidateTests"],
+        "required": [
+          "id",
+          "title",
+          "status",
+          "gaamRequirements",
+          "observation",
+          "actionableTakeaway",
+          "governanceContext",
+          "semantics",
+          "evidenceExpectation",
+          "candidateTests",
+          "knownLimitations"
+        ],
         "properties": {
-          "id": {"type": "string", "pattern": "^[A-Z0-9-]+$"},
-          "title": {"type": "string", "minLength": 1},
-          "status": {"enum": ["covered", "partial", "gap", "not-applicable", "unknown"]},
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9-]+$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "covered",
+              "partial",
+              "gap",
+              "not-applicable",
+              "unknown"
+            ]
+          },
           "gaamRequirements": {
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,
-            "items": {"type": "string", "pattern": "^GAAM-[A-Z]+-[0-9]{3}$"}
+            "items": {
+              "type": "string",
+              "pattern": "^GAAM-[A-Z]+-[0-9]{3}$"
+            }
           },
-          "observation": {"type": "string", "minLength": 1},
-          "actionableTakeaway": {"type": "string", "minLength": 1},
-          "evidenceExpectation": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
-          "candidateTests": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+          "observation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "actionableTakeaway": {
+            "type": "string",
+            "minLength": 1
+          },
+          "governanceContext": {
+            "type": "object",
+            "required": [
+              "authoritySources",
+              "governedActors",
+              "governedRelationships",
+              "governedEffects",
+              "enforcement",
+              "revocation",
+              "assuranceMechanisms"
+            ],
+            "properties": {
+              "authoritySources": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "governedActors": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "governedRelationships": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "governedEffects": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "enforcement": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "revocation": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "assuranceMechanisms": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              }
+            },
+            "additionalProperties": false
+          },
+          "semantics": {
+            "type": "object",
+            "required": [
+              "establishes",
+              "doesNotEstablish"
+            ],
+            "properties": {
+              "establishes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "doesNotEstablish": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              }
+            },
+            "additionalProperties": false
+          },
+          "evidenceExpectation": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "candidateTests": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "knownLimitations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
         },
         "additionalProperties": false
       }
     },
-    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
   },
   "additionalProperties": false
 }

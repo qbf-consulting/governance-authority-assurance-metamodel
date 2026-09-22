@@ -29,17 +29,26 @@ These states are deliberately **not** GAAM evidence levels and must not be trans
 
 ## Required assessment record
 
-Each finding should identify:
+Each crosswalk declares a **case role** so complementary ecosystems can be compared without collapsing them into one architecture. The current benchmark roles are:
+
+- `explicit-authority-benchmark` — authority, delegation or assurance are already represented comparatively explicitly and the primary GAAM test is whether scope, dependency and reliance boundaries remain machine-testable; and
+- `distributed-authority-benchmark` — authority is validly distributed across multiple legal, institutional, registry, certification or protocol sources and the primary GAAM test is whether it can still be deterministically resolved.
+
+Each finding must identify:
 
 1. the external target and version;
 2. the applicable GAAM requirements;
-3. the observed governance condition;
-4. a bounded readiness status;
-5. an actionable takeaway;
-6. expected evidence; and
-7. candidate positive, negative or boundary tests.
+3. the observed governance condition and bounded readiness status;
+4. authority sources, governed actors, relationships and effects;
+5. enforcement, revocation and assurance mechanisms where applicable;
+6. what the mapped artifact or relationship **establishes**;
+7. what it **does not establish**;
+8. an actionable takeaway;
+9. expected evidence;
+10. candidate positive, negative or boundary tests; and
+11. known limitations.
 
-The machine-readable shape is defined by [`ecosystem-crosswalk.schema.json`](ecosystem-crosswalk.schema.json).
+The machine-readable contract is [`ecosystem-crosswalk.schema.json`](ecosystem-crosswalk.schema.json), currently schema version **1.1**. The richer fields are intended to make validation cases test-generating and dependency-aware, not to create a parallel conformance model.
 
 ## Interpretation rules
 
@@ -67,6 +76,12 @@ For externally consumed trust artifacts, a mapping should state both what a vali
 
 Correcting or revoking trust data changes future reliance state. It does not necessarily remedy consequential effects that already occurred. Ecosystem assessments should track those stages separately.
 
+## Promotion boundary
+
+Crosswalk findings are hypotheses and implementation-validation evidence inputs. They MUST NOT become new normative GAAM requirements merely because the same concern appears in more than one ecosystem.
+
+A normative change requires the existing GAAM change-control path: requirement analysis, compatibility or breaking-change classification, attributable decision authority, tests, migration consequences where applicable, and the version effect required by the Candidate Stability and Change-Control Policy.
+
 ## Evidence-oriented workflow
 
 A reusable assessment sequence is:
@@ -92,3 +107,16 @@ expected evidence and executable tests
 ```
 
 The output should be suitable for later promotion into an [Implementation Report](../implementation-reports/) only when implementation evidence exists. The crosswalk itself remains an informative source mapping.
+
+
+## Complementary benchmark sequence
+
+For the current paired validation cases, the recommended sequence is:
+
+1. use the **vLEI EGF v4.0** case to test explicit delegation, authority lineage, assurance scope, reliance boundaries and dependency-aware revocation;
+2. use the **EUDI Wallet ARF v3.0.0** case to test distributed authority resolution, precedence, registry semantics, multi-party assurance and runtime accountability;
+3. compare failures and ambiguities across both cases;
+4. derive executable tests or implementation evidence where practical; and
+5. raise a GAAM normative change only when evidence demonstrates that the existing normative model is insufficient.
+
+This ordering is methodological rather than a ranking of the external ecosystems.

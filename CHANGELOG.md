@@ -30,6 +30,15 @@ normative_status: "Release record"
 - Added a validator-controlled Future Evolution programme with expansion principles, concept classification, a normative boundary, a four-commit delivery roadmap, fifteen candidate concept pages, and a 25-entry machine-readable enhancement register. GAAM v0.9.0 normative requirements, schemas, profiles, vocabularies, conformance semantics, and threat-model content remain unchanged.
 - Reorganised site navigation with four grouped Documentation routes, a top-level Implementation Reports workflow, and an Appendices section for glossary, vocabularies, matrices, mappings, FAQ, style guidance, and publication documentation. Existing file paths and permalinks remain unchanged.
 
+## Unreleased: paired ecosystem implementation validation
+
+### Documentation
+
+- Promote the EUDI Wallet ARF v3.0.0 and GLEIF vLEI EGF v4.0 readiness reviews into coordinated GAAM implementation-validation cases.
+- Evolve the informative ecosystem crosswalk contract to schema v1.1 with explicit case roles, authority sources, governed actors/relationships/effects, enforcement, revocation, assurance mechanisms, positive/negative semantics and known limitations.
+- Preserve the `covered / partial / gap / not-applicable / unknown` readiness vocabulary and the separation between framework readiness, implementation evidence and GAAM L0-L4 conformance.
+- Record the release boundary: these changes do not alter the frozen v0.9.0 normative baseline; any publication-only follow-up would use a patch maintenance release rather than a normative minor-candidate bump.
+
 ## Unreleased: assurance-ready composed patterns
 
 - Expanded the delegated agent purchasing, cross-registry recognition and high-impact multi-agent service examples into assurance-ready implementation patterns.

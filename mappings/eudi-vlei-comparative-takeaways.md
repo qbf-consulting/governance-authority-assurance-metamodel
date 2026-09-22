@@ -16,11 +16,18 @@ The EUDI Wallet ARF and vLEI EGF assessments exercise GAAM against two different
 - **EUDI ARF:** a large, federated regulatory and technical architecture where authority often emerges from several coordinated legal, registration, certification and protocol sources;
 - **vLEI EGF:** an ecosystem with comparatively explicit credential authority, delegation lineage, role semantics and assurance mechanisms.
 
-Together they expose reusable implementation priorities for GAAM.
+Together they expose reusable implementation priorities for GAAM. They now serve as a coordinated pair of **implementation-validation cases** under the common ecosystem-crosswalk schema rather than as isolated narrative reviews.
+
+The pairing is intentionally asymmetric:
+
+- **vLEI** is the explicit-authority benchmark: it asks whether GAAM can preserve scope, delegation, assurance and reliance boundaries when governance is already substantially machine-verifiable.
+- **EUDI** is the distributed-authority benchmark: it asks whether GAAM can resolve and test authority when legitimate authority is distributed across regulatory, institutional, certification, registry and protocol sources.
+
+A useful GAAM design should survive both conditions without forcing either ecosystem into the other's architectural shape.
 
 ## 1. Standardise ecosystem readiness crosswalks
 
-GAAM should use one machine-readable structure for external-framework application exercises. The structure introduced in this commit records target version, claim boundary, mapped requirements, bounded status, actionable takeaway, evidence expectations and candidate tests.
+GAAM should use one machine-readable structure for external-framework application exercises. Schema version 1.1 records target version, case role, claim boundary, mapped requirements, bounded status, authority sources, governed actors/relationships/effects, enforcement, revocation, assurance mechanisms, positive and negative semantics, actionable takeaway, evidence expectations, candidate tests and known limitations.
 
 **Governance outcome:** external examples cannot silently become normative dependencies or conformance claims.
 
@@ -162,3 +169,14 @@ The next maturity step should be evidence-backed implementation work, not more n
 3. run them against concrete implementations or reference services;
 4. record results through the GAAM Implementation Report workflow; and
 5. only then consider L0-L4 claims within the existing conformance model.
+
+
+## Release and version boundary
+
+This paired validation work does **not** change the GAAM v0.9.0 normative baseline. It extends informative mapping and validation machinery only.
+
+Under the Candidate Stability and Change-Control Policy:
+
+- no normative minor-candidate version is warranted by these crosswalk refinements;
+- any future compatible normative capability derived from evidence would require its own versioned proposal; and
+- if repository tooling or the distributed package is later republished solely to carry these informative refinements, that would be a **patch maintenance release** rather than a normative baseline change.
