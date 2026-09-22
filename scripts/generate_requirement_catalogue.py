@@ -6,7 +6,7 @@ import argparse, json, re, sys
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "specification/governance-authority-assurance-metamodel.md"
 JSON_OUT = ROOT / "artifacts/gaam-v0.9.0-requirements.json"
-MD_OUT = ROOT / "specification/requirements.md"
+MD_OUT = ROOT / "docs/normative-requirement-catalogue.md"
 PATTERN = re.compile(r"\\*\\*(GAAM-[A-Z0-9-]+):\\*\\*\\s*([\\s\\S]*?)(?=\\n\\n|\\n\\*\\*GAAM-|$)")
 
 def requirements():
@@ -38,18 +38,18 @@ def render_md(rows):
     out = """---
 title: "Normative Requirement Catalogue"
 permalink: /specification/requirements/
-parent: "Normative Specification"
-nav_order: 2
+parent: "Documentation"
+nav_order: 6
 artifact_type: "Generated normative requirement catalogue"
 normative_status: "Derivative index"
 ---
-# GAAM v0.9.0 Normative Requirement Catalogue
+# Normative Requirement Catalogue
 
 {% include gaam-meta.html %}
 
 > This catalogue is generated from the authoritative human-readable Candidate Specification. It is a navigation and traceability aid, not an independent normative source. If this catalogue and the specification differ, the specification controls.
 
-**Source:** [Governance, Authority and Assurance Metamodel v0.9.0](governance-authority-assurance-metamodel.md)  
+**Source:** [Governance, Authority and Assurance Metamodel v0.9.0](../specification/governance-authority-assurance-metamodel.md)  
 **Requirement count:** %d  
 **Identifier form:** \`GAAM-<SECTION>-<NUMBER>\`
 
