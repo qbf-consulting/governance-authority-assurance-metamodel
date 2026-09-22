@@ -68,7 +68,7 @@ def main():
     rows = requirements()
     expected = {JSON_OUT: render_json(rows), MD_OUT: render_md(rows)}
     if args.check:
-        stale = [str(p.relative_to(ROOT)) for p, content in expected.items() if not p.exists() or p.read_text(newline="") != content]
+        stale = [str(p.relative_to(ROOT)) for p, content in expected.items() if not p.exists() or p.read_bytes() != content.encode("utf-8")]
         if stale:
             print("stale generated requirement catalogues: " + ", ".join(stale), file=sys.stderr)
             return 1
@@ -76,7 +76,7 @@ def main():
         return 0
     for path, content in expected.items():
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(content, newline="")
+        path.write_bytes(content.encode("utf-8"))
     print(f"generated {len(rows)} unique requirements")
     return 0
 
