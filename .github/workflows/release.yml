@@ -1,11 +1,11 @@
 name: Publish Validated Release
 
 on:
-  workflow_run:
-    workflows: ["Validate"]
-    types: [completed]
+  push:
+    branches: [main]
 
 permissions:
+  actions: read
   contents: write
 
 concurrency:
@@ -14,13 +14,31 @@ concurrency:
 
 jobs:
   release:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     runs-on: ubuntu-latest
 
     steps:
+      - name: Wait for Validate on this main commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.sha }}
+        run: |
+          for attempt in $(seq 1 40); do
+            payload=$(gh api               -H "Accept: application/vnd.github+json"               "/repos/$GITHUB_REPOSITORY/actions/workflows/validate.yml/runs?head_sha=$SHA&event=push&per_page=1")
+            status=$(echo "$payload" | jq -r '.workflow_runs[0].status // "missing"')
+            conclusion=$(echo "$payload" | jq -r '.workflow_runs[0].conclusion // ""')
+            echo "Validate status=$status conclusion=$conclusion (attempt $attempt)"
+            if [ "$status" = "completed" ]; then
+              test "$conclusion" = "success"
+              exit $?
+            fi
+            sleep 10
+          done
+          echo "Timed out waiting for Validate on $SHA" >&2
+          exit 1
+
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 0
 
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
@@ -99,7 +117,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           VERSION: ${{ steps.meta.outputs.version }}
-          TARGET_SHA: ${{ github.event.workflow_run.head_sha }}
+          TARGET_SHA: ${{ github.sha }}
         run: |
           gh release create "v$VERSION" \
             --target "$TARGET_SHA" \
