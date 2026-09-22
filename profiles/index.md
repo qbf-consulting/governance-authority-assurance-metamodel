@@ -11,7 +11,6 @@ GAAM profiles are versioned conformance packages with machine-readable requireme
 - [Foundation Profile](foundation-profile.md)
 - [Machine-Actionable Governance Profile](machine-actionable-governance-profile.md)
 - [Delegated Authority Profile](delegated-authority-profile.md)
-- [Authority at Commitment Profile](authority-at-commitment-profile.md) *(experimental; additive to v0.9.2)*
 - [Runtime Governance Profile](runtime-governance-profile.md)
 - [Agentic Systems Profile](agentic-systems-profile.md)
 - [Trust Graph Profile](trust-graph-profile.md)
