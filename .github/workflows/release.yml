@@ -1,0 +1,112 @@
+name: Publish Validated Release
+
+on:
+  workflow_run:
+    workflows: ["Validate"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gaam-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install validation dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Verify release metadata
+        id: meta
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          version = Path("VERSION").read_text().strip()
+          release = json.loads(Path("release.json").read_text())
+          if release["version"] != version:
+              raise SystemExit(f"VERSION {version} != release.json {release['version']}")
+          if release.get("normativeVersion") != "0.9.0":
+              raise SystemExit("maintenance publication must preserve normativeVersion 0.9.0")
+          notes = Path("releases") / f"v{version}.md"
+          if not notes.exists():
+              raise SystemExit(f"missing release notes: {notes}")
+          print(f"release metadata coherent for v{version}")
+          PY
+          echo "version=$(cat VERSION)" >> "$GITHUB_OUTPUT"
+
+      - name: Check whether release already exists
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.meta.outputs.version }}
+        run: |
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Regenerate validation and package evidence
+        if: steps.existing.outputs.exists != 'true'
+        run: |
+          python scripts/build_candidate_readiness.py
+          python scripts/validate.py
+
+      - name: Build reproducible distribution
+        if: steps.existing.outputs.exists != 'true'
+        env:
+          VERSION: ${{ steps.meta.outputs.version }}
+        run: |
+          epoch=$(python - <<'PY'
+          import datetime, json
+          release=json.load(open("release.json"))
+          print(int(datetime.datetime.fromisoformat(release["releaseDate"]).replace(tzinfo=datetime.timezone.utc).timestamp()))
+          PY
+          )
+          export SOURCE_DATE_EPOCH="$epoch"
+          python scripts/build_release.py
+          python - <<'PY'
+          from pathlib import Path
+          version=Path("VERSION").read_text().strip()
+          text=(Path("releases")/f"v{version}.md").read_text()
+          if text.startswith("---\n"):
+              _, _, rest=text.partition("\n---\n")
+              text=rest
+          text=text.replace("{% include gaam-meta.html %}\n","")
+          Path("dist/release-notes.md").write_text(text.lstrip())
+          PY
+
+      - name: Publish GitHub Release
+        if: steps.existing.outputs.exists != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.meta.outputs.version }}
+          TARGET_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          gh release create "v$VERSION" \
+            --target "$TARGET_SHA" \
+            --title "GAAM v$VERSION" \
+            --notes-file dist/release-notes.md \
+            "dist/governance-authority-assurance-metamodel-v$VERSION.zip" \
+            "dist/governance-authority-assurance-metamodel-v$VERSION.release.json" \
+            "packages/gaam-v$VERSION/manifest.json" \
+            "packages/gaam-v$VERSION/checksums.json" \
+            VALIDATION_REPORT.md
