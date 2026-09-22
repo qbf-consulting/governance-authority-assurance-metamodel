@@ -33,7 +33,7 @@ Where a machine-actionable artifact and human-readable normative semantics confl
 
 ## Stable requirement identifiers
 
-Normative statements use stable `GAAM-<SECTION>-<NUMBER>` identifiers. The [Normative Requirement Catalogue](requirements.md) is generated directly from the Candidate Specification and is checked in CI for exact regeneration and duplicate identifiers.
+Normative statements use stable `GAAM-<SECTION>-<NUMBER>` identifiers. The [Normative Requirement Catalogue](normative-requirement-catalogue.md) is generated directly from the Candidate Specification and is checked in CI for exact regeneration and duplicate identifiers.
 
 The machine-readable catalogue is published in the repository at `artifacts/gaam-v0.9.0-requirements.json`. It is intended for traceability tooling, conformance tooling and downstream mappings. It is not a second normative source.
 
