@@ -1,0 +1,17 @@
+{
+  "id": "assurance-stale-evidence-rejected",
+  "description": "Assurance evidence outside its validity window cannot support a current assurance claim. Derived from EUDI GAAM-ARF-08/09 and vLEI GAAM-VLEI-05/07.",
+  "sourceFindings": [
+    "GAAM-ARF-08",
+    "GAAM-ARF-09",
+    "GAAM-VLEI-05",
+    "GAAM-VLEI-07"
+  ],
+  "input": {
+    "evidencePresent": true,
+    "independence": "independent",
+    "requiredIndependence": "reviewed",
+    "withinValidity": false
+  },
+  "expectedValid": false
+}
