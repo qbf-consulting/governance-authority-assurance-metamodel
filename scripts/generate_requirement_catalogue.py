@@ -7,11 +7,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "specification/governance-authority-assurance-metamodel.md"
 JSON_OUT = ROOT / "artifacts/gaam-v0.9.0-requirements.json"
 MD_OUT = ROOT / "artifacts/gaam-v0.9.0-requirements.md"
-PATTERN = re.compile(r"\\*\\*(GAAM-[A-Z0-9-]+):\\*\\*\\s*([\\s\\S]*?)(?=\\n\\n|\\n\\*\\*GAAM-|$)")
+PATTERN = re.compile(r"\*\*(GAAM-[A-Z0-9-]+):\*\*\s*([\s\S]*?)(?=\n\n|\n\*\*GAAM-|$)")
 
 def requirements():
     text = SOURCE.read_text()
-    rows = [{"id": m.group(1), "text": re.sub(r"\\s+", " ", m.group(2)).strip()} for m in PATTERN.finditer(text)]
+    rows = [{"id": m.group(1), "text": re.sub(r"\s+", " ", m.group(2)).strip()} for m in PATTERN.finditer(text)]
     ids = [r["id"] for r in rows]
     duplicates = sorted({x for x in ids if ids.count(x) > 1})
     if duplicates:
@@ -51,14 +51,14 @@ normative_status: "Derivative index"
 
 **Source:** [Governance, Authority and Assurance Metamodel v0.9.0](../specification/governance-authority-assurance-metamodel.md)  
 **Requirement count:** %d  
-**Identifier form:** \`GAAM-<SECTION>-<NUMBER>\`
+**Identifier form:** `GAAM-<SECTION>-<NUMBER>`
 
 """ % len(rows)
     for group, items in groups.items():
         out += f"## {group}\\n\\n| Requirement | Normative text |\\n|---|---|\\n"
         for row in items:
             body = row["text"].replace("|", "\\\\|").replace("\\n", " ")
-            out += f'| \`{row["id"]}\` | {body} |\\n'
+            out += f'| `{row["id"]}` | {body} |\\n'
         out += "\\n"
     return out
 
