@@ -6,7 +6,7 @@ import argparse, json, re, sys
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "specification/governance-authority-assurance-metamodel.md"
 JSON_OUT = ROOT / "artifacts/gaam-v0.9.0-requirements.json"
-MD_OUT = ROOT / "docs/normative-requirement-catalogue.md"
+MD_OUT = ROOT / "artifacts/gaam-v0.9.0-requirements.md"
 PATTERN = re.compile(r"\\*\\*(GAAM-[A-Z0-9-]+):\\*\\*\\s*([\\s\\S]*?)(?=\\n\\n|\\n\\*\\*GAAM-|$)")
 
 def requirements():
