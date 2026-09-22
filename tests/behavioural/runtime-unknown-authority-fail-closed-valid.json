@@ -1,0 +1,16 @@
+{
+  "id": "runtime-unknown-authority-fail-closed-valid",
+  "description": "Unknown or stale authority state is safely handled only when the runtime fails closed and does not admit the effect. Derived from EUDI GAAM-ARF-09 and vLEI GAAM-VLEI-06/07.",
+  "sourceFindings": [
+    "GAAM-ARF-09",
+    "GAAM-VLEI-06",
+    "GAAM-VLEI-07"
+  ],
+  "input": {
+    "stateFresh": false,
+    "authorityStatusKnown": false,
+    "failurePolicy": "fail-closed",
+    "effectAdmitted": false
+  },
+  "expectedValid": true
+}
