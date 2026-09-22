@@ -17,6 +17,7 @@ These pages refine future-facing governance concepts for implementation testing.
 | [Governance-Framework Composition](framework-composition.md) | How do frameworks inherit, specialise, conflict, and terminate? |
 | [Institutional Succession](institutional-succession.md) | How does authority continue when an institution changes or fails? |
 | [Authority-Scope Composition](authority-scope-composition.md) | How are multidimensional scopes intersected and attenuated? |
+| [Authority at Commitment](authority-at-commitment.md) | Was this actor authorized for this exact material commitment at the relevant transition time? |
 | [Obligation Lifecycle](obligation-lifecycle.md) | How are post-decision duties assigned, fulfilled, breached, and remedied? |
 | [Temporal Governance](temporal-governance.md) | Which time facts govern authority, evidence, execution, and correction? |
 | [Evidence Predicates](evidence-predicates.md) | How are authenticity, relevance, sufficiency, and permitted use separated? |

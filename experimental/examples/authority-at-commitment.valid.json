@@ -1,0 +1,52 @@
+{
+  "type": "authority-at-commitment",
+  "gaamVersion": "0.9.0",
+  "status": "experimental",
+  "normativeStatus": "non-normative",
+  "principal": "did:example:buyer",
+  "actor": "did:example:buyer-agent",
+  "mandate": {
+    "id": "urn:mandate:42",
+    "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "authorityState": "active",
+    "statusObservedAt": "2026-09-22T12:00:00Z",
+    "validUntil": "2026-09-22T18:00:00Z"
+  },
+  "commitment": {
+    "id": "urn:commitment:42",
+    "action": "procurement.commit",
+    "target": "supplier.example",
+    "digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "evaluation": {
+    "evaluatedAt": "2026-09-22T12:00:00Z",
+    "policyRef": "urn:policy:procurement:v3",
+    "constraintResults": [
+      {
+        "constraint": "scope",
+        "result": "satisfied",
+        "evidenceRef": "urn:evidence:scope:42"
+      },
+      {
+        "constraint": "counterparty",
+        "result": "satisfied",
+        "evidenceRef": "urn:evidence:counterparty:42"
+      }
+    ],
+    "approval": {
+      "required": false,
+      "bindingResult": "not-required"
+    }
+  },
+  "decision": {
+    "outcome": "permit",
+    "reasonCodes": [
+      "AUTHORITY_CURRENT",
+      "ACTION_IN_SCOPE"
+    ],
+    "evidenceRefs": [
+      "urn:evidence:authority-status:42",
+      "urn:evidence:policy:42"
+    ]
+  }
+}
