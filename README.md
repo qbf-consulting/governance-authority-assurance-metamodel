@@ -1,7 +1,7 @@
 # Governance, Authority and Assurance Metamodel
 
-[![Version](https://img.shields.io/badge/version-0.9.1-blue.svg)](VERSION)
-[![Status](https://img.shields.io/badge/status-candidate%20maintenance-purple.svg)](releases/v0.9.1.md)
+[![Version](https://img.shields.io/badge/version-0.9.2-blue.svg)](VERSION)
+[![Status](https://img.shields.io/badge/status-candidate%20maintenance-purple.svg)](releases/v0.9.2.md)
 [![Validation](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/actions/workflows/validate.yml/badge.svg)](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/actions/workflows/validate.yml)
 
 GAAM specifies how digital and agentic systems represent and enforce **authority, delegation, revocation, evidence, assurance, trust decisions, effects, accountability, appeal and remedy**. It treats governance as an executable system property rather than a document-only control layer.
@@ -10,7 +10,7 @@ GAAM specifies how digital and agentic systems represent and enforce **authority
 **Project stewardship:** QBF Consulting LLP  
 **Canonical repository:** https://github.com/qbf-consulting/governance-authority-assurance-metamodel
 
-Version **0.9.1** is the current **Candidate Maintenance Release**. It preserves the v0.9.0 normative baseline and frozen identifiers while adding portable validation, a conformance adapter protocol, an implementation starter, stronger adversarial vectors, reproducible release packaging and canonical-publication assurance. Candidate status does not constitute certification or independent interoperability.
+Version **0.9.2** is the current **Candidate Maintenance Release**. It preserves the v0.9.0 normative baseline and frozen identifiers while extending the portable behavioural test suite with evidence derived from the EUDI Wallet ARF and GLEIF vLEI implementation-validation cases. It retains the v0.9.1 portable validation, conformance adapter, starter, reproducible packaging and canonical-publication assurance. Candidate status does not constitute certification or independent interoperability.
 
 Repository-owned maturity, lifecycle, authority boundaries, validation commands and known limitations are declared in [`PROJECT-STATUS.yaml`](PROJECT-STATUS.yaml). This declaration is the status source consumed by portfolio governance and does not expand GAAM's normative scope.
 
@@ -30,7 +30,7 @@ Repository-owned maturity, lifecycle, authority boundaries, validation commands 
 - [Implementation reports](implementation-reports/README.md) — human and machine-readable evidence workflow
 - [Portable conformance kit](conformance-kit/README.md) — external validator, adapter protocol and starter package
 - [Migration from v0.5.0](docs/migration-v0.5.0-to-v0.9.0.md)
-- [v0.9.1 release notes](releases/v0.9.1.md)
+- [v0.9.2 release notes](releases/v0.9.2.md)
 - [Citation metadata](CITATION.cff)
 
 ## Validate
@@ -50,7 +50,8 @@ The validator produces `validation/validation-report.json`, `VALIDATION_REPORT.m
 | v0.1.0 | Initial Public Draft |
 | v0.5.0 | Feature Complete Draft |
 | v0.9.0 | Candidate Specification baseline |
-| **v0.9.1** | **Candidate implementation-enablement maintenance release** |
+| v0.9.1 | Candidate implementation-enablement maintenance release |
+| **v0.9.2** | **Candidate ecosystem-validation evidence maintenance release** |
 | v1.0.0 | Stable Initial Release, subject to candidate exit criteria |
 
 ## Source relationship
