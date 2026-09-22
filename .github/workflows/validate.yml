@@ -92,13 +92,19 @@ jobs:
         run: python scripts/verify_canonical_publication.py --site-root _site --output validation/canonical-publication-report.json
 
       - name: Build reproducible release archive twice
-        env:
-          SOURCE_DATE_EPOCH: "1787184000"
         run: |
+          version=$(cat VERSION)
+          epoch=$(python - <<'PY'
+          import datetime, json
+          release=json.load(open("release.json"))
+          print(int(datetime.datetime.fromisoformat(release["releaseDate"]).replace(tzinfo=datetime.timezone.utc).timestamp()))
+          PY
+          )
+          export SOURCE_DATE_EPOCH="$epoch"
           python scripts/build_release.py
-          first=$(sha256sum dist/governance-authority-assurance-metamodel-v0.9.2.zip | cut -d' ' -f1)
+          first=$(sha256sum "dist/governance-authority-assurance-metamodel-v${version}.zip" | cut -d' ' -f1)
           python scripts/build_release.py
-          second=$(sha256sum dist/governance-authority-assurance-metamodel-v0.9.2.zip | cut -d' ' -f1)
+          second=$(sha256sum "dist/governance-authority-assurance-metamodel-v${version}.zip" | cut -d' ' -f1)
           test "$first" = "$second"
 
       - name: Upload validation evidence
@@ -109,6 +115,7 @@ jobs:
           path: |
             VALIDATION_REPORT.md
             validation/
-            packages/gaam-v0.9.2/
+            packages/gaam-v*/manifest.json
+            packages/gaam-v*/checksums.json
             dist/*.release.json
             _site/
