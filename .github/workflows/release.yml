@@ -88,6 +88,20 @@ jobs:
           python scripts/build_candidate_readiness.py
           python scripts/validate.py
 
+      - name: Prepare GitHub Release notes
+        run: |
+          mkdir -p dist
+          python - <<'PY'
+          from pathlib import Path
+          version=Path("VERSION").read_text().strip()
+          text=(Path("releases")/f"v{version}.md").read_text()
+          if text.startswith("---\n"):
+              _, _, rest=text.partition("\n---\n")
+              text=rest
+          text=text.replace("{% include gaam-meta.html %}\n","")
+          Path("dist/release-notes.md").write_text(text.lstrip())
+          PY
+
       - name: Build reproducible distribution
         if: steps.existing.outputs.exists != 'true'
         env:
@@ -101,16 +115,6 @@ jobs:
           )
           export SOURCE_DATE_EPOCH="$epoch"
           python scripts/build_release.py
-          python - <<'PY'
-          from pathlib import Path
-          version=Path("VERSION").read_text().strip()
-          text=(Path("releases")/f"v{version}.md").read_text()
-          if text.startswith("---\n"):
-              _, _, rest=text.partition("\n---\n")
-              text=rest
-          text=text.replace("{% include gaam-meta.html %}\n","")
-          Path("dist/release-notes.md").write_text(text.lstrip())
-          PY
 
       - name: Publish GitHub Release
         if: steps.existing.outputs.exists != 'true'
@@ -121,10 +125,25 @@ jobs:
         run: |
           gh release create "v$VERSION" \
             --target "$TARGET_SHA" \
-            --title "GAAM v$VERSION" \
+            --title "GAAM v$VERSION — Ecosystem Validation Evidence" \
             --notes-file dist/release-notes.md \
+            --latest \
             "dist/governance-authority-assurance-metamodel-v$VERSION.zip" \
             "dist/governance-authority-assurance-metamodel-v$VERSION.release.json" \
             "packages/gaam-v$VERSION/manifest.json" \
             "packages/gaam-v$VERSION/checksums.json" \
             VALIDATION_REPORT.md
+
+
+      - name: Refresh existing GitHub Release and mark Latest
+        if: steps.existing.outputs.exists == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.meta.outputs.version }}
+          TARGET_SHA: ${{ github.sha }}
+        run: |
+          gh release edit "v$VERSION" \
+            --target "$TARGET_SHA" \
+            --title "GAAM v$VERSION — Ecosystem Validation Evidence" \
+            --notes-file dist/release-notes.md \
+            --latest
