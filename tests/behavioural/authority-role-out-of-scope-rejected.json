@@ -1,0 +1,17 @@
+{
+  "id": "authority-role-out-of-scope-rejected",
+  "description": "A valid role or recognition artifact does not authorize an effect outside its authority scope. Derived from EUDI GAAM-ARF-01/07 and vLEI GAAM-VLEI-01/03.",
+  "sourceFindings": [
+    "GAAM-ARF-01",
+    "GAAM-ARF-07",
+    "GAAM-VLEI-01",
+    "GAAM-VLEI-03"
+  ],
+  "input": {
+    "status": "active",
+    "withinScope": false,
+    "withinTime": true,
+    "sourceValid": true
+  },
+  "expectedValid": false
+}
