@@ -1,8 +1,7 @@
 ---
 title: "Normative Requirement Catalogue"
 permalink: /specification/requirements/
-parent: "Documentation"
-nav_order: 6
+nav_exclude: true
 artifact_type: "Generated normative requirement catalogue"
 normative_status: "Derivative index"
 ---
