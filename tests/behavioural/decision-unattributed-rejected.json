@@ -1,0 +1,20 @@
+{
+  "id": "decision-unattributed-rejected",
+  "description": "A consequential decision record without an attributable accountable party is insufficient. Derived from EUDI GAAM-ARF-10 and vLEI GAAM-VLEI-11.",
+  "sourceFindings": [
+    "GAAM-ARF-10",
+    "GAAM-VLEI-11"
+  ],
+  "input": {
+    "authorityId": "auth:ecosystem",
+    "policyId": "policy:relying-party",
+    "evidenceIds": [
+      "e:credential"
+    ],
+    "assuranceIds": [
+      "a:issuer"
+    ],
+    "accountableParty": ""
+  },
+  "expectedValid": false
+}

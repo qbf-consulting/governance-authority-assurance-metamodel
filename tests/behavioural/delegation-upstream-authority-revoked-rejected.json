@@ -1,0 +1,22 @@
+{
+  "id": "delegation-upstream-authority-revoked-rejected",
+  "description": "A dependent delegation cannot remain valid when its upstream authority is inactive or revoked. Derived from EUDI GAAM-ARF-06 and vLEI GAAM-VLEI-04.",
+  "sourceFindings": [
+    "GAAM-ARF-06",
+    "GAAM-VLEI-04"
+  ],
+  "input": {
+    "delegationPermitted": true,
+    "childEffects": [
+      "issue-credential"
+    ],
+    "parentEffects": [
+      "issue-credential"
+    ],
+    "depth": 2,
+    "maxDepth": 3,
+    "parentActive": false,
+    "childWithinParentTime": true
+  },
+  "expectedValid": false
+}

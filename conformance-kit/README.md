@@ -31,4 +31,4 @@ Use `--pattern 'delegation-*.json'` to select a subset. Results are emitted as m
 
 ## Boundary
 
-The manifest, adapter protocol and result schema are informative v0.9.1 implementation contracts. They do not add normative requirements, profiles, vocabularies or canonical schemas to GAAM v0.9.0.
+The manifest, adapter protocol and result schema are informative v0.9.2 implementation contracts. They do not add normative requirements, profiles, vocabularies or canonical schemas to GAAM v0.9.0.
