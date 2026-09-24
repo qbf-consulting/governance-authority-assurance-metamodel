@@ -140,15 +140,17 @@ jobs:
             VALIDATION_REPORT.md
 
 
-      - name: Refresh existing GitHub Release and mark Latest
+      - name: Preserve existing release metadata
         if: steps.existing.outputs.exists == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           VERSION: ${{ steps.meta.outputs.version }}
-          TARGET_SHA: ${{ github.sha }}
         run: |
-          gh release edit "v$VERSION" \
-            --target "$TARGET_SHA" \
-            --title "GAAM v$VERSION — Ecosystem Validation Evidence" \
-            --notes-file dist/release-notes.md \
-            --latest
+          tag_sha=$(git rev-list -n 1 "v$VERSION")
+          current_target=$(gh api "/repos/$GITHUB_REPOSITORY/releases/tags/v$VERSION" --jq '.target_commitish')
+          if [ "$current_target" != "$tag_sha" ]; then
+            echo "Restoring v$VERSION target metadata to tagged commit $tag_sha"
+            gh release edit "v$VERSION" --target "$tag_sha"
+          else
+            echo "v$VERSION already anchored to tagged commit; leaving release unchanged"
+          fi
