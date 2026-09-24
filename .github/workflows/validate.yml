@@ -71,8 +71,8 @@ jobs:
 
       - name: Generate and verify plain-text specification
         run: |
-          python scripts/generate_plaintext_spec.py
-          python scripts/generate_plaintext_spec.py --check "dist/gaam-specification-v$(python -c 'import json; print(json.load(open("release.json"))["normativeVersion"])').txt"
+          artifact=$(python scripts/generate_plaintext_spec.py)
+          python scripts/generate_plaintext_spec.py --check "$artifact"
 
       - name: Validate Mermaid diagrams
         run: npm run validate:mermaid
