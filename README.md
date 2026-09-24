@@ -19,6 +19,7 @@ Repository-owned maturity, lifecycle, authority boundaries, validation commands 
 ## Start here
 
 - [Normative specification](specification/governance-authority-assurance-metamodel.md)
+- [Specification publication and reading guide](docs/specification-publication.md) — source authority, generated formats and archival/plain-text publication
 - [Architecture overview](docs/architecture-overview.md)
 - [Implementation guide](docs/implementation-guide.md)
 - [Conformance and assurance guide](docs/conformance-guide.md)
@@ -39,6 +40,7 @@ Repository-owned maturity, lifecycle, authority boundaries, validation commands 
 python -m pip install -r requirements-dev.txt
 python scripts/validate.py
 python scripts/gaam.py validate-package conformance-kit/starter
+python scripts/generate_plaintext_spec.py
 ```
 
 The validator produces `validation/validation-report.json`, `VALIDATION_REPORT.md`, requirement coverage, threat traceability and package checksums. A passing run means the repository satisfies its publication, structural and included behavioural checks. It does not create an L4 independent-assessment claim.

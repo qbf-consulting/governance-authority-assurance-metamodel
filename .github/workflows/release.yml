@@ -102,6 +102,10 @@ jobs:
           Path("dist/release-notes.md").write_text(text.lstrip())
           PY
 
+      - name: Generate plain-text specification
+        if: steps.existing.outputs.exists != 'true'
+        run: python scripts/generate_plaintext_spec.py
+
       - name: Build reproducible distribution
         if: steps.existing.outputs.exists != 'true'
         env:
@@ -132,6 +136,7 @@ jobs:
             "dist/governance-authority-assurance-metamodel-v$VERSION.release.json" \
             "packages/gaam-v$VERSION/manifest.json" \
             "packages/gaam-v$VERSION/checksums.json" \
+            dist/gaam-specification-v*.txt \
             VALIDATION_REPORT.md
 
 

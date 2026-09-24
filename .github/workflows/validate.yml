@@ -66,6 +66,14 @@ jobs:
       - name: Verify generated normative requirement catalogue
         run: python scripts/generate_requirement_catalogue.py --check
 
+      - name: Test plain-text specification publication
+        run: python scripts/test_plaintext_spec.py
+
+      - name: Generate and verify plain-text specification
+        run: |
+          artifact=$(python scripts/generate_plaintext_spec.py)
+          python scripts/generate_plaintext_spec.py --check "$artifact"
+
       - name: Validate Mermaid diagrams
         run: npm run validate:mermaid
 
@@ -118,4 +126,5 @@ jobs:
             packages/gaam-v*/manifest.json
             packages/gaam-v*/checksums.json
             dist/*.release.json
+            dist/gaam-specification-v*.txt
             _site/
