@@ -36,13 +36,13 @@ title: Example
         rendered = module.markdown_to_text(source)
         self.assertNotIn("title: Example", rendered)
         self.assertNotIn("{% include", rendered)
-        self.assertIn("Heading\\n=======", rendered)
+        self.assertIn("Heading\n=======", rendered)
         self.assertIn("MUST preserve authority <https://example.test/authority>.", rendered)
         self.assertIn("| Claim | State |", rendered)
         self.assertIn('{"state":"active"}', rendered)
 
     def test_output_is_deterministic(self):
-        source = "# A\\n\\nText with `code` and *emphasis*.\\n"
+        source = "# A\n\nText with `code` and *emphasis*.\n"
         self.assertEqual(module.markdown_to_text(source), module.markdown_to_text(source))
 
     def test_repository_spec_contains_normative_identity(self):
@@ -52,11 +52,14 @@ title: Example
         self.assertIn("GAAM-AUTH-001", rendered)
         self.assertIn("GAAM-RED-008", rendered)
 
+    def test_output_path_uses_normative_version(self):
+        self.assertEqual(module.output_path().name, "gaam-specification-v0.9.0.txt")
+
     def test_generated_artifact_round_trip(self):
         rendered = module.render()
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "gaam.txt"
-            path.write_text(rendered, encoding="utf-8", newline="\\n")
+            path.write_text(rendered, encoding="utf-8", newline="\n")
             self.assertEqual(path.read_text(encoding="utf-8"), rendered)
 
 
