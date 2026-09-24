@@ -11,13 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "specification" / "governance-authority-assurance-metamodel.md"
 RELEASE = ROOT / "release.json"
 
-FRONT_MATTER = re.compile(r"\\A---\\n.*?\\n---\\n", re.DOTALL)
-LIQUID_INCLUDE = re.compile(r"^\\s*\\{%\\s*include\\s+[^%]+%\\}\\s*$")
-INLINE_LINK = re.compile(r"\\[([^\\]]+)\\]\\(([^)]+)\\)")
+FRONT_MATTER = re.compile(r"\A---\n.*?\n---\n", re.DOTALL)
+LIQUID_INCLUDE = re.compile(r"^\s*\{%\s*include\s+[^%]+%\}\s*$")
+INLINE_LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 AUTOLINK = re.compile(r"<((?:https?|mailto):[^>]+)>")
-EMPHASIS = re.compile(r"(?<!\\\\)(?:\\*\\*|__)(.+?)(?:\\*\\*|__)|(?<!\\\\)(?:\\*|_)(.+?)(?:\\*|_)")
+EMPHASIS = re.compile(r"(?<!\\)(?:\*\*|__)(.+?)(?:\*\*|__)|(?<!\\)(?:\*|_)(.+?)(?:\*|_)")
 INLINE_CODE = re.compile(r"`([^`]+)`")
-HEADING = re.compile(r"^(#{1,6})\\s+(.*)$")
+HEADING = re.compile(r"^(#{1,6})\s+(.*)$")
 
 
 def strip_inline(text: str) -> str:
@@ -29,11 +29,11 @@ def strip_inline(text: str) -> str:
         if updated == text:
             break
         text = updated
-    return text.replace("\\\\*", "*").replace("\\\\_", "_").replace("\\\\`", "`")
+    return text.replace("\\*", "*").replace("\\_", "_").replace("\\`", "`")
 
 
 def markdown_to_text(markdown: str) -> str:
-    markdown = markdown.replace("\\r\\n", "\\n").replace("\\r", "\\n")
+    markdown = markdown.replace("\r\n", "\n").replace("\r", "\n")
     markdown = FRONT_MATTER.sub("", markdown, count=1)
     lines = markdown.splitlines()
     out: list[str] = []
@@ -62,7 +62,7 @@ def markdown_to_text(markdown: str) -> str:
             out.append("")
             continue
 
-        if re.fullmatch(r"\\s*---+\\s*", line):
+        if re.fullmatch(r"\s*---+\s*", line):
             if out and out[-1] != "":
                 out.append("")
             continue
@@ -70,9 +70,9 @@ def markdown_to_text(markdown: str) -> str:
         if line.startswith("> "):
             line = line[2:]
 
-        if re.match(r"^\\s*[-*+]\\s+", line):
+        if re.match(r"^\s*[-*+]\s+", line):
             indent = len(line) - len(line.lstrip())
-            line = " " * indent + "- " + re.sub(r"^\\s*[-*+]\\s+", "", line)
+            line = " " * indent + "- " + re.sub(r"^\s*[-*+]\s+", "", line)
 
         out.append(strip_inline(line))
 
@@ -82,7 +82,7 @@ def markdown_to_text(markdown: str) -> str:
             continue
         normalized.append(line.rstrip())
 
-    return "\\n".join(normalized).strip() + "\\n"
+    return "\n".join(normalized).strip() + "\n"
 
 
 def output_path() -> Path:
@@ -113,7 +113,7 @@ def main() -> int:
 
     target = args.output or output_path()
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(rendered, encoding="utf-8", newline="\\n")
+    target.write_text(rendered, encoding="utf-8", newline="\n")
     print(target)
     return 0
 
