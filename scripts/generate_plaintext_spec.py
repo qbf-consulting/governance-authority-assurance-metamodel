@@ -21,8 +21,8 @@ HEADING = re.compile(r"^(#{1,6})\s+(.*)$")
 
 
 def strip_inline(text: str) -> str:
-    text = INLINE_LINK.sub(lambda m: f"{m.group(1)} <{m.group(2)}>", text)
     text = AUTOLINK.sub(lambda m: m.group(1), text)
+    text = INLINE_LINK.sub(lambda m: f"{m.group(1)} <{m.group(2)}>", text)
     text = INLINE_CODE.sub(lambda m: m.group(1), text)
     while True:
         updated = EMPHASIS.sub(lambda m: m.group(1) or m.group(2) or "", text)
