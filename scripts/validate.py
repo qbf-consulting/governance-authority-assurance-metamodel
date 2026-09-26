@@ -779,6 +779,12 @@ try:
  if readiness.get('eligibleForV1Decision') != (len(readiness.get('blockingGates',[]))==0): readiness_errors.append('eligibility inconsistent with blocking gates')
  gate_ids=[x.get('id') for x in readiness.get('gates',[])]
  if len(gate_ids)!=len(set(gate_ids)): readiness_errors.append('duplicate readiness gate IDs')
+ classification=load(ROOT/'governance/v1-gate-classification.json'); class_by_id={x.get('id'):x for x in classification.get('gates',[])}
+ if set(gate_ids)!=set(class_by_id): readiness_errors.append('generated gate IDs differ from v1 gate classification')
+ for gate in readiness.get('gates',[]):
+  cg=class_by_id.get(gate.get('id'),{})
+  if gate.get('controlBoundary')!=cg.get('control') or gate.get('blocksSpecificationStable')!=cg.get('blocksSpecificationStable') or gate.get('evidenceLevel')!=cg.get('evidenceLevel') or gate.get('proves')!=cg.get('proves'):
+   readiness_errors.append(f"{gate.get('id')}: generated classification drift")
 except Exception as e: readiness_errors.append(str(e))
 add('GOV-CANDIDATE-READINESS',not readiness_errors,'candidate readiness is schema-valid, generated from authoritative evidence and current' if not readiness_errors else '; '.join(readiness_errors[:8]),'governance')
 
