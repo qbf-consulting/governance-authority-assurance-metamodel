@@ -1,5 +1,5 @@
 ---
-title: "Candidate Readiness Dashboard"
+title: "Maturity and Evidence Dashboard"
 permalink: /governance/candidate-readiness/
 parent: Assurance and Governance Tracking
 artifact_type: "Generated governance view"
@@ -7,55 +7,47 @@ normative_status: "Informative"
 grand_parent: Documentation
 nav_order: 2
 ---
-# Candidate Readiness Dashboard
+# Maturity and Evidence Dashboard
 
 {% include gaam-meta.html %}
 
-> **Generated view.** Do not edit the gate table by hand. Run `python scripts/build_candidate_readiness.py` after changing candidate issues, review registers, or implementation reports.
+> **Generated view.** Do not edit by hand. Run `python scripts/build_candidate_readiness.py`.
 
-This dashboard exposes the evidence currently available for progression from the current normative Candidate baseline, GAAM v0.9.2, to v1.0.0. The governed evidence remains anchored to the frozen v0.9.0 semantic/canonical artifact baseline where identifiers are versioned. Its authoritative machine-readable state is [`governance/candidate-readiness.json`](../governance/candidate-readiness.json).
+GAAM tracks **specification maturity** separately from **external evidence maturity**. Missing evidence controlled exclusively by independent actors does not become a veto over specification development; it remains an explicit unproven evidence claim. External evidence can still falsify assumptions and trigger governed reassessment.
 
 ## Current decision state
 
-**Eligible for a v1.0.0 release decision:** **NO**  
-**Blocking gates:** 8  
-**Accepted implementation reports:** 0
+**Eligible for a Stable specification release decision:** **YES**  
+**Specification blockers:** 0  
+**External evidence maturity:** **E1**  
+**Accepted independent implementation reports:** 0
 
-## Candidate gates
+A Stable/E1 state asserts specification stability and repository validation only. It does **not** assert independent implementation, independent assurance, interoperability, operational fitness, certification, or deployment validation.
 
-| Gate | State | Blocking | Closure predicate |
-|---|---|---:|---|
-| Two independent implementations | Not started | Yes | At least two non-synthetic accepted implementation reports declare independent assessment with disclosed relationships and contain no failed or indeterminate result or open exception. |
-| Foundation implementation coverage | Not started | Yes | At least one accepted independent implementation report includes the Foundation Profile. |
-| Composed-profile implementation coverage | Not started | Yes | At least one accepted independent implementation report covers Foundation plus at least one additional GAAM profile. |
-| Requirement testability disposition | Complete | Yes | The normative requirement index and requirement-test coverage matrix remain validator-clean. |
-| Canonical identifier publication | Complete | Yes | GAAM-CR-003 is closed with resolvable versioned identifiers, checksum verification and historical-retention evidence. |
-| Privacy review | Not started | Yes | The privacy review is complete, attested, and has no unresolved blocking findings. |
-| Security review | Not started | Yes | The security review is complete, attested, and has no unresolved blocking findings or unresolved critical security issue. |
-| Affected-party review | Not started | Yes | The affected-party review is complete, attested, and has no unresolved blocking findings. |
-| Cross-implementation interoperability | Not started | Yes | The interoperability review is complete and GAAM-CR-002 is closed with cross-validator evidence from independent implementations. |
-| Governed ecosystem applicability | In progress | No | The governed ecosystem capability assessment receives independent attestation and candidate enhancement dispositions are reviewed. |
-| Breaking candidate issue disposition | Not started | Yes | Every candidate issue with blockingV1=true is closed with its required evidence. |
+## Gate classification
 
-## Current blockers
+| Gate | State | Control boundary | Blocks Stable | Evidence level | Proposition |
+|---|---|---|---:|---|---|
+| Two independent implementations | Not started | external | No | E2 | E2 independent implementation evidence |
+| Foundation implementation coverage | Not started | external | No | E2 | E2 independent Foundation Profile implementation coverage |
+| Composed-profile implementation coverage | Not started | external | No | E2 | E2 independent composed-profile implementation coverage |
+| Requirement testability disposition | Complete | repository-controlled | Yes | E1 | Normative requirements are deterministically indexed and testable |
+| Canonical identifier publication | Complete | repository-controlled | Yes | E1 | Canonical/versioned normative identifiers are stable and publication-bound |
+| Independent privacy review | Not started | shared | No | E2 | Independent privacy attestation at E2; repository preparation and disposition remain maintainer-controlled |
+| Independent security review | Not started | shared | No | E2 | Independent security attestation at E2; repository threat analysis and disposition remain maintainer-controlled |
+| Independent affected-party review | Not started | shared | No | E2 | Independent affected-party/redress attestation at E2; repository preparation and disposition remain maintainer-controlled |
+| Cross-implementation interoperability | Not started | external | No | E3 | E3 cross-implementation interoperability evidence |
+| Governed ecosystem applicability | In progress | shared | No | E2 | Independent applicability evidence for the declared ecosystem boundary |
+| Repository-controlled candidate issue disposition | Complete | repository-controlled | Yes | E1 | All repository-controlled candidate findings that affect the Stable claim have governed disposition |
 
-- `independent-implementations` — Two independent implementations. Source issue(s): GAAM-CR-001.
-- `foundation-implementation` — Foundation implementation coverage. Source issue(s): GAAM-CR-001.
-- `composed-profile-implementation` — Composed-profile implementation coverage. Source issue(s): GAAM-CR-001.
-- `privacy-review` — Privacy review. Source issue(s): GAAM-CR-004.
-- `security-review` — Security review. Source issue(s): GAAM-CR-005.
-- `affected-party-review` — Affected-party review. Source issue(s): GAAM-CR-004.
-- `cross-implementation-interoperability` — Cross-implementation interoperability. Source issue(s): GAAM-CR-002.
-- `candidate-issue-disposition` — Breaking candidate issue disposition. Source issue(s): GAAM-CR-001, GAAM-CR-002, GAAM-CR-004, GAAM-CR-005.
+## Specification blockers
 
-## Evidence acceptance boundary
+No repository-controlled Stable blocker is currently open.
 
-Only non-synthetic implementation reports with `reportStatus: accepted` are candidate-readiness inputs. An accepted report contributes to the independent-implementation gate only when it declares `independence.classification: independent` and `relationshipsDisclosed: true`. Schema-valid examples and fixtures never satisfy candidate exit criteria.
+## Evidence boundary
 
-## Decision rule
+Synthetic, self-assessed, maintainer-authored and repository-owned fixtures never satisfy independent E2/E3 claims. Independent implementation and review evidence advances E2; cross-implementation evidence advances E3. Missing external evidence leaves those claims unproven rather than making the specification unstable.
 
-A v1.0.0 release decision is eligible only when every blocking gate in `governance/candidate-readiness.json` is `satisfied`. Eligibility permits a governed release decision; it does not itself approve or publish v1.0.0.
+## Reassessment rule
 
-## How to submit evidence
-
-Use the repository issue forms and the [Implementation Reports](../implementation-reports/) workflow. Machine-readable reports must validate against `implementation-reports/implementation-report.schema.json`, reference a valid evidence manifest, disclose assessment independence, and remain within their stated claim boundary.
+If external implementation, review or interoperability evidence exposes a material ambiguity, security/privacy defect, semantic divergence or invalid normative assumption, that finding enters the governed change lifecycle and may invalidate Stable readiness until disposition and reassessment complete.
