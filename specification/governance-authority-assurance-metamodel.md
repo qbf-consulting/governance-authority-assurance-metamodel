@@ -12,7 +12,6 @@ normative_status: "Normative"
 **Version:** 0.9.0  
 **Status:** Candidate Specification  
 **Release date:** 16 July 2026  
-**Current normative Candidate release:** v0.9.2 (this v0.9.0 normative text and its frozen identifiers are incorporated unchanged)  
 **Repository:** `governance-authority-assurance-metamodel`  
 **Intended audience:** Governance designers, standards developers, ecosystem architects, assurance providers, registry operators, agent-system implementers, regulators, auditors and reviewers.
 
@@ -22,7 +21,7 @@ normative_status: "Normative"
 
 This document is the Candidate Specification of the Governance, Authority and Assurance Metamodel (GAAM). It establishes an independent, implementation-neutral specification for representing and governing authority, delegation, evidence, trust decisions, accountability, assurance, agentic execution and decentralised trust relationships.
 
-Version 0.9.0 stabilises the semantic normative surface and frozen identifiers incorporated unchanged by the current v0.9.2 normative Candidate release. A conformance claim against this release MUST identify the applicable profile set, conformance target, assurance level, test-suite version, evidence, limitations and assessment independence. Candidate status does not constitute certification, universal trustworthiness or independent interoperability. Breaking normative changes remain possible only through the candidate change-control process defined by this repository.
+Version 0.9.0 stabilises the intended normative surface for implementation, interoperability and assurance review. A conformance claim against this release MUST identify the applicable profile set, conformance target, assurance level, test-suite version, evidence, limitations and assessment independence. Candidate status does not constitute certification, universal trustworthiness or independent interoperability. Breaking normative changes remain possible only through the candidate change-control process defined by this repository.
 
 The specification is protocol-neutral, vendor-neutral and ecosystem-neutral. It does not require any particular identifier, credential, registry, agent communication, policy, transport or cryptographic technology.
 
