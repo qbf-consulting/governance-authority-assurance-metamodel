@@ -62,6 +62,29 @@ for filename, review_type in EXPECTED.items():
         for evidence in test.get("evidence") or []:
             if not (ROOT / evidence).exists():
                 errors.append(f"{filename}/{tid}: missing evidence path {evidence}")
+        if review_type in {"security", "affected-party"}:
+            disposition=test.get("coverageDisposition")
+            if disposition not in {"executable-plus-review", "review-required"}:
+                errors.append(f"{filename}/{tid}: invalid or missing coverageDisposition")
+            vectors=test.get("behaviouralVectors")
+            if not isinstance(vectors,list):
+                errors.append(f"{filename}/{tid}: behaviouralVectors must be an array")
+                vectors=[]
+            if disposition=="executable-plus-review" and not vectors:
+                errors.append(f"{filename}/{tid}: executable-plus-review requires behavioural vectors")
+            for vector in vectors:
+                vp=ROOT/vector
+                if not vp.exists() or not str(vector).startswith("tests/behavioural/"):
+                    errors.append(f"{filename}/{tid}: invalid behavioural vector path {vector}")
+                    continue
+                try:
+                    vo=json.loads(vp.read_text(encoding="utf-8"))
+                    if not vo.get("id") or not isinstance(vo.get("expectedValid"),bool):
+                        errors.append(f"{filename}/{tid}: malformed behavioural vector {vector}")
+                except Exception as error:
+                    errors.append(f"{filename}/{tid}: cannot parse behavioural vector {vector}: {error}")
+            if not test.get("coverageNote"):
+                errors.append(f"{filename}/{tid}: coverageNote is required")
         if not test.get("question") or not test.get("falsification"):
             errors.append(f"{filename}/{tid}: question and falsification are required")
     if not obj.get("reviewerOutputsRequired") or not obj.get("closureBoundary"):

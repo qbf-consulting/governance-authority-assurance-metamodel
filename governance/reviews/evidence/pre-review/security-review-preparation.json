@@ -33,7 +33,13 @@
         "authority-source-invalid-rejected",
         "authority-role-out-of-scope-rejected"
       ],
-      "testDisposition": "covered-by-negative-and-positive-behavioural-vectors"
+      "testDisposition": "covered-by-negative-and-positive-behavioural-vectors",
+      "coverageDisposition": "executable-plus-review",
+      "behaviouralVectors": [
+        "tests/behavioural/authority-source-invalid-rejected.json",
+        "tests/behavioural/authority-role-out-of-scope-rejected.json"
+      ],
+      "coverageNote": "Executable vectors reject invalid or out-of-scope authority sources; independent review still assesses broader authority/evidence confusion and laundering paths."
     },
     {
       "id": "GAAM-SEC-PT-002",
@@ -60,7 +66,13 @@
         "delegation-depth-rejected",
         "delegation-redelegation-prohibited-rejected"
       ],
-      "testDisposition": "covered-by-delegation-boundary-and-cycle-vectors"
+      "testDisposition": "covered-by-delegation-boundary-and-cycle-vectors",
+      "coverageDisposition": "executable-plus-review",
+      "behaviouralVectors": [
+        "tests/behavioural/delegation-amplification-rejected.json",
+        "tests/behavioural/delegation-cycle-rejected.json"
+      ],
+      "coverageNote": "Executable vectors cover authority amplification and circular delegation; independent review assesses additional composition paths."
     },
     {
       "id": "GAAM-SEC-PT-003",
@@ -87,7 +99,14 @@
         "runtime-revocation-fail-closed-valid",
         "runtime-stale-state-fail-open-rejected"
       ],
-      "testDisposition": "covered-by-lifecycle-and-runtime-fail-closed-vectors"
+      "testDisposition": "covered-by-lifecycle-and-runtime-fail-closed-vectors",
+      "coverageDisposition": "executable-plus-review",
+      "behaviouralVectors": [
+        "tests/behavioural/delegation-parent-revoked-rejected.json",
+        "tests/behavioural/delegation-upstream-authority-revoked-rejected.json",
+        "tests/behavioural/runtime-stale-state-fail-open-rejected.json"
+      ],
+      "coverageNote": "Executable vectors cover parent/upstream revocation and stale-state fail-open behavior; independent review assesses concurrency and cache-race assumptions."
     },
     {
       "id": "GAAM-SEC-PT-004",
@@ -114,7 +133,14 @@
         "assurance-stale-evidence-rejected",
         "decision-stale-evidence-rejected"
       ],
-      "testDisposition": "covered-for-validity-independence-and-freshness; reviewer-must-assess-purpose-and-subject-substitution-contextually"
+      "testDisposition": "covered-for-validity-independence-and-freshness; reviewer-must-assess-purpose-and-subject-substitution-contextually",
+      "coverageDisposition": "executable-plus-review",
+      "behaviouralVectors": [
+        "tests/behavioural/assurance-stale-evidence-rejected.json",
+        "tests/behavioural/assurance-independence-insufficient-rejected.json",
+        "tests/behavioural/decision-stale-evidence-rejected.json"
+      ],
+      "coverageNote": "Executable vectors cover freshness and insufficient independence; subject/purpose/scope substitution remains an independent-review question."
     },
     {
       "id": "GAAM-SEC-PT-005",
@@ -138,7 +164,10 @@
       "existingTests": [
         "decision-receipt-digest-mismatch-rejected"
       ],
-      "testDisposition": "structural-integrity-covered-by-package-checksums-and-publication-validation; reviewer-must-assess-authoritative-provenance-substitution"
+      "testDisposition": "structural-integrity-covered-by-package-checksums-and-publication-validation; reviewer-must-assess-authoritative-provenance-substitution",
+      "coverageDisposition": "review-required",
+      "behaviouralVectors": [],
+      "coverageNote": "Repository structural/publication validation protects canonical package provenance, but substitution of policy or governed content across otherwise-valid packages requires independent security review rather than a synthetic pass claim."
     },
     {
       "id": "GAAM-SEC-PT-006",
@@ -165,7 +194,13 @@
         "high-impact-review-not-independent-rejected",
         "remedy-propagation-verified-valid"
       ],
-      "testDisposition": "covered-by-accountability-and-remedy-vectors; affected-party effectiveness is independently reviewed"
+      "testDisposition": "covered-by-accountability-and-remedy-vectors; affected-party effectiveness is independently reviewed",
+      "coverageDisposition": "executable-plus-review",
+      "behaviouralVectors": [
+        "tests/behavioural/decision-unattributed-rejected.json",
+        "tests/behavioural/appeal-record-without-state-change-rejected.json"
+      ],
+      "coverageNote": "Executable vectors reject unattributed consequential decisions and nominal remedy without effect; independent review assesses accountability fragmentation across multi-actor chains."
     }
   ],
   "reviewerOutputsRequired": [
