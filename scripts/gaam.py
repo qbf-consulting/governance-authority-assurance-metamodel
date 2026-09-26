@@ -25,6 +25,7 @@ def emit(command, checks):
         "command": command,
         "releaseVersion": read_json(ROOT / "release.json")["version"],
         "normativeVersion": read_json(ROOT / "release.json")["normativeVersion"],
+        "semanticBaseline": read_json(ROOT / "release.json").get("semanticBaseline", read_json(ROOT / "release.json")["normativeVersion"]),
         "status": "fail" if failed else "pass",
         "checks": checks,
     }
