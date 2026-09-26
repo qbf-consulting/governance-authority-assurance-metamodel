@@ -34,7 +34,7 @@ elif "evidencePresent" in x:
     ranks = {"self": 1, "reviewed": 2, "independent": 3}
     valid = x.get("evidencePresent") and x.get("withinValidity") and ranks.get(x.get("independence"), 0) >= ranks.get(x.get("requiredIndependence"), 0)
 elif "highImpact" in x:
-    valid = ((not x.get("highImpact")) or all([x.get("appealPath"), x.get("remedyPath"), x.get("affectedPartyAnalysis")])) and x.get("noticeProvided", True) and x.get("reviewIndependent", True)
+    valid = ((not x.get("highImpact")) or all([x.get("appealPath"), x.get("remedyPath"), x.get("affectedPartyAnalysis")])) and x.get("noticeProvided", True) and x.get("reviewIndependent", True) and x.get("remedyStateChanged", True)
 elif "stateFresh" in x:
     valid = (x.get("stateFresh") and x.get("authorityStatusKnown")) or (x.get("failurePolicy") == "fail-closed" and not x.get("effectAdmitted"))
 elif "selectedProfiles" in x:
