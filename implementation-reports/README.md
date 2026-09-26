@@ -19,6 +19,7 @@ This section helps implementers prepare bounded, reproducible evidence for a GAA
 3. Follow the [evidence guide](evidence-guide.md) to organise provenance, verification, freshness, retention and independence information.
 4. Prepare the report using the [implementation report template](TEMPLATE.md).
 5. Review the [illustrative report](examples/illustrative-report.md) to see how limitations and failed controls should be disclosed.
+6. If the work is intended to contribute independent E2 evidence, follow the [independent implementation submission guide](independent-implementation-submission.md).
 
 ## Evidence resources
 
