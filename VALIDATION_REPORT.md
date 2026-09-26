@@ -1,15 +1,16 @@
 ---
-title: GAAM v0.9.1 Validation Report
+title: GAAM v0.9.2 Validation Report
 permalink: /validation-report/
 nav_exclude: true
 artifact_type: Validation evidence
 normative_status: Repository generated
 ---
-# GAAM v0.9.1 Validation Report
+# GAAM v0.9.2 Validation Report
 
 {% include gaam-meta.html %}
 
-**Normative baseline:** v0.9.0
+**Normative baseline:** v0.9.2
+**Semantic/canonical artifact baseline:** v0.9.0
 **Status:** PASS
 **Checks:** 321
 **Passed:** 321
@@ -19,10 +20,10 @@ This report evidences repository publication, structural and included behavioura
 
 | ID | Kind | Status | Evidence |
 |---|---|---|---|
-| `PUB-001-version-source` | publication | PASS | distribution version=0.9.1 |
+| `PUB-001-version-source` | publication | PASS | distribution version=0.9.2 |
 | `PUB-002-active-version-coherence` | publication | PASS | no stale active v0.5.0 references |
-| `PUB-003-specification-identity` | publication | PASS | normative specification identifies candidate release |
-| `PUB-004-maintenance-boundary` | publication | PASS | v0.9.1 preserves v0.9.0 normative baseline and canonical schema namespace |
+| `PUB-003-specification-identity` | publication | PASS | v0.9.2 normative Candidate incorporates v0.9.0 normative text unchanged |
+| `PUB-004-maintenance-boundary` | publication | PASS | v0.9.2 is current normative Candidate baseline; v0.9.0 semantic and canonical identifiers are retained |
 | `PUB-HYG-README-EXCLUDE` | publication | PASS | all implementation-pattern README files excluded from Jekyll publication |
 | `PUB-HYG-LANDINGS` | publication | PASS | 18 canonical pattern landing pages use clean directory URLs |
 | `PUB-HYG-SUPPORT-NAV` | publication | PASS | all supporting pattern pages excluded from primary navigation |
