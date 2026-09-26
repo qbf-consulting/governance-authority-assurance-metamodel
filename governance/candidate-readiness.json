@@ -1,204 +1,9 @@
 {
   "gaamVersion": "0.9.0",
-  "generatedFrom": [
-    "governance/candidate-issues.json",
-    "governance/reviews/privacy-review.json",
-    "governance/reviews/security-review.json",
-    "governance/reviews/affected-party-review.json",
-    "governance/reviews/interoperability-review.json",
-    "governance/reviews/implementation-evidence.json",
-    "implementation-reports/reports/*.json",
-    "matrices/normative-requirements-index.csv",
-    "matrices/requirement-test-coverage.csv"
-  ],
   "eligibleForV1Decision": true,
-  "acceptedImplementationReports": [],
   "blockingGates": [],
-  "gates": [
-    {
-      "id": "independent-implementations",
-      "title": "Two independent implementations",
-      "state": "not-satisfied",
-      "blocking": true,
-      "evidence": [],
-      "closurePredicate": "At least two non-synthetic accepted implementation reports declare independent assessment with disclosed relationships and contain no failed or indeterminate result or open exception.",
-      "sourceIssues": [
-        "GAAM-CR-001"
-      ],
-      "controlBoundary": "external",
-      "blocksSpecificationStable": false,
-      "evidenceLevel": "E2",
-      "proves": "E2 independent implementation evidence"
-    },
-    {
-      "id": "foundation-implementation",
-      "title": "Foundation implementation coverage",
-      "state": "not-satisfied",
-      "blocking": true,
-      "evidence": [],
-      "closurePredicate": "At least one accepted independent implementation report includes the Foundation Profile.",
-      "sourceIssues": [
-        "GAAM-CR-001"
-      ],
-      "controlBoundary": "external",
-      "blocksSpecificationStable": false,
-      "evidenceLevel": "E2",
-      "proves": "E2 independent Foundation Profile implementation coverage"
-    },
-    {
-      "id": "composed-profile-implementation",
-      "title": "Composed-profile implementation coverage",
-      "state": "not-satisfied",
-      "blocking": true,
-      "evidence": [],
-      "closurePredicate": "At least one accepted independent implementation report covers Foundation plus at least one additional GAAM profile.",
-      "sourceIssues": [
-        "GAAM-CR-001"
-      ],
-      "controlBoundary": "external",
-      "blocksSpecificationStable": false,
-      "evidenceLevel": "E2",
-      "proves": "E2 independent composed-profile implementation coverage"
-    },
-    {
-      "id": "requirement-testability",
-      "title": "Requirement testability disposition",
-      "state": "satisfied",
-      "blocking": true,
-      "evidence": [
-        "matrices/normative-requirements-index.csv",
-        "matrices/requirement-test-coverage.csv"
-      ],
-      "closurePredicate": "The normative requirement index and requirement-test coverage matrix remain validator-clean.",
-      "sourceIssues": [],
-      "controlBoundary": "repository-controlled",
-      "blocksSpecificationStable": true,
-      "evidenceLevel": "E1",
-      "proves": "Normative requirements are deterministically indexed and testable"
-    },
-    {
-      "id": "canonical-identifiers",
-      "title": "Canonical identifier publication",
-      "state": "satisfied",
-      "blocking": true,
-      "evidence": [
-        "governance/candidate-issues.json"
-      ],
-      "closurePredicate": "GAAM-CR-003 is closed with resolvable versioned identifiers, checksum verification and historical-retention evidence.",
-      "sourceIssues": [
-        "GAAM-CR-003"
-      ],
-      "controlBoundary": "repository-controlled",
-      "blocksSpecificationStable": true,
-      "evidenceLevel": "E1",
-      "proves": "Canonical/versioned normative identifiers are stable and publication-bound"
-    },
-    {
-      "id": "privacy-review",
-      "title": "Privacy review",
-      "state": "not-satisfied",
-      "blocking": true,
-      "evidence": [
-        "governance/reviews/privacy-review.json"
-      ],
-      "closurePredicate": "The privacy review is complete, attested, and has no unresolved blocking findings.",
-      "sourceIssues": [
-        "GAAM-CR-004"
-      ],
-      "controlBoundary": "shared",
-      "blocksSpecificationStable": false,
-      "evidenceLevel": "E2",
-      "proves": "Independent privacy attestation at E2; repository preparation and disposition remain maintainer-controlled"
-    },
-    {
-      "id": "security-review",
-      "title": "Security review",
-      "state": "not-satisfied",
-      "blocking": true,
-      "evidence": [
-        "governance/reviews/security-review.json"
-      ],
-      "closurePredicate": "The security review is complete, attested, and has no unresolved blocking findings or unresolved critical security issue.",
-      "sourceIssues": [
-        "GAAM-CR-005"
-      ],
-      "controlBoundary": "shared",
-      "blocksSpecificationStable": false,
-      "evidenceLevel": "E2",
-      "proves": "Independent security attestation at E2; repository threat analysis and disposition remain maintainer-controlled"
-    },
-    {
-      "id": "affected-party-review",
-      "title": "Affected-party review",
-      "state": "not-satisfied",
-      "blocking": true,
-      "evidence": [
-        "governance/reviews/affected-party-review.json"
-      ],
-      "closurePredicate": "The affected-party review is complete, attested, and has no unresolved blocking findings.",
-      "sourceIssues": [
-        "GAAM-CR-004"
-      ],
-      "controlBoundary": "shared",
-      "blocksSpecificationStable": false,
-      "evidenceLevel": "E2",
-      "proves": "Independent affected-party/redress attestation at E2; repository preparation and disposition remain maintainer-controlled"
-    },
-    {
-      "id": "cross-implementation-interoperability",
-      "title": "Cross-implementation interoperability",
-      "state": "not-satisfied",
-      "blocking": true,
-      "evidence": [
-        "governance/reviews/interoperability-review.json"
-      ],
-      "closurePredicate": "The interoperability review is complete and GAAM-CR-002 is closed with cross-validator evidence from independent implementations.",
-      "sourceIssues": [
-        "GAAM-CR-002"
-      ],
-      "controlBoundary": "external",
-      "blocksSpecificationStable": false,
-      "evidenceLevel": "E3",
-      "proves": "E3 cross-implementation interoperability evidence"
-    },
-    {
-      "id": "governed-ecosystem-applicability",
-      "title": "Governed ecosystem applicability",
-      "state": "in-progress",
-      "blocking": false,
-      "evidence": [
-        "governance/reviews/implementation-evidence.json",
-        "governance/reviews/evidence/implementation/ecosystems/README.md",
-        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.csv",
-        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.md",
-        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-enhancement-register.json",
-        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-normative-impact-analysis.md",
-        "governance/reviews/evidence/implementation/ecosystems/reference-ecosystem-comparison.md",
-        "governance/reviews/evidence/implementation/ecosystems/reviewer-attestation.json"
-      ],
-      "closurePredicate": "The governed ecosystem capability assessment receives independent attestation and candidate enhancement dispositions are reviewed.",
-      "sourceIssues": [],
-      "controlBoundary": "shared",
-      "blocksSpecificationStable": false,
-      "evidenceLevel": "E2",
-      "proves": "Independent applicability evidence for the declared ecosystem boundary"
-    },
-    {
-      "id": "candidate-issue-disposition",
-      "title": "Repository-controlled candidate issue disposition",
-      "state": "satisfied",
-      "blocking": true,
-      "evidence": [
-        "governance/candidate-issues.json"
-      ],
-      "closurePredicate": "Every repository-controlled candidate issue marked blockingV1 is closed with required evidence.",
-      "sourceIssues": [],
-      "controlBoundary": "repository-controlled",
-      "blocksSpecificationStable": true,
-      "evidenceLevel": "E1",
-      "proves": "All repository-controlled candidate findings that affect the Stable claim have governed disposition"
-    }
-  ],
+  "maturityModel": "governance/maturity-model.json",
+  "gateClassification": "governance/v1-gate-classification.json",
   "specification": {
     "eligibleForStableDecision": true,
     "blockingGates": [],
@@ -210,5 +15,179 @@
     "independentImplementationEvidenceSatisfied": false,
     "independentReviewEvidenceSatisfied": false,
     "crossImplementationEvidenceSatisfied": false
-  }
+  },
+  "gates": [
+    {
+      "id": "independent-implementations",
+      "title": "Two independent implementations",
+      "state": "not-satisfied",
+      "controlBoundary": "external",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "E2 independent implementation evidence",
+      "evidence": [],
+      "closurePredicate": "At least two admissible independent implementation reports.",
+      "sourceIssues": [
+        "GAAM-CR-001"
+      ]
+    },
+    {
+      "id": "foundation-implementation",
+      "title": "Foundation implementation coverage",
+      "state": "not-satisfied",
+      "controlBoundary": "external",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "E2 independent Foundation Profile implementation coverage",
+      "evidence": [],
+      "closurePredicate": "At least one admissible independent report covers Foundation.",
+      "sourceIssues": [
+        "GAAM-CR-001"
+      ]
+    },
+    {
+      "id": "composed-profile-implementation",
+      "title": "Composed-profile implementation coverage",
+      "state": "not-satisfied",
+      "controlBoundary": "external",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "E2 independent composed-profile implementation coverage",
+      "evidence": [],
+      "closurePredicate": "At least one admissible independent report covers Foundation plus another profile.",
+      "sourceIssues": [
+        "GAAM-CR-001"
+      ]
+    },
+    {
+      "id": "requirement-testability",
+      "title": "Requirement testability disposition",
+      "state": "satisfied",
+      "controlBoundary": "repository-controlled",
+      "blocksSpecificationStable": true,
+      "evidenceLevel": "E1",
+      "proves": "Normative requirements are deterministically indexed and testable",
+      "evidence": [
+        "matrices/normative-requirements-index.csv",
+        "matrices/requirement-test-coverage.csv"
+      ],
+      "closurePredicate": "Normative requirement index and test coverage remain validator-clean.",
+      "sourceIssues": []
+    },
+    {
+      "id": "canonical-identifiers",
+      "title": "Canonical identifier publication",
+      "state": "satisfied",
+      "controlBoundary": "repository-controlled",
+      "blocksSpecificationStable": true,
+      "evidenceLevel": "E1",
+      "proves": "Canonical/versioned normative identifiers are stable and publication-bound",
+      "evidence": [
+        "governance/candidate-issues.json"
+      ],
+      "closurePredicate": "Canonical identifiers remain publication-bound and historically retrievable.",
+      "sourceIssues": [
+        "GAAM-CR-003"
+      ]
+    },
+    {
+      "id": "privacy-review",
+      "title": "Independent privacy review",
+      "state": "not-satisfied",
+      "controlBoundary": "shared",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "Independent privacy attestation at E2; repository preparation and disposition remain maintainer-controlled",
+      "evidence": [
+        "governance/reviews/privacy-review.json"
+      ],
+      "closurePredicate": "Independent privacy review is complete and attested.",
+      "sourceIssues": [
+        "GAAM-CR-004"
+      ]
+    },
+    {
+      "id": "security-review",
+      "title": "Independent security review",
+      "state": "not-satisfied",
+      "controlBoundary": "shared",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "Independent security attestation at E2; repository threat analysis and disposition remain maintainer-controlled",
+      "evidence": [
+        "governance/reviews/security-review.json"
+      ],
+      "closurePredicate": "Independent security review is complete and attested.",
+      "sourceIssues": [
+        "GAAM-CR-005"
+      ]
+    },
+    {
+      "id": "affected-party-review",
+      "title": "Independent affected-party review",
+      "state": "not-satisfied",
+      "controlBoundary": "shared",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "Independent affected-party/redress attestation at E2; repository preparation and disposition remain maintainer-controlled",
+      "evidence": [
+        "governance/reviews/affected-party-review.json"
+      ],
+      "closurePredicate": "Independent affected-party review is complete and attested.",
+      "sourceIssues": [
+        "GAAM-CR-004"
+      ]
+    },
+    {
+      "id": "cross-implementation-interoperability",
+      "title": "Cross-implementation interoperability",
+      "state": "not-satisfied",
+      "controlBoundary": "external",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E3",
+      "proves": "E3 cross-implementation interoperability evidence",
+      "evidence": [
+        "governance/reviews/interoperability-review.json"
+      ],
+      "closurePredicate": "Admissible cross-validator evidence from independent implementations exists.",
+      "sourceIssues": [
+        "GAAM-CR-002"
+      ]
+    },
+    {
+      "id": "governed-ecosystem-applicability",
+      "title": "Governed ecosystem applicability",
+      "state": "in-progress",
+      "controlBoundary": "shared",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "Independent applicability evidence for the declared ecosystem boundary",
+      "evidence": [
+        "governance/reviews/implementation-evidence.json",
+        "governance/reviews/evidence/implementation/ecosystems/README.md",
+        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.csv",
+        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-capability-matrix.md",
+        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-enhancement-register.json",
+        "governance/reviews/evidence/implementation/ecosystems/governed-ecosystem-normative-impact-analysis.md",
+        "governance/reviews/evidence/implementation/ecosystems/reference-ecosystem-comparison.md",
+        "governance/reviews/evidence/implementation/ecosystems/reviewer-attestation.json"
+      ],
+      "closurePredicate": "Independent applicability evidence exists for the declared ecosystem boundary.",
+      "sourceIssues": []
+    },
+    {
+      "id": "candidate-issue-disposition",
+      "title": "Repository-controlled candidate issue disposition",
+      "state": "satisfied",
+      "controlBoundary": "repository-controlled",
+      "blocksSpecificationStable": true,
+      "evidenceLevel": "E1",
+      "proves": "All repository-controlled candidate findings that affect the Stable claim have governed disposition",
+      "evidence": [
+        "governance/candidate-issues.json"
+      ],
+      "closurePredicate": "Every repository-controlled candidate issue marked blockingV1 is closed with required evidence.",
+      "sourceIssues": []
+    }
+  ]
 }
