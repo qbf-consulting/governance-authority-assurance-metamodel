@@ -13,7 +13,7 @@ nav_order: 2
 
 > **Generated view.** Do not edit the gate table by hand. Run `python scripts/build_candidate_readiness.py` after changing candidate issues, review registers, or implementation reports.
 
-This dashboard exposes the evidence currently available for progression from GAAM v0.9.0 to v1.0.0. Its authoritative machine-readable state is [`governance/candidate-readiness.json`](../governance/candidate-readiness.json).
+This dashboard exposes the evidence currently available for progression from the current normative Candidate baseline, GAAM v0.9.2, to v1.0.0. The governed evidence remains anchored to the frozen v0.9.0 semantic/canonical artifact baseline where identifiers are versioned. Its authoritative machine-readable state is [`governance/candidate-readiness.json`](../governance/candidate-readiness.json).
 
 ## Current decision state
 
