@@ -68,7 +68,7 @@ for entry in CATALOG["schemas"]:
     publication_url = PUBLICATION_BASE.rstrip("/") + "/" + entry["name"]
     try:
         if args.site_root:
-            version = RELEASE["normativeVersion"]
+            version = RELEASE.get("canonicalArtifactVersion", RELEASE.get("semanticBaseline", RELEASE["normativeVersion"]))
             published_path = args.site_root / f"v{version}" / "schemas" / entry["name"]
             actual = published_path.read_bytes()
             resolved = str(published_path)
@@ -92,6 +92,7 @@ for entry in CATALOG["schemas"]:
 report = {
     "releaseVersion": RELEASE["version"],
     "normativeVersion": RELEASE["normativeVersion"],
+    "canonicalArtifactVersion": RELEASE.get("canonicalArtifactVersion", RELEASE.get("semanticBaseline", RELEASE["normativeVersion"])),
     "mode": "remote" if args.remote else "rendered-site",
     "status": "pass" if all(check["status"] == "pass" for check in checks) else "fail",
     "checks": checks,

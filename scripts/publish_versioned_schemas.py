@@ -19,13 +19,13 @@ SITE = ROOT / "_site"
 def main() -> int:
     release = json.loads((ROOT / "release.json").read_text())
     version = release["version"]
-    normative_version = release["normativeVersion"]
+    canonical_version = release.get("canonicalArtifactVersion", release.get("semanticBaseline", release["normativeVersion"]))
     schema_base = release["schemaBase"]
     publication_base = release.get("publicationBase", schema_base)
-    version_path = f"v{normative_version}"
+    version_path = f"v{canonical_version}"
 
     if not publication_base.rstrip("/").endswith(f"/{version_path}/schemas"):
-        print(f"error: publicationBase does not match normative version path {version_path}: {publication_base}", file=sys.stderr)
+        print(f"error: publicationBase does not match canonical artifact version path {version_path}: {publication_base}", file=sys.stderr)
         return 1
 
     if not SITE.is_dir():

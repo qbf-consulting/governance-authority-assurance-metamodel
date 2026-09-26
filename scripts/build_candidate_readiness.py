@@ -3,7 +3,7 @@
 from pathlib import Path
 import json,sys
 ROOT=Path(__file__).resolve().parents[1]
-RELEASE=json.loads((ROOT/'release.json').read_text()); VERSION=RELEASE.get('normativeVersion',RELEASE['version'])
+RELEASE=json.loads((ROOT/'release.json').read_text()); VERSION=RELEASE.get('semanticBaseline',RELEASE.get('normativeVersion',RELEASE['version']))
 def load(path): return json.loads((ROOT/path).read_text())
 def refs_for_review(name):
     path=f'governance/reviews/{name}.json'; obj=load(path); return obj,[path]+obj.get('evidence',[])

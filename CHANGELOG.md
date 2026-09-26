@@ -18,7 +18,7 @@ normative_status: "Release record"
 ### Changed
 
 - Advance the maintenance distribution, portable conformance-kit contract and test-suite identity from v0.9.1 to v0.9.2.
-- Preserve the frozen v0.9.0 normative baseline, canonical schema namespace, requirement identifiers, profile identifiers and conformance semantics.
+- Designate v0.9.2 as the current normative Candidate and implementation baseline while preserving the frozen v0.9.0 semantic/canonical artifact lineage, requirement identifiers, profile identifiers and conformance semantics.
 - Keep framework-readiness mappings separate from implementation evidence and GAAM L0-L4 conformance claims.
 
 ### Documentation

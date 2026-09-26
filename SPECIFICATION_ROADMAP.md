@@ -9,9 +9,9 @@ normative_status: "Informative"
 
 {% include gaam-meta.html %}
 
-## v0.9.0 completion state
+## v0.9.x Candidate completion state
 
-The candidate normative surface, eight profiles, canonical schemas, governed vocabularies, behavioural vectors, threat traceability, CI validation and reproducible package are present.
+GAAM v0.9.2 is the current normative Candidate baseline. The candidate normative surface, eight profiles, canonical schemas, governed vocabularies, behavioural vectors, threat traceability, CI validation and reproducible package are present. The normative semantics and frozen canonical identifiers remain those established in v0.9.0.
 
 ## v1.0.0 readiness programme
 

@@ -2,7 +2,8 @@
 <dl class="gaam-meta">
   {% if page.artifact_type %}<div><dt>Artifact</dt><dd>{{ page.artifact_type }}</dd></div>{% endif %}
   {% if page.normative_status %}<div><dt>Status</dt><dd>{{ page.normative_status }}</dd></div>{% endif %}
-  <div><dt>Version</dt><dd>{{ page.version | default: site.version }}</dd></div>
+  <div><dt>Current release</dt><dd>{{ page.version | default: site.version }}</dd></div>
+  {% if page.normative_status == "Normative" and site.semantic_baseline %}<div><dt>Semantic artifact baseline</dt><dd>{{ site.semantic_baseline }}</dd></div>{% endif %}
   <div><dt>Source</dt><dd><a href="{{ site.repository | prepend: 'https://github.com/' }}/blob/main/{{ page.path }}">View source</a></dd></div>
 </dl>
 {% endif %}

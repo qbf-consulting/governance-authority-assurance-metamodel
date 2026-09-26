@@ -61,8 +61,10 @@ jobs:
           release = json.loads(Path("release.json").read_text())
           if release["version"] != version:
               raise SystemExit(f"VERSION {version} != release.json {release['version']}")
-          if release.get("normativeVersion") != "0.9.0":
-              raise SystemExit("maintenance publication must preserve normativeVersion 0.9.0")
+          if release.get("normativeVersion") != version or release.get("candidateBaseline") != version:
+              raise SystemExit("release version must equal current normative candidate baseline")
+          if release.get("semanticBaseline") != "0.9.0" or release.get("canonicalArtifactVersion") != "0.9.0":
+              raise SystemExit("v0.9.x maintenance publication must preserve the frozen v0.9.0 semantic/canonical artifact baseline")
           notes = Path("releases") / f"v{version}.md"
           if not notes.exists():
               raise SystemExit(f"missing release notes: {notes}")
