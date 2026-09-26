@@ -17,7 +17,7 @@ GAAM defines protocol-neutral, executable governance semantics for authority, de
 
 | Attribute | Value |
 |---|---|
-| Current release | v0.9.2 (preserving the v0.9.0 normative baseline) |
+| Current release | v0.9.2 — current normative Candidate baseline; v0.9.0 semantic/canonical identifiers retained |
 | Status | Candidate Specification |
 | Primary artifact | Governance metamodel specification |
 | Validation | Automated schema, conformance and publication checks |
@@ -40,7 +40,7 @@ GAAM defines protocol-neutral, executable governance semantics for authority, de
 
 ### Specification
 
-The [authoritative Candidate Specification](specification/) defines the normative model, requirements, artifact precedence and conformance surface.
+The [authoritative Candidate Specification](specification/) defines the normative model, requirements, artifact precedence and conformance surface. **v0.9.2 is the current normative Candidate release** and incorporates the frozen v0.9.0 normative text and identifiers unchanged.
 
 ### Implementation and architecture
 
