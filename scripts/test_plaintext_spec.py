@@ -52,7 +52,7 @@ title: Example
         self.assertIn("GAAM-AUTH-001", rendered)
         self.assertIn("GAAM-RED-008", rendered)
 
-    def test_output_path_uses_normative_version(self):
+    def test_output_path_uses_semantic_baseline(self):
         self.assertEqual(module.output_path().name, "gaam-specification-v0.9.0.txt")
 
     def test_generated_artifact_round_trip(self):
