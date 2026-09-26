@@ -27,8 +27,8 @@ The process must exit successfully. Diagnostic fields are permitted but ignored 
 python scripts/gaam.py run-vectors python conformance-kit/reference_adapter.py
 ```
 
-Use `--pattern 'delegation-*.json'` to select a subset. Results are emitted as machine-readable JSON and identify both the tooling release and frozen normative baseline.
+Use `--pattern 'delegation-*.json'` to select a subset. Results are emitted as machine-readable JSON and identify the tooling release, the current normative Candidate baseline and the retained semantic baseline.
 
 ## Boundary
 
-The manifest, adapter protocol and result schema are informative v0.9.2 implementation contracts. They do not add normative requirements, profiles, vocabularies or canonical schemas to GAAM v0.9.0.
+The manifest, adapter protocol and result schema are informative v0.9.2 implementation contracts. They do not add normative requirements, profiles, vocabularies or canonical schemas to the v0.9.2 normative Candidate baseline; the underlying semantic and canonical identifiers remain the frozen v0.9.0 set.
