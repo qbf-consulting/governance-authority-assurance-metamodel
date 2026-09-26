@@ -87,8 +87,8 @@ def markdown_to_text(markdown: str) -> str:
 
 def output_path() -> Path:
     release = json.loads(RELEASE.read_text(encoding="utf-8"))
-    normative = release["normativeVersion"]
-    return ROOT / "dist" / f"gaam-specification-v{normative}.txt"
+    semantic = release.get("semanticBaseline", release["normativeVersion"])
+    return ROOT / "dist" / f"gaam-specification-v{semantic}.txt"
 
 
 def render() -> str:
