@@ -12,49 +12,119 @@
       "id": "GAAM-AP-PT-001",
       "topic": "notice and intelligibility",
       "question": "Can an affected party determine what happened, which consequential effect occurred and which authority/evidence basis was relied upon?",
-      "requirements": ["GAAM-ACC-001", "GAAM-RED-001"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/decision-receipt.schema.json", "schemas/appeal.schema.json"],
-      "falsification": "A technically attributable decision cannot be explained to the affected party sufficiently to support meaningful challenge."
+      "requirements": [
+        "GAAM-ACC-001",
+        "GAAM-RED-001"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "schemas/decision-receipt.schema.json",
+        "schemas/appeal.schema.json"
+      ],
+      "falsification": "A technically attributable decision cannot be explained to the affected party sufficiently to support meaningful challenge.",
+      "existingTests": [
+        "decision-traceable-valid",
+        "decision-unattributed-rejected",
+        "high-impact-notice-missing-rejected"
+      ],
+      "testDisposition": "notice-and-attribution-covered; reviewer-must-assess intelligibility and usability"
     },
     {
       "id": "GAAM-AP-PT-002",
       "topic": "standing",
       "question": "Can a materially affected person or organisation challenge an effect without first being a participant, credential holder or contractual member of the governance framework?",
-      "requirements": ["GAAM-RED-001"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/appeal.schema.json"],
-      "falsification": "A materially affected non-participant lacks a defined path to establish standing or initiate review."
+      "requirements": [
+        "GAAM-RED-001"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "schemas/appeal.schema.json"
+      ],
+      "falsification": "A materially affected non-participant lacks a defined path to establish standing or initiate review.",
+      "existingTests": [
+        "high-impact-remedy-valid"
+      ],
+      "testDisposition": "standing remains primarily contextual and must be independently reviewed"
     },
     {
       "id": "GAAM-AP-PT-003",
       "topic": "review independence",
       "question": "Can the actor that caused, approved or materially benefits from the challenged effect unilaterally control its review?",
-      "requirements": ["GAAM-ACC-001", "GAAM-RED-001"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/appeal.schema.json"],
-      "falsification": "The only available review path is controlled by the same decision authority without an independent escalation or conflict mechanism."
+      "requirements": [
+        "GAAM-ACC-001",
+        "GAAM-RED-001"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "schemas/appeal.schema.json"
+      ],
+      "falsification": "The only available review path is controlled by the same decision authority without an independent escalation or conflict mechanism.",
+      "existingTests": [
+        "high-impact-review-not-independent-rejected"
+      ],
+      "testDisposition": "review-independence has explicit negative coverage"
     },
     {
       "id": "GAAM-AP-PT-004",
       "topic": "interim protection",
       "question": "Where an effect is continuing or irreversible, can the governance framework represent suspension, restriction or other interim protection while review is pending?",
-      "requirements": ["GAAM-LIFE-001", "GAAM-RED-001"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/governance-event.schema.json", "schemas/appeal.schema.json"],
-      "falsification": "A credible challenge exists but the model has no way to prevent a continuing harmful effect before final disposition."
+      "requirements": [
+        "GAAM-LIFE-001",
+        "GAAM-RED-001"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "schemas/governance-event.schema.json",
+        "schemas/appeal.schema.json"
+      ],
+      "falsification": "A credible challenge exists but the model has no way to prevent a continuing harmful effect before final disposition.",
+      "existingTests": [
+        "runtime-revocation-fail-closed-valid",
+        "degraded-operation-fail-safe-valid"
+      ],
+      "testDisposition": "interim-protection semantics require contextual review against lifecycle mechanisms"
     },
     {
       "id": "GAAM-AP-PT-005",
       "topic": "remedy execution",
       "question": "Does a remedy record produce or evidence an actual state change, correction, reversal, compensation or other governed outcome rather than merely recording that an appeal occurred?",
-      "requirements": ["GAAM-RED-001"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/remedy.schema.json", "schemas/governance-event.schema.json"],
-      "falsification": "Appeal/remedy metadata can be complete while the original consequential effect remains unchanged and no completion evidence is required."
+      "requirements": [
+        "GAAM-RED-001"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "schemas/remedy.schema.json",
+        "schemas/governance-event.schema.json"
+      ],
+      "falsification": "Appeal/remedy metadata can be complete while the original consequential effect remains unchanged and no completion evidence is required.",
+      "existingTests": [
+        "high-impact-remedy-valid",
+        "high-impact-no-remedy-rejected",
+        "remedy-propagation-verified-valid",
+        "appeal-record-without-state-change-rejected"
+      ],
+      "testDisposition": "explicit negative coverage rejects nominal remedy without effective state change"
     },
     {
       "id": "GAAM-AP-PT-006",
       "topic": "accountability continuity",
       "question": "After delegation, agent replacement, provider exit or authority revocation, does an accountable party remain identifiable for challenge and remedy?",
-      "requirements": ["GAAM-DEL-006", "GAAM-RED-001"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/delegation.schema.json", "schemas/remedy.schema.json"],
-      "falsification": "Lifecycle or delegation change breaks the accountability path for an already-affected party."
+      "requirements": [
+        "GAAM-DEL-006",
+        "GAAM-RED-001"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "schemas/delegation.schema.json",
+        "schemas/remedy.schema.json"
+      ],
+      "falsification": "Lifecycle or delegation change breaks the accountability path for an already-affected party.",
+      "existingTests": [
+        "decision-unattributed-rejected",
+        "delegation-upstream-authority-revoked-rejected",
+        "remedy-propagation-verified-valid"
+      ],
+      "testDisposition": "accountability continuity covered by attribution/lifecycle vectors; reviewer must assess organisational continuity"
     }
   ],
   "reviewerOutputsRequired": [
@@ -64,5 +134,11 @@
     "closure evidence for remediated blocking findings",
     "completion attestation against governance/reviews/affected-party-review.json exit criteria"
   ],
-  "closureBoundary": "This repository-controlled preparation cannot satisfy the independent affected-party review or close GAAM-CR-004."
+  "closureBoundary": "This repository-controlled preparation cannot satisfy the independent affected-party review or close GAAM-CR-004.",
+  "repositoryPreparation": {
+    "status": "complete",
+    "completedAt": "2026-09-26",
+    "reviewerHandoff": "governance/reviews/evidence/pre-review/affected-party-review-handoff.md",
+    "boundary": "Repository preparation is complete; independent findings and attestation remain external."
+  }
 }
