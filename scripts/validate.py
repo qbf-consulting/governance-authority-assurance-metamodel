@@ -4,7 +4,7 @@ import json,re,csv,hashlib,sys,urllib.parse,yaml,subprocess
 from jsonschema import Draft202012Validator, FormatChecker
 ROOT=Path(__file__).resolve().parents[1]
 REL=json.loads((ROOT/'release.json').read_text())
-RELEASE_VERSION=REL['version']; VERSION=REL.get('normativeVersion',RELEASE_VERSION); results=[]
+RELEASE_VERSION=REL['version']; NORMATIVE_VERSION=REL.get('normativeVersion',RELEASE_VERSION); VERSION=REL.get('semanticBaseline',NORMATIVE_VERSION); CANONICAL_VERSION=REL.get('canonicalArtifactVersion',VERSION); results=[]
 def add(cid,ok,detail,kind='structural'):
  results.append({'id':cid,'kind':kind,'status':'pass' if ok else 'fail','evidence':detail})
 def load(p): return json.loads(p.read_text())
@@ -21,9 +21,9 @@ for p in active:
 add('PUB-001-version-source',(ROOT/'VERSION').read_text().strip()==RELEASE_VERSION,f'distribution version={RELEASE_VERSION}','publication')
 add('PUB-002-active-version-coherence',not stale,'no stale active v0.5.0 references' if not stale else ', '.join(stale),'publication')
 spec=(ROOT/REL['normativeSpecification']).read_text()
-add('PUB-003-specification-identity',f'**Version:** {VERSION}' in spec and '**Status:** Candidate Specification' in spec,'normative specification identifies candidate release','publication')
-stable_identity=(REL.get('candidateBaseline')==VERSION and REL.get('normativeChange') is False and f'/v{VERSION}/schemas/' in REL['schemaBase'])
-add('PUB-004-maintenance-boundary',stable_identity,f'v{RELEASE_VERSION} preserves v{VERSION} normative baseline and canonical schema namespace','publication')
+add('PUB-003-specification-identity',f'**Version:** {VERSION}' in spec and '**Status:** Candidate Specification' in spec,f'v{NORMATIVE_VERSION} normative Candidate incorporates v{VERSION} normative text unchanged','publication')
+stable_identity=(REL.get('candidateBaseline')==NORMATIVE_VERSION==RELEASE_VERSION and REL.get('semanticBaseline')==VERSION and CANONICAL_VERSION==VERSION and REL.get('normativeChange') is False and f'/v{CANONICAL_VERSION}/schemas/' in REL['schemaBase'])
+add('PUB-004-maintenance-boundary',stable_identity,f'v{NORMATIVE_VERSION} is current normative Candidate baseline; v{VERSION} semantic and canonical identifiers are retained','publication')
 # Publication hygiene: repository source files, published landing pages and sidebar entries
 
 def front_matter(path):
@@ -551,6 +551,7 @@ try:
  for field,values in allowed_status.items():
   if pr.get(field) not in values: status_errors.append(f'{field}: invalid value {pr.get(field)}')
  if pr.get('maturity')!='candidate' or pr.get('operational_status')!='active-validation' or pr.get('specification_status')!='candidate-specification': status_errors.append('candidate declaration does not match release state')
+ if str(pr.get('normative_baseline'))!=NORMATIVE_VERSION or str(pr.get('semantic_baseline'))!=VERSION or str(pr.get('canonical_artifact_version'))!=CANONICAL_VERSION: status_errors.append('release/semantic/canonical baseline declaration mismatch')
  if not pr.get('intended_use') or not pr.get('not_asserted'): status_errors.append('intended_use and not_asserted must be non-empty')
  auth=project_status.get('authority',{})
  if not auth.get('normative_scope') or not auth.get('delegation') or not auth.get('revocation_or_supersession'): status_errors.append('authority contract incomplete')
@@ -786,7 +787,7 @@ kit_errors=[]
 try:
  kit=load(ROOT/'conformance-kit/manifest.json')
  result_schema=load(ROOT/'conformance-kit/result.schema.json'); Draft202012Validator.check_schema(result_schema)
- if kit.get('releaseVersion')!=RELEASE_VERSION or kit.get('normativeVersion')!=VERSION or kit.get('status')!='informative' or kit.get('normativeEffect')!='none': kit_errors.append('portable kit identity or normative boundary invalid')
+ if kit.get('releaseVersion')!=RELEASE_VERSION or kit.get('normativeVersion')!=NORMATIVE_VERSION or kit.get('semanticBaseline')!=VERSION or kit.get('status')!='informative' or kit.get('normativeEffect')!='none': kit_errors.append('portable kit identity or normative boundary invalid')
  commands=[
   [sys.executable,str(ROOT/'scripts/gaam.py'),'validate-package',str(ROOT/'conformance-kit/starter')],
   [sys.executable,str(ROOT/'scripts/gaam.py'),'validate-claim',str(ROOT/'conformance-kit/starter/artifacts/conformance-claim.json')],
@@ -840,9 +841,9 @@ verified=all(hashlib.sha256((ROOT/x['path']).read_bytes()).hexdigest()==x['sha25
 add('PKG-INTEGRITY',verified,f'{len(checks)} checksums verified','package')
 # Reports
 out=ROOT/'validation'; out.mkdir(exist_ok=True)
-summary={'releaseVersion':RELEASE_VERSION,'gaamVersion':VERSION,'testSuiteVersion':RELEASE_VERSION,'status':'pass' if all(r['status']=='pass' for r in results) else 'fail','checks':len(results),'passed':sum(r['status']=='pass' for r in results),'failed':sum(r['status']=='fail' for r in results),'results':results}
+summary={'releaseVersion':RELEASE_VERSION,'normativeVersion':NORMATIVE_VERSION,'semanticBaseline':VERSION,'gaamVersion':VERSION,'testSuiteVersion':RELEASE_VERSION,'status':'pass' if all(r['status']=='pass' for r in results) else 'fail','checks':len(results),'passed':sum(r['status']=='pass' for r in results),'failed':sum(r['status']=='fail' for r in results),'results':results}
 (out/'validation-report.json').write_text(json.dumps(summary,indent=2)+'\n')
-md=['---',f'title: GAAM v{RELEASE_VERSION} Validation Report','permalink: /validation-report/','nav_exclude: true','artifact_type: Validation evidence','normative_status: Repository generated','---',f'# GAAM v{RELEASE_VERSION} Validation Report','','{% include gaam-meta.html %}','',f'**Normative baseline:** v{VERSION}',f'**Status:** {summary["status"].upper()}',f'**Checks:** {summary["checks"]}',f'**Passed:** {summary["passed"]}',f'**Failed:** {summary["failed"]}','','This report evidences repository publication, structural and included behavioural checks. It is not an independent L4 assessment.','','| ID | Kind | Status | Evidence |','|---|---|---|---|']
+md=['---',f'title: GAAM v{RELEASE_VERSION} Validation Report','permalink: /validation-report/','nav_exclude: true','artifact_type: Validation evidence','normative_status: Repository generated','---',f'# GAAM v{RELEASE_VERSION} Validation Report','','{% include gaam-meta.html %}','',f'**Normative baseline:** v{NORMATIVE_VERSION}',f'**Semantic/canonical artifact baseline:** v{VERSION}',f'**Status:** {summary["status"].upper()}',f'**Checks:** {summary["checks"]}',f'**Passed:** {summary["passed"]}',f'**Failed:** {summary["failed"]}','','This report evidences repository publication, structural and included behavioural checks. It is not an independent L4 assessment.','','| ID | Kind | Status | Evidence |','|---|---|---|---|']
 md += [f'| `{r["id"]}` | {r["kind"]} | {r["status"].upper()} | {r["evidence"].replace("|","/")} |' for r in results]
 (ROOT/'VALIDATION_REPORT.md').write_text('\n'.join(md)+'\n')
 print(json.dumps({k:summary[k] for k in ['status','checks','passed','failed']},indent=2)); sys.exit(0 if summary['status']=='pass' else 1)
