@@ -10,17 +10,17 @@ normative_status: "Informative"
 
 {% include gaam-meta.html %}
 
-This page describes how the GAAM Candidate Specification is published and how its normative and derivative artifacts relate. It does not add requirements to GAAM v0.9.0.
+This page describes how the GAAM Candidate Specification is published and how its normative and derivative artifacts relate. It does not add requirements to the current GAAM v0.9.2 normative Candidate baseline.
 
 ## Canonical reading surface
 
-The [Governance, Authority and Assurance Metamodel v0.9.0](../specification/governance-authority-assurance-metamodel.md) is the authoritative human-readable Candidate Specification. Its canonical GitHub Pages permalink remains `/specification/gaam-v0.9.0/`.
+GAAM **v0.9.2 is the current normative Candidate release and implementation baseline**. The [Governance, Authority and Assurance Metamodel v0.9.0](../specification/governance-authority-assurance-metamodel.md) remains the authoritative human-readable semantic text incorporated unchanged by v0.9.2. Its canonical GitHub Pages permalink remains `/specification/gaam-v0.9.0/` so frozen identifiers and historical references remain stable.
 
 The Markdown source is maintained in the repository and rendered by the existing Jekyll/Just the Docs publication pipeline. The rendered HTML is therefore a publication view of the same source, not a separately edited specification. Plain text is likewise a generated publication representation: it is derived from the same normative source and MUST NOT be edited independently.
 
 ## Normative precedence
 
-For GAAM v0.9.0:
+For the v0.9.2 normative Candidate release, the retained v0.9.0 semantic/canonical artifact set has the following precedence:
 
 1. the human-readable specification defines normative semantics;
 2. JSON Schemas are normative for the structure of artifacts in their declared scope;
