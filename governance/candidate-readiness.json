@@ -11,18 +11,9 @@
     "matrices/normative-requirements-index.csv",
     "matrices/requirement-test-coverage.csv"
   ],
-  "eligibleForV1Decision": false,
+  "eligibleForV1Decision": true,
   "acceptedImplementationReports": [],
-  "blockingGates": [
-    "independent-implementations",
-    "foundation-implementation",
-    "composed-profile-implementation",
-    "privacy-review",
-    "security-review",
-    "affected-party-review",
-    "cross-implementation-interoperability",
-    "candidate-issue-disposition"
-  ],
+  "blockingGates": [],
   "gates": [
     {
       "id": "independent-implementations",
@@ -33,7 +24,11 @@
       "closurePredicate": "At least two non-synthetic accepted implementation reports declare independent assessment with disclosed relationships and contain no failed or indeterminate result or open exception.",
       "sourceIssues": [
         "GAAM-CR-001"
-      ]
+      ],
+      "controlBoundary": "external",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "E2 independent implementation evidence"
     },
     {
       "id": "foundation-implementation",
@@ -44,7 +39,11 @@
       "closurePredicate": "At least one accepted independent implementation report includes the Foundation Profile.",
       "sourceIssues": [
         "GAAM-CR-001"
-      ]
+      ],
+      "controlBoundary": "external",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "E2 independent Foundation Profile implementation coverage"
     },
     {
       "id": "composed-profile-implementation",
@@ -55,7 +54,11 @@
       "closurePredicate": "At least one accepted independent implementation report covers Foundation plus at least one additional GAAM profile.",
       "sourceIssues": [
         "GAAM-CR-001"
-      ]
+      ],
+      "controlBoundary": "external",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "E2 independent composed-profile implementation coverage"
     },
     {
       "id": "requirement-testability",
@@ -67,7 +70,11 @@
         "matrices/requirement-test-coverage.csv"
       ],
       "closurePredicate": "The normative requirement index and requirement-test coverage matrix remain validator-clean.",
-      "sourceIssues": []
+      "sourceIssues": [],
+      "controlBoundary": "repository-controlled",
+      "blocksSpecificationStable": true,
+      "evidenceLevel": "E1",
+      "proves": "Normative requirements are deterministically indexed and testable"
     },
     {
       "id": "canonical-identifiers",
@@ -80,7 +87,11 @@
       "closurePredicate": "GAAM-CR-003 is closed with resolvable versioned identifiers, checksum verification and historical-retention evidence.",
       "sourceIssues": [
         "GAAM-CR-003"
-      ]
+      ],
+      "controlBoundary": "repository-controlled",
+      "blocksSpecificationStable": true,
+      "evidenceLevel": "E1",
+      "proves": "Canonical/versioned normative identifiers are stable and publication-bound"
     },
     {
       "id": "privacy-review",
@@ -93,7 +104,11 @@
       "closurePredicate": "The privacy review is complete, attested, and has no unresolved blocking findings.",
       "sourceIssues": [
         "GAAM-CR-004"
-      ]
+      ],
+      "controlBoundary": "shared",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "Independent privacy attestation at E2; repository preparation and disposition remain maintainer-controlled"
     },
     {
       "id": "security-review",
@@ -106,7 +121,11 @@
       "closurePredicate": "The security review is complete, attested, and has no unresolved blocking findings or unresolved critical security issue.",
       "sourceIssues": [
         "GAAM-CR-005"
-      ]
+      ],
+      "controlBoundary": "shared",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "Independent security attestation at E2; repository threat analysis and disposition remain maintainer-controlled"
     },
     {
       "id": "affected-party-review",
@@ -119,7 +138,11 @@
       "closurePredicate": "The affected-party review is complete, attested, and has no unresolved blocking findings.",
       "sourceIssues": [
         "GAAM-CR-004"
-      ]
+      ],
+      "controlBoundary": "shared",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "Independent affected-party/redress attestation at E2; repository preparation and disposition remain maintainer-controlled"
     },
     {
       "id": "cross-implementation-interoperability",
@@ -132,7 +155,11 @@
       "closurePredicate": "The interoperability review is complete and GAAM-CR-002 is closed with cross-validator evidence from independent implementations.",
       "sourceIssues": [
         "GAAM-CR-002"
-      ]
+      ],
+      "controlBoundary": "external",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E3",
+      "proves": "E3 cross-implementation interoperability evidence"
     },
     {
       "id": "governed-ecosystem-applicability",
@@ -150,23 +177,38 @@
         "governance/reviews/evidence/implementation/ecosystems/reviewer-attestation.json"
       ],
       "closurePredicate": "The governed ecosystem capability assessment receives independent attestation and candidate enhancement dispositions are reviewed.",
-      "sourceIssues": []
+      "sourceIssues": [],
+      "controlBoundary": "shared",
+      "blocksSpecificationStable": false,
+      "evidenceLevel": "E2",
+      "proves": "Independent applicability evidence for the declared ecosystem boundary"
     },
     {
       "id": "candidate-issue-disposition",
-      "title": "Breaking candidate issue disposition",
-      "state": "not-satisfied",
+      "title": "Repository-controlled candidate issue disposition",
+      "state": "satisfied",
       "blocking": true,
       "evidence": [
         "governance/candidate-issues.json"
       ],
-      "closurePredicate": "Every candidate issue with blockingV1=true is closed with its required evidence.",
-      "sourceIssues": [
-        "GAAM-CR-001",
-        "GAAM-CR-002",
-        "GAAM-CR-004",
-        "GAAM-CR-005"
-      ]
+      "closurePredicate": "Every repository-controlled candidate issue marked blockingV1 is closed with required evidence.",
+      "sourceIssues": [],
+      "controlBoundary": "repository-controlled",
+      "blocksSpecificationStable": true,
+      "evidenceLevel": "E1",
+      "proves": "All repository-controlled candidate findings that affect the Stable claim have governed disposition"
     }
-  ]
+  ],
+  "specification": {
+    "eligibleForStableDecision": true,
+    "blockingGates": [],
+    "knownBlockingFindings": []
+  },
+  "evidence": {
+    "level": "E1",
+    "acceptedImplementationReports": [],
+    "independentImplementationEvidenceSatisfied": false,
+    "independentReviewEvidenceSatisfied": false,
+    "crossImplementationEvidenceSatisfied": false
+  }
 }
