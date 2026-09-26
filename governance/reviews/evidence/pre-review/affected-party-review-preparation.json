@@ -27,7 +27,13 @@
         "decision-unattributed-rejected",
         "high-impact-notice-missing-rejected"
       ],
-      "testDisposition": "notice-and-attribution-covered; reviewer-must-assess intelligibility and usability"
+      "testDisposition": "notice-and-attribution-covered; reviewer-must-assess intelligibility and usability",
+      "coverageDisposition": "executable-plus-review",
+      "behaviouralVectors": [
+        "tests/behavioural/high-impact-notice-missing-rejected.json",
+        "tests/behavioural/decision-unattributed-rejected.json"
+      ],
+      "coverageNote": "Executable vectors reject missing notice and unattributed decisions; independent review assesses whether notice is sufficiently intelligible for meaningful challenge."
     },
     {
       "id": "GAAM-AP-PT-002",
@@ -44,7 +50,10 @@
       "existingTests": [
         "high-impact-remedy-valid"
       ],
-      "testDisposition": "standing remains primarily contextual and must be independently reviewed"
+      "testDisposition": "standing remains primarily contextual and must be independently reviewed",
+      "coverageDisposition": "review-required",
+      "behaviouralVectors": [],
+      "coverageNote": "Standing for materially affected non-participants is a governance-design question that requires independent affected-party review; repository fixtures must not substitute for that assessment."
     },
     {
       "id": "GAAM-AP-PT-003",
@@ -62,7 +71,12 @@
       "existingTests": [
         "high-impact-review-not-independent-rejected"
       ],
-      "testDisposition": "review-independence has explicit negative coverage"
+      "testDisposition": "review-independence has explicit negative coverage",
+      "coverageDisposition": "executable-plus-review",
+      "behaviouralVectors": [
+        "tests/behavioural/high-impact-review-not-independent-rejected.json"
+      ],
+      "coverageNote": "Executable vector rejects non-independent review for high-impact decisions; reviewer assesses escalation and conflict mechanisms in broader governance contexts."
     },
     {
       "id": "GAAM-AP-PT-004",
@@ -82,7 +96,10 @@
         "runtime-revocation-fail-closed-valid",
         "degraded-operation-fail-safe-valid"
       ],
-      "testDisposition": "interim-protection semantics require contextual review against lifecycle mechanisms"
+      "testDisposition": "interim-protection semantics require contextual review against lifecycle mechanisms",
+      "coverageDisposition": "review-required",
+      "behaviouralVectors": [],
+      "coverageNote": "Interim protection depends on whether suspension/restriction mechanisms are usable for the affected context; this remains an independent review question rather than an inferred executable claim."
     },
     {
       "id": "GAAM-AP-PT-005",
@@ -103,7 +120,14 @@
         "remedy-propagation-verified-valid",
         "appeal-record-without-state-change-rejected"
       ],
-      "testDisposition": "explicit negative coverage rejects nominal remedy without effective state change"
+      "testDisposition": "explicit negative coverage rejects nominal remedy without effective state change",
+      "coverageDisposition": "executable-plus-review",
+      "behaviouralVectors": [
+        "tests/behavioural/appeal-record-without-state-change-rejected.json",
+        "tests/behavioural/high-impact-no-remedy-rejected.json",
+        "tests/behavioural/high-impact-remedy-valid.json"
+      ],
+      "coverageNote": "Existing vectors explicitly reject nominal appeal/remedy without consequential state change and missing remedy; independent review assesses real-world effectiveness and accessibility."
     },
     {
       "id": "GAAM-AP-PT-006",
@@ -124,7 +148,13 @@
         "delegation-upstream-authority-revoked-rejected",
         "remedy-propagation-verified-valid"
       ],
-      "testDisposition": "accountability continuity covered by attribution/lifecycle vectors; reviewer must assess organisational continuity"
+      "testDisposition": "accountability continuity covered by attribution/lifecycle vectors; reviewer must assess organisational continuity",
+      "coverageDisposition": "executable-plus-review",
+      "behaviouralVectors": [
+        "tests/behavioural/decision-unattributed-rejected.json",
+        "tests/behavioural/delegation-upstream-authority-revoked-rejected.json"
+      ],
+      "coverageNote": "Executable evidence covers attribution and authority lifecycle invalidation; independent review assesses accountability continuity after actor replacement, provider exit or delegation changes."
     }
   ],
   "reviewerOutputsRequired": [
