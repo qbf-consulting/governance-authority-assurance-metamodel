@@ -12,49 +12,160 @@
       "id": "GAAM-SEC-PT-001",
       "topic": "authority laundering",
       "question": "Can identity, authentication, registry status or possession of an artifact be mistaken for current action-specific authority?",
-      "requirements": ["GAAM-AUTH-001", "GAAM-AUTH-002", "GAAM-AUTH-003", "GAAM-AUTH-005"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "threat-model/threat-register.json", "tests/behavioural"],
-      "falsification": "A technically valid actor/artifact causes a consequential effect despite failing current scoped authority evaluation."
+      "requirements": [
+        "GAAM-AUTH-001",
+        "GAAM-AUTH-002",
+        "GAAM-AUTH-003",
+        "GAAM-AUTH-005"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "threat-model/threat-register.json",
+        "tests/behavioural"
+      ],
+      "falsification": "A technically valid actor/artifact causes a consequential effect despite failing current scoped authority evaluation.",
+      "threats": [
+        "GAAM-THR-001"
+      ],
+      "existingTests": [
+        "authority-active-valid",
+        "authority-revoked-rejected",
+        "authority-source-invalid-rejected",
+        "authority-role-out-of-scope-rejected"
+      ],
+      "testDisposition": "covered-by-negative-and-positive-behavioural-vectors"
     },
     {
       "id": "GAAM-SEC-PT-002",
       "topic": "delegation amplification and circularity",
       "question": "Can a delegation hop enlarge authority, escape parent constraints, or acquire validity through a circular chain?",
-      "requirements": ["GAAM-DEL-002", "GAAM-DEL-003", "GAAM-DEL-004"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/delegation.schema.json", "threat-model/threat-register.json"],
-      "falsification": "A descendant delegation validates authority not available from an independently valid source at or above the parent hop."
+      "requirements": [
+        "GAAM-DEL-002",
+        "GAAM-DEL-003",
+        "GAAM-DEL-004"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "schemas/delegation.schema.json",
+        "threat-model/threat-register.json"
+      ],
+      "falsification": "A descendant delegation validates authority not available from an independently valid source at or above the parent hop.",
+      "threats": [
+        "GAAM-THR-002"
+      ],
+      "existingTests": [
+        "delegation-attenuated-valid",
+        "delegation-amplification-rejected",
+        "delegation-cycle-rejected",
+        "delegation-depth-rejected",
+        "delegation-redelegation-prohibited-rejected"
+      ],
+      "testDisposition": "covered-by-delegation-boundary-and-cycle-vectors"
     },
     {
       "id": "GAAM-SEC-PT-003",
       "topic": "stale revocation and race conditions",
       "question": "Can cached or concurrent authority state admit an effect after parent authority is suspended, revoked or expired?",
-      "requirements": ["GAAM-DEL-005", "GAAM-EVID-003", "GAAM-EVID-004"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "schemas/governance-event.schema.json", "threat-model/threat-register.json"],
-      "falsification": "A stale-but-authentic authority path is accepted after the applicable revocation or expiry state should have invalidated it."
+      "requirements": [
+        "GAAM-DEL-005",
+        "GAAM-EVID-003",
+        "GAAM-EVID-004"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "schemas/governance-event.schema.json",
+        "threat-model/threat-register.json"
+      ],
+      "falsification": "A stale-but-authentic authority path is accepted after the applicable revocation or expiry state should have invalidated it.",
+      "threats": [
+        "GAAM-THR-003"
+      ],
+      "existingTests": [
+        "authority-revoked-rejected",
+        "delegation-parent-revoked-rejected",
+        "delegation-upstream-authority-revoked-rejected",
+        "runtime-revocation-fail-closed-valid",
+        "runtime-stale-state-fail-open-rejected"
+      ],
+      "testDisposition": "covered-by-lifecycle-and-runtime-fail-closed-vectors"
     },
     {
       "id": "GAAM-SEC-PT-004",
       "topic": "evidence substitution and assurance laundering",
       "question": "Can provenance-valid evidence be substituted across subject, purpose, scope, time or profile boundaries to inflate assurance?",
-      "requirements": ["GAAM-EVID-001", "GAAM-EVID-002", "GAAM-EVID-003", "GAAM-EVID-004"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "threat-model/threat-register.json", "docs/conformance-guide.md"],
-      "falsification": "Evidence that is authentic but inapplicable to the current subject/scope/purpose/profile is accepted as satisfying a higher or different assurance claim."
+      "requirements": [
+        "GAAM-EVID-001",
+        "GAAM-EVID-002",
+        "GAAM-EVID-003",
+        "GAAM-EVID-004"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "threat-model/threat-register.json",
+        "docs/conformance-guide.md"
+      ],
+      "falsification": "Evidence that is authentic but inapplicable to the current subject/scope/purpose/profile is accepted as satisfying a higher or different assurance claim.",
+      "threats": [
+        "GAAM-THR-004"
+      ],
+      "existingTests": [
+        "assurance-expired-rejected",
+        "assurance-independence-insufficient-rejected",
+        "assurance-stale-evidence-rejected",
+        "decision-stale-evidence-rejected"
+      ],
+      "testDisposition": "covered-for-validity-independence-and-freshness; reviewer-must-assess-purpose-and-subject-substitution-contextually"
     },
     {
       "id": "GAAM-SEC-PT-005",
       "topic": "governance package substitution",
       "question": "Can a conforming-looking package substitute non-authoritative policy, schema or profile content while preserving apparently valid structure?",
-      "requirements": ["GAAM-POL-003", "GAAM-POL-004", "GAAM-POL-005", "GAAM-ART-001"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "conformance-kit/README.md", "threat-model/threat-register.json"],
-      "falsification": "A structurally valid package can redirect normative provenance or substitute governed content without detection."
+      "requirements": [
+        "GAAM-POL-003",
+        "GAAM-POL-004",
+        "GAAM-POL-005",
+        "GAAM-ART-001"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "conformance-kit/README.md",
+        "threat-model/threat-register.json"
+      ],
+      "falsification": "A structurally valid package can redirect normative provenance or substitute governed content without detection.",
+      "threats": [
+        "GAAM-THR-007"
+      ],
+      "existingTests": [
+        "decision-receipt-digest-mismatch-rejected"
+      ],
+      "testDisposition": "structural-integrity-covered-by-package-checksums-and-publication-validation; reviewer-must-assess-authoritative-provenance-substitution"
     },
     {
       "id": "GAAM-SEC-PT-006",
       "topic": "remedy bypass and accountability fragmentation",
       "question": "Can responsibility be split across principal, delegator, agent, operator or verifier so no accountable party remains reachable after a harmful effect?",
-      "requirements": ["GAAM-DEL-006", "GAAM-ACC-001", "GAAM-RED-001"],
-      "evidence": ["specification/governance-authority-assurance-metamodel.md", "threat-model/threat-register.json", "schemas/remedy.schema.json"],
-      "falsification": "A consequential effect is attributable to a technical chain but no actor remains accountable for challenge, correction or remedy."
+      "requirements": [
+        "GAAM-DEL-006",
+        "GAAM-ACC-001",
+        "GAAM-RED-001"
+      ],
+      "evidence": [
+        "specification/governance-authority-assurance-metamodel.md",
+        "threat-model/threat-register.json",
+        "schemas/remedy.schema.json"
+      ],
+      "falsification": "A consequential effect is attributable to a technical chain but no actor remains accountable for challenge, correction or remedy.",
+      "threats": [
+        "GAAM-THR-005",
+        "GAAM-THR-006"
+      ],
+      "existingTests": [
+        "decision-unattributed-rejected",
+        "high-impact-no-remedy-rejected",
+        "high-impact-review-not-independent-rejected",
+        "remedy-propagation-verified-valid"
+      ],
+      "testDisposition": "covered-by-accountability-and-remedy-vectors; affected-party effectiveness is independently reviewed"
     }
   ],
   "reviewerOutputsRequired": [
@@ -65,5 +176,11 @@
     "closure evidence for remediated blocking findings",
     "completion attestation against governance/reviews/security-review.json exit criteria"
   ],
-  "closureBoundary": "Repository preparation is useful evidence but cannot satisfy the independent candidate security-review gate."
+  "closureBoundary": "Repository preparation is useful evidence but cannot satisfy the independent candidate security-review gate.",
+  "repositoryPreparation": {
+    "status": "complete",
+    "completedAt": "2026-09-26",
+    "reviewerHandoff": "governance/reviews/evidence/pre-review/security-review-handoff.md",
+    "boundary": "Repository preparation is complete; independent findings and attestation remain external."
+  }
 }

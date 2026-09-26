@@ -1,0 +1,14 @@
+{
+  "id": "appeal-record-without-state-change-rejected",
+  "description": "A completed appeal/remedy record is not effective remedy when it produces no governed state change or other consequential outcome.",
+  "input": {
+    "highImpact": true,
+    "appealPath": true,
+    "remedyPath": true,
+    "affectedPartyAnalysis": true,
+    "noticeProvided": true,
+    "reviewIndependent": true,
+    "remedyStateChanged": false
+  },
+  "expectedValid": false
+}

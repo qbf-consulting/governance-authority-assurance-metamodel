@@ -115,7 +115,9 @@
       "evidenceLevel": "E2",
       "proves": "Independent security attestation at E2; repository threat analysis and disposition remain maintainer-controlled",
       "evidence": [
-        "governance/reviews/security-review.json"
+        "governance/reviews/security-review.json",
+        "governance/reviews/evidence/pre-review/security-review-preparation.json",
+        "governance/reviews/evidence/pre-review/security-review-handoff.md"
       ],
       "closurePredicate": "Independent security review is complete and attested.",
       "sourceIssues": [
@@ -131,7 +133,9 @@
       "evidenceLevel": "E2",
       "proves": "Independent affected-party/redress attestation at E2; repository preparation and disposition remain maintainer-controlled",
       "evidence": [
-        "governance/reviews/affected-party-review.json"
+        "governance/reviews/affected-party-review.json",
+        "governance/reviews/evidence/pre-review/affected-party-review-preparation.json",
+        "governance/reviews/evidence/pre-review/affected-party-review-handoff.md"
       ],
       "closurePredicate": "Independent affected-party review is complete and attested.",
       "sourceIssues": [

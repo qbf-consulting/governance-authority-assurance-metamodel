@@ -31,9 +31,17 @@
   "blockingFindings": [],
   "findings": [],
   "completedAt": null,
-  "evidence": [],
+  "evidence": [
+    "governance/reviews/evidence/pre-review/security-review-preparation.json",
+    "governance/reviews/evidence/pre-review/security-review-handoff.md"
+  ],
   "attestation": {
     "status": "not-attested",
     "recordedAt": null
+  },
+  "repositoryPreparation": {
+    "status": "complete",
+    "completedAt": "2026-09-26",
+    "cannotSatisfyIndependentAttestation": true
   }
 }
