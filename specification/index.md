@@ -11,7 +11,7 @@ normative_status: Normative
 {% include gaam-meta.html %}
 
 
-GAAM **v0.9.2 is the current normative Candidate release and implementation baseline**. It incorporates the [Governance, Authority and Assurance Metamodel v0.9.0](governance-authority-assurance-metamodel.md) normative text unchanged; that document remains the authoritative human-readable semantic source and retains the frozen v0.9.0 requirement and canonical-artifact identifiers.
+The [Governance, Authority and Assurance Metamodel v0.9.0](governance-authority-assurance-metamodel.md) is the authoritative human-readable specification.
 
 ## Publication model
 
