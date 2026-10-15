@@ -2,7 +2,7 @@
 title: Expansion Principles
 permalink: /docs/future-evolution/expansion-principles/
 parent: Future Evolution
-grand_parent: Documentation
+grand_parent: Project & Evolution
 nav_order: 1
 artifact_type: Evolution guidance
 normative_status: Informative
