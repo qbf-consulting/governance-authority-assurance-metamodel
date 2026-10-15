@@ -4,7 +4,7 @@ permalink: /governance/candidate-readiness/
 parent: Assurance and Governance Tracking
 artifact_type: "Generated governance view"
 normative_status: "Informative"
-grand_parent: Documentation
+grand_parent: Test & Assure
 nav_order: 2
 ---
 # Maturity and Evidence Dashboard
