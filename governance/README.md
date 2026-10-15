@@ -4,7 +4,7 @@ permalink: /governance/registers/
 parent: Assurance and Governance Tracking
 artifact_type: "Governance register guide"
 normative_status: "Informative"
-grand_parent: Documentation
+grand_parent: Test & Assure
 nav_order: 5
 ---
 # Candidate Governance Registers
