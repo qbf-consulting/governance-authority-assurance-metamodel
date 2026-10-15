@@ -57,49 +57,71 @@ add('PUB-HYG-LANDINGS',not landing_errors,f'{len(example_dirs)} canonical patter
 add('PUB-HYG-SUPPORT-NAV',not support_errors,'all supporting pattern pages excluded from primary navigation' if not support_errors else ', '.join(support_errors),'publication')
 cfm,cvalid=front_matter(ROOT/'CHANGELOG.md')
 add('PUB-HYG-CHANGELOG',cvalid and cfm.get('title')=='Changelog' and cfm.get('permalink')=='/releases/changelog/','changelog begins with valid canonical front matter' if cvalid else 'changelog front matter malformed','publication')
-# Information architecture: grouped documentation, promoted workflow, and appendices
-ia_groups={
- 'Orientation':['docs/guided-learning.md','docs/documentation-architecture.md'],
- 'Concepts and Design':['docs/architecture-overview.md','diagrams/architecture-diagrams.md','docs/design-principles.md','docs/design-rationale.md'],
- 'Implementation Guidance':['docs/implementation-guide.md','docs/lifecycle-model.md','docs/control-document-schedule.md','docs/migration-v0.5.0-to-v0.9.0.md','docs/reviewer-guide.md'],
- 'Assurance and Governance Tracking':['docs/conformance-guide.md','docs/candidate-readiness.md','docs/open-questions.md','docs/candidate-stability-policy.md','governance/README.md'],
+# Information architecture: six reader-oriented top-level journeys
+ia_top={
+ 'docs/start-here.md':('Start Here','1'),
+ 'docs/understand-gaam.md':('Understand GAAM','2'),
+ 'docs/specification-and-profiles.md':('Specification & Profiles','3'),
+ 'docs/implement.md':('Implement','4'),
+ 'docs/test-and-assure.md':('Test & Assure','5'),
+ 'docs/project-and-evolution.md':('Project & Evolution','6'),
 }
 ia_errors=[]
-for order,(group,pages) in enumerate(ia_groups.items(),1):
- group_file=ROOT/'docs'/({'Orientation':'orientation.md','Concepts and Design':'concepts-and-design.md','Implementation Guidance':'implementation-guidance.md','Assurance and Governance Tracking':'assurance-and-governance-tracking.md'}[group])
- gfm,gvalid=front_matter(group_file) if group_file.exists() else ({},False)
- if not gvalid or gfm.get('parent')!='Documentation' or gfm.get('has_children')!='true' or gfm.get('nav_order')!=str(order): ia_errors.append(f'{group}: invalid group index')
- for page in pages:
-  fm,valid=front_matter(ROOT/page)
-  if not valid or fm.get('parent')!=group or fm.get('grand_parent')!='Documentation': ia_errors.append(f'{page}: invalid Documentation grouping')
-add('PUB-IA-DOCUMENTATION',not ia_errors,'Documentation is grouped into four validated reader routes' if not ia_errors else '; '.join(ia_errors),'publication')
-appendix_expected={'docs/glossary.md':'1','vocabularies/index.md':'2','matrices/index.md':'3','mappings/index.md':'4','docs/faq.md':'5','docs/style-guide.md':'6','docs/github-pages-publication.md':'7'}
-appendix_errors=[]
-afm,avalid=front_matter(ROOT/'appendices/index.md') if (ROOT/'appendices/index.md').exists() else ({},False)
-if not avalid or afm.get('title')!='Appendices' or afm.get('has_children')!='true' or afm.get('nav_order')!='11': appendix_errors.append('appendices/index.md invalid')
-for page,order in appendix_expected.items():
+for page,(title,order) in ia_top.items():
  fm,valid=front_matter(ROOT/page)
- if not valid or fm.get('parent')!='Appendices' or fm.get('nav_order')!=order: appendix_errors.append(f'{page}: invalid Appendix placement')
-for folder,parent in [('matrices','Matrices'),('mappings','Mappings and Source Crosswalks')]:
- for md in (ROOT/folder).glob('*.md'):
-  if md.name=='index.md': continue
-  fm,valid=front_matter(md)
-  if not valid or fm.get('parent')!=parent or fm.get('grand_parent')!='Appendices': appendix_errors.append(f'{md.relative_to(ROOT)}: invalid nested Appendix placement')
-add('PUB-IA-APPENDICES',not appendix_errors,'Appendices consolidates reference material without changing URLs' if not appendix_errors else '; '.join(appendix_errors),'publication')
-ifm,ivalid=front_matter(ROOT/'implementation-reports/README.md')
-implementation_report_errors=[]
-if not ivalid or ifm.get('parent') or ifm.get('grand_parent') or ifm.get('nav_order')!='5' or ifm.get('has_children')!='true': implementation_report_errors.append('implementation-reports/README.md not promoted cleanly')
-for md in (ROOT/'implementation-reports').glob('*.md'):
- if md.name=='README.md': continue
- fm,valid=front_matter(md)
- if not valid or fm.get('parent')!='Implementation Reports': implementation_report_errors.append(f'{md.relative_to(ROOT)}: invalid report parent')
-add('PUB-IA-REPORTS',not implementation_report_errors,'Implementation Reports is a top-level workflow with intact children' if not implementation_report_errors else '; '.join(implementation_report_errors),'publication')
-top_orders={'docs/index.md':'3','profiles/index.md':'4','implementation-reports/README.md':'5','schemas/index.md':'6','threat-model/README.md':'7','examples/index.md':'8','conformance/index.md':'9','decisions/index.md':'10','appendices/index.md':'11','releases/index.md':'12','GOVERNANCE.md':'13'}
-order_errors=[]
-for page,order in top_orders.items():
+ if not valid or fm.get('title')!=title or fm.get('nav_order')!=order or fm.get('has_children')!='true' or fm.get('parent') or fm.get('grand_parent'):
+  ia_errors.append(f'{page}: invalid top-level reader journey')
+for page in ['docs/index.md','appendices/index.md']:
  fm,valid=front_matter(ROOT/page)
- if not valid or fm.get('nav_order')!=order: order_errors.append(f'{page}: expected nav_order {order}')
-add('PUB-IA-TOP-ORDER',not order_errors,'top-level workflow order is deterministic' if not order_errors else '; '.join(order_errors),'publication')
+ if not valid or fm.get('nav_exclude')!='true':
+  ia_errors.append(f'{page}: compatibility index must be excluded from primary navigation')
+section_roots={
+ 'docs/orientation.md':('Start Here','1'),
+ 'docs/concepts-and-design.md':('Understand GAAM','1'),
+ 'specification/index.md':('Specification & Profiles','1'),
+ 'profiles/index.md':('Specification & Profiles','2'),
+ 'schemas/index.md':('Specification & Profiles','3'),
+ 'vocabularies/index.md':('Specification & Profiles','4'),
+ 'docs/implementation-guidance.md':('Implement','2'),
+ 'examples/index.md':('Implement','3'),
+ 'conformance-kit/README.md':('Implement','4'),
+ 'conformance/index.md':('Test & Assure','1'),
+ 'implementation-reports/README.md':('Test & Assure','2'),
+ 'threat-model/README.md':('Test & Assure','3'),
+ 'matrices/index.md':('Test & Assure','4'),
+ 'docs/assurance-and-governance-tracking.md':('Test & Assure','5'),
+ 'GOVERNANCE.md':('Project & Evolution','1'),
+ 'releases/index.md':('Project & Evolution','2'),
+ 'decisions/index.md':('Project & Evolution','3'),
+ 'docs/future-evolution/index.md':('Project & Evolution','4'),
+ 'mappings/index.md':('Project & Evolution','5'),
+}
+for page,(parent,order) in section_roots.items():
+ fm,valid=front_matter(ROOT/page)
+ if not valid or fm.get('parent')!=parent or fm.get('nav_order')!=order:
+  ia_errors.append(f'{page}: expected {parent} / nav_order {order}')
+reader_descendants={
+ 'docs/guided-learning.md':('Orientation','Start Here'),
+ 'docs/documentation-architecture.md':('Orientation','Start Here'),
+ 'docs/architecture-overview.md':('Concepts and Design','Understand GAAM'),
+ 'diagrams/architecture-diagrams.md':('Concepts and Design','Understand GAAM'),
+ 'docs/design-principles.md':('Concepts and Design','Understand GAAM'),
+ 'docs/design-rationale.md':('Concepts and Design','Understand GAAM'),
+ 'docs/implementation-guide.md':('Implementation Guidance','Implement'),
+ 'docs/lifecycle-model.md':('Implementation Guidance','Implement'),
+ 'docs/control-document-schedule.md':('Implementation Guidance','Implement'),
+ 'docs/migration-v0.5.0-to-v0.9.0.md':('Implementation Guidance','Implement'),
+ 'docs/reviewer-guide.md':('Implementation Guidance','Implement'),
+ 'docs/conformance-guide.md':('Assurance and Governance Tracking','Test & Assure'),
+ 'docs/candidate-readiness.md':('Assurance and Governance Tracking','Test & Assure'),
+ 'docs/open-questions.md':('Assurance and Governance Tracking','Test & Assure'),
+ 'governance/README.md':('Assurance and Governance Tracking','Test & Assure'),
+}
+for page,(parent,grand) in reader_descendants.items():
+ fm,valid=front_matter(ROOT/page)
+ if not valid or fm.get('parent')!=parent or fm.get('grand_parent')!=grand:
+  ia_errors.append(f'{page}: invalid reader-route ancestry')
+add('PUB-IA-READER-JOURNEYS',not ia_errors,'rendered navigation uses six validated reader journeys' if not ia_errors else '; '.join(ia_errors),'publication')
 # Future-evolution programme: informative research boundary and controlled register
 future_root=ROOT/'docs/future-evolution'
 future_required={
@@ -114,7 +136,7 @@ future_required={
 future_missing=sorted(x for x in future_required if not (future_root/x).exists())
 future_errors=[]
 ffm,fvalid=front_matter(future_root/'index.md') if (future_root/'index.md').exists() else ({},False)
-if not fvalid or ffm.get('parent')!='Documentation' or ffm.get('nav_order')!='5' or ffm.get('has_children')!='true' or ffm.get('normative_status')!='Informative': future_errors.append('future-evolution index has invalid publication boundary')
+if not fvalid or ffm.get('parent')!='Project & Evolution' or ffm.get('nav_order')!='4' or ffm.get('has_children')!='true' or ffm.get('normative_status')!='Informative': future_errors.append('future-evolution index has invalid publication boundary')
 for md in sorted((future_root/'concepts').glob('*.md')) if (future_root/'concepts').exists() else []:
  if md.name=='index.md': continue
  fm,valid=front_matter(md)
