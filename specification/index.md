@@ -1,11 +1,10 @@
 ---
 title: "Normative Specification"
 permalink: /specification/
-nav_order: 1
+nav_order: 2
 has_children: true
 artifact_type: Specification index
 normative_status: Normative
-parent: Specification & Profiles
 ---
 # Normative Specification
 
