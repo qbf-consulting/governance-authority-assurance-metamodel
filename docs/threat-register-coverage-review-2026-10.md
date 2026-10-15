@@ -11,7 +11,7 @@ normative_status: "Informative"
 
 **Baseline:** GAAM v0.9.2 Candidate (frozen v0.9.0 semantic/canonical identifiers).
 **Source register:** [threat-register.json](../threat-model/threat-register.json).
-**Change boundary:** No edits to canonical threats, requirements, profiles, schemas, conformance semantics or release assets are authorized by this assessment. The [Candidate Stability and Change-Control Policy](../candidate-stability-policy.md) governs any subsequent promotion.
+**Change boundary:** No edits to canonical threats, requirements, profiles, schemas, conformance semantics or release assets are authorized by this assessment. The [Candidate Stability and Change-Control Policy](candidate-stability-policy.md) governs any subsequent promotion.
 
 ## Method
 
