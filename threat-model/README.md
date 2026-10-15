@@ -1,11 +1,10 @@
 ---
 title: "GAAM Threat and Misuse-Case Model"
 permalink: /threat-model/
-nav_order: 3
+nav_order: 7
 has_children: false
 artifact_type: "Threat model"
 normative_status: "Assurance supporting"
-parent: Test & Assure
 ---
 # GAAM Threat and Misuse-Case Model
 
