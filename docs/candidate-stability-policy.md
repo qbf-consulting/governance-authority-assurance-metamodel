@@ -1,11 +1,10 @@
 ---
 title: "Candidate Stability and Change-Control Policy"
 permalink: /governance/candidate-stability/
-parent: Assurance and Governance Tracking
+parent: Project & Evolution
 artifact_type: "Governance policy"
 normative_status: "Normative process"
-grand_parent: Documentation
-nav_order: 4
+nav_order: 5
 ---
 # Candidate Stability and Change-Control Policy
 

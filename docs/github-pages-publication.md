@@ -1,7 +1,7 @@
 ---
 title: "GitHub Pages Publication Model"
 permalink: /docs/github-pages-publication/
-parent: Appendices
+parent: Project & Evolution
 artifact_type: Publication architecture
 normative_status: Informative
 nav_order: 7

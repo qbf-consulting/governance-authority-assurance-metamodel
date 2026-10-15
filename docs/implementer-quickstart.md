@@ -1,8 +1,9 @@
 ---
 title: "Five-Minute Implementer Quickstart"
-nav_exclude: true
 artifact_type: "Informative implementation guidance"
 normative_status: "Informative"
+parent: Implement
+nav_order: 1
 ---
 # Five-Minute Implementer Quickstart
 

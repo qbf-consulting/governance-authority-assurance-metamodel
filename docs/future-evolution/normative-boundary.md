@@ -2,7 +2,7 @@
 title: Normative Boundary
 permalink: /docs/future-evolution/normative-boundary/
 parent: Future Evolution
-grand_parent: Documentation
+grand_parent: Project & Evolution
 nav_order: 3
 artifact_type: Normative-boundary guidance
 normative_status: Informative

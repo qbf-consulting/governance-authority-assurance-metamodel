@@ -1,10 +1,11 @@
 ---
 title: "Implementation Patterns"
 permalink: /examples/
-nav_order: 8
+nav_order: 3
 has_children: true
 artifact_type: Informative implementation pattern
 normative_status: Informative
+parent: Implement
 ---
 # Implementation Patterns
 

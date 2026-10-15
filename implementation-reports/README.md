@@ -1,10 +1,11 @@
 ---
 title: "Implementation Reports"
 permalink: /implementation-reports/
-nav_order: 5
+nav_order: 2
 has_children: true
 artifact_type: "Implementation guidance"
 normative_status: "Informative"
+parent: Test & Assure
 ---
 # Implementation Reports
 

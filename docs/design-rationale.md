@@ -4,7 +4,7 @@ permalink: /docs/design-rationale/
 parent: Concepts and Design
 artifact_type: "Design rationale"
 normative_status: "Informative"
-grand_parent: Documentation
+grand_parent: Understand GAAM
 nav_order: 4
 ---
 # Design Rationale

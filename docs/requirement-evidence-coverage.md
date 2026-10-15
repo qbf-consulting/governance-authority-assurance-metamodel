@@ -1,8 +1,9 @@
 ---
 title: "Requirement Evidence Coverage Reading Guide"
-nav_exclude: true
 artifact_type: "Informative evidence interpretation"
 normative_status: "Informative"
+parent: Test & Assure
+nav_order: 6
 ---
 # Requirement Evidence Coverage Reading Guide
 

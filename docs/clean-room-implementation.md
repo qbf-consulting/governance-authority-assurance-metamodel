@@ -3,6 +3,8 @@ title: "Clean-Room Implementation Exercise"
 permalink: /clean-room-implementation/
 artifact_type: "Implementation guidance"
 normative_status: "Informative"
+parent: Implement
+nav_order: 5
 ---
 # Clean-Room Implementation Exercise
 

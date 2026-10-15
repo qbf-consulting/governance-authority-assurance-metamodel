@@ -1,8 +1,9 @@
 ---
 title: "Releases"
 permalink: /releases/
-nav_order: 12
+nav_order: 2
 has_children: true
+parent: Project & Evolution
 ---
 # Releases
 

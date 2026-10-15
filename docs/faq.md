@@ -1,10 +1,10 @@
 ---
 title: "Frequently Asked Questions"
 permalink: /docs/faq/
-parent: Appendices
+parent: Start Here
 artifact_type: "FAQ"
 normative_status: "Informative"
-nav_order: 5
+nav_order: 2
 ---
 # Frequently Asked Questions
 

@@ -1,19 +1,17 @@
 ---
 title: "Documentation"
 permalink: /docs/
-nav_order: 3
-has_children: true
+nav_exclude: true
 ---
 # Documentation
 
-GAAM documentation is organised by reader task and authority level. Use the grouped routes below rather than treating every page as part of one flat sequence.
+This URL is retained for compatibility. Primary navigation is now organized around six reader journeys:
 
-| Route | Use it to |
-|---|---|
-| [Orientation](orientation.md) | Choose a guided route and understand the documentation architecture |
-| [Concepts and Design](concepts-and-design.md) | Learn the architecture, principles, diagrams, and rationale |
-| [Implementation Guidance](implementation-guidance.md) | Apply lifecycle, control-document, migration, and review guidance |
-| [Assurance and Governance Tracking](assurance-and-governance-tracking.md) | Inspect conformance guidance, candidate readiness, issue disposition, and governance registers |
-| [Future Evolution](future-evolution/index.md) | Evaluate future-facing concepts without changing GAAM v0.9.2 conformance or the retained v0.9.0 semantic/canonical identifiers |
+- [Start Here](start-here.md)
+- [Understand GAAM](understand-gaam.md)
+- [Specification & Profiles](specification-and-profiles.md)
+- [Implement](implement.md)
+- [Test & Assure](test-and-assure.md)
+- [Project & Evolution](project-and-evolution.md)
 
-Implementation reports are available as a separate top-level workflow. Reference and lookup material is consolidated under [Appendices](../appendices/index.md).
+No normative authority or existing content URL is changed by this navigation redesign.

@@ -2,7 +2,7 @@
 title: "Conformance and Assurance Guide"
 permalink: /docs/conformance/
 parent: Assurance and Governance Tracking
-grand_parent: Documentation
+grand_parent: Test & Assure
 nav_order: 1
 ---
 # Conformance and Assurance Guide

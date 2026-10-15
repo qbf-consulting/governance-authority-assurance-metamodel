@@ -4,7 +4,7 @@ permalink: /docs/design-principles/
 parent: Concepts and Design
 artifact_type: "Design guidance"
 normative_status: "Informative"
-grand_parent: Documentation
+grand_parent: Understand GAAM
 nav_order: 3
 ---
 # Design Principles

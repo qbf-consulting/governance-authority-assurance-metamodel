@@ -1,11 +1,12 @@
 ---
 title: Orientation
 permalink: /docs/orientation/
-parent: Documentation
+parent: Start Here
 nav_order: 1
 has_children: true
 artifact_type: Documentation navigation
 normative_status: Informative
+grand_parent: Start Here
 ---
 # Orientation
 

@@ -2,7 +2,7 @@
 title: Future Evolution Delivery Roadmap
 permalink: /docs/future-evolution/delivery-roadmap/
 parent: Future Evolution
-grand_parent: Documentation
+grand_parent: Project & Evolution
 nav_order: 4
 artifact_type: Delivery roadmap
 normative_status: Informative

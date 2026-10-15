@@ -1,9 +1,10 @@
 ---
 title: "Portable Conformance Kit"
 permalink: /conformance/portable-kit/
-parent: "Conformance and Assurance"
+parent: Implement
 artifact_type: "Informative implementation tooling"
 normative_status: "Informative"
+nav_order: 4
 ---
 # Portable Conformance Kit
 

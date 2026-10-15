@@ -4,7 +4,7 @@ permalink: /docs/architecture/
 parent: Concepts and Design
 artifact_type: "Architecture documentation"
 normative_status: "Informative"
-grand_parent: Documentation
+grand_parent: Understand GAAM
 nav_order: 1
 ---
 # Architecture Overview
