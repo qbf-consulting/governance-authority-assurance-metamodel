@@ -1,5 +1,5 @@
 ---
-title: "GAAM Threat Register Coverage Reassessment (2026-10)"
+title: "Threat Register Coverage Reassessment (October 2026)"
 nav_exclude: true
 artifact_type: "Informative security review"
 normative_status: "Informative"
