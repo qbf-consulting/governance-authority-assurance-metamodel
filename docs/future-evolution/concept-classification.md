@@ -2,7 +2,7 @@
 title: Concept Classification
 permalink: /docs/future-evolution/concept-classification/
 parent: Future Evolution
-grand_parent: Documentation
+grand_parent: Project & Evolution
 nav_order: 2
 artifact_type: Evolution classification
 normative_status: Informative
