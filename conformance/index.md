@@ -1,9 +1,8 @@
 ---
 title: "Conformance and Assurance"
 permalink: /conformance/
-nav_order: 1
+nav_order: 9
 has_children: true
-parent: Test & Assure
 ---
 # Conformance and Assurance
 
