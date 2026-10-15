@@ -1,8 +1,9 @@
 ---
 title: "Architectural Decisions"
 permalink: /decisions/
-nav_order: 10
+nav_order: 3
 has_children: true
+parent: Project & Evolution
 ---
 # Architectural Decisions
 
