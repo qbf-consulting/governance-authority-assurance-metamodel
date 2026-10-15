@@ -1,11 +1,11 @@
 ---
 title: "Controlled Vocabularies"
 permalink: /vocabularies/
-nav_order: 2
+nav_order: 4
 has_children: true
 artifact_type: Vocabulary catalogue
 normative_status: Normative where referenced
-parent: Appendices
+parent: Specification & Profiles
 ---
 # Controlled Vocabularies
 
