@@ -2,7 +2,7 @@
 title: "Implementation Guide"
 permalink: /docs/implementation/
 parent: Implementation Guidance
-grand_parent: Documentation
+grand_parent: Implement
 nav_order: 1
 ---
 # Implementation Guide
