@@ -5,7 +5,7 @@ parent: Implementation Guidance
 nav_order: 3
 artifact_type: "Authoritative document-control index"
 normative_status: "Candidate governance guidance"
-grand_parent: Documentation
+grand_parent: Implement
 ---
 # Governance Control Document Schedule
 
