@@ -2,7 +2,7 @@
 title: Evidence-Gated Promotion
 permalink: /docs/future-evolution/promotion-governance/
 parent: Future Evolution
-grand_parent: Documentation
+grand_parent: Project & Evolution
 nav_order: 5
 artifact_type: Evolution governance
 normative_status: Informative
