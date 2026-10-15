@@ -1,11 +1,10 @@
 ---
 title: Appendices
 permalink: /appendices/
-nav_order: 11
-has_children: true
 description: Reference and lookup material for implementers, reviewers, and contributors.
 artifact_type: Reference navigation
 normative_status: Informative index
+nav_exclude: true
 ---
 # Appendices
 
