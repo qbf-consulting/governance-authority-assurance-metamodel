@@ -78,16 +78,10 @@ for page in ['docs/index.md','appendices/index.md']:
 section_roots={
  'docs/orientation.md':('Start Here','1'),
  'docs/concepts-and-design.md':('Understand GAAM','1'),
- 'specification/index.md':('Specification & Profiles','1'),
- 'profiles/index.md':('Specification & Profiles','2'),
- 'schemas/index.md':('Specification & Profiles','3'),
- 'vocabularies/index.md':('Specification & Profiles','4'),
  'docs/implementation-guidance.md':('Implement','2'),
  'examples/index.md':('Implement','3'),
  'conformance-kit/README.md':('Implement','4'),
- 'conformance/index.md':('Test & Assure','1'),
  'implementation-reports/README.md':('Test & Assure','2'),
- 'threat-model/README.md':('Test & Assure','3'),
  'matrices/index.md':('Test & Assure','4'),
  'docs/assurance-and-governance-tracking.md':('Test & Assure','5'),
  'GOVERNANCE.md':('Project & Evolution','1'),
@@ -96,6 +90,11 @@ section_roots={
  'docs/future-evolution/index.md':('Project & Evolution','4'),
  'mappings/index.md':('Project & Evolution','5'),
 }
+hidden_normative_paths=['specification','profiles','schemas','vocabularies','conformance','threat-model']
+config_text=(ROOT/'_config.yml').read_text()
+for path in hidden_normative_paths:
+ if f'path: "{path}"' not in config_text:
+  ia_errors.append(f'_config.yml: missing presentation-only nav exclusion for {path}')
 for page,(parent,order) in section_roots.items():
  fm,valid=front_matter(ROOT/page)
  if not valid or fm.get('parent')!=parent or fm.get('nav_order')!=order:
