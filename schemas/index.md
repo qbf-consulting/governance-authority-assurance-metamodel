@@ -1,10 +1,11 @@
 ---
 title: "Canonical Schemas"
 permalink: /schemas/
-nav_order: 6
+nav_order: 3
 has_children: true
 artifact_type: Schema catalogue
 normative_status: Normative for artifact structure
+parent: Specification & Profiles
 ---
 # Canonical Schemas
 
