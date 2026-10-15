@@ -4,7 +4,7 @@ permalink: /docs/migration-v0.5.0-to-v0.9.0/
 parent: Implementation Guidance
 artifact_type: "Migration guide"
 normative_status: "Informative"
-grand_parent: Documentation
+grand_parent: Implement
 nav_order: 4
 ---
 # Migration from GAAM v0.5.0 to v0.9.0
