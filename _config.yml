@@ -79,6 +79,32 @@ exclude:
   - examples/assurance-composition/README.md
   - examples/revocation-propagation-boundaries/README.md
 defaults:
+  # Reader-oriented navigation is presentation metadata. Frozen normative
+  # artifacts remain byte-identical and are reached from the journey pages.
+  - scope:
+      path: "specification"
+    values:
+      nav_exclude: true
+  - scope:
+      path: "profiles"
+    values:
+      nav_exclude: true
+  - scope:
+      path: "schemas"
+    values:
+      nav_exclude: true
+  - scope:
+      path: "vocabularies"
+    values:
+      nav_exclude: true
+  - scope:
+      path: "conformance"
+    values:
+      nav_exclude: true
+  - scope:
+      path: "threat-model"
+    values:
+      nav_exclude: true
   - scope:
       path: ""
     values:
