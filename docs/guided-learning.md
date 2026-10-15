@@ -5,7 +5,7 @@ permalink: /docs/guided-learning/
 parent: Orientation
 nav_order: 1
 has_toc: true
-grand_parent: Documentation
+grand_parent: Start Here
 ---
 # Guided Learning Paths
 
