@@ -523,6 +523,9 @@ if extra: alignment_errors.append('unknown terms: '+', '.join(extra))
 invalid=[x.get('gaamTerm') for x in alignment.get('terms',[]) if x.get('status') not in valid_statuses]
 if invalid: alignment_errors.append('invalid statuses: '+', '.join(invalid))
 add('DOC-CTWG-GLOSSARY-ALIGNMENT',not alignment_errors,f'{len(glossary_terms)} glossary terms covered by CTWG alignment register' if not alignment_errors else '; '.join(alignment_errors),'documentation')
+# Recompute published requirement coverage without mistaking linked fixtures for assurance.
+coverage = subprocess.run([sys.executable, str(ROOT/'scripts/report_coverage.py'), '--check'], capture_output=True, text=True)
+add('DOC-EVIDENCE-COVERAGE', coverage.returncode==0, 'requirement evidence coverage summary matches source CSV' if coverage.returncode==0 else coverage.stdout+' '+coverage.stderr, 'documentation')
 # Local links
 bad=[]
 for p in ROOT.rglob('*.md'):
