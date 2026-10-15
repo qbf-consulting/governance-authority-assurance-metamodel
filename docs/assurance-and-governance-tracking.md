@@ -1,11 +1,12 @@
 ---
 title: Assurance and Governance Tracking
 permalink: /docs/assurance-and-governance-tracking/
-parent: Documentation
-nav_order: 4
+parent: Test & Assure
+nav_order: 5
 has_children: true
 artifact_type: Documentation navigation
 normative_status: Informative
+grand_parent: Test & Assure
 ---
 # Assurance and Governance Tracking
 
