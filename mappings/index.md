@@ -1,11 +1,11 @@
 ---
 title: "Mappings and Source Crosswalks"
 permalink: /mappings/
-nav_order: 4
+nav_order: 5
 has_children: true
 artifact_type: "Mappings index"
 normative_status: "Informative"
-parent: Appendices
+parent: Project & Evolution
 ---
 # Mappings and Source Crosswalks
 
