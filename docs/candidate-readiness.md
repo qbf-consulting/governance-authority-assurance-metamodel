@@ -24,6 +24,8 @@ GAAM tracks **specification maturity** separately from **external evidence matur
 
 A Stable/E1 state asserts specification stability and repository validation only. It does **not** assert independent implementation, independent assurance, interoperability, operational fitness, certification, or deployment validation.
 
+**v1.0.0 publication gate:** Eligibility for a Stable *specification decision* is not authorization to publish v1.0.0. The [Candidate Stability and Change-Control Policy](candidate-stability-policy.md) currently requires two independent implementation reports with Foundation and composed-profile coverage, in addition to its other exit conditions. With zero accepted independent reports, **those published release conditions remain unmet**, even though no repository-controlled specification blocker is open.
+
 ## Gate classification
 
 | Gate | State | Control boundary | Blocks Stable | Evidence level | Proposition |

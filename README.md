@@ -16,6 +16,10 @@ Repository-owned maturity, lifecycle, authority boundaries, validation commands 
 
 > **Identifier continuity:** GAAM v0.9.0 contains frozen canonical schema identifiers issued before stewardship moved to QBF Consulting LLP. Those historical identifiers are not silently rewritten by the repository transfer. Current project publication, repository metadata and new citation material use the QBF Consulting project home.
 
+## First result: test delegation
+
+Run the [five-minute implementer quickstart](docs/implementer-quickstart.md) to see a valid delegated authority accepted and invalid amplification or revoked-parent delegation rejected using the published portable vector runner. The demonstration exercises GAAM's repository-owned reference adapter; it is not independent implementation evidence.
+
 ## Start here
 
 - [Normative specification](specification/governance-authority-assurance-metamodel.md)
@@ -27,7 +31,8 @@ Repository-owned maturity, lifecycle, authority boundaries, validation commands 
 - [Schemas](schemas/index.md)
 - [Threat model](threat-model/README.md)
 - [Candidate stability policy](docs/candidate-stability-policy.md)
-- [Candidate readiness dashboard](docs/candidate-readiness.md) — generated from review and implementation evidence
+- [Candidate readiness dashboard](docs/candidate-readiness.md) — distinguishes specification Stable eligibility, external evidence maturity and v1.0.0 release conditions
+- [Requirement evidence coverage](docs/requirement-evidence-coverage.md) — interpret testability and linked evidence without treating check counts as coverage
 - [Implementation reports](implementation-reports/README.md) — human and machine-readable evidence workflow
 - [Portable conformance kit](conformance-kit/README.md) — external validator, adapter protocol and starter package
 - [Migration from v0.5.0](docs/migration-v0.5.0-to-v0.9.0.md)
