@@ -4,7 +4,7 @@ permalink: /docs/reviewer-guide/
 parent: Implementation Guidance
 artifact_type: "Review guide"
 normative_status: "Informative"
-grand_parent: Documentation
+grand_parent: Implement
 nav_order: 5
 ---
 # Reviewer Guide
