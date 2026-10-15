@@ -1,11 +1,12 @@
 ---
 title: Implementation Guidance
 permalink: /docs/implementation-guidance/
-parent: Documentation
-nav_order: 3
+parent: Implement
+nav_order: 2
 has_children: true
 artifact_type: Documentation navigation
 normative_status: Informative
+grand_parent: Implement
 ---
 # Implementation Guidance
 
