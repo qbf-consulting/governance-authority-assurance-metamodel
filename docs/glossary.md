@@ -1,10 +1,10 @@
 ---
 title: "Glossary"
 permalink: /docs/glossary/
-parent: Appendices
+parent: Understand GAAM
 artifact_type: "Terminology"
 normative_status: "Normative where referenced"
-nav_order: 1
+nav_order: 2
 ---
 # Glossary
 
