@@ -1,8 +1,9 @@
 ---
 title: "Conformance Profiles"
 permalink: /profiles/
-nav_order: 4
+nav_order: 2
 has_children: true
+parent: Specification & Profiles
 ---
 # Conformance Profiles
 
