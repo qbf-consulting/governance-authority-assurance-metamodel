@@ -1,11 +1,12 @@
 ---
 title: Future Evolution
 permalink: /docs/future-evolution/
-parent: Documentation
-nav_order: 5
+parent: Project & Evolution
+nav_order: 4
 has_children: true
 artifact_type: Future-evolution programme
 normative_status: Informative
+grand_parent: Project & Evolution
 ---
 # Future Evolution
 
