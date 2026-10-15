@@ -5,7 +5,7 @@ permalink: /docs/documentation-architecture/
 parent: Orientation
 nav_order: 2
 has_toc: true
-grand_parent: Documentation
+grand_parent: Start Here
 ---
 # Documentation Architecture
 
