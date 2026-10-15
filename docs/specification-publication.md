@@ -1,8 +1,8 @@
 ---
 title: "Specification Publication and Reading Guide"
 permalink: /specification/publication/
-parent: "Documentation"
-nav_order: 7
+parent: Specification & Profiles
+nav_order: 5
 artifact_type: "Publication guide"
 normative_status: "Informative"
 ---
