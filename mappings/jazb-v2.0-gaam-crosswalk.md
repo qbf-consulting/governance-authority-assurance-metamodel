@@ -7,7 +7,7 @@ nav_order: 7
 artifact_type: "Informative ecosystem readiness crosswalk"
 normative_status: "Informative"
 ---
-# JAZB v2.0 through GAAM v0.9.2
+# JAZB v2.0 GAAM Governance Readiness Crosswalk
 
 {% include gaam-meta.html %}
 
