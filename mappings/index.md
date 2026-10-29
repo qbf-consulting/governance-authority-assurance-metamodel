@@ -28,6 +28,9 @@ GAAM mapping documents are informative artifacts. They explain source provenance
 - [EUDI and vLEI Comparative GAAM Takeaways](eudi-vlei-comparative-takeaways.md)  
   Extracts reusable implementation priorities and a test-oriented path from both assessments.
 
+- [JAZB v2.0 GAAM Governance Readiness Crosswalk](jazb-v2.0-gaam-crosswalk.md)  
+  Independent, informative assessment of parallel authority, task supervision, internal Customs jurisdictions, revocation and effect evidence against GAAM semantics. No conformance or certification claim.
+
 - [GAAM Source Adoption and Architectural Differentiation Crosswalk](tsmm-v0.22.0-adoption-crosswalk.md)  
   Documents how the ToIP Governance Metamodel Specification v1.0, its Companion Guide and TSMM v0.22.0 informed GAAM while preserving GAAM's independent normative boundary.
 

@@ -1,0 +1,337 @@
+{
+  "schemaVersion": "1.1",
+  "id": "gaam:mapping:jazb:2.0:2026-10-29",
+  "gaamVersion": "0.9.0",
+  "normativeStatus": "informative",
+  "assessmentType": "readiness-crosswalk",
+  "caseRole": "explicit-authority-benchmark",
+  "target": {
+    "name": "JAZB (Judiciary AI Zero-Trust Broker) Framework",
+    "version": "2.0",
+    "source": "https://doi.org/10.5281/zenodo.23518625",
+    "assessedAt": "2026-10-29"
+  },
+  "method": {
+    "statusVocabulary": [
+      "covered",
+      "partial",
+      "gap",
+      "not-applicable",
+      "unknown"
+    ],
+    "claimBoundary": "Documentary governance readiness mapping against GAAM v0.9.0 normative semantics as retained in v0.9.2. No JAZB certification, GAAM conformance, independent assessment, legal validation or operational assurance claim."
+  },
+  "findings": [
+    {
+      "id": "GAAM-JAZB-01",
+      "title": "Organizational authority provenance versus external legitimacy",
+      "status": "partial",
+      "gaamRequirements": [
+        "GAAM-AUTH-001",
+        "GAAM-AUTH-002",
+        "GAAM-AUTH-006",
+        "GAAM-AUTH-007"
+      ],
+      "observation": "JAZB identifies an EDA-controlled sovereign root, a human-established Law hierarchy and internal authorization boundaries. The referenced architecture does not establish external recognition of the organization's entitlement to impose a given consequential decision. Source: Phase I §§9, Phase VII Law hierarchy and EDA authority.",
+      "actionableTakeaway": "Verify the named control boundary in a defined JAZB deployment before asserting implementation or GAAM conformance.",
+      "governanceContext": {
+        "authoritySources": [
+          "Human-established JAZB Law",
+          "enterprise mandate"
+        ],
+        "governedActors": [
+          "EDA",
+          "authorized human quorum"
+        ],
+        "governedRelationships": [
+          "authority source",
+          "Law establishment"
+        ],
+        "governedEffects": [
+          "activation of governing Law"
+        ],
+        "enforcement": [
+          "human Law-establishment workflow"
+        ],
+        "revocation": [
+          "Law suspension and replacement"
+        ],
+        "assuranceMechanisms": [
+          "Law/version provenance",
+          "audit and execution evidence"
+        ]
+      },
+      "semantics": {
+        "establishes": [
+          "Internal source and bounded derivation of organizational authority"
+        ],
+        "doesNotEstablish": [
+          "External legal validity, consent, rights compliance or legitimate standing against outsiders"
+        ]
+      },
+      "evidenceExpectation": [
+        "Signed active Law/version, human establishment record, governing mandate, precedence/escalation decision"
+      ],
+      "candidateTests": [
+        "Present conflicting organizational Law and independently binding legal constraints; require refusal or escalation rather than silently treating organizational signatures as legitimacy."
+      ],
+      "knownLimitations": [
+        "Document-level assessment of user-provided JAZB v2.0 publications; no independently observed JAZB implementation.",
+        "Source locations are navigation aids, not redistribution of normative source text.",
+        "Readiness status does not amount to a GAAM conformance assessment."
+      ]
+    },
+    {
+      "id": "GAAM-JAZB-02",
+      "title": "Parallel Task and Enforcer governance",
+      "status": "covered",
+      "gaamRequirements": [
+        "GAAM-AUTH-004",
+        "GAAM-AUTH-005",
+        "GAAM-EFF-002",
+        "GAAM-RISK-003"
+      ],
+      "observation": "Commissioner Law bounds Task operations while parallel Commandant Law governs independently protected Enforcer authority. This documents distinct decision roles but does not prove administrative or execution-path independence in a deployment. Source: Phase II §3.15 and Phase VII Internal Jurisdiction/Commandant Law.",
+      "actionableTakeaway": "Verify the named control boundary in a defined JAZB deployment before asserting implementation or GAAM conformance.",
+      "governanceContext": {
+        "authoritySources": [
+          "Human-established JAZB Law",
+          "enterprise mandate"
+        ],
+        "governedActors": [
+          "Task AGENT",
+          "Enforcer AGENT",
+          "EDA"
+        ],
+        "governedRelationships": [
+          "parallel Commissioner/Commandant Law",
+          "independent enforcement"
+        ],
+        "governedEffects": [
+          "consequential Task execution",
+          "enforcement intervention"
+        ],
+        "enforcement": [
+          "Enforcer observation and intervention",
+          "receiving-side effect mediation"
+        ],
+        "revocation": [
+          "Task grant and Enforcer authority suspension"
+        ],
+        "assuranceMechanisms": [
+          "Law/version provenance",
+          "audit and execution evidence"
+        ]
+      },
+      "semantics": {
+        "establishes": [
+          "Specified separation of Task authorization and supervised enforcement"
+        ],
+        "doesNotEstablish": [
+          "Effective independence of an implemented Enforcer or unbypassable controls"
+        ]
+      },
+      "evidenceExpectation": [
+        "Separate principal assignments, policy control records, enforced path topology, independent negative test results"
+      ],
+      "candidateTests": [
+        "Attempt Task-to-Enforcer impersonation, policy mutation and direct resource bypass; independently observe and reject unauthorized effects."
+      ],
+      "knownLimitations": [
+        "Document-level assessment of user-provided JAZB v2.0 publications; no independently observed JAZB implementation.",
+        "Source locations are navigation aids, not redistribution of normative source text.",
+        "Readiness status does not amount to a GAAM conformance assessment."
+      ]
+    },
+    {
+      "id": "GAAM-JAZB-03",
+      "title": "Delegation, revocation and in-flight effects",
+      "status": "partial",
+      "gaamRequirements": [
+        "GAAM-DEL-001",
+        "GAAM-DEL-005",
+        "GAAM-DEL-010",
+        "GAAM-EVID-003"
+      ],
+      "observation": "JAZB specifies bounded delegation, revocation, standing Law versions and fail-closed lifecycle controls. Published specification alone does not demonstrate timely propagation into in-flight actions or descendant authorization across independently controlled systems. Source: Phase II delegated authority/lifecycle; Phase IV §2.7 and recovery; Phase VII delegation and revocation requirements.",
+      "actionableTakeaway": "Verify the named control boundary in a defined JAZB deployment before asserting implementation or GAAM conformance.",
+      "governanceContext": {
+        "authoritySources": [
+          "Human-established JAZB Law",
+          "enterprise mandate"
+        ],
+        "governedActors": [
+          "delegator",
+          "Task AGENT",
+          "receiving system"
+        ],
+        "governedRelationships": [
+          "delegation lineage",
+          "authority state transition"
+        ],
+        "governedEffects": [
+          "in-flight consequential write"
+        ],
+        "enforcement": [
+          "current authority validation"
+        ],
+        "revocation": [
+          "parent and descendant grant propagation"
+        ],
+        "assuranceMechanisms": [
+          "Law/version provenance",
+          "audit and execution evidence"
+        ]
+      },
+      "semantics": {
+        "establishes": [
+          "Normative intent for scoped and revocable authority"
+        ],
+        "doesNotEstablish": [
+          "Deployment-specific propagation latency, transaction cancellation or recovery semantics"
+        ]
+      },
+      "evidenceExpectation": [
+        "Delegation lineage, revocation time, active-version checks, resource-side execution receipt and clock assumptions"
+      ],
+      "candidateTests": [
+        "Revoke parent delegation between approval and resource commit; verify descendant rejection and an attributable receipt for every attempted effect."
+      ],
+      "knownLimitations": [
+        "Document-level assessment of user-provided JAZB v2.0 publications; no independently observed JAZB implementation.",
+        "Source locations are navigation aids, not redistribution of normative source text.",
+        "Readiness status does not amount to a GAAM conformance assessment."
+      ]
+    },
+    {
+      "id": "GAAM-JAZB-04",
+      "title": "Internal Customs transfer and jurisdiction distinctions",
+      "status": "covered",
+      "gaamRequirements": [
+        "GAAM-AUTH-002",
+        "GAAM-EFF-002",
+        "GAAM-RISK-001"
+      ],
+      "observation": "Version 2.0 explicitly registers internal data-domain Ports alongside external organizational Ports and requires source-to-destination transfer authority distinct from operational access authority. This is a documented jurisdictional separation, not a demonstration of complete route coverage. Source: Phase III §§1, Data Authority Map and internal Port boundaries.",
+      "actionableTakeaway": "Verify the named control boundary in a defined JAZB deployment before asserting implementation or GAAM conformance.",
+      "governanceContext": {
+        "authoritySources": [
+          "Human-established JAZB Law",
+          "enterprise mandate"
+        ],
+        "governedActors": [
+          "EDA",
+          "Port authority",
+          "Task AGENT"
+        ],
+        "governedRelationships": [
+          "domain-to-domain transfer",
+          "independent Customs jurisdiction"
+        ],
+        "governedEffects": [
+          "cross-domain data transfer"
+        ],
+        "enforcement": [
+          "registered Customs Port assessment"
+        ],
+        "revocation": [
+          "connection and transfer authority withdrawal"
+        ],
+        "assuranceMechanisms": [
+          "Law/version provenance",
+          "audit and execution evidence"
+        ]
+      },
+      "semantics": {
+        "establishes": [
+          "Separation of operational authorization from transfer jurisdiction"
+        ],
+        "doesNotEstablish": [
+          "Automatic coverage of all data routes or third-party recognition of internal rules"
+        ]
+      },
+      "evidenceExpectation": [
+        "EDA-approved Data Authority Map, Port registration, transfer policy, denied-route evidence"
+      ],
+      "candidateTests": [
+        "Try a restricted-to-general transfer through an unregistered or bypass route while business-access permission remains valid; require denial at the effective transfer boundary."
+      ],
+      "knownLimitations": [
+        "Document-level assessment of user-provided JAZB v2.0 publications; no independently observed JAZB implementation.",
+        "Source locations are navigation aids, not redistribution of normative source text.",
+        "Readiness status does not amount to a GAAM conformance assessment."
+      ]
+    },
+    {
+      "id": "GAAM-JAZB-05",
+      "title": "Verified effect evidence, assurance and remedy boundary",
+      "status": "partial",
+      "gaamRequirements": [
+        "GAAM-EVID-002",
+        "GAAM-EVID-004",
+        "GAAM-ASSUR-001",
+        "GAAM-ASSUR-002",
+        "GAAM-ACC-001",
+        "GAAM-ACC-003"
+      ],
+      "observation": "JAZB distinguishes approvals and intended change sets from verified receiving-side effects and partial-failure receipts. Such evidence enables reconstruction but does not itself prove authentic observation, independent assurance or affected-party access to challenge and remedy. Source: Phase IV evidence integrity; Phase VI evidence mappings; Phase VII consequential execution and receipts.",
+      "actionableTakeaway": "Verify the named control boundary in a defined JAZB deployment before asserting implementation or GAAM conformance.",
+      "governanceContext": {
+        "authoritySources": [
+          "Human-established JAZB Law",
+          "enterprise mandate"
+        ],
+        "governedActors": [
+          "Task AGENT",
+          "Enforcer AGENT",
+          "resource operator",
+          "affected party"
+        ],
+        "governedRelationships": [
+          "approval-to-effect lineage",
+          "accountability and contestation"
+        ],
+        "governedEffects": [
+          "authorized and unauthorized state transitions"
+        ],
+        "enforcement": [
+          "receiving-side precondition verification",
+          "partial-failure handling"
+        ],
+        "revocation": [
+          "stop/restrict future effects and preserve prior records"
+        ],
+        "assuranceMechanisms": [
+          "Law/version provenance",
+          "audit and execution evidence"
+        ]
+      },
+      "semantics": {
+        "establishes": [
+          "Proposed chain from authorization to observed effect and evidentiary reconstruction"
+        ],
+        "doesNotEstablish": [
+          "Truthfulness of all observations, independently validated operations, external appeal or remedy"
+        ]
+      },
+      "evidenceExpectation": [
+        "Approval hash, exact change-set manifest, state preconditions, independently observed resource outcome, audit record and review procedure"
+      ],
+      "candidateTests": [
+        "Substitute an approved change set, poison observed-effect telemetry, and induce a partial commit; verify independent contradiction detection and accountable review."
+      ],
+      "knownLimitations": [
+        "Document-level assessment of user-provided JAZB v2.0 publications; no independently observed JAZB implementation.",
+        "Source locations are navigation aids, not redistribution of normative source text.",
+        "Readiness status does not amount to a GAAM conformance assessment."
+      ]
+    }
+  ],
+  "limitations": [
+    "Assessed against seven supplied v2.0 phase publications and release notes, not a JAZB implementation.",
+    "The v2.0 release notes compare to v1.4; this mapping does not infer precise intermediate-version novelty.",
+    "No third-party implementation, controlled test execution, audit evidence or externally mandated legal authority was provided.",
+    "Coverage states concern documented governance semantics, not operational evidence levels.",
+    "Proprietary source language is not republished. Any detailed requirement-ID mapping requires permissions and verification against the authoritative text."
+  ]
+}
