@@ -7,11 +7,12 @@ import json
 import subprocess
 import sys
 
-from jsonschema import Draft202012Validator
+from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMAS = ROOT / "schemas"
 VECTORS = ROOT / "tests" / "behavioural"
+VECTORS_V2 = ROOT / "tests" / "behavioural-v2"
 
 
 def read_json(path):
@@ -84,17 +85,47 @@ def validate_package(args):
     return emit("validate-package", checks)
 
 
+def check_v2(vector):
+    """Validate v2 test inputs, not their anticipated verdicts."""
+    from datetime import datetime
+    data = vector.get("input", {})
+    if vector.get("vectorVersion") != 2 or not isinstance(data, dict):
+        return "invalid vector version or input"
+    if not isinstance(vector.get("expectedValid"), bool) or not isinstance(vector.get("expectedReason"), str):
+        return "v2 requires Boolean expectedValid and an expectedReason"
+    if not isinstance(data.get("requestedEffect"), str) or not data["requestedEffect"]:
+        return "requestedEffect missing"
+    try:
+        clock = datetime.fromisoformat(vector["evaluationTime"].replace("Z", "+00:00"))
+        if clock.tzinfo is None:
+            return "evaluationTime must be timezone-aware"
+    except (KeyError, TypeError, ValueError, AttributeError):
+        return "invalid evaluationTime"
+    authority = data.get("authority")
+    if not isinstance(authority, dict):
+        return "authority artifact required"
+    errors = list(Draft202012Validator(read_json(SCHEMAS / "authority.schema.json"), format_checker=FormatChecker()).iter_errors(authority))
+    return errors[0].message if errors else None
+
+
 def run_vectors(args):
-    vector_paths = sorted(VECTORS.glob(args.pattern))
+    vector_paths = sorted((VECTORS if args.suite == "v1" else VECTORS_V2).glob(args.pattern))
     checks = []
     for path in vector_paths:
         vector = read_json(path)
-        process = subprocess.run(args.adapter, input=json.dumps(vector["input"]), text=True, capture_output=True)
+        issue = check_v2(vector) if args.suite == "v2" else None
+        if issue:
+            checks.append({"id": vector.get("id", path.name), "status": "fail", "detail": "invalid v2 fixture: " + issue})
+            continue
+        payload = {"artifacts": vector["input"], "evaluationTime": vector["evaluationTime"]} if args.suite == "v2" else vector["input"]
+        process = subprocess.run(args.adapter, input=json.dumps(payload), text=True, capture_output=True)
         try:
             response = json.loads(process.stdout)
             actual = response.get("valid")
-            ok = process.returncode == 0 and isinstance(actual, bool) and actual == vector["expectedValid"]
-            detail = f"expected={vector['expectedValid']}; actual={actual}"
+            reason = response.get("reason")
+            ok = (process.returncode == 0 and isinstance(actual, bool) and actual == vector["expectedValid"]
+                  and (args.suite == "v1" or reason == vector["expectedReason"]))
+            detail = f"expected={vector['expectedValid']}; actual={actual}" + (f"; reason={reason}; expectedReason={vector['expectedReason']}" if args.suite == "v2" else "")
         except json.JSONDecodeError:
             ok = False
             detail = f"adapter returned non-JSON output: {process.stdout[:160]!r}; stderr={process.stderr[:160]!r}"
@@ -113,7 +144,8 @@ package_parser = commands.add_parser("validate-package", help="validate an exter
 package_parser.add_argument("package")
 package_parser.set_defaults(func=validate_package)
 vector_parser = commands.add_parser("run-vectors", help="run portable behavioural vectors through an adapter")
-vector_parser.add_argument("--pattern", default="*.json", help="test-vector glob relative to tests/behavioural")
+vector_parser.add_argument("--pattern", default="*.json", help="test-vector glob relative to the selected suite")
+vector_parser.add_argument("--suite", choices=["v1", "v2"], default="v1", help="v1 decision-table vectors (default), or v2 raw-artifact vectors")
 vector_parser.add_argument("adapter", nargs=argparse.REMAINDER, help="adapter command; reads input JSON on stdin and returns {valid:boolean}")
 vector_parser.set_defaults(func=run_vectors)
 args = parser.parse_args()

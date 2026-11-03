@@ -31,3 +31,13 @@ For a complete repository-owned starter and evidence-report workflow, continue w
 ## What PASS does not establish
 
 PASS means *the selected bundled vectors agree with the adapter under test*. It does not establish complete coverage of GAAM's 190 requirements, a deployed policy enforcement point, independent implementation (E2), cross-implementation interoperability (E3), certification, or production safety. Record uncovered requirements and negative/boundary cases rather than treating lack of failures as assurance.
+
+## Experimental v2 raw-artifact evaluation
+
+The default v1 vectors use abstract decision inputs. To exercise real v0.9.0 authority artifacts with an explicit evaluation clock and reason-code checks, run:
+
+```bash
+python scripts/gaam.py run-vectors --suite v2 python conformance-kit/reference_adapter.py
+```
+
+The v2 suite tests a deliberately narrow authority lifecycle boundary; it does not cover delegated-scope composition, multi-agent aggregation, cryptographic receipts or actual external authorization. The source adapter is maintained with the test suite and must not be cited as independent evidence.

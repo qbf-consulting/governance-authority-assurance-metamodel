@@ -1,0 +1,33 @@
+{
+  "id": "authority-raw-scope-rejected",
+  "vectorVersion": 2,
+  "description": "Informative raw authority decision evaluated at a fixed UTC time.",
+  "requirements": [
+    "GAAM-AUTH-001",
+    "GAAM-AUTH-003"
+  ],
+  "evaluationTime": "2026-11-03T14:00:00Z",
+  "input": {
+    "authority": {
+      "id": "authority-raw-v2",
+      "type": "authority",
+      "authoritySource": "issuer-register",
+      "issuer": "issuer-A",
+      "subject": "principal-A",
+      "permittedEffects": [
+        "read"
+      ],
+      "scope": {},
+      "status": "active",
+      "effectiveFrom": "2026-01-01T00:00:00Z",
+      "effectiveUntil": "2027-01-01T00:00:00Z",
+      "revocationAuthority": "issuer-A",
+      "accountableParties": [
+        "operator-A"
+      ]
+    },
+    "requestedEffect": "purchase"
+  },
+  "expectedValid": false,
+  "expectedReason": "EFFECT_OUT_OF_SCOPE"
+}

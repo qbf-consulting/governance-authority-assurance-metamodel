@@ -41,6 +41,9 @@ jobs:
       - name: Audit requirement-specific evidence references
         run: python scripts/audit_traceability.py > /tmp/gaam-traceability-audit.json
 
+      - name: Check raw-artifact v2 vector contract
+        run: python scripts/gaam.py run-vectors --suite v2 python conformance-kit/reference_adapter.py
+
       - name: Run Python regression tests
         run: python -m pytest tests -q
 
