@@ -1,12 +1,12 @@
 {
   "id": "urn:gaam:example:basic-governed-decision:governance-event",
   "type": "governance-event",
-  "artifact": "urn:gaam:example:delegated-agent-purchase:authority",
+  "artifact": "urn:gaam:example:basic-governed-decision:authority",
   "eventType": "suspended",
   "priorState": "active",
   "newState": "suspended",
   "authority": "urn:gaam:authority:governing",
   "evidence": [
-    "urn:gaam:evidence:delegated-agent-purchase:suspension"
+    "urn:gaam:evidence:basic-governed-decision:suspension"
   ]
 }
