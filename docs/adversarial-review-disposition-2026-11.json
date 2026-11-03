@@ -1,0 +1,185 @@
+{
+  "source": "Adversarial review 2026-11-03 against 1b2086b",
+  "normativeEffect": "none",
+  "statusDefinitions": {
+    "implemented": "Corrective control implemented; not independent conformance",
+    "partial": "Some improvement; material original risk remains",
+    "deferred": "Governed or external decision necessary"
+  },
+  "findings": [
+    {
+      "id": "F-01",
+      "state": "implemented",
+      "pr": 94,
+      "rationale": "CLI filter correctly parsed"
+    },
+    {
+      "id": "F-02",
+      "state": "implemented",
+      "pr": 94,
+      "rationale": "Excluded Pages links repaired"
+    },
+    {
+      "id": "F-03",
+      "state": "implemented",
+      "pr": 94,
+      "rationale": "Pytest suite and CI restored"
+    },
+    {
+      "id": "F-04",
+      "state": "implemented",
+      "pr": 99,
+      "rationale": "Generated reports are per-run and clean-tree gated"
+    },
+    {
+      "id": "F-05",
+      "state": "partial",
+      "pr": 98,
+      "rationale": "Frozen identifiers retained; historical host not restored"
+    },
+    {
+      "id": "F-06",
+      "state": "partial",
+      "pr": 97,
+      "rationale": "Experimental releaseVersion; legacy semantic claim unchanged"
+    },
+    {
+      "id": "F-07",
+      "state": "partial",
+      "pr": 96,
+      "rationale": "Five raw authority vectors only"
+    },
+    {
+      "id": "F-08",
+      "state": "partial",
+      "pr": 96,
+      "rationale": "V2 reason/always-deny guard; v1 verdict only"
+    },
+    {
+      "id": "F-09",
+      "state": "partial",
+      "pr": 95,
+      "rationale": "References audited; per-requirement tests still missing"
+    },
+    {
+      "id": "F-10",
+      "state": "partial",
+      "pr": 95,
+      "rationale": "Evidence scales distinguished, not normatively mapped"
+    },
+    {
+      "id": "F-11",
+      "state": "partial",
+      "pr": 97,
+      "rationale": "Checksum-only accurately labelled; source authenticity absent"
+    },
+    {
+      "id": "F-12",
+      "state": "partial",
+      "pr": 98,
+      "rationale": "Contextual requirement applicability unresolved"
+    },
+    {
+      "id": "F-13",
+      "state": "partial",
+      "pr": 98,
+      "rationale": "Seven/eight profile mismatch documented"
+    },
+    {
+      "id": "F-14",
+      "state": "deferred",
+      "pr": 98,
+      "rationale": "No binding replay requirement adopted"
+    },
+    {
+      "id": "F-15",
+      "state": "deferred",
+      "pr": 98,
+      "rationale": "Consequential-effect MUST floor awaits governance"
+    },
+    {
+      "id": "F-16",
+      "state": "partial",
+      "pr": 97,
+      "rationale": "Candidate receipt fields; proof verification not implemented"
+    },
+    {
+      "id": "F-17",
+      "state": "partial",
+      "pr": 97,
+      "rationale": "Freshness metadata; actual revocation timeliness unproved"
+    },
+    {
+      "id": "F-18",
+      "state": "partial",
+      "pr": 97,
+      "rationale": "Typed scope shape; no general comparator semantics"
+    },
+    {
+      "id": "F-19",
+      "state": "partial",
+      "pr": 97,
+      "rationale": "Originating-principal and acceptance fields are representational"
+    },
+    {
+      "id": "F-20",
+      "state": "partial",
+      "pr": 96,
+      "rationale": "Fixed evaluation clock; trusted time semantics incomplete"
+    },
+    {
+      "id": "F-21",
+      "state": "partial",
+      "pr": 98,
+      "rationale": "Receipt interpretation documented, not normatively corrected"
+    },
+    {
+      "id": "F-22",
+      "state": "partial",
+      "pr": 95,
+      "rationale": "Overlaps noted; distinct obligation analysis incomplete"
+    },
+    {
+      "id": "F-23",
+      "state": "partial",
+      "pr": 98,
+      "rationale": "Frozen section/ID drift documented only"
+    },
+    {
+      "id": "F-24",
+      "state": "partial",
+      "pr": 97,
+      "rationale": "Failure-policy metadata; critical availability semantics open"
+    },
+    {
+      "id": "F-25",
+      "state": "partial",
+      "pr": 98,
+      "rationale": "Starter route improved; full IA not established"
+    },
+    {
+      "id": "F-26",
+      "state": "partial",
+      "pr": 96,
+      "rationale": "Reference adapter exercised; independent adopter path unproved"
+    },
+    {
+      "id": "F-27",
+      "state": "partial",
+      "pr": 100,
+      "rationale": "Informative OAuth/MCP relationships only"
+    },
+    {
+      "id": "F-28",
+      "state": "partial",
+      "pr": 98,
+      "rationale": "Research boundary clarified; full pattern audit unproved"
+    },
+    {
+      "id": "F-29",
+      "state": "partial",
+      "pr": 100,
+      "rationale": "Reference configurations supplied; L2 cost not measured"
+    }
+  ]
+}
