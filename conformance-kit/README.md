@@ -33,3 +33,7 @@ Use `--pattern 'delegation-*.json'` before the adapter command to select a subse
 ## Boundary
 
 The manifest, adapter protocol and result schema are informative v0.9.2 implementation contracts. They do not add normative requirements, profiles, vocabularies or canonical schemas to the v0.9.2 normative Candidate baseline; the underlying semantic and canonical identifiers remain the frozen v0.9.0 set.
+
+## Version 2 experimental raw-artifact vectors
+
+Run `python scripts/gaam.py run-vectors --suite v2 python conformance-kit/reference_adapter.py`. V2 supplies a schema-valid authority artifact, explicit evaluation clock, requested effect and expected reason code. The runner validates v2 fixture shape before invoking the adapter and checks both verdict and reason. It deliberately does not pass the expected verdict, reason, or fixture ID to the adapter. Legacy v1 remains the default and uses its original payload contract. This reference adapter is not independent enforcement or conformance evidence. The v2 set initially exercises authority admission; delegation, aggregation, receipt proof and freshness semantics require separate contracts and cannot be considered covered by these fixtures.
