@@ -18,6 +18,10 @@ GAAM **v0.9.2 is the current normative Candidate release and implementation base
 
 The Markdown source is maintained in the repository and rendered by the existing Jekyll/Just the Docs publication pipeline. The rendered HTML is therefore a publication view of the same source, not a separately edited specification. Plain text is likewise a generated publication representation: it is derived from the same normative source and MUST NOT be edited independently.
 
+## Frozen-section citation clarification
+
+The retained v0.9.0 source has two headings numbered **18**: the first is *Implementation guidance* (before Annex A), and the second is *Feature-complete governance artifacts* (after Annex B). This is an editorial numbering defect in the frozen semantic publication, not an additional requirement or competing section authority. Until a governed version updates the source, citations must use the full heading and, where applicable, the stable `GAAM-...` requirement identifier rather than the ambiguous number alone. Annex B.1 is a separately named annex and should be cited by that identifier. The current v0.9.2 Candidate distribution preserves the original source bytes and historical references.
+
 ## Normative precedence
 
 For the v0.9.2 normative Candidate release, the retained v0.9.0 semantic/canonical artifact set has the following precedence:
