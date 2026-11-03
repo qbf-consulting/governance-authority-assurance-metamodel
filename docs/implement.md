@@ -17,5 +17,6 @@ Move from the model to executable behavior and governed artifacts.
 5. [Implementation Patterns](../examples/)
 6. [Portable Conformance Kit](../conformance-kit/README.md)
 7. [Clean-Room Implementation Exercise](clean-room-implementation.md)
+8. [Adoption Reference Configurations](adoption-reference-configurations.md)
 
 Implementation guidance and examples do not create new normative requirements.
