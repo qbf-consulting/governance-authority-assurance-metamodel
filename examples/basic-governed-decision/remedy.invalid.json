@@ -4,10 +4,10 @@
   "version": "0.9.0",
   "status": "remediated",
   "effectiveFrom": "2026-07-29T12:00:00Z",
-  "appeal": "urn:gaam:appeal:delegated-agent-purchase",
-  "originalDecision": "urn:gaam:decision:delegated-agent-purchase:001",
+  "appeal": "urn:gaam:appeal:basic-governed-decision",
+  "originalDecision": "urn:gaam:decision:basic-governed-decision:001",
   "remedyType": "correct",
-  "authority": "urn:gaam:review:delegated-agent-purchase",
+  "authority": "urn:gaam:review:basic-governed-decision",
   "completedAt": "2026-07-29T12:00:00Z",
   "evidence": []
 }
