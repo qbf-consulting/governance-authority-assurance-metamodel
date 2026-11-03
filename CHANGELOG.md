@@ -7,6 +7,24 @@ normative_status: "Release record"
 ---
 # Changelog
 
+## [0.9.3] - 2026-11-03
+
+### Fixed
+
+- Repair CLI vector filtering, pilot probes, pytest execution and excluded GitHub Pages links; enforce regression and publication checks.
+- Generate validation evidence and package artifacts on each checked-out commit instead of relying on stale committed PASS reports; enforce a clean CI tree.
+
+### Added
+
+- Requirement-level reference audit that distinguishes fixture names from substantive assurance; conservative review findings register covering all 29 adversarial findings.
+- Optional five-case v2 raw-authority evaluation with explicit UTC time, failure reasons and always-deny falsification; preserve v1 compatibility.
+- Informative, opt-in experimental schema fields and tests, historical ID resolver mapping, bounded adoption configurations and protocol reference boundaries.
+
+### Assurance limitations
+
+- Frozen v0.9.0 semantics and schema identifiers unchanged; experimental v0.10.0 representations are not normative.
+- Checksum-only packages do not establish authenticity. Independent conformance, complete scope/time semantics, cryptographic receipts and consequential-effect normative floor remain unresolved.
+
 ## [0.9.2] - 2026-09-22
 
 ### Added

@@ -8,6 +8,7 @@ parent: Project & Evolution
 # Releases
 
 
+- [v0.9.3 — Assurance Evidence and Publication Hardening](v0.9.3.md)
 - [v0.9.2 — Ecosystem Validation Evidence](v0.9.2.md)
 - [v0.9.1 — Implementation Enablement and Publication Assurance](v0.9.1.md)
 - [v0.9.0 — Candidate Specification](v0.9.0.md)

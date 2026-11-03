@@ -26,7 +26,7 @@ The six routes below are the recommended reader journeys. Legacy and supplementa
 
 | Attribute | Value |
 |---|---|
-| Current release | v0.9.2 |
+| Current release | v0.9.3 |
 | Status | Normative Candidate Specification |
 | Semantic/canonical baseline | v0.9.0 identifiers retained |
 | Repository validation | Automated structural, behavioural, conformance and publication checks |
