@@ -79,7 +79,7 @@ def validate_package(args):
             path = package_root / record.get("path", "")
             if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != record.get("sha256"):
                 mismatched.append(record.get("path"))
-        checks.append({"id": "package-integrity", "status": "fail" if mismatched else "pass", "detail": f"mismatched: {mismatched}" if mismatched else f"{len(checksum_data.get('files', []))} checksums verified"})
+        checks.append({"id": "package-integrity", "status": "fail" if mismatched else "pass", "detail": f"mismatched: {mismatched}" if mismatched else f"{len(checksum_data.get('files', []))} checksums verified; checksum-only (no source authenticity established)"})
     else:
         checks.append({"id": "package-integrity", "status": "fail", "detail": f"missing {checksum_path.name}"})
     return emit("validate-package", checks)

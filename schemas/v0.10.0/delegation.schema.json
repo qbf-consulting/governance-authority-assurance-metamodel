@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qbfconsulting.digital/governance-authority-assurance-metamodel/schemas/v0.10.0/delegation.schema.json",
+  "title": "Delegation",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "parentAuthority",
+    "delegator",
+    "delegate",
+    "delegatedScope",
+    "redelegation",
+    "status",
+    "effectiveFrom",
+    "propagation"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "proposed",
+        "issued",
+        "accepted",
+        "active",
+        "restricted",
+        "suspended",
+        "revoked",
+        "expired",
+        "superseded",
+        "terminated",
+        "archived",
+        "contested",
+        "remediated"
+      ]
+    },
+    "effectiveFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "effectiveUntil": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "parentAuthority": {
+      "type": "string",
+      "minLength": 1
+    },
+    "delegator": {
+      "type": "string",
+      "minLength": 1
+    },
+    "delegate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "delegatedScope": {
+      "type": "object"
+    },
+    "redelegation": {
+      "enum": [
+        "prohibited",
+        "permitted-with-attenuation",
+        "permitted-as-specified"
+      ]
+    },
+    "propagation": {
+      "oneOf": [
+        {
+          "enum": [
+            "immediate",
+            "bounded-delay",
+            "explicit-review"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "maxDelaySeconds"
+          ],
+          "properties": {
+            "mode": {
+              "const": "bounded-delay"
+            },
+            "maxDelaySeconds": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "originatingPrincipal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "acceptance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "by",
+        "at"
+      ],
+      "properties": {
+        "by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "structuredScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "effects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "purposes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "jurisdictions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "valueCeiling": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": 0
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "x-gaam-status": "informative-candidate-extension; not an approved v0.10.0 normative baseline"
+}
