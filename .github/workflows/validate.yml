@@ -52,6 +52,9 @@ jobs:
       - name: Validate clean-room implementation path
         run: python scripts/validate_clean_room.py
 
+      - name: Reproduce pilot onboarding and reject false gate success
+        run: python scripts/validate_pilot_readiness.py --run
+
       - name: Validate candidate pre-review dossiers
         run: python scripts/validate_pre_review.py
 

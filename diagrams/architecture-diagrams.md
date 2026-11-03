@@ -24,11 +24,19 @@ flowchart LR
   POL[Policy and Rules] --> TD[Trust Decision]
   E[Evidence and Status] --> TD
   A -->|requests effect| TD
-  TD -->|allow, deny, restrict, suspend, review| EF[Effect]
+  TD -->|permit with conditions| ENF[Enforcement Point]
+  TD -->|deny, defer, review or indeterminate| NO[Record disposition]
   TD --> DR[Decision Receipt]
-  EF --> AC[Accountability and Remedy]
+  ENF --> EX{Execution observed?}
+  EX -->|completed| EF[Observed Effect]
+  EX -->|failed, partial or unknown| REC[Reconcile and record outcome]
+  NO --> AC[Accountability and Remedy]
+  EF --> AC
+  REC --> AC
   DR --> AC
 ```
+
+A permit disposition does not imply execution, completion, or legality. A decision receipt and an observed effect are different evidence objects. Unknown or partially executed effects require explicit reconciliation rather than being counted as success.
 
 ## 2. Governance framework architecture
 
@@ -75,7 +83,8 @@ sequenceDiagram
   PDP->>PDP: Apply policy, risk and impact rules
   alt Allowed
     PDP->>Tool: Permit with constraints and obligations
-    Tool-->>PDP: Execution result
+    Tool-->>PDP: Execution result or indeterminate status
+    PDP->>PDP: Preserve decision receipt separately from execution evidence
   else Review required
     PDP-->>Requester: Route for accountable review
   else Denied
@@ -115,6 +124,8 @@ stateDiagram-v2
   Expired --> Archived
   Suspended --> Revoked
 ```
+
+The diagram above is illustrative of a governance-event lifecycle; it is **not** a universal state machine for every GAAM artifact. The more specific authority/delegation state model and its transition conditions are documented in the [Lifecycle Model](../docs/lifecycle-model.md).
 
 ## 7. Continuous assurance and runtime intervention
 
@@ -206,3 +217,21 @@ flowchart TD
 ```
 
 **Evidence produced:** selected-profile set, resolved requirement set, test results, evidence manifest and bounded conformance claim.
+
+## 11. Authority and assurance are independent gates
+
+```mermaid
+flowchart TD
+  REQ[Proposed governed effect] --> AUTH{Current bounded authority established?}
+  AUTH -->|No, stale or unknown| STOP[No permit; deny or route for review]
+  AUTH -->|Yes| EVD{Required evidence and assurance sufficient?}
+  EVD -->|No, stale, conflicted or unknown| STOP
+  EVD -->|Yes| POL{Applicable policy and constraints permit?}
+  POL -->|No or unresolved| STOP
+  POL -->|Yes| PEP[Issue bounded decision to enforcement point]
+  PEP --> OBS{Execution outcome observable?}
+  OBS -->|Yes| REC[Record observed effect and accountability]
+  OBS -->|No| UNC[Record partial or unknown state and reconcile]
+```
+
+This diagram is an **informative conjunction of distinct checks**, not a new decision algorithm or a substitute for the Candidate requirements. A syntactically valid credential, a registry listing, or a graph path cannot independently satisfy the authority gate; a valid delegation cannot independently satisfy evidence-freshness conditions. Denial, indeterminacy and review are distinct dispositions, even when all prevent uncontrolled execution.
