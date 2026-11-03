@@ -1,14 +1,14 @@
 {
-  "pattern": "delegated-agent-purchase",
+  "pattern": "basic-governed-decision",
   "evidence": [
     {
-      "id": "urn:gaam:evidence:delegated-agent-purchase:current",
+      "id": "urn:gaam:evidence:basic-governed-decision:current",
       "producer": "delegation registry",
       "purpose": "runtime decision",
       "freshness": "current"
     },
     {
-      "id": "urn:gaam:evidence:delegated-agent-purchase:downstream-correction",
+      "id": "urn:gaam:evidence:basic-governed-decision:downstream-correction",
       "producer": "principal review authority",
       "purpose": "remedy verification",
       "freshness": "current"
