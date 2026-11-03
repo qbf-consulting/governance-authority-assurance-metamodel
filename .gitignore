@@ -1,5 +1,7 @@
 .DS_Store
 
+__pycache__/
+.pytest_cache/
 node_modules/
 .venv/
 .gems/
@@ -8,3 +10,8 @@ dist/
 .jekyll-cache/
 .bundle/
 vendor/
+
+# Validation and package reports are generated from the checked-out source.
+/VALIDATION_REPORT.md
+/validation/validation-report.json
+/packages/gaam-v*/

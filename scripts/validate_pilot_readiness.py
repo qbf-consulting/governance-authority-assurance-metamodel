@@ -170,12 +170,9 @@ def run_existing_entry_path() -> int:
         ["python", "scripts/gaam.py", "validate-package", "conformance-kit/starter"],
         ["python", "scripts/gaam.py", "validate-claim",
          "conformance-kit/starter/artifacts/conformance-claim.json"],
-        ["python", "scripts/gaam.py", "run-vectors", "python",
-         "conformance-kit/reference_adapter.py", "--pattern", "delegation-attenuated-valid.json"],
-        ["python", "scripts/gaam.py", "run-vectors", "python",
-         "conformance-kit/reference_adapter.py", "--pattern", "delegation-amplification-rejected.json"],
-        ["python", "scripts/gaam.py", "run-vectors", "python",
-         "conformance-kit/reference_adapter.py", "--pattern", "delegation-parent-revoked-rejected.json"],
+        ["python", "scripts/gaam.py", "run-vectors", "--pattern", "delegation-attenuated-valid.json", "python", "conformance-kit/reference_adapter.py"],
+        ["python", "scripts/gaam.py", "run-vectors", "--pattern", "delegation-amplification-rejected.json", "python", "conformance-kit/reference_adapter.py"],
+        ["python", "scripts/gaam.py", "run-vectors", "--pattern", "delegation-parent-revoked-rejected.json", "python", "conformance-kit/reference_adapter.py"],
         ["python", "scripts/validate_clean_room.py"],
     ]
     for command in commands:

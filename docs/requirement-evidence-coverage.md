@@ -29,7 +29,9 @@ This is a **source-bound snapshot** of the existing [requirement-assurance trace
 
 A matrix entry is a *traceability link*. It does not establish that the linked test fully proves the associated normative requirement. A `reviewable` or `procedural` requirement may depend on documentary, organizational or externally audited evidence rather than a deterministic Boolean oracle. `Mixed` requirements can require both machine and human evidence. The source of truth for each requirement remains the normative specification; the matrix and validation outputs are derived views.
 
-**Current independent evidence claim:** E1 repository-authored validation only; no accepted independent implementation reports are reported by the [readiness dashboard](candidate-readiness.md). Do not interpret 321/321 (or any subsequent aggregate PASS count) as 190/190 behavioural conformance or E2/E3 evidence.
+**Current independent evidence claim:** E1 repository-authored validation only; no accepted independent implementation reports are reported by the [readiness dashboard](candidate-readiness.md). Do not interpret an aggregate PASS count as 190/190 behavioural conformance or E2/E3 evidence.
+
+See the [requirement-level evidence dispositions](requirement-evidence-dispositions.md) for the conservative machine-readable distinction between a test reference and an asserted verification.
 
 ## Reproduce
 
@@ -40,4 +42,4 @@ python scripts/report_coverage.py
 python scripts/report_coverage.py --check
 ```
 
-The check verifies that the published counts still match the underlying CSV. Before asserting substantive coverage, inspect the actual fixtures in [tests/behavioural](../tests/behavioural/), review the linked requirement, and evaluate positive, negative, boundary and external implementation evidence independently.
+The check verifies that the published counts still match the underlying CSV. Before asserting substantive coverage, inspect the actual fixtures in [tests/behavioural](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/tree/v0.9.3/tests/behavioural), review the linked requirement, and evaluate positive, negative, boundary and external implementation evidence independently.

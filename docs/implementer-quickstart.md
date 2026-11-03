@@ -15,12 +15,12 @@ From a fresh checkout, install dependencies and invoke the portable vector runne
 
 ```bash
 python -m pip install -r requirements-dev.txt
-python scripts/gaam.py run-vectors python conformance-kit/reference_adapter.py --pattern 'delegation-*.json'
+python scripts/gaam.py run-vectors --pattern 'delegation-*.json' python conformance-kit/reference_adapter.py
 ```
 
 Inspect the JSON output. A successful run returns a top-level `status: "pass"` and individual checks marked `pass`, meaning the adapter's judgments matched the bundled vector expectations. The positive `delegation-attenuated-valid` case expects acceptance; `delegation-amplification-rejected` and `delegation-parent-revoked-rejected` expect rejection. A rejected invalid delegation is a **successful negative test**, not a failed validator.
 
-Read the actual input and expected results in [delegation-attenuated-valid](../tests/behavioural/delegation-attenuated-valid.json), [delegation-amplification-rejected](../tests/behavioural/delegation-amplification-rejected.json) and [delegation-parent-revoked-rejected](../tests/behavioural/delegation-parent-revoked-rejected.json). Map these back to the applicable normative delegation requirements through the [requirement-assurance traceability matrix](../matrices/requirement-assurance-traceability.csv).
+Read the actual input and expected results in [delegation-attenuated-valid](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/v0.9.3/tests/behavioural/delegation-attenuated-valid.json), [delegation-amplification-rejected](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/v0.9.3/tests/behavioural/delegation-amplification-rejected.json) and [delegation-parent-revoked-rejected](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/v0.9.3/tests/behavioural/delegation-parent-revoked-rejected.json). Map these back to the applicable normative delegation requirements through the [requirement-assurance traceability matrix](../matrices/requirement-assurance-traceability.csv).
 
 ## Move beyond the reference adapter
 
@@ -31,3 +31,13 @@ For a complete repository-owned starter and evidence-report workflow, continue w
 ## What PASS does not establish
 
 PASS means *the selected bundled vectors agree with the adapter under test*. It does not establish complete coverage of GAAM's 190 requirements, a deployed policy enforcement point, independent implementation (E2), cross-implementation interoperability (E3), certification, or production safety. Record uncovered requirements and negative/boundary cases rather than treating lack of failures as assurance.
+
+## Experimental v2 raw-artifact evaluation
+
+The default v1 vectors use abstract decision inputs. To exercise real v0.9.0 authority artifacts with an explicit evaluation clock and reason-code checks, run:
+
+```bash
+python scripts/gaam.py run-vectors --suite v2 python conformance-kit/reference_adapter.py
+```
+
+The v2 suite tests a deliberately narrow authority lifecycle boundary; it does not cover delegated-scope composition, multi-agent aggregation, cryptographic receipts or actual external authorization. The source adapter is maintained with the test suite and must not be cited as independent evidence.

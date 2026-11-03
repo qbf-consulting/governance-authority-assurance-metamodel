@@ -7,7 +7,7 @@ SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "verify_canonical_pub
 def load_helpers():
     source = SCRIPT.read_text()
     prefix = source.split("parser = argparse.ArgumentParser", 1)[0]
-    namespace = {}
+    namespace = {"__file__": str(SCRIPT)}
     exec(compile(prefix, str(SCRIPT), "exec"), namespace)
     return namespace["publication_url_allowed"]
 

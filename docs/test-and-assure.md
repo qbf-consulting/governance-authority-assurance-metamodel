@@ -12,6 +12,7 @@ Use this route to answer four questions: **what is required, what is tested, wha
 
 - [Conformance and Assurance](../conformance/)
 - [Requirement Evidence Coverage](requirement-evidence-coverage.md)
+- [November 2026 Adversarial Review Disposition](adversarial-review-disposition-2026-11.md)
 - [Matrices](../matrices/)
 - [Threat and Misuse-Case Model](../threat-model/)
 - [Implementation Reports](../implementation-reports/)
