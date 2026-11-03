@@ -9,8 +9,8 @@ ROOT=Path(__file__).resolve().parents[1]
 report_path = ROOT / "VALIDATION_REPORT.md"
 if not report_path.exists():
  report_path.write_text(
-  "---\\ntitle: Current Validation Report\\npermalink: /validation-report/\\nnav_exclude: true\\n---\\n"
-  "# Current Validation Report\\n\\nValidation generation in progress; no result asserted.\\n".replace("\\n", "\n")
+  "---\ntitle: Current Validation Report\npermalink: /validation-report/\nnav_exclude: true\n---\n"
+  "# Current Validation Report\n\nValidation generation in progress; no result asserted.\n"
  )
 REL=json.loads((ROOT/'release.json').read_text())
 RELEASE_VERSION=REL['version']; NORMATIVE_VERSION=REL.get('normativeVersion',RELEASE_VERSION); VERSION=REL.get('semanticBaseline',NORMATIVE_VERSION); CANONICAL_VERSION=REL.get('canonicalArtifactVersion',VERSION); results=[]
