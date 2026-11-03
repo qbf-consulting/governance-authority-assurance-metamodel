@@ -25,7 +25,7 @@ The implementation must make authority, accountability, lifecycle state, enforce
 ## Pattern flow
 
 1. Resolve the governing source and accountable authority.
-2. verify current lifecycle and assurance state.
+2. Verify current lifecycle and assurance state.
 3. evaluate the requested effect against scope and constraints.
 4. enforce permit, deny or indeterminate outcomes.
 5. emit attributable evidence and preserve review linkage.
@@ -36,6 +36,7 @@ The implementation must make authority, accountability, lifecycle state, enforce
 - [Architecture and Trust Boundaries](architecture.md)
 - [Authority Model](authority-model.md)
 - [Lifecycle and Revocation](lifecycle-and-revocation.md)
+- [End-to-end walkthrough](walkthrough.md)
 - [Runtime Sequence](runtime-sequence.md)
 - [Evidence and Assurance Model](evidence-model.md)
 - [Notice, Review, and Remedy](notice-review-remedy.md)

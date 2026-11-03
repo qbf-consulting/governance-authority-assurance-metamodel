@@ -27,7 +27,8 @@ flowchart LR
 2. [Architecture overview](architecture-overview.md)
 3. [Lifecycle model](lifecycle-model.md)
 4. [Architecture diagrams](../diagrams/architecture-diagrams.md)
-5. [Implementation patterns](../examples/index.md)
+5. [Basic Governed Decision walkthrough](../examples/basic-governed-decision/walkthrough.md)
+6. [Implementation patterns](../examples/index.md)
 
 **Completion test:** you can identify the source of authority, delegation scope, enforcement and revocation mechanisms, evidence obligations and accountable assurance decision.
 
@@ -36,9 +37,10 @@ flowchart LR
 1. [Normative specification](../specification/index.md)
 2. [Foundation profile](../profiles/foundation-profile.md)
 3. [Implementation guide](implementation-guide.md)
-4. [Canonical schemas](../schemas/index.md)
-5. [Controlled vocabularies](../vocabularies/index.md)
-6. [Conformance and assurance](../conformance/index.md)
+4. [Basic Governed Decision walkthrough](../examples/basic-governed-decision/walkthrough.md)
+5. [Canonical schemas](../schemas/index.md)
+6. [Controlled vocabularies](../vocabularies/index.md)
+7. [Conformance and assurance](../conformance/index.md)
 
 **Completion test:** each implemented governance claim maps to a normative requirement, canonical structure, enforcement behaviour and testable evidence item.
 

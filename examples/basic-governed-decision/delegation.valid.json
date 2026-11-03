@@ -5,11 +5,11 @@
   "status": "active",
   "effectiveFrom": "2026-07-29T12:00:00Z",
   "effectiveUntil": "2027-07-29T12:00:00Z",
-  "parentAuthority": "urn:gaam:example:delegated-agent-purchase:authority",
+  "parentAuthority": "urn:gaam:example:basic-governed-decision:authority",
   "delegator": "urn:gaam:actor:principal",
-  "delegate": "urn:gaam:actor:delegated-agent-purchase",
+  "delegate": "urn:gaam:actor:basic-governed-decision",
   "delegatedScope": {
-    "pattern": "delegated-agent-purchase",
+    "pattern": "basic-governed-decision",
     "effects": [
       "execute-within-scope"
     ]

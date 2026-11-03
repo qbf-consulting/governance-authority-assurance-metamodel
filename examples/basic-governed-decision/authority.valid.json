@@ -5,9 +5,9 @@
   "status": "active",
   "effectiveFrom": "2026-07-29T12:00:00Z",
   "effectiveUntil": "2027-07-29T12:00:00Z",
-  "authoritySource": "urn:gaam:policy:delegated-agent-purchase",
+  "authoritySource": "urn:gaam:policy:basic-governed-decision",
   "issuer": "urn:gaam:authority:governing",
-  "subject": "urn:gaam:actor:delegated-agent-purchase",
+  "subject": "urn:gaam:actor:basic-governed-decision",
   "permittedEffects": [
     "evaluate",
     "execute-within-scope"

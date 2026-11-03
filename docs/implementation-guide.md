@@ -26,6 +26,10 @@ Before implementation, enumerate every applicable governance, authority, risk, a
 
 Canonical schemas are in [`/schemas`](../schemas/), vocabularies in [`/vocabularies`](../vocabularies/), profile manifests in [`/profiles/manifests`](../profiles/manifests/) and complete patterns in [`/examples`](../examples/).
 
+## Worked decision and its implementation boundary
+
+The [Basic Governed Decision walkthrough](../examples/basic-governed-decision/walkthrough.md) demonstrates the path from policy source and active authority to contextual decision, enforcement attempt, observed result, evidence, interruption and remedy. It identifies example JSON artifacts and deliberately distinguishes what they represent from what their validation can prove. Adapt it to your actual runtime and jurisdictional authority rather than treating the sample identifiers or Boolean reference adapter as deployed authorization.
+
 ## Operational rule
 
 A successful schema validation proves structural validity only. Runtime authority, evidence freshness, revocation propagation, accountable enforcement and remedy must also be tested.
@@ -45,7 +49,10 @@ flowchart TD
     G -- Yes --> H[Evaluate controls and decision rule]
     H --> I{Permitted?}
     I -- No --> X
-    I -- Yes --> J[Execute constrained effect]
-    J --> K[Emit decision receipt and governance event]
-    K --> L[Retain evidence and expose review or remedy path]
+    I -- Yes --> J[Issue bounded decision and decision receipt]
+    J --> K[Enforce permitted effect]
+    K --> M{Observed execution outcome?}
+    M -- Completed --> L[Record effect evidence and review or remedy path]
+    M -- Failed or uncertain --> N[Record failure or indeterminate outcome and reconcile]
+    N --> L
 ```

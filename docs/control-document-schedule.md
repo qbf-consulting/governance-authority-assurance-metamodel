@@ -4,7 +4,7 @@ permalink: /docs/control-document-schedule/
 parent: Implementation Guidance
 nav_order: 3
 artifact_type: "Authoritative document-control index"
-normative_status: "Candidate governance guidance"
+normative_status: "Informative"
 grand_parent: Implement
 ---
 # Governance Control Document Schedule
@@ -35,7 +35,7 @@ This schedule is the GAAM equivalent of a controlled-document register. It is de
 
 ## Required register fields
 
-Each entry in a governance package schedule **MUST** state:
+For a robust implementation of the controlling-artifact obligations in the Candidate Specification, a control-document schedule should record the following fields for each applicable entry. This list is informative implementation guidance and does not introduce ten additional normative GAAM requirements:
 
 1. a stable document or artifact identifier;
 2. the exact version and lifecycle state;
@@ -68,7 +68,7 @@ flowchart TD
 
 ## Precedence and conflict handling
 
-A package **MUST** define precedence before it becomes operative. A recommended order is:
+The Candidate Specification requires policy and artifact precedence to be established. Implementations should document that precedence before the package becomes operative; see GAAM-POL-001 and GAAM-POL-004. A recommended order is:
 
 1. binding law and externally imposed obligations;
 2. the primary governance instrument;

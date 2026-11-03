@@ -876,4 +876,10 @@ summary={'releaseVersion':RELEASE_VERSION,'normativeVersion':NORMATIVE_VERSION,'
 md=['---',f'title: GAAM v{RELEASE_VERSION} Validation Report','permalink: /validation-report/','nav_exclude: true','artifact_type: Validation evidence','normative_status: Repository generated','---',f'# GAAM v{RELEASE_VERSION} Validation Report','','{% include gaam-meta.html %}','',f'**Normative baseline:** v{NORMATIVE_VERSION}',f'**Semantic/canonical artifact baseline:** v{VERSION}',f'**Status:** {summary["status"].upper()}',f'**Checks:** {summary["checks"]}',f'**Passed:** {summary["passed"]}',f'**Failed:** {summary["failed"]}','','This report evidences repository publication, structural and included behavioural checks. It is not an independent L4 assessment.','','| ID | Kind | Status | Evidence |','|---|---|---|---|']
 md += [f'| `{r["id"]}` | {r["kind"]} | {r["status"].upper()} | {r["evidence"].replace("|","/")} |' for r in results]
 (ROOT/'VALIDATION_REPORT.md').write_text('\n'.join(md)+'\n')
-print(json.dumps({k:summary[k] for k in ['status','checks','passed','failed']},indent=2)); sys.exit(0 if summary['status']=='pass' else 1)
+print(json.dumps({k:summary[k] for k in ['status','checks','passed','failed']},indent=2))
+if summary['status'] != 'pass':
+ print('Failed checks (id, kind, evidence):')
+ for result in results:
+  if result['status']=='fail':
+   print(f"  {result['id']} [{result['kind']}]: {result['evidence']}")
+sys.exit(0 if summary['status']=='pass' else 1)
