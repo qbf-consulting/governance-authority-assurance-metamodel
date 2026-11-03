@@ -40,4 +40,4 @@ python scripts/report_coverage.py
 python scripts/report_coverage.py --check
 ```
 
-The check verifies that the published counts still match the underlying CSV. Before asserting substantive coverage, inspect the actual fixtures in [tests/behavioural](../tests/behavioural/), review the linked requirement, and evaluate positive, negative, boundary and external implementation evidence independently.
+The check verifies that the published counts still match the underlying CSV. Before asserting substantive coverage, inspect the actual fixtures in [tests/behavioural](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/v0.9.2/tests/behavioural/), review the linked requirement, and evaluate positive, negative, boundary and external implementation evidence independently.

@@ -28,7 +28,7 @@ The process must exit successfully. Diagnostic fields are permitted but ignored 
 python scripts/gaam.py run-vectors python conformance-kit/reference_adapter.py
 ```
 
-Use `--pattern 'delegation-*.json'` to select a subset. Results are emitted as machine-readable JSON and identify the tooling release, the current normative Candidate baseline and the retained semantic baseline.
+Use `--pattern 'delegation-*.json'` before the adapter command to select a subset; a misplaced filter is rejected rather than silently ignored. Results are emitted as machine-readable JSON and identify the tooling release, the current normative Candidate baseline and the retained semantic baseline.
 
 ## Boundary
 

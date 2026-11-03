@@ -15,12 +15,12 @@ From a fresh checkout, install dependencies and invoke the portable vector runne
 
 ```bash
 python -m pip install -r requirements-dev.txt
-python scripts/gaam.py run-vectors python conformance-kit/reference_adapter.py --pattern 'delegation-*.json'
+python scripts/gaam.py run-vectors --pattern 'delegation-*.json' python conformance-kit/reference_adapter.py
 ```
 
 Inspect the JSON output. A successful run returns a top-level `status: "pass"` and individual checks marked `pass`, meaning the adapter's judgments matched the bundled vector expectations. The positive `delegation-attenuated-valid` case expects acceptance; `delegation-amplification-rejected` and `delegation-parent-revoked-rejected` expect rejection. A rejected invalid delegation is a **successful negative test**, not a failed validator.
 
-Read the actual input and expected results in [delegation-attenuated-valid](../tests/behavioural/delegation-attenuated-valid.json), [delegation-amplification-rejected](../tests/behavioural/delegation-amplification-rejected.json) and [delegation-parent-revoked-rejected](../tests/behavioural/delegation-parent-revoked-rejected.json). Map these back to the applicable normative delegation requirements through the [requirement-assurance traceability matrix](../matrices/requirement-assurance-traceability.csv).
+Read the actual input and expected results in [delegation-attenuated-valid](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/v0.9.2/tests/behavioural/delegation-attenuated-valid.json), [delegation-amplification-rejected](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/v0.9.2/tests/behavioural/delegation-amplification-rejected.json) and [delegation-parent-revoked-rejected](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/v0.9.2/tests/behavioural/delegation-parent-revoked-rejected.json). Map these back to the applicable normative delegation requirements through the [requirement-assurance traceability matrix](../matrices/requirement-assurance-traceability.csv).
 
 ## Move beyond the reference adapter
 
