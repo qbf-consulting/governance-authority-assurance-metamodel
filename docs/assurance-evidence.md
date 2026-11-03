@@ -1,9 +1,15 @@
 ---
 layout: default
-title: Assurance Evidence
+nav_exclude: true
+search_exclude: true
+artifact_type: Historical portfolio maintenance note
+normative_status: Informative
+title: Historical Portfolio Assurance Retest
 ---
 
-# Assurance Evidence
+# Historical Portfolio Assurance Retest
+
+This is a retained portfolio-maintenance note for an earlier repository finding, not GAAM conformance guidance or current evidence of independent assurance. For present conformance and evidence semantics, use the [Conformance Guide](conformance-guide.md) and [Maturity and Evidence Dashboard](candidate-readiness.md).
 
 The governance metamodel uses repository-native controls as executable assurance evidence.
 
