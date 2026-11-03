@@ -14,3 +14,12 @@ updates:
     groups:
       ruby-dependencies:
         patterns: ["*"]
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      npm-development:
+        applies-to: version-updates
+        update-types: ["minor", "patch"]
+        patterns: ["*"]

@@ -77,6 +77,11 @@ jobs:
           artifact=$(python scripts/generate_plaintext_spec.py)
           python scripts/generate_plaintext_spec.py --check "$artifact"
 
+      - name: Enforce reviewed npm transitive security versions
+        run: |
+          python scripts/check_npm_security.py
+          npm ls mermaid dompurify katex
+
       - name: Validate Mermaid diagrams
         run: npm run validate:mermaid
 
