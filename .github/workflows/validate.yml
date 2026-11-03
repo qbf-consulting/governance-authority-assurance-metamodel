@@ -38,6 +38,12 @@ jobs:
       - name: Run GAAM validation
         run: python scripts/validate.py
 
+      - name: Confirm validation is a clean, reproducible source operation
+        run: |
+          git diff --exit-code
+          test -z "$(git ls-files --others --exclude-standard)"
+
+
       - name: Audit requirement-specific evidence references
         run: python scripts/audit_traceability.py > /tmp/gaam-traceability-audit.json
 

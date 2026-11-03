@@ -27,6 +27,14 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Python validation dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Generate current Pages validation report
+        run: |
+          python scripts/build_candidate_readiness.py
+          python scripts/validate.py
+
       - name: Verify generated normative requirement catalogue
         run: python scripts/generate_requirement_catalogue.py --check
 
