@@ -26,7 +26,7 @@ def check(package: dict, lock: dict):
         ("jsdom", 26, (26, 1, 0)),
     ):
         declared_version=package.get("devDependencies", {}).get(name, "")
-        match=re.fullmatch(r"\\^?(\\d+)\\.(\\d+)\\.(\\d+)", declared_version)
+        match=re.fullmatch(r"\^?(\d+)\.(\d+)\.(\d+)", declared_version)
         if not match:
             failures.append(f"{name}: unsupported version requirement {declared_version!r}")
             continue
