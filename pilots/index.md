@@ -2,7 +2,7 @@
 title: "Pilot GAAM"
 permalink: /pilots/
 parent: Implement
-nav_order: 2
+nav_order: 6
 has_children: true
 artifact_type: Informative pilot adoption guide
 normative_status: Informative
