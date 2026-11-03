@@ -82,6 +82,9 @@ jobs:
           python scripts/check_npm_security.py
           npm ls mermaid dompurify katex
 
+      - name: Test npm security version policy boundaries
+        run: python scripts/test_npm_security_policy.py
+
       - name: Validate Mermaid diagrams
         run: npm run validate:mermaid
 
