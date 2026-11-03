@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "1.0",
+  "status": "informative-pilot-operational",
+  "notNormative": true,
+  "notCertification": true,
+  "gateStatuses": [
+    "not-assessed",
+    "passed",
+    "blocked",
+    "failed"
+  ],
+  "gates": [
+    {
+      "id": "G0",
+      "title": "Pilot authorized",
+      "owner": "Institutional sponsor",
+      "entry": "Defined effect and affected-party scope",
+      "outcome": "Approved authority and pilot charter",
+      "evidence": [
+        "approval",
+        "charter"
+      ],
+      "stop": "Unestablished authority or unapproved scope"
+    },
+    {
+      "id": "G1",
+      "title": "Baseline and environment",
+      "owner": "Technical lead",
+      "entry": "G0 passed",
+      "outcome": "Published baseline and profiles reproducibly selected",
+      "evidence": [
+        "source-revision",
+        "environment",
+        "profile-closure"
+      ],
+      "stop": "Unknown baseline or failed prerequisites"
+    },
+    {
+      "id": "G2",
+      "title": "Governance modeled",
+      "owner": "Governance and implementation leads",
+      "entry": "G1 passed",
+      "outcome": "Scoped authority, policy, lifecycle, evidence and remedies represented",
+      "evidence": [
+        "governance-artifacts",
+        "requirement-mapping"
+      ],
+      "stop": "Ambiguous authority or missing required artifacts"
+    },
+    {
+      "id": "G3",
+      "title": "Runtime path",
+      "owner": "Implementation and enforcement lead",
+      "entry": "G2 passed",
+      "outcome": "Decision, enforcement and observed outcome independently recorded",
+      "evidence": [
+        "implementation-revision",
+        "runtime-results",
+        "effect-evidence"
+      ],
+      "stop": "No verified enforcement or effect evidence"
+    },
+    {
+      "id": "G4",
+      "title": "Adversarial and lifecycle cases",
+      "owner": "Test and security reviewer",
+      "entry": "G3 passed",
+      "outcome": "Positive, rejection, revocation, stale and partial/unknown cases assessed",
+      "evidence": [
+        "scenario-results",
+        "negative-cases",
+        "revocation-evidence"
+      ],
+      "stop": "Unsafe permit or untested material failure"
+    },
+    {
+      "id": "G5",
+      "title": "Evidence review",
+      "owner": "Evidence owner and reviewer",
+      "entry": "G0-G4 passed",
+      "outcome": "Attributable, reproducible evidence and limitations reviewed",
+      "evidence": [
+        "implementation-report",
+        "evidence-manifest",
+        "review-disposition"
+      ],
+      "stop": "Unverifiable provenance or misrepresented independence"
+    },
+    {
+      "id": "G6",
+      "title": "Pilot disposition",
+      "owner": "Sponsor and review authority",
+      "entry": "G5 assessed, or failed/blocked pilot explicitly dispositioned",
+      "outcome": "Accountable closeout or continuation decision",
+      "evidence": [
+        "closeout",
+        "residual-risks"
+      ],
+      "stop": "No accountable disposition"
+    }
+  ]
+}
