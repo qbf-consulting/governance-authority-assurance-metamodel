@@ -50,7 +50,7 @@ python scripts/gaam.py validate-package conformance-kit/starter
 python scripts/generate_plaintext_spec.py
 ```
 
-The validator produces `validation/validation-report.json`, `VALIDATION_REPORT.md`, requirement coverage, threat traceability and package checksums. A passing run means the repository satisfies its publication, structural and included behavioural checks. It does not create an L4 independent-assessment claim.
+The validator generates `validation/validation-report.json`, `VALIDATION_REPORT.md`, requirement coverage, threat traceability and package checksums from the current checkout. Generated report and package files are deliberately not tracked as static source: CI uploads run-specific evidence, while the Pages workflow regenerates the HTML report before publication. Reproduce a claim against the corresponding commit and workflow run, not an old checked-in PASS count. A passing run means the repository satisfies its publication, structural and included behavioural checks. It does not create an L4 independent-assessment claim.
 
 ## Release progression
 
