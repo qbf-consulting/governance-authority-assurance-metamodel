@@ -9,7 +9,7 @@ normative_status: Informative
 ---
 # Pilot GAAM
 
-This is a **zero-to-pilot route** for a team wishing to apply GAAM v0.9.2 to a bounded governance problem. It is based on the participant-oriented, evidence-gated approach used in the [UN/CEFACT GRID Pilots](https://grid.unece.org/docs/draft/Pilots/), adapted to GAAM's protocol-neutral metamodel rather than GRID's infrastructure-specific implementation. These pilot gates are **informative operational controls**, not GAAM normative requirements, conformance levels, certification, or an alternative specification.
+This is a **zero-to-pilot route** for a team wishing to apply GAAM v0.9.2 to a bounded governance problem. The participant journey organizes GAAM's existing profiles, implementation guidance, conformance tooling and evidence contracts into an evidence-gated sequence without prescribing a particular runtime architecture. These pilot gates are **informative operational controls**, not GAAM normative requirements, conformance levels, certification, or an alternative specification.
 
 A pilot tests a proposition: can an independently governed implementation identify the authority for a proposed effect, enforce a contextual decision, handle revoked or stale authority and missing evidence, and preserve reconstructable accountability? Completing a synthetic repository dry run establishes only that GAAM's **published onboarding and tool entry path** can be exercised. A real independent implementation must produce separate, attributable external evidence.
 
