@@ -18,11 +18,28 @@ def check(package: dict, lock: dict):
     if lock.get("lockfileVersion") != 3:
         failures.append("expected npm lockfile version 3")
     declared=package.get("overrides", {})
-    if package.get("devDependencies", {}).get("mermaid") != "11.16.1":
-        failures.append("Mermaid version changed; re-evaluate compatibility and guards")
-    if package.get("devDependencies", {}).get("jsdom") != "^26.1.0":
-        failures.append("jsdom version changed; re-evaluate compatibility and guards")
     installed=lock.get("packages",{})
+    # Version-update PRs may advance the tested major line, but moving to a
+    # different major requires explicit compatibility review outside this guard.
+    for name, supported_major, baseline in (
+        ("mermaid", 11, (11, 16, 1)),
+        ("jsdom", 26, (26, 1, 0)),
+    ):
+        declared_version=package.get("devDependencies", {}).get(name, "")
+        match=re.fullmatch(r"\^?(\d+)\.(\d+)\.(\d+)", declared_version)
+        if not match:
+            failures.append(f"{name}: unsupported version requirement {declared_version!r}")
+            continue
+        candidate=tuple(map(int,match.groups()))
+        if candidate[0]!=supported_major or candidate<baseline:
+            failures.append(f"{name}: version {declared_version} outside reviewed major/baseline")
+        actual=installed.get("node_modules/"+name, {}).get("version", "")
+        try:
+            actual_version=semver(actual)
+            if actual_version[0]!=supported_major or actual_version<baseline or actual_version<candidate:
+                failures.append(f"{name}: installed version {actual} outside reviewed major/baseline")
+        except ValueError as exc:
+            failures.append(f"{name}: installed version error: {exc}")
     for name,(minimum,target) in RULES.items():
         if declared.get(name)!=target:
             failures.append(f"{name}: expected reviewed override {target}")

@@ -18,6 +18,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    # Routine version updates stay on the currently tested major lines.
+    # Security updates are not excluded by this allow rule.
+    allow:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
     groups:
       npm-development:
         applies-to: version-updates
