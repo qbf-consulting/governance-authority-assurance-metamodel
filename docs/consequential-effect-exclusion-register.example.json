@@ -1,0 +1,16 @@
+{
+  "status": "informative-example",
+  "gaamSemanticBaseline": "0.9.0",
+  "scope": "illustrative effect-classification review only",
+  "entries": [
+    {
+      "effectClass": "disclosure of personally identifiable information",
+      "classifiedConsequential": false,
+      "rationale": "Example requiring explicit human review; not an approved exclusion.",
+      "accountableOwner": "example-framework-owner",
+      "independentReviewStatus": "pending",
+      "reviewEvidence": [],
+      "notes": "Do not infer acceptance or conformance from this template."
+    }
+  ]
+}

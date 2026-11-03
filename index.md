@@ -9,9 +9,9 @@ normative_status: "Candidate Specification"
 
 {% include gaam-meta.html %}
 
-GAAM defines protocol-neutral, executable governance semantics for **authority, delegation, evidence, assurance, trust decisions, effects, accountability and remedy** across distributed and agentic systems.
+GAAM defines protocol-neutral governance semantics for **authority, delegation, evidence, assurance, trust decisions, effects, accountability and remedy** across distributed and agentic systems. Its specification identifies the obligations that governed implementations must satisfy; a JSON Schema check alone cannot demonstrate that an authority decision was correct. The bundled portable tests provide reference evidence, not independent implementation assurance.
 
-The rendered site is organized around what readers need to do, rather than around repository directories.
+The six routes below are the recommended reader journeys. Legacy and supplementary entries may also appear in the site navigation; their presence does not change normative authority.
 
 | Route | Use it when you need to… |
 |---|---|
@@ -31,6 +31,10 @@ The rendered site is organized around what readers need to do, rather than aroun
 | Semantic/canonical baseline | v0.9.0 identifiers retained |
 | Repository validation | Automated structural, behavioural, conformance and publication checks |
 | Assurance boundary | Repository validation is not certification or independent assessment |
+
+### Minimal artifact set
+
+The checked-in [authority artifact](conformance-kit/starter/artifacts/authority.json), [decision receipt](conformance-kit/starter/artifacts/decision-receipt.json) and [conformance claim](conformance-kit/starter/artifacts/conformance-claim.json) form a source-bound starter package. They illustrate how authority, effect decisions and evidence claims fit together; none demonstrates a deployed authorization service or independently verified provenance. See the [five-minute quickstart](docs/implementer-quickstart.md) for the reproducible first test and the [conformance kit](conformance-kit/README.md) for the external adapter interface.
 
 ### Fastest practical path
 

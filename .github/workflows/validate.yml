@@ -47,6 +47,9 @@ jobs:
       - name: Check separately versioned schema compatibility
         run: python -m pytest tests/test_candidate_schema_extensions.py -q
 
+      - name: Audit legacy identifier to publication mapping
+        run: python scripts/audit_schema_resolution.py
+
       - name: Run Python regression tests
         run: python -m pytest tests -q
 
