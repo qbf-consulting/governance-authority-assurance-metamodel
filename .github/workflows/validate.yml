@@ -38,6 +38,12 @@ jobs:
       - name: Run GAAM validation
         run: python scripts/validate.py
 
+      - name: Run Python regression tests
+        run: python -m pytest tests -q
+
+      - name: Reject links into excluded Pages paths
+        run: python scripts/check_excluded_links.py
+
       - name: Pressure-test TSMM/TIS external conformance boundary
         run: |
           python scripts/validate_tsms_external_conformance.py

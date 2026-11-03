@@ -43,7 +43,7 @@ Use [Basic Governed Decision](../examples/basic-governed-decision/) to orient th
 **Owner:** tester and security/review owner. **Entry:** G3. **Actions:** test valid scope, amplification, revoked parent, stale/unavailable evidence, conflicting status, partial execution and recovery. **Evidence:** reproducible tests, expected versus observed results, revocation effective time and limitations. **Stop:** permissive fallback, unrecorded unknowns, missing negative cases or inability to interrupt.
 
 ```bash
-python scripts/gaam.py run-vectors python conformance-kit/reference_adapter.py --pattern 'delegation-*.json'
+python scripts/gaam.py run-vectors --pattern 'delegation-*.json' python conformance-kit/reference_adapter.py
 ```
 
 The reference adapter is repository-authored and only checks its abstract vector contract. Replace it with your own independent implementation for a genuine pilot. See [test and evidence guidance](test-and-evidence.md).

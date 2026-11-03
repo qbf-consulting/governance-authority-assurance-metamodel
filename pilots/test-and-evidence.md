@@ -47,7 +47,7 @@ For local evidence, use a content-addressed relative file path and SHA-256 diges
 python scripts/validate_pilot_readiness.py --run
 python scripts/validate_clean_room.py
 python scripts/gaam.py validate-package conformance-kit/starter
-python scripts/gaam.py run-vectors python conformance-kit/reference_adapter.py --pattern 'delegation-*.json'
+python scripts/gaam.py run-vectors --pattern 'delegation-*.json' python conformance-kit/reference_adapter.py
 ```
 
 The dry run is a **separate E1 source-bound exercise** from a participant's actual implementation. For external evidence use the [independent implementation intake](../implementation-reports/independent-implementation-intake.md); for cross-implementation evidence use the [cross-implementation protocol](../implementation-reports/cross-implementation-protocol.md). Missing external participants are an evidence gap, not a reason to change the definition of independence.

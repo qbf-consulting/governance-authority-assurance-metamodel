@@ -117,6 +117,9 @@ vector_parser.add_argument("--pattern", default="*.json", help="test-vector glob
 vector_parser.add_argument("adapter", nargs=argparse.REMAINDER, help="adapter command; reads input JSON on stdin and returns {valid:boolean}")
 vector_parser.set_defaults(func=run_vectors)
 args = parser.parse_args()
-if args.command == "run-vectors" and not args.adapter:
-    parser.error("run-vectors requires an adapter command")
+if args.command == "run-vectors":
+    if not args.adapter:
+        parser.error("run-vectors requires an adapter command")
+    if any(a == "--pattern" or a.startswith("--pattern=") for a in args.adapter):
+        parser.error("--pattern must precede the adapter command; after it, the flag is passed to the adapter and silently ignored")
 raise SystemExit(args.func(args))
