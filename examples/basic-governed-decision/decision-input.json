@@ -1,5 +1,5 @@
 {
-  "pattern": "delegated-agent-purchase",
+  "pattern": "basic-governed-decision",
   "purpose": "Illustrative decision input",
   "authorityState": "active",
   "policyState": "current",
