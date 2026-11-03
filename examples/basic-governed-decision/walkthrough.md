@@ -3,6 +3,7 @@ title: "Basic Governed Decision Walkthrough"
 permalink: /examples/basic-governed-decision/walkthrough/
 parent: "Basic Governed Decision"
 grand_parent: "Implementation Patterns"
+nav_exclude: true
 artifact_type: "Informative implementation walkthrough"
 normative_status: "Informative"
 ---
