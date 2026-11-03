@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qbfconsulting.digital/governance-authority-assurance-metamodel/experimental/v0.10.0/runtime-envelope.schema.json",
+  "title": "Runtime Envelope",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "actor",
+    "requestedEffect",
+    "authority",
+    "policy",
+    "evidence",
+    "decisionPoint"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requestedEffect": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "policy": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "assurance": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "decisionPoint": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evaluationTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "clockSkewToleranceSeconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "freshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "maxAgeSeconds",
+        "statusCheckedAt",
+        "source"
+      ],
+      "properties": {
+        "maxAgeSeconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "statusCheckedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "failurePolicy": {
+      "enum": [
+        "fail-closed",
+        "degrade",
+        "fail-open-with-compensation"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "x-gaam-status": "informative-candidate-extension; not an approved v0.10.0 normative baseline"
+}
