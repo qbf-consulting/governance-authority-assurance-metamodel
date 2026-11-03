@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MATRIX = ROOT / "matrices" / "requirement-assurance-traceability.csv"
 VECTORS = ROOT / "tests" / "behavioural"
 PLACEHOLDERS = {"claim-level-evidence"}
+PORTABLE_CHECKS = {"package-integrity"}  # CLI check, not a behavioural fixture
 
 
 def audit(rows, vector_ids):
@@ -21,7 +22,7 @@ def audit(rows, vector_ids):
         seen.add(rid)
         references = [x for x in row["test_ids"].split(";") if x]
         placeholders = [x for x in references if x in PLACEHOLDERS]
-        unresolved = [x for x in references if x not in vector_ids and x not in PLACEHOLDERS]
+        unresolved = [x for x in references if x not in vector_ids and x not in PLACEHOLDERS and x not in PORTABLE_CHECKS]
         # A vector reference is a mapping, not a requirement-level executable assertion.
         disposition = ("no-executable-reference" if not references else
                        "non-test-placeholder" if not set(references) - PLACEHOLDERS else
@@ -30,7 +31,7 @@ def audit(rows, vector_ids):
             "requirementId": rid,
             "testability": row["testability"],
             "evidenceDisposition": disposition,
-            "references": [x for x in references if x in vector_ids],
+            "references": [x for x in references if x in vector_ids or x in PORTABLE_CHECKS],
             "placeholders": placeholders,
             "unresolved": unresolved,
             "requirementSpecificallyVerified": False,
@@ -43,7 +44,7 @@ def audit(rows, vector_ids):
         "counts": dict(sorted(totals.items())),
         "requirements": results,
         "limitations": [
-            "Fixture links are family-level associations, not requirement-specific assertions.",
+            "Fixture and package-integrity links are associations, not requirement-specific assertions.",
             "Repository reference adapter results do not establish independent implementation assurance.",
             "Requirements that require human governance or operational evidence cannot be proven by schema validation."
         ],
