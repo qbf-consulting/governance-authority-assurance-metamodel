@@ -38,6 +38,9 @@ jobs:
       - name: Run GAAM validation
         run: python scripts/validate.py
 
+      - name: Audit requirement-specific evidence references
+        run: python scripts/audit_traceability.py > /tmp/gaam-traceability-audit.json
+
       - name: Run Python regression tests
         run: python -m pytest tests -q
 
