@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://qbfconsulting.digital/governance-authority-assurance-metamodel/schemas/v0.10.0/runtime-envelope.schema.json",
+  "$id": "https://qbfconsulting.digital/governance-authority-assurance-metamodel/experimental/v0.10.0/runtime-envelope.schema.json",
   "title": "Runtime Envelope",
   "type": "object",
   "required": [

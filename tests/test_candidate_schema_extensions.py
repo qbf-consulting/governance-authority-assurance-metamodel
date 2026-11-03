@@ -5,7 +5,7 @@ import pytest
 from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
-NEW = ROOT / "schemas" / "v0.10.0"
+NEW = ROOT / "experimental" / "v0.10.0"
 OLD = ROOT / "schemas"
 
 

@@ -4,7 +4,7 @@ artifact_type: "Experimental schema contract"
 normative_status: "Informative"
 nav_exclude: true
 ---
-# Proposed v0.10.0 schema extensions
+# Versioned Schema Extensions (Informative Candidate)
 
 These separately identified schemas are **informative candidate extensions**. The current GAAM candidate release remains v0.9.2 with the retained v0.9.0 semantic and schema baseline. Publishing these files does not revise its normative conformance requirements, profiles or canonical 0.9.0 identifiers. Existing clients must explicitly opt in to these additional fields.
 
