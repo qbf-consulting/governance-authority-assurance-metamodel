@@ -24,8 +24,9 @@ Run the [five-minute implementer quickstart](docs/implementer-quickstart.md) to 
 
 - [Normative specification](specification/governance-authority-assurance-metamodel.md)
 - [Specification publication and reading guide](docs/specification-publication.md) — source authority, generated formats and archival/plain-text publication
-- [Architecture overview](docs/architecture-overview.md)
+- [Architecture overview](docs/architecture-overview.md) — GAAM theory, governance-to-effect lifecycle and authority limits
 - [Implementation guide](docs/implementation-guide.md)
+- [Basic Governed Decision walkthrough](examples/basic-governed-decision/walkthrough.md) — concrete artifacts, negative path and enforcement boundary
 - [Conformance and assurance guide](docs/conformance-guide.md)
 - [Profiles](profiles/index.md)
 - [Schemas](schemas/index.md)
