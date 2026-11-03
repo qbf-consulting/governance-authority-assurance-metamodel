@@ -1,0 +1,10 @@
+{
+  "status": "informative-derived",
+  "semanticBaseline": "0.9.0",
+  "canonicalIdPrefix": "https://sankarshanmukhopadhyay.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/",
+  "publishedMirrorPrefix": "https://qbf-consulting.github.io/governance-authority-assurance-metamodel/v0.9.0/schemas/",
+  "normalization": "replace prefix only when catalog ID and file name match",
+  "authorityBoundary": "The frozen $id is a stable JSON Schema identifier, not an assertion that a URL is currently dereferenceable.",
+  "liveness": "not established by this local map; use network-gated canonical publication verification",
+  "authentication": "HTTP retrieval and mirror equality do not attest the authority of an issuer or decision receipt"
+}
