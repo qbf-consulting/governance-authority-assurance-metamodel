@@ -56,6 +56,9 @@ jobs:
       - name: Audit legacy identifier to publication mapping
         run: python scripts/audit_schema_resolution.py
 
+      - name: Check adversarial review disposition integrity
+        run: python scripts/check_review_dispositions.py
+
       - name: Run Python regression tests
         run: python -m pytest tests -q
 
