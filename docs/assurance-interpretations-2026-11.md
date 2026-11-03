@@ -6,7 +6,7 @@ nav_exclude: true
 ---
 # Assurance Interpretations and Unresolved Candidate Decisions
 
-This note accompanies the November 2026 GAAM adversarial review. It does **not** modify the frozen v0.9.0 normative text incorporated by candidate release v0.9.2. The specification, governed profiles, schemas and Candidate Stability Policy remain authoritative.
+This note accompanies the November 2026 GAAM adversarial review. It does **not** modify the frozen v0.9.0 normative text incorporated by candidate release v0.9.3. The specification, governed profiles, schemas and Candidate Stability Policy remain authoritative.
 
 ## Effect classification and conformance by omission
 
