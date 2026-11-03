@@ -78,6 +78,33 @@
           "outcome": "Trace threats through controls to tests"
         }
       ]
+    },
+    {
+      "id": "pilot-participant",
+      "audience": "Pilot sponsors, implementers and technical reviewers",
+      "goal": "Execute a bounded, evidence-gated GAAM pilot without undocumented maintainer assistance",
+      "steps": [
+        {
+          "file": "pilots/index.md",
+          "outcome": "Understand pilot scope and evidence boundary"
+        },
+        {
+          "file": "pilots/design.md",
+          "outcome": "Define architecture and accountable authority"
+        },
+        {
+          "file": "pilots/charter.md",
+          "outcome": "Identify approved objectives and evidence owners"
+        },
+        {
+          "file": "pilots/participant-guide.md",
+          "outcome": "Execute G0-G6 gates and obtain reproducible evidence"
+        },
+        {
+          "file": "pilots/test-and-evidence.md",
+          "outcome": "Inspect negative cases and closeout boundaries"
+        }
+      ]
     }
   ]
 }

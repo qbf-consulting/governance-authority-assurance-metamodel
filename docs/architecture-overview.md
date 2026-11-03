@@ -47,9 +47,15 @@ flowchart LR
   Ev[Evidence] --> R
   As[Assurance] --> R
   R --> TD[Trust Decision]
-  TD --> E[Effect]
+  TD -->|permit under conditions| ENF[Enforcement]
+  TD -->|deny, defer or review| DEC[Recorded non-permit outcome]
   TD --> DR[Decision Receipt]
+  ENF --> OBS{Observed execution result}
+  OBS -->|completed| E[Effect evidence]
+  OBS -->|failed or unknown| F[Failure or reconciliation evidence]
   E --> AC[Accountability and Remedy]
+  F --> AC
+  DEC --> AC
   DR --> AC
 ```
 
