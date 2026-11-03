@@ -12,7 +12,7 @@ nav_order: 2
 
 ## Terminology alignment
 
-GAAM aligns shared terminology with the **CTWG Main Glossary v1.4.1** where the CTWG definition is compatible with GAAM's scope. GAAM retains explicit local extensions where governance execution requires stronger treatment of authority, delegation, enforcement, revocation, evidence or remedy. The normative meaning of a term in GAAM is the definition on this page; the alignment crosswalk records whether that meaning is adopted, extended or GAAM-specific.
+GAAM aligns shared terminology with the **CTWG Main Glossary v1.4.1** where the CTWG definition is compatible with GAAM's scope. GAAM retains explicit local extensions where governance execution requires stronger treatment of authority, delegation, enforcement, revocation, evidence or remedy. The normative meaning of a term in GAAM is established by the Candidate Specification, including its definitions and requirements. This glossary is a reading aid that reproduces or explains those terms; it does not amend or override the frozen specification. The alignment crosswalk records whether a meaning is adopted, extended or GAAM-specific.
 
 See the [CTWG glossary alignment crosswalk](../mappings/ctwg-v1.4.1-glossary-alignment.md).
 
@@ -20,7 +20,7 @@ See the [CTWG glossary alignment crosswalk](../mappings/ctwg-v1.4.1-glossary-ali
 
 **Actor** — An entity that can act or execute actions. In GAAM, an actor may be a person, machine or software component; an organization participates through one or more authorized actors.
 
-**Agent** — An actor that executes an action on behalf of a principal. In GAAM, an agent may be software-based and may select or execute actions using instructions, goals, context, policy, evidence or observed state.
+**Agent** — A software actor capable of selecting or executing actions based on instructions, goals, context, policy, evidence or observed state. An agent's principal, delegated authority and accountable human or organisational chain are distinct governance questions.
 
 **Assertion** — A claim made by an identified actor or artifact.
 
@@ -28,7 +28,7 @@ See the [CTWG glossary alignment crosswalk](../mappings/ctwg-v1.4.1-glossary-ali
 
 **Authority** — A recognised and bounded ability to permit, perform, approve, prohibit, delegate or constrain an effect.
 
-**Capability** — The ability or permission for an actor or agent to perform a specific action on behalf of a party within a defined scope and subject to applicable constraints.
+**Capability** — A technical or operational ability to perform an action or produce an effect. Capability alone does not confer permission or authority.
 
 **Constraint** — A limitation on how, when, where or under what conditions an action may occur.
 
