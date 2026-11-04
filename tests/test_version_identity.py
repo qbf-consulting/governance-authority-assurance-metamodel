@@ -10,7 +10,7 @@ from version_identity import check_repository,check_identity
 def fixture():
     release=json.loads((ROOT/"release.json").read_text())
     source=(ROOT/release["normativeSpecification"]).read_text()
-    index=(ROOT/"specification/index.md").read_text()
+    index=(ROOT/"docs/current-specification.md").read_text()
     status=yaml.safe_load((ROOT/"PROJECT-STATUS.yaml").read_text())
     return release,source,index,status,(ROOT/"VERSION").read_text().strip()
 

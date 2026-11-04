@@ -12,7 +12,7 @@ GAAM specifies how digital and agentic systems represent and enforce **authority
 
 **GAAM v0.9.5 is the current Candidate distribution/test-suite release; the authoritative normative specification edition remains v0.9.0.** No v0.9.5 normative-text edition exists. Legacy `release.json.normativeVersion` names the current Candidate **release**, not the edition printed on the normative specification. The v0.9.0 semantic text, profiles, requirements and canonical schema identifiers are retained. This release hardens vector tooling, reproducible validation, evidence interpretation and adoption documentation; separately versioned v0.10.0 schema extensions remain **experimental and informative**, not normative. Candidate status describes maturity: it does not make the current requirements non-normative, and it does not constitute certification or independent interoperability.
 
-Read the [stable normative specification index](specification/) and [version identity guide](docs/specification-publication.md) for the authoritative edition, distribution and citation boundaries.
+Read the [current normative edition and distribution pointer](docs/current-specification.md) and [version identity guide](docs/specification-publication.md) for the authoritative edition, distribution and citation boundaries.
 
 Repository-owned maturity, lifecycle, authority boundaries, validation commands and known limitations are declared in [`PROJECT-STATUS.yaml`](PROJECT-STATUS.yaml). This declaration is the status source consumed by portfolio governance and does not expand GAAM's normative scope.
 

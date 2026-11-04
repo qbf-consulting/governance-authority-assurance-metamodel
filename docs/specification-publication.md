@@ -14,7 +14,7 @@ This guide distinguishes the current Candidate **distribution release v0.9.5** f
 
 ## Canonical reading surface
 
-GAAM **v0.9.5 is the current Candidate distribution and implementation-tooling release**. The [Governance, Authority and Assurance Metamodel v0.9.0](../specification/governance-authority-assurance-metamodel.md) remains the current normative **specification edition**, incorporated unchanged. The stable [current specification index](../specification/) identifies that edition and the historical `/specification/gaam-v0.9.0/` permalink remains stable.
+GAAM **v0.9.5 is the current Candidate distribution and implementation-tooling release**. The [Governance, Authority and Assurance Metamodel v0.9.0](../specification/governance-authority-assurance-metamodel.md) remains the current normative **specification edition**, incorporated unchanged. The [current edition and distribution pointer](current-specification.md) identifies that edition and the historical `/specification/gaam-v0.9.0/` permalink remains stable; the frozen `/specification/` index is retained.
 
 The Markdown source is maintained in the repository and rendered by the existing Jekyll/Just the Docs publication pipeline. The rendered HTML is therefore a publication view of the same source, not a separately edited specification. Plain text is likewise a generated publication representation: it is derived from the same normative source and MUST NOT be edited independently.
 

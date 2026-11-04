@@ -26,7 +26,7 @@ def check_identity(release, specification, current_index, status, version):
         problems.append("current index edition mismatch")
     if f"**Current Candidate distribution and implementation kit:** v{distribution}" not in current_index:
         problems.append("current index distribution mismatch")
-    if "permalink: /specification/" not in current_index:
+    if "permalink: /specification/current/" not in current_index:
         problems.append("stable current index permalink missing")
     project=status.get("project",{})
     if str(project.get("specification_edition"))!=edition:
@@ -44,7 +44,7 @@ def check_repository(root):
     import yaml
     release=json.loads((root/"release.json").read_text(encoding="utf-8"))
     spec=(root/release["normativeSpecification"]).read_text(encoding="utf-8")
-    index=(root/"specification/index.md").read_text(encoding="utf-8")
+    index=(root/"docs/current-specification.md").read_text(encoding="utf-8")
     status=yaml.safe_load((root/"PROJECT-STATUS.yaml").read_text(encoding="utf-8"))
     version=(root/"VERSION").read_text(encoding="utf-8").strip()
     return check_identity(release,spec,index,status,version)
