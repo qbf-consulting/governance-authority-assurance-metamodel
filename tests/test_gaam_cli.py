@@ -104,3 +104,43 @@ def test_package_rejects_checksum_manifest_escape(tmp_path):
     code, report = _validate_package(package)
     assert code != 0
     assert next(x for x in report["checks"] if x["id"] == "package-integrity")["status"] == "fail"
+
+
+def test_adapter_nonobject_json_is_a_machine_readable_failure():
+    result = run(GAAM + ["--pattern", "delegation-attenuated-valid.json",
+                         sys.executable, "-c", 'print("[]")'])
+    report = json.loads(result.stdout)
+    assert result.returncode != 0 and report["status"] == "fail"
+    assert "must be a JSON object" in report["checks"][0]["detail"]
+
+
+def test_adapter_missing_executable_is_a_machine_readable_failure():
+    result = run(GAAM + ["--pattern", "delegation-attenuated-valid.json",
+                         "gaam-nonexistent-adapter-102"])
+    report = json.loads(result.stdout)
+    assert result.returncode != 0 and report["status"] == "fail"
+    assert "could not start" in report["checks"][0]["detail"]
+
+
+def test_adapter_timeout_is_bounded_and_reported():
+    result = run(GAAM + ["--pattern", "delegation-attenuated-valid.json",
+                         "--timeout", "0.05",
+                         sys.executable, "-c", "import time; time.sleep(2)"])
+    report = json.loads(result.stdout)
+    assert result.returncode != 0 and report["status"] == "fail"
+    assert "timed out" in report["checks"][0]["detail"]
+
+
+def test_adapter_nonzero_exit_preserves_diagnostic():
+    result = run(GAAM + ["--pattern", "delegation-attenuated-valid.json",
+                         sys.executable, "-c",
+                         'import sys; print(\'{"valid": true}\'); print("adapter failed", file=sys.stderr); sys.exit(3)'])
+    report = json.loads(result.stdout)
+    assert result.returncode != 0 and report["status"] == "fail"
+    assert "adapter exit=3" in report["checks"][0]["detail"]
+
+
+def test_invalid_timeout_is_rejected():
+    result = run(GAAM + ["--timeout", "0"] + ADAPTER)
+    assert result.returncode != 0
+    assert "--timeout must be greater than 0" in result.stderr
