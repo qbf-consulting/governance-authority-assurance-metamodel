@@ -52,6 +52,12 @@ Run the listed commands from a clean checkout and retain `git rev-parse HEAD` an
 
 **Non-claim:** These are two separate repository-authored adapter exercises, **not a composed delegated-agent authorization implementation**. Typed delegated-scope comparisons, authenticated originating principals, live revocation freshness, missing/conflicting external evidence, receipt authenticity, replay and actual effect execution have not been proven. A successful exercise remains synthetic, self-assessed repository evidence, not independent E2/E3 conformance. Vector `requirements` references are not independent requirement-specific tests.
 
+## Integrity and requirement-evidence correspondence
+
+The existing clean-room report validator rejects passing results without cited evidence, results outside the report's declared requirement scope, declared evaluated requirements without corresponding results, duplicate result/evidence identifiers, and citations to evidence that does not declare support for the same requirement. It verifies that the report references the manifest actually checked and that each evidence byte stream remains inside the repository (including symlink containment).
+
+This is **synthetic record and byte-integrity consistency**, not evidence of authenticated authority, issuer authenticity, independent assessment, runtime effect enforcement, or completeness of Foundation Profile conformance. An evidence record's `supports` annotation remains a claim requiring substantive review; missing, stale, contradictory or externally unverified evidence cannot be promoted to authorization PASS.
+
 ## Evidence produced
 
 - `implementation-reports/fixtures/clean-room-implementation-report.json`
