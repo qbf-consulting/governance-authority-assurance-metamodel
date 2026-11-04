@@ -2,6 +2,7 @@
 from pathlib import Path
 import json,re,csv,hashlib,sys,urllib.parse,yaml,subprocess
 from jsonschema import Draft202012Validator, FormatChecker
+from version_identity import check_repository
 ROOT=Path(__file__).resolve().parents[1]
 # The current report is generated at the end of this run. Seed only its
 # discoverable publication path for early documentation/status link checks.
@@ -33,6 +34,8 @@ spec=(ROOT/REL['normativeSpecification']).read_text()
 add('PUB-003-specification-identity',f'**Version:** {VERSION}' in spec and '**Status:** Candidate Specification' in spec,f'v{NORMATIVE_VERSION} normative Candidate incorporates v{VERSION} normative text unchanged','publication')
 stable_identity=(REL.get('candidateBaseline')==NORMATIVE_VERSION==RELEASE_VERSION and REL.get('semanticBaseline')==VERSION and CANONICAL_VERSION==VERSION and REL.get('normativeChange') is False and f'/v{CANONICAL_VERSION}/schemas/' in REL['schemaBase'])
 add('PUB-004-maintenance-boundary',stable_identity,f'v{NORMATIVE_VERSION} is current normative Candidate baseline; v{VERSION} semantic and canonical identifiers are retained','publication')
+edition_errors=check_repository(ROOT)
+add('PUB-005-specification-edition',not edition_errors,'candidate release, normative edition, status and canonical identifiers agree' if not edition_errors else '; '.join(edition_errors),'publication')
 # Publication hygiene: repository source files, published landing pages and sidebar entries
 
 def front_matter(path):

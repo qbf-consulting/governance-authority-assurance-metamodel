@@ -1,7 +1,7 @@
 # Governance, Authority and Assurance Metamodel
 
-[![Version](https://img.shields.io/badge/version-0.9.4-blue.svg)](VERSION)
-[![Status](https://img.shields.io/badge/status-normative%20candidate-purple.svg)](releases/v0.9.4.md)
+[![Version](https://img.shields.io/badge/version-0.9.5-blue.svg)](VERSION)
+[![Status](https://img.shields.io/badge/status-normative%20candidate-purple.svg)](releases/v0.9.5.md)
 [![Validation](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/actions/workflows/validate.yml/badge.svg)](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/actions/workflows/validate.yml)
 
 GAAM specifies how digital and agentic systems represent and enforce **authority, delegation, revocation, evidence, assurance, trust decisions, effects, accountability, appeal and remedy**. It treats governance as an executable system property rather than a document-only control layer.
@@ -10,7 +10,9 @@ GAAM specifies how digital and agentic systems represent and enforce **authority
 **Project stewardship:** QBF Consulting LLP  
 **Canonical repository:** https://github.com/qbf-consulting/governance-authority-assurance-metamodel
 
-Version **0.9.4** is the current **normative Candidate maintenance release and implementation baseline**. It incorporates v0.9.0 normative semantics unchanged and preserves frozen requirements, profiles and schema identifiers. This release hardens vector tooling, reproducible validation, evidence interpretation and adoption documentation; separately versioned v0.10.0 schema extensions remain **experimental and informative**, not normative. Candidate status describes maturity: it does not make the current requirements non-normative, and it does not constitute certification or independent interoperability.
+**GAAM v0.9.5 is the current Candidate distribution/test-suite release; the authoritative normative specification edition remains v0.9.0.** No v0.9.5 normative-text edition exists. Legacy `release.json.normativeVersion` names the current Candidate **release**, not the edition printed on the normative specification. The v0.9.0 semantic text, profiles, requirements and canonical schema identifiers are retained. This release hardens vector tooling, reproducible validation, evidence interpretation and adoption documentation; separately versioned v0.10.0 schema extensions remain **experimental and informative**, not normative. Candidate status describes maturity: it does not make the current requirements non-normative, and it does not constitute certification or independent interoperability.
+
+Read the [stable normative specification index](specification/) and [version identity guide](docs/specification-publication.md) for the authoritative edition, distribution and citation boundaries.
 
 Repository-owned maturity, lifecycle, authority boundaries, validation commands and known limitations are declared in [`PROJECT-STATUS.yaml`](PROJECT-STATUS.yaml). This declaration is the status source consumed by portfolio governance and does not expand GAAM's normative scope.
 
@@ -38,7 +40,7 @@ Run the [five-minute implementer quickstart](docs/implementer-quickstart.md) to 
 - [Implementation reports](implementation-reports/README.md) — human and machine-readable evidence workflow
 - [Portable conformance kit](conformance-kit/README.md) — external validator, adapter protocol and starter package
 - [Migration from v0.5.0](docs/migration-v0.5.0-to-v0.9.0.md)
-- [v0.9.4 release notes](releases/v0.9.4.md)
+- [v0.9.5 release notes](releases/v0.9.5.md)
 - [Citation metadata](CITATION.cff)
 
 ## Validate
@@ -61,8 +63,8 @@ The validator generates `validation/validation-report.json`, `VALIDATION_REPORT.
 | v0.9.0 | Original Candidate semantic and canonical-artifact baseline |
 | v0.9.1 | Candidate implementation-enablement maintenance release; v0.9.0 semantics retained |
 | v0.9.2 | Ecosystem validation evidence, preserving v0.9.0 semantics |
-| **v0.9.4** | **Current Candidate maintenance and assurance-hardening release; v0.9.0 semantic/canonical identifiers retained** |
-| v0.9.4 | Candidate adopter-integrity and gateway-evidence maintenance release; v0.9.0 semantics retained |
+| **v0.9.5** | **Current Candidate maintenance and assurance-hardening release; v0.9.0 semantic/canonical identifiers retained** |
+| v0.9.5 | Candidate adopter-integrity and gateway-evidence maintenance release; v0.9.0 semantics retained |
 | v1.0.0 | Stable Initial Release, subject to candidate exit criteria |
 
 ## Source relationship
@@ -75,4 +77,4 @@ See [LICENSE](LICENSE), [NOTICE](NOTICE.md) and [ATTRIBUTIONS](ATTRIBUTIONS.md).
 
 ### Evidence-gated evolution
 
-Future-evolution research remains outside v0.9.4 conformance. Any later research-to-normative transition is governed through machine-readable promotion candidates, fourteen evidence gates and separately attributable promotion decisions under `governance/promotion/`.
+Future-evolution research remains outside v0.9.5 conformance. Any later research-to-normative transition is governed through machine-readable promotion candidates, fourteen evidence gates and separately attributable promotion decisions under `governance/promotion/`.

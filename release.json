@@ -1,9 +1,9 @@
 {
   "specification": "Governance, Authority and Assurance Metamodel",
   "shortName": "GAAM",
-  "version": "0.9.4",
-  "normativeVersion": "0.9.4",
-  "candidateBaseline": "0.9.4",
+  "version": "0.9.5",
+  "normativeVersion": "0.9.5",
+  "candidateBaseline": "0.9.5",
   "status": "candidate",
   "statusLabel": "Candidate Specification",
   "releaseDate": "2026-11-04",
@@ -20,5 +20,6 @@
     "https://qbfconsulting.digital/governance-authority-assurance-metamodel/v0.9.0/schemas/"
   ],
   "semanticBaseline": "0.9.0",
-  "canonicalArtifactVersion": "0.9.0"
+  "canonicalArtifactVersion": "0.9.0",
+  "specificationEdition": "0.9.0"
 }
