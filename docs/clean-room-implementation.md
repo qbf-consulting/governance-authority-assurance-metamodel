@@ -89,6 +89,9 @@ The exercise must fail or produce a follow-up defect if any required step depend
 
 ## External implementation hand-off
 
+For the consequential delegated-agent gateway scenario, use the [external independently authored evaluator hand-off](../examples/delegated-agent-purchase/adopter-gateway-exercise.md#external-independently-authored-evaluator-hand-off). Its source revision is later than the v0.9.3 release tag; preserve both identifiers. It specifies the ten evaluation elements, required negative cases, evidence worksheet and non-substitution boundaries without asserting independent acceptance.
+
+
 An actual external implementer should replace the synthetic starter implementation with its own code and evidence, expand `requirementsEvaluated` to the requirements actually assessed, disclose assessor relationships, and follow the lifecycle in [Implementation Reports](../implementation-reports/). Only a non-synthetic report that reaches governed `accepted` state can contribute to candidate readiness; independent implementation additionally requires an independent assessor and disclosed relationships.
 
 The clean-room exercise is therefore intentionally useful but non-authoritative: it reduces adoption friction without manufacturing the external evidence GAAM still lacks.
