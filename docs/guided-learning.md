@@ -67,6 +67,18 @@ The [Delegated Agent Purchasing gateway exercise](../examples/delegated-agent-pu
 
 **Limits of this reader exercise:** these paths can be followed using public repository files, but no independent first-time reader study has been performed. External actor/source verification, policy authority, multi-source conflicts, operational enforcement and durable attributable evidence remain outside the demonstration. Report a missing or ambiguous normative expression as a finding under GAAM change control; do not promote the scenario's informative OAuth/MCP references or experimental schemas into mandatory rules.
 
+## Bounded reader-path audit, not an external usability study
+
+The repository-controlled review traverses three published routes: `README.md` → `docs/start-here.md` → `docs/guided-learning.md` and the role-specific links. The [ten-element gateway disposition](../examples/delegated-agent-purchase/adopter-gateway-exercise.md#normative-source-and-evidence-disposition-issue-102) is the shared decision boundary.
+
+| Reader | Published answer that can be checked | Residual limitation |
+| --- | --- | --- |
+| Governance designer | The [architecture overview](architecture-overview.md) separates originating institutional authority, grants/delegation, contextual decisions, actual enforcement and remedy. The gateway maps principal, agent, effects and accountabilities to requirements. | Actual source acceptance, legal competence, policy precedence and remedy operation require external facts; a reader study has not been conducted. |
+| Implementer | [Quickstart](implementer-quickstart.md), [starter](../conformance-kit/README.md), [canonical schemas](../schemas/index.md) and gateway CLI provide a reproducible E1 decision with a bounded negative matrix. | Synthetic input labels are not authenticated, and the local scope comparator is informative. The E1 dossier is not an independent implementation report. |
+| Assurance reviewer | [Reviewer guide](reviewer-guide.md), [normative requirements index](../matrices/normative-requirements-index.md), [implementation reports](../implementation-reports/README.md) and the gateway evidence table distinguish required claims, performed checks, provenance and external acceptance. | Receipt digest and check PASS do not establish actor provenance, performed effects, E2 independence or E3 interoperability. |
+
+**Audit disposition:** role destinations are discoverable through the existing learning-path manifest and Pages validation; no extra prerequisite, parallel document taxonomy or mandatory gateway framework is needed. The named source, bounded result and non-claim can be located by each role. These are source/contract findings, **not measured comprehension by an unfamiliar participant**, nor a quantitative onboarding study. No measured setup failures, maintainer interventions or elapsed time to first meaningful result are asserted.
+
 ## Normative reading rule
 
 Informative guidance explains how to apply GAAM but does not replace the normative specification, profiles, schemas or conformance requirements. Record the exact version and profile used whenever making a conformance or assurance claim.
