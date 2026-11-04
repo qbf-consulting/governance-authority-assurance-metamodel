@@ -76,7 +76,10 @@
     "remedy.valid.json",
     "remedy.invalid.json",
     "decision-input.json",
-    "evidence-manifest.json"
+    "evidence-manifest.json",
+    "adopter_gateway.py",
+    "adopter-gateway-case.json",
+    "adopter-gateway-exercise.md"
   ],
   "schemaFixtures": [
     {

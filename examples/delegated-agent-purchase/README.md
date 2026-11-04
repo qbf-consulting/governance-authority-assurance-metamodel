@@ -39,6 +39,7 @@ The pattern makes authority, policy, runtime enforcement, evidence, assurance, l
 - [Privacy and Security Analysis](privacy-security-analysis.md)
 - [Affected-Party Analysis](affected-party-analysis.md)
 - [Requirement Mapping](requirement-mapping.md)
+- [Adopter Gateway Evaluation Exercise](adopter-gateway-exercise.md) — executable composed decision with explicit E1 limitations
 
 ## Validation
 
