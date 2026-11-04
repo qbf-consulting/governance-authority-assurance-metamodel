@@ -24,6 +24,10 @@ An implementation should identify:
 
 At least one accepted independent report must cover `gaam:profile:foundation:0.9.0`. At least one accepted independent report must cover Foundation plus at least one additional GAAM profile before the implementation evidence gate can be satisfied.
 
+## Bounded agent-gateway implementation challenge
+
+An implementer can use the published [Delegated Agent Purchasing gateway exercise](../examples/delegated-agent-purchase/adopter-gateway-exercise.md#external-independently-authored-evaluator-hand-off) as an **informative** ten-element challenge and source/claim worksheet. This is an optional on-ramp, **not** a substitute for the governed profile closure or the acceptance conditions below. Record the GAAM v0.9.3 reference release separately from the **post-release repository revision** used to retrieve the gateway example; the v0.9.3 tag does not itself contain the later example. Independently author the evaluator instead of rebranding GAAM's reference adapter. The submitted report must describe any requirements not implemented, unsupported scope-policy semantics, denial/unknown results, provenance of external authority evidence, and the distinction between a decision receipt and an executed effect.
+
 ## Submission sequence
 
 1. Select the claim boundary using the [profile-selection guide](profile-selection-guide.md).

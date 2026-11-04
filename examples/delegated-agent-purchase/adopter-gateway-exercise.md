@@ -62,6 +62,52 @@ This table reconciles the **ten requested evaluation elements** against the norm
 
 **Assurance verdict:** the scenario demonstrates an executable **local** decision sequence, negative tests and structural receipt production; the full ten-element proposition is **not proven as independently implementable or operationally authoritative**. All five findings are explicit limitations, not successful independent E2/E3, complete profile conformance or a hidden new normative obligation.
 
+## External independently authored evaluator hand-off
+
+**Reference source:** GAAM **v0.9.3** is the current Candidate maintenance release and retains the normative v0.9.0 semantics, requirements, profiles and canonical schema identifiers. **The runnable gateway exercise was added after the v0.9.3 tag.** Pin the repository revision that contains it, not just the v0.9.3 release. The source revision for this hand-off is `1f85d8835b5db3c383127bd43af1e30c4551b034` (PR #111); later maintenance changes can be assessed separately.
+
+```bash
+git clone https://github.com/qbf-consulting/governance-authority-assurance-metamodel.git
+cd governance-authority-assurance-metamodel
+git checkout 1f85d8835b5db3c383127bd43af1e30c4551b034
+python -m pip install -r requirements-dev.txt
+python scripts/gaam.py validate-package conformance-kit/starter
+python scripts/gaam.py validate-claim conformance-kit/starter/artifacts/conformance-claim.json
+python examples/delegated-agent-purchase/adopter_gateway.py < examples/delegated-agent-purchase/adopter-gateway-case.json
+python -m pytest tests/test_adopter_gateway.py -q
+```
+
+The above commands reproduce **repository-authored reference behaviour** only. A participant seeking to test independent implementability must derive their own minimal evaluator from the published normative specification, selected profile manifests and canonical schemas. Do **not** copy `adopter_gateway.py` or translate its local comparison algorithm and call that independent implementation. The example and its test fixtures can serve as *comparison and adversarial challenge inputs* after implementation, but their local `resources`/`actions`/`effects` comparator, observations format, reason codes and `indeterminate` response are **informative**; where the normative baseline does not specify a comparator or mechanism, record a separate finding instead of inferring an interoperability contract.
+
+### Ten-element implementation and evidence worksheet
+
+For each of the ten elements in the [normative-source and evidence disposition](#normative-source-and-evidence-disposition-issue-102), a participant should retain **their own** source references, request/inputs, expected/observed outputs, policy/context and evaluation clock, test command, environment and tool versions, evidence identifiers and integrity checks, and disposition (`demonstrated`, `partial`, `unsupported normative expression`, or `external evidence dependency`). Report failures and indeterminate outcomes rather than converting them into PASS.
+
+| Element | Minimum independently inspectable result |
+| --- | --- |
+| 1. Principal and agent | Show actor binding and source of identity/role evidence; a string identifier is insufficient. |
+| 2. Source, acceptance and scope | Link operative authority to attributable source, acceptance/activation and scoped grant, or record absent proof. |
+| 3. Resource, action and consequential effect | Show which effect was evaluated at what resource and which local semantics interpret it. |
+| 4. Policy and context | Record applicable policy version, purpose, context, precedence and external decision authority. |
+| 5. Delegation and attenuation | Trace the chain, acceptance and permitted re-delegation, including amplification and inactive-parent negatives. |
+| 6. Effective time and revocation | Record evaluation time, status observation provenance, bounded freshness and unavailable/revoked results. |
+| 7. Decision, evidence and receipt | Preserve decision, linked evidence and receipt; distinguish schema validity from authenticated provenance. |
+| 8. Denied, failed and indeterminate | Test denial, malformed/failing operation, missing and conflicting evidence, and unsupported scope without default permit. |
+| 9. Authorization versus execution | Demonstrate that a decision does not itself cause an effect; record actual enforcement/effect evidence **only if** implemented. |
+| 10. Replay and attribution | Reproduce inputs, explain accountable party and receipt provenance; identify missing signatures, storage and replay controls. |
+
+**Required counterexamples:** unauthenticated or contradictory authority observations; revoked/expired/not-yet-effective parent; delegation amplification; out-of-scope resource/effect; unsupported scope comparator; stale or unavailable policy/status evidence; and an apparently successful receipt with no performed effect. A repository fixture may demonstrate how to *challenge* a claim but cannot supply the independent participant's real authority, status or execution evidence.
+
+### Evidence acceptance and routing
+
+Use the existing [profile-selection guide](../../implementation-reports/profile-selection-guide.md) to select a declared target and dependency-closed profile boundary. The Foundation and Delegated Authority profiles are **candidates to evaluate**, not automatically satisfied claims. Use the existing [implementation-report template](../../implementation-reports/TEMPLATE.md), [machine-readable report and evidence-manifest contracts](../../implementation-reports/README.md) and [independent implementation intake](../../implementation-reports/independent-implementation-intake.md); disclose the source revision, assessor relationship, limitations and open exceptions.
+
+- **Repository exercise / E1:** running the commands above, adapting maintainer code or producing synthetic outputs does not establish independence.
+- **Independent implementation / E2:** independently authored code and admissible non-synthetic evidence require governed assessment and acceptance under [issue #20](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/issues/20). Merely supplying a CLI is not an E2 acceptance.
+- **Cross-implementation / E3:** two independent implementations must exchange and evaluate each other's artifacts, preserve mismatch cases and undergo the separate process in [issue #21](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/issues/21).
+
+**Stop rather than assert success** if the participant requires an invented authority source, unchecked status/identity evidence, arbitrary scope comparison, implied enforcement from a receipt, or a claim beyond the actual tested requirement set. Report the issue against the governing GAAM requirement or schema and existing issue #102; any normative proposal must follow the Candidate change-control process.
+
 ## Explicit scenario-local contracts
 
 The canonical GAAM v0.9.0 `scope` and `delegatedScope` schemas contain **opaque objects**. This example interprets precisely `authority.scope = {resources: [...], actions: [...]}` and `delegation.delegatedScope = {resources: [...], actions: [...], effects: [...]}`. The set-subset comparator is a *local evaluation convention*, not a new normative requirement or a general comparator for arbitrary GAAM scope objects. Unknown keys, absent sets, unsupported policy fields and missing observation data yield `indeterminate`, not implicit permission.
