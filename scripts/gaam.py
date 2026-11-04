@@ -168,22 +168,52 @@ def run_vectors(args):
             checks.append({"id": vector.get("id", path.name), "status": "fail", "detail": "invalid v2 fixture: " + issue})
             continue
         payload = {"artifacts": vector["input"], "evaluationTime": vector["evaluationTime"]} if args.suite == "v2" else vector["input"]
-        process = subprocess.run(args.adapter, input=json.dumps(payload), text=True, capture_output=True)
+        try:
+            process = subprocess.run(
+                args.adapter, input=json.dumps(payload), text=True,
+                capture_output=True, timeout=args.timeout,
+            )
+        except subprocess.TimeoutExpired:
+            checks.append({
+                "id": vector["id"], "status": "fail",
+                "detail": f"adapter timed out after {args.timeout:g} seconds",
+            })
+            continue
+        except OSError as exc:
+            checks.append({
+                "id": vector["id"], "status": "fail",
+                "detail": f"adapter could not start: {exc.strerror or type(exc).__name__}",
+            })
+            continue
+
         try:
             response = json.loads(process.stdout)
-            actual = response.get("valid")
-            reason = response.get("reason")
-            ok = (process.returncode == 0 and isinstance(actual, bool) and actual == vector["expectedValid"]
-                  and (args.suite == "v1" or reason == vector["expectedReason"]))
-            detail = f"expected={vector['expectedValid']}; actual={actual}" + (f"; reason={reason}; expectedReason={vector['expectedReason']}" if args.suite == "v2" else "")
         except json.JSONDecodeError:
-            ok = False
-            detail = f"adapter returned non-JSON output: {process.stdout[:160]!r}; stderr={process.stderr[:160]!r}"
+            checks.append({
+                "id": vector["id"], "status": "fail",
+                "detail": f"adapter returned non-JSON output: {process.stdout[:160]!r}; stderr={process.stderr[:160]!r}",
+            })
+            continue
+        if not isinstance(response, dict):
+            checks.append({
+                "id": vector["id"], "status": "fail",
+                "detail": f"adapter response must be a JSON object, got {type(response).__name__}",
+            })
+            continue
+
+        actual = response.get("valid")
+        reason = response.get("reason")
+        ok = (process.returncode == 0 and isinstance(actual, bool) and actual == vector["expectedValid"]
+              and (args.suite == "v1" or reason == vector["expectedReason"]))
+        detail = f"expected={vector['expectedValid']}; actual={actual}" + (
+            f"; reason={reason}; expectedReason={vector['expectedReason']}" if args.suite == "v2" else ""
+        )
+        if process.returncode != 0:
+            detail += f"; adapter exit={process.returncode}; stderr={process.stderr[:160]!r}"
         checks.append({"id": vector["id"], "status": "pass" if ok else "fail", "detail": detail})
     if not vector_paths:
         checks.append({"id": "vector-selection", "status": "fail", "detail": f"no vectors matched {args.pattern}"})
     return emit("run-vectors", checks)
-
 
 parser = argparse.ArgumentParser(description=__doc__)
 commands = parser.add_subparsers(dest="command", required=True)
@@ -196,10 +226,13 @@ package_parser.set_defaults(func=validate_package)
 vector_parser = commands.add_parser("run-vectors", help="run portable behavioural vectors through an adapter")
 vector_parser.add_argument("--pattern", default="*.json", help="test-vector glob relative to the selected suite")
 vector_parser.add_argument("--suite", choices=["v1", "v2"], default="v1", help="v1 decision-table vectors (default), or v2 raw-artifact vectors")
+vector_parser.add_argument("--timeout", type=float, default=30.0, help="maximum seconds per adapter invocation (default: 30)")
 vector_parser.add_argument("adapter", nargs=argparse.REMAINDER, help="adapter command; reads input JSON on stdin and returns {valid:boolean}")
 vector_parser.set_defaults(func=run_vectors)
 args = parser.parse_args()
 if args.command == "run-vectors":
+    if not 0 < args.timeout <= 300:
+        parser.error("--timeout must be greater than 0 and at most 300 seconds")
     if not args.adapter:
         parser.error("run-vectors requires an adapter command")
     if any(a == "--pattern" or a.startswith("--pattern=") for a in args.adapter):

@@ -20,7 +20,7 @@ For each vector, the runner starts the configured adapter, writes the vector's `
 {"valid": true}
 ```
 
-The process must exit successfully. Diagnostic fields are permitted but ignored by the portable runner. An adapter is responsible for mapping GAAM's abstract vector vocabulary to the implementation under test.
+The process must exit successfully. For the experimental v2 raw-artifact suite, the response must also contain a matching `reason` string; for v1, optional diagnostic fields are ignored. An adapter is responsible for mapping GAAM's abstract vector vocabulary to the implementation under test.
 
 ## Run the reference adapter
 
@@ -28,7 +28,7 @@ The process must exit successfully. Diagnostic fields are permitted but ignored 
 python scripts/gaam.py run-vectors python conformance-kit/reference_adapter.py
 ```
 
-Use `--pattern 'delegation-*.json'` before the adapter command to select a subset; a misplaced filter is rejected rather than silently ignored. Results are emitted as machine-readable JSON and identify the tooling release, the current normative Candidate baseline and the retained semantic baseline.
+Use `--pattern 'delegation-*.json'` before the adapter command to select a subset; a misplaced filter is rejected rather than silently ignored. The runner applies a configurable per-vector execution timeout (default 30 seconds, use `--timeout 5` before the adapter command). Unavailable adapters, timeouts, non-object JSON, invalid JSON, nonzero exits and mismatched outcomes produce a machine-readable failed check and a nonzero runner exit; they never count as successful evidence. Results identify the tooling release, the current normative Candidate baseline and the retained semantic baseline.
 
 ## Boundary
 
