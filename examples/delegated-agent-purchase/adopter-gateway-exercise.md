@@ -7,7 +7,7 @@ artifact_type: "Informative implementation exercise"
 normative_status: "Informative"
 ---
 
-# Bounded delegated-agent gateway exercise
+# Adopter Gateway Evaluation Exercise
 
 This is a **repository-controlled, self-assessed** evaluation of a delegated purchase decision. It is neither a normative GAAM protocol nor a credential/identity verifier, live policy engine, production enforcement gateway, independent E2/E3 implementation, or claim of complete Foundation/Delegated Authority Profile conformance. The implementation is separate from the portable reference adapter but remains maintainer-authored.
 
