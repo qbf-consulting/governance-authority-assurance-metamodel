@@ -20,3 +20,7 @@ The machine-readable `pattern.json` is the authoritative pattern-to-requirement 
 - `GAAM-DEC-003`
 - `GAAM-EVT-001`
 - `GAAM-ACC-001`
+
+## Bounded adopter gateway evidence, not profile completion
+
+The executable [Adopter Gateway Evaluation Exercise](adopter-gateway-exercise.md) provides a ten-element source/evidence disposition. It relates the example's synthetic positive and negative tests to the normative requirements already indexed above, **without** claiming to test or satisfy each obligation completely. In particular, structural validity and scenario-local comparisons do not establish authentic issuer authority, governed delegation acceptance, trusted status propagation, portable policy semantics, verified execution or independently attributable receipts. These matters remain gaps in implementation/evidence or external verification, not automatically gaps in normative GAAM requirements.

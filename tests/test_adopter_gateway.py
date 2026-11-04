@@ -103,3 +103,28 @@ def test_malformed_input_never_executes():
     record = json.loads(run.stdout)
     assert run.returncode == 2
     assert record["status"] == "indeterminate" and not record["effectExecuted"]
+
+
+def test_observation_source_label_is_not_authenticated_by_example():
+    # This is a documented negative assurance finding, not a desired
+    # production authorization behaviour. Source text is not verified.
+    bundle = case()
+    bundle["observations"]["authorityStatus"]["source"] = "untrusted-claimant"
+    record = gateway.decide(bundle)
+    assert record["status"] == "permit"
+    assert record["effectExecuted"] is False
+    assert record["independentAssurance"] is False
+    assert record["evidenceClass"] == "synthetic-self-assessed"
+
+
+def test_conflicting_external_observation_is_not_supported_by_local_contract():
+    # A second, contradictory observation is outside the one-record format.
+    # Do not mislabel an untested conflict adjudication as PASS.
+    bundle = case()
+    bundle["observations"]["authorityStatus"]["conflictingObservation"] = {
+        "value": "revoked", "source": "another-provider"
+    }
+    record = gateway.decide(bundle)
+    assert record["status"] == "indeterminate"
+    assert record["reason"] == "INSUFFICIENT_OBSERVATION"
+    assert record["effectExecuted"] is False
