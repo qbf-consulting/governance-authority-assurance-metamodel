@@ -1,0 +1,98 @@
+{
+  "evaluationTime": "2026-11-04T10:00:00Z",
+  "request": {
+    "id": "purchase-001",
+    "principal": "principal-01",
+    "agent": "purchase-agent-01",
+    "resource": "merchant-01",
+    "action": "purchase",
+    "effect": "execute-purchase"
+  },
+  "authority": {
+    "id": "mandate-01",
+    "type": "authority",
+    "authoritySource": "policy-01",
+    "issuer": "issuer-01",
+    "subject": "principal-01",
+    "permittedEffects": [
+      "execute-purchase"
+    ],
+    "scope": {
+      "resources": [
+        "merchant-01",
+        "merchant-02"
+      ],
+      "actions": [
+        "purchase"
+      ]
+    },
+    "status": "active",
+    "effectiveFrom": "2026-01-01T00:00:00Z",
+    "effectiveUntil": "2026-12-01T00:00:00Z",
+    "delegationPermitted": true,
+    "revocationAuthority": "issuer-01",
+    "accountableParties": [
+      "operator-01"
+    ]
+  },
+  "delegation": {
+    "id": "delegation-01",
+    "type": "delegation",
+    "parentAuthority": "mandate-01",
+    "delegator": "principal-01",
+    "delegate": "purchase-agent-01",
+    "delegatedScope": {
+      "resources": [
+        "merchant-01"
+      ],
+      "actions": [
+        "purchase"
+      ],
+      "effects": [
+        "execute-purchase"
+      ]
+    },
+    "redelegation": "prohibited",
+    "status": "active",
+    "effectiveFrom": "2026-02-01T00:00:00Z",
+    "effectiveUntil": "2026-11-30T00:00:00Z",
+    "propagation": "immediate"
+  },
+  "policy": {
+    "id": "policy-01",
+    "status": "active",
+    "effects": [
+      "execute-purchase"
+    ],
+    "resources": [
+      "merchant-01"
+    ],
+    "maxObservationAgeSeconds": 600
+  },
+  "observations": {
+    "actorBinding": {
+      "value": "verified",
+      "observedAt": "2026-11-04T09:59:00Z",
+      "source": "scenario-local-provider",
+      "evidenceId": "evidence-actorBinding"
+    },
+    "authorityStatus": {
+      "value": "active",
+      "observedAt": "2026-11-04T09:59:00Z",
+      "source": "scenario-local-provider",
+      "evidenceId": "evidence-authorityStatus"
+    },
+    "delegationStatus": {
+      "value": "active",
+      "observedAt": "2026-11-04T09:59:00Z",
+      "source": "scenario-local-provider",
+      "evidenceId": "evidence-delegationStatus"
+    },
+    "policyStatus": {
+      "value": "active",
+      "observedAt": "2026-11-04T09:59:00Z",
+      "source": "scenario-local-provider",
+      "evidenceId": "evidence-policyStatus"
+    }
+  }
+}
