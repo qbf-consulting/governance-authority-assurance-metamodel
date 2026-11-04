@@ -31,3 +31,76 @@ def test_unmatched_pattern_fails():
     result = run(GAAM + ["--pattern", "zzz-*.json"] + ADAPTER)
     assert result.returncode != 0
     assert json.loads(result.stdout)["status"] == "fail"
+
+
+def _copy_starter(tmp_path):
+    import shutil
+    package = tmp_path / "starter"
+    shutil.copytree(ROOT / "conformance-kit" / "starter", package)
+    return package
+
+
+def _validate_package(package):
+    result = run([sys.executable, str(ROOT / "scripts" / "gaam.py"), "validate-package", str(package)])
+    return result.returncode, json.loads(result.stdout)
+
+
+def test_starter_package_is_valid(tmp_path):
+    package = _copy_starter(tmp_path)
+    code, report = _validate_package(package)
+    assert code == 0 and report["status"] == "pass"
+
+
+def test_package_rejects_parent_traversal_without_reading_sibling(tmp_path):
+    package = _copy_starter(tmp_path)
+    sibling = tmp_path / "outside.json"
+    sibling.write_text('{"type":"authority"}', encoding="utf-8")
+    manifest = json.loads((package / "manifest.json").read_text())
+    manifest["artifacts"][0]["path"] = "../outside.json"
+    (package / "manifest.json").write_text(json.dumps(manifest))
+    code, report = _validate_package(package)
+    assert code != 0 and report["status"] == "fail"
+    assert next(x for x in report["checks"] if x["id"] == "package-paths")["status"] == "fail"
+
+
+def test_package_rejects_absolute_artifact_path(tmp_path):
+    package = _copy_starter(tmp_path)
+    manifest = json.loads((package / "manifest.json").read_text())
+    manifest["artifacts"][0]["path"] = str(tmp_path / "outside.json")
+    (package / "manifest.json").write_text(json.dumps(manifest))
+    code, report = _validate_package(package)
+    assert code != 0
+    assert next(x for x in report["checks"] if x["id"] == "package-paths")["status"] == "fail"
+
+
+def test_package_rejects_symlink_escape(tmp_path):
+    package = _copy_starter(tmp_path)
+    sibling = tmp_path / "outside.json"
+    sibling.write_text('{"type":"authority"}', encoding="utf-8")
+    (package / "artifacts" / "authority.json").unlink()
+    (package / "artifacts" / "authority.json").symlink_to(sibling)
+    code, report = _validate_package(package)
+    assert code != 0
+    assert next(x for x in report["checks"] if x["id"] == "package-paths")["status"] == "fail"
+
+
+def test_package_rejects_missing_declared_checksum(tmp_path):
+    package = _copy_starter(tmp_path)
+    checksum_path = package / "checksums.json"
+    manifest = json.loads(checksum_path.read_text())
+    manifest["files"] = manifest["files"][1:]
+    checksum_path.write_text(json.dumps(manifest))
+    code, report = _validate_package(package)
+    assert code != 0
+    check = next(x for x in report["checks"] if x["id"] == "package-integrity")
+    assert check["status"] == "fail" and "uncovered=" in check["detail"]
+
+
+def test_package_rejects_checksum_manifest_escape(tmp_path):
+    package = _copy_starter(tmp_path)
+    manifest = json.loads((package / "manifest.json").read_text())
+    manifest["integrity"]["manifest"] = "../other-checksums.json"
+    (package / "manifest.json").write_text(json.dumps(manifest))
+    code, report = _validate_package(package)
+    assert code != 0
+    assert next(x for x in report["checks"] if x["id"] == "package-integrity")["status"] == "fail"

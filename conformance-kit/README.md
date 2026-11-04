@@ -32,8 +32,12 @@ Use `--pattern 'delegation-*.json'` before the adapter command to select a subse
 
 ## Boundary
 
-The manifest, adapter protocol and result schema are informative v0.9.2 implementation contracts. They do not add normative requirements, profiles, vocabularies or canonical schemas to the v0.9.2 normative Candidate baseline; the underlying semantic and canonical identifiers remain the frozen v0.9.0 set.
+The manifest, adapter protocol and result schema are informative implementation contracts provided with the v0.9.3 maintenance release. They do not add normative requirements, profiles, vocabularies or canonical schemas to the v0.9.3 normative Candidate maintenance baseline; the underlying semantic and canonical identifiers remain the frozen v0.9.0 set.
 
 ## Version 2 experimental raw-artifact vectors
 
 Run `python scripts/gaam.py run-vectors --suite v2 python conformance-kit/reference_adapter.py`. V2 supplies a schema-valid authority artifact, explicit evaluation clock, requested effect and expected reason code. The runner validates v2 fixture shape before invoking the adapter and checks both verdict and reason. It deliberately does not pass the expected verdict, reason, or fixture ID to the adapter. Legacy v1 remains the default and uses its original payload contract. This reference adapter is not independent enforcement or conformance evidence. The v2 set initially exercises authority admission; delegation, aggregation, receipt proof and freshness semantics require separate contracts and cannot be considered covered by these fixtures.
+
+## Package path and integrity validation
+
+The portable package validator rejects absolute paths, parent-directory traversal and symlink escapes in artifact and checksum references. Each declared artifact must have exactly one checksum record; a missing digest is a failed integrity check, not a PASS. These checks establish **local package containment and byte consistency**, not source authenticity, trust in the package author, or actual runtime authorization. The canonical v0.9.0 package schema is unchanged.

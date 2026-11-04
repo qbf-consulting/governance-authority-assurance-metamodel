@@ -48,15 +48,47 @@ def validate_claim(args):
     return emit("validate-claim", [schema_check(claim, SCHEMAS / "conformance-claim.schema.json", "claim-schema")])
 
 
+def package_member(root, relative):
+    """Resolve only ordinary paths contained in the submitted package.
+
+    No absolute paths, parent traversal or symlinks escaping the package.
+    This validates *where* a path points, not who authored the package.
+    """
+    if not isinstance(relative, str) or not relative or Path(relative).is_absolute():
+        return None
+    if ".." in Path(relative).parts:
+        return None
+    candidate = (root / relative).resolve()
+    try:
+        candidate.relative_to(root.resolve())
+    except ValueError:
+        return None
+    return candidate
+
+
 def validate_package(args):
     package = Path(args.package).resolve()
     manifest_path = package if package.is_file() else package / "manifest.json"
     package_root = manifest_path.parent
     manifest = read_json(manifest_path)
     checks = [schema_check(manifest, SCHEMAS / "gaam-package.schema.json", "package-manifest")]
-    declared = [item["path"] for item in manifest.get("artifacts", [])]
-    missing = [path for path in declared if not (package_root / path).is_file()]
-    checks.append({"id": "declared-artifacts", "status": "fail" if missing else "pass", "detail": f"missing: {missing}" if missing else f"{len(declared)} declared artifacts present"})
+    if checks[0]["status"] == "fail":
+        return emit("validate-package", checks)
+
+    declared = [item["path"] for item in manifest["artifacts"]]
+    unsafe = [relative for relative in declared if package_member(package_root, relative) is None]
+    checks.append({
+        "id": "package-paths",
+        "status": "fail" if unsafe else "pass",
+        "detail": f"paths outside package: {unsafe}" if unsafe else "declared paths remain within the package",
+    })
+    missing = [relative for relative in declared
+               if (path := package_member(package_root, relative)) is None or not path.is_file()]
+    checks.append({
+        "id": "declared-artifacts",
+        "status": "fail" if missing else "pass",
+        "detail": f"missing or unsafe: {missing}" if missing else f"{len(declared)} declared artifacts present",
+    })
     schema_by_type = {
         "authority": "authority.schema.json", "delegation": "delegation.schema.json",
         "decision-receipt": "decision-receipt.schema.json", "governance-event": "governance-event.schema.json",
@@ -64,24 +96,42 @@ def validate_package(args):
         "gaam-conformance-claim": "conformance-claim.schema.json",
     }
     for relative in declared:
-        path = package_root / relative
-        if not path.is_file() or path.suffix != ".json":
+        path = package_member(package_root, relative)
+        if path is None or not path.is_file() or path.suffix != ".json":
             continue
         artifact = read_json(path)
         schema_name = schema_by_type.get(artifact.get("type"))
         if schema_name:
             checks.append(schema_check(artifact, SCHEMAS / schema_name, f"artifact-schema:{relative}"))
-    checksum_path = package_root / manifest.get("integrity", {}).get("manifest", "checksums.json")
-    if checksum_path.is_file():
-        checksum_data = read_json(checksum_path)
-        mismatched = []
-        for record in checksum_data.get("files", []):
-            path = package_root / record.get("path", "")
-            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != record.get("sha256"):
-                mismatched.append(record.get("path"))
-        checks.append({"id": "package-integrity", "status": "fail" if mismatched else "pass", "detail": f"mismatched: {mismatched}" if mismatched else f"{len(checksum_data.get('files', []))} checksums verified; checksum-only (no source authenticity established)"})
+
+    integrity_name = manifest["integrity"]["manifest"]
+    checksum_path = package_member(package_root, integrity_name)
+    if checksum_path is None or not checksum_path.is_file():
+        checks.append({
+            "id": "package-integrity", "status": "fail",
+            "detail": "checksum manifest missing or outside the submitted package",
+        })
     else:
-        checks.append({"id": "package-integrity", "status": "fail", "detail": f"missing {checksum_path.name}"})
+        checksum_data = read_json(checksum_path)
+        records = checksum_data.get("files", [])
+        # A checksum manifest may contain more files than the declared artifacts,
+        # but each declared artifact must be covered exactly once.
+        record_paths = [item.get("path") for item in records]
+        uncovered = sorted(set(declared) - set(record_paths))
+        duplicates = sorted({p for p in record_paths if record_paths.count(p) > 1})
+        mismatched = []
+        for record in records:
+            relative = record.get("path")
+            path = package_member(package_root, relative)
+            if path is None or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != record.get("sha256"):
+                mismatched.append(relative)
+        bad = bool(uncovered or duplicates or mismatched)
+        checks.append({
+            "id": "package-integrity",
+            "status": "fail" if bad else "pass",
+            "detail": (f"uncovered={uncovered}; duplicate={duplicates}; mismatched/unsafe={mismatched}"
+                       if bad else f"{len(records)} checksums verified against declared artifacts; checksum-only (no source authenticity established)"),
+        })
     return emit("validate-package", checks)
 
 
