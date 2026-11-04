@@ -10,11 +10,11 @@ normative_status: "Informative"
 
 {% include gaam-meta.html %}
 
-This page describes how the GAAM Candidate Specification is published and how its normative and derivative artifacts relate. It does not add requirements to the current GAAM v0.9.3 normative Candidate baseline.
+This page describes how the GAAM Candidate Specification is published and how its normative and derivative artifacts relate. It does not add requirements to the current GAAM v0.9.4 normative Candidate baseline.
 
 ## Canonical reading surface
 
-GAAM **v0.9.3 is the current normative Candidate release and implementation baseline**. The [Governance, Authority and Assurance Metamodel v0.9.0](../specification/governance-authority-assurance-metamodel.md) remains the authoritative human-readable semantic text incorporated unchanged by v0.9.3. Its canonical GitHub Pages permalink remains `/specification/gaam-v0.9.0/` so frozen identifiers and historical references remain stable.
+GAAM **v0.9.4 is the current normative Candidate release and implementation baseline**. The [Governance, Authority and Assurance Metamodel v0.9.0](../specification/governance-authority-assurance-metamodel.md) remains the authoritative human-readable semantic text incorporated unchanged by v0.9.4. Its canonical GitHub Pages permalink remains `/specification/gaam-v0.9.0/` so frozen identifiers and historical references remain stable.
 
 The Markdown source is maintained in the repository and rendered by the existing Jekyll/Just the Docs publication pipeline. The rendered HTML is therefore a publication view of the same source, not a separately edited specification. Plain text is likewise a generated publication representation: it is derived from the same normative source and MUST NOT be edited independently.
 
@@ -22,11 +22,11 @@ The historical schema identifiers use a personal GitHub Pages host retained for 
 
 ## Frozen-section citation clarification
 
-The retained v0.9.0 source has two headings numbered **18**: the first is *Implementation guidance* (before Annex A), and the second is *Feature-complete governance artifacts* (after Annex B). This is an editorial numbering defect in the frozen semantic publication, not an additional requirement or competing section authority. Until a governed version updates the source, citations must use the full heading and, where applicable, the stable `GAAM-...` requirement identifier rather than the ambiguous number alone. Annex B.1 is a separately named annex and should be cited by that identifier. The current v0.9.3 Candidate distribution preserves the original source bytes and historical references.
+The retained v0.9.0 source has two headings numbered **18**: the first is *Implementation guidance* (before Annex A), and the second is *Feature-complete governance artifacts* (after Annex B). This is an editorial numbering defect in the frozen semantic publication, not an additional requirement or competing section authority. Until a governed version updates the source, citations must use the full heading and, where applicable, the stable `GAAM-...` requirement identifier rather than the ambiguous number alone. Annex B.1 is a separately named annex and should be cited by that identifier. The current v0.9.4 Candidate distribution preserves the original source bytes and historical references.
 
 ## Normative precedence
 
-For the v0.9.3 normative Candidate release, the retained v0.9.0 semantic/canonical artifact set has the following precedence:
+For the v0.9.4 normative Candidate release, the retained v0.9.0 semantic/canonical artifact set has the following precedence:
 
 1. the human-readable specification defines normative semantics;
 2. JSON Schemas are normative for the structure of artifacts in their declared scope;
@@ -39,7 +39,7 @@ Where a machine-actionable artifact and human-readable normative semantics confl
 
 ## Stable requirement identifiers
 
-Normative statements use stable `GAAM-<SECTION>-<NUMBER>` identifiers. The [Normative Requirement Catalogue](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/v0.9.3/artifacts/gaam-v0.9.0-requirements.md) is generated directly from the Candidate Specification and is checked in CI for exact regeneration and duplicate identifiers.
+Normative statements use stable `GAAM-<SECTION>-<NUMBER>` identifiers. The [Normative Requirement Catalogue](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/v0.9.4/artifacts/gaam-v0.9.0-requirements.md) is generated directly from the Candidate Specification and is checked in CI for exact regeneration and duplicate identifiers.
 
 The machine-readable catalogue is published in the repository at `artifacts/gaam-v0.9.0-requirements.json`. It is intended for traceability tooling, conformance tooling and downstream mappings. It is not a second normative source.
 

@@ -64,12 +64,12 @@ This table reconciles the **ten requested evaluation elements** against the norm
 
 ## External independently authored evaluator hand-off
 
-**Reference source:** GAAM **v0.9.3** is the current Candidate maintenance release and retains the normative v0.9.0 semantics, requirements, profiles and canonical schema identifiers. **The runnable gateway exercise was added after the v0.9.3 tag.** Pin the repository revision that contains it, not just the v0.9.3 release. The source revision for this hand-off is `1f85d8835b5db3c383127bd43af1e30c4551b034` (PR #111); later maintenance changes can be assessed separately.
+**Historical hand-off baseline:** GAAM **v0.9.3** was the Candidate maintenance release used to first define this exercise and retains the normative v0.9.0 semantics, requirements, profiles and canonical schema identifiers. **The runnable gateway exercise was added after the v0.9.3 tag; the v0.9.4 release now includes it.** For the original hand-off, pin the stated source revision; for current tagged evaluation, use v0.9.4. The source revision for this hand-off is `1f85d8835b5db3c383127bd43af1e30c4551b034` (PR #111); later maintenance changes can be assessed separately.
 
 ```bash
 git clone https://github.com/qbf-consulting/governance-authority-assurance-metamodel.git
 cd governance-authority-assurance-metamodel
-git checkout 1f85d8835b5db3c383127bd43af1e30c4551b034
+git checkout v0.9.4
 python -m pip install -r requirements-dev.txt
 python scripts/gaam.py validate-package conformance-kit/starter
 python scripts/gaam.py validate-claim conformance-kit/starter/artifacts/conformance-claim.json

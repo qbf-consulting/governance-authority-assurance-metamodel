@@ -7,6 +7,28 @@ normative_status: "Release record"
 ---
 # Changelog
 
+## [0.9.4] - 2026-11-04
+
+### Fixed
+- Confine portable package and manifest references to the submitted package boundary (including symlink escapes), require checksum coverage, and reject misleading integrity PASS conditions.
+- Report malformed, unavailable, non-object, failed and stalled vector adapters as bounded machine-readable failures instead of unhandled execution errors.
+- Reject clean-room report PASS claims with missing or mismatched requirement evidence, duplicate identifiers or uncontained evidence bytes.
+- Correct outdated Candidate landing-page terminology and clarify the difference between release identity, frozen semantic baseline and post-release example revisions.
+
+### Added
+- An informative delegated-agent purchasing gateway exercise that evaluates a consequential operation through principal, authority, delegation, time, scope and policy inputs, emits a canonical-schema-shaped decision receipt, and **never executes an effect**.
+- A ten-element source/evidence disposition and recorded F-102-A–E limitations for issuer/source authenticity, scenario-local policy/scope semantics, conflicting sources, receipt/effect evidence and implementation independence.
+- Positive, negative and indeterminate public-CLI checks, including a false-assurance probe showing that an unauthenticated status-source label can still yield a synthetic local permit.
+- A run-specific E1 gateway dossier retained in existing CI evidence artifacts: commands, exact synthetic input, expected and observed result, reason, tool versions, clock, source SHA and unverified conditions.
+- Three role-based reader routes and a pinned independently authored evaluator hand-off linked to existing implementation-report/evidence-manifest and E2/E3 acceptance processes.
+
+### Compatibility, governance and limitations
+- **No changes** to frozen normative v0.9.0 specification semantics, requirement/profile identifiers, canonical schema identifiers or downstream authority rules.
+- The v0.9.4 release updates **informative** portable tooling identity/result schema and maintained implementation guidance. Existing v0.9.0 artifacts remain valid, and v1 adapter request/response semantics are preserved.
+- v2 raw-authority and v0.10.0 extension artifacts remain informative/experimental. Local scope comparison, policy evaluation, receipt reason codes and observation conventions are not portable normative semantics.
+- The source-controlled gateway example and retained CI dossier are synthetic **E1** evidence only: neither a production authorization gateway nor proof of identity/source authenticity, reliable status freshness, effect execution, receipt signing, retention, replay protection, external E2 implementation or E3 interoperability.
+- Independent participation, real newcomer usability measurements, and accepted implementation/interoperability reports remain out of scope for this maintenance release and tracked under governed processes.
+
 ## [0.9.3] - 2026-11-03
 
 ### Fixed
