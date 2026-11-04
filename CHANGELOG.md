@@ -7,6 +7,17 @@ normative_status: "Release record"
 ---
 # Changelog
 
+## [0.9.5] - 2026-11-04
+
+### Version identity and publication
+- Identify current normative **specification edition v0.9.0** independently from current **Candidate distribution/test-suite release v0.9.5**. Preserve historical v0.9.0 normative document, schema identifiers and permalink.
+- Introduce backward-compatible `release.json.specificationEdition` and `PROJECT-STATUS.yaml.project.specification_edition`; retain `normativeVersion` and `candidateBaseline` as legacy Candidate **release** identifiers.
+- Clarify the stable current specification index, citation and governed version-change triggers. Add failing checks for source/title-page edition, permalink, status and release mismatches.
+- Preserve normative text and semantics. No E2/E3 or independent assurance claim follows from this publication correction.
+
+### Compatibility
+- Portable kit and machine-readable result release identity advance to v0.9.5 with unchanged v1 adapter semantics. Frozen v0.9.0 canonical artifact IDs, profiles, requirements and conformance meaning remain stable.
+
 ## [0.9.4] - 2026-11-04
 
 ### Fixed

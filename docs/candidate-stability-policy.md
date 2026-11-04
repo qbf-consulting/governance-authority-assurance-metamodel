@@ -14,6 +14,12 @@ nav_order: 5
 
 This policy governs GAAM v0.9.x. Candidate status freezes requirement identifiers, profile identifiers and canonical schema identifiers except where a documented defect makes preservation unsafe or materially misleading.
 
+## Specification edition and distribution governance
+
+The current specification **edition** is declared by the authoritative document and `release.json.specificationEdition`; the distribution release is in `VERSION` and `release.json.version`. Legacy `normativeVersion` and `candidateBaseline` denote the Candidate **release** rather than the edition printed in the specification. These public fields remain compatible.
+
+Distribution-only releases do not create a new normative edition. A revised normative document requires an approved distinct edition and retained historical permalink, with separate semantic, identifier, assurance and compatibility disposition. Never renumber frozen schema `$id` or profile identifiers merely to match the distribution release. The current `/specification/current/` publication pointer MUST identify the current specification edition and distribution separately, without rewriting the frozen `/specification/` reviewed index or historical edition permalink.
+
 ## Change classes
 
 | Class | Effect | Required evidence | Version effect |

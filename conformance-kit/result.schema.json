@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:gaam:informative:portable-conformance-result:0.9.4",
+  "$id": "urn:gaam:informative:portable-conformance-result:0.9.5",
   "title": "GAAM Portable Conformance Result",
   "type": "object",
   "required": [
@@ -24,10 +24,10 @@
       ]
     },
     "releaseVersion": {
-      "const": "0.9.4"
+      "const": "0.9.5"
     },
     "normativeVersion": {
-      "const": "0.9.4"
+      "const": "0.9.5"
     },
     "status": {
       "enum": [

@@ -32,7 +32,7 @@ Use `--pattern 'delegation-*.json'` before the adapter command to select a subse
 
 ## Boundary
 
-The manifest, adapter protocol and result schema are informative implementation contracts provided with the v0.9.4 maintenance release. They do not add normative requirements, profiles, vocabularies or canonical schemas to the v0.9.4 normative Candidate maintenance baseline; the underlying semantic and canonical identifiers remain the frozen v0.9.0 set.
+The manifest, adapter protocol and result schema are informative implementation contracts provided with the v0.9.5 maintenance release. They do not add normative requirements, profiles, vocabularies or canonical schemas to the v0.9.5 normative Candidate maintenance baseline; the underlying semantic and canonical identifiers remain the frozen v0.9.0 set.
 
 ## Version 2 experimental raw-artifact vectors
 
