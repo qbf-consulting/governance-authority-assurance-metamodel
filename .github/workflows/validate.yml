@@ -59,6 +59,9 @@ jobs:
       - name: Check adversarial review disposition integrity
         run: python scripts/check_review_dispositions.py
 
+      - name: Generate bounded gateway E1 evidence dossier
+        run: python scripts/generate_gateway_evidence.py
+
       - name: Run Python regression tests
         run: python -m pytest tests -q
 

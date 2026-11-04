@@ -108,6 +108,22 @@ Use the existing [profile-selection guide](../../implementation-reports/profile-
 
 **Stop rather than assert success** if the participant requires an invented authority source, unchecked status/identity evidence, arbitrary scope comparison, implied enforcement from a receipt, or a claim beyond the actual tested requirement set. Report the issue against the governing GAAM requirement or schema and existing issue #102; any normative proposal must follow the Candidate change-control process.
 
+## Recorded E1 run evidence and impact review
+
+Run `python scripts/generate_gateway_evidence.py` from the same checkout as the published gateway CLI. It invokes that **public CLI** independently for sixteen cases and writes `validation/adopter-gateway-evaluation.json`. The ordinary validation workflow runs the generator and uploads that JSON through the **existing** `gaam-validation-evidence` artifact; this is a run-specific record, not an additional implementation-report registry or an accepted conformance claim. Capture the workflow run URL alongside the generated `sourceCommit`. Individual records include the full synthetic input, expected/observed status, reason, exit code, no-effect flag, command, source/tool versions, start/finish times, digest, fixed evaluation clock, local policy context and unresolved exceptions. **No external human onboarding measurements are inferred.**
+
+A positive **local** result deliberately persists when the `authorityStatus.source` string is changed to an unverified claimant. The dossier highlights that as a **known limitation** rather than an operational success. The conflicting-provider case results in `indeterminate`, without pretending that two trusted sources were reconciled. Missing/expired/stale/unsupported authority conditions cannot be promoted to permission merely because a JSON schema passes. The input digest is reproducible but not cryptographic attribution of the actor or evidence producer.
+
+### Bounded security, privacy, effect and compatibility impacts
+
+| Dimension | Evaluated condition and disposition |
+| --- | --- |
+| Security and authority | Schema validity, denied amplification, stale/absent status and false-success cases are tested. The source-label counterexample demonstrates absent authentication; **external source trust remains unverified**, and this CLI must never gate a real effect. |
+| Privacy | The fixed sample contains synthetic actor, principal, merchant, evidence and accountable-party identifiers. The dossier retains whole inputs for reproducibility; production equivalents would require minimisation, access control, purpose limits and retention decisions **not provided** by the CLI. Do not ingest personal data into these CI artifacts. |
+| Scope, lifecycle and time | Local typed-set comparison, expiry, revocation, future/stale evidence and evaluation clock are tested. Arbitrary scopes, trusted freshness and propagated revocation are **not** independently evaluated. |
+| Execution, affected parties and remedy | `effectExecuted: false` is mandatory for every case. No payment, enforcement call, notification, interruption, challenge or remedy is executed. A receipt represents a decision only; real operators need separate controlled effect/outcome and remedy records. |
+| Compatibility and governance | v0.9.0 schemas/identifiers and v0.9.3 release remain unchanged. The generated record uses **informative** local statuses/reasons, not portable GAAM conformance vocabulary; no OAuth/MCP or v0.10.0 experimental field is made normative. |
+
 ## Explicit scenario-local contracts
 
 The canonical GAAM v0.9.0 `scope` and `delegatedScope` schemas contain **opaque objects**. This example interprets precisely `authority.scope = {resources: [...], actions: [...]}` and `delegation.delegatedScope = {resources: [...], actions: [...], effects: [...]}`. The set-subset comparator is a *local evaluation convention*, not a new normative requirement or a general comparator for arbitrary GAAM scope objects. Unknown keys, absent sets, unsupported policy fields and missing observation data yield `indeterminate`, not implicit permission.
