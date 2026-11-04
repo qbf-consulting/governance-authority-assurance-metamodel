@@ -40,4 +40,4 @@ The default v1 vectors use abstract decision inputs. To exercise real v0.9.0 aut
 python scripts/gaam.py run-vectors --suite v2 python conformance-kit/reference_adapter.py
 ```
 
-The v2 suite tests a deliberately narrow authority lifecycle boundary; it does not cover delegated-scope composition, multi-agent aggregation, cryptographic receipts or actual external authorization. The source adapter is maintained with the test suite and must not be cited as independent evidence.
+The v2 suite tests a deliberately narrow authority lifecycle boundary; it does not cover delegated-scope composition, multi-agent aggregation, cryptographic receipts or actual external authorization. The source adapter is maintained with the test suite and must not be cited as independent evidence. The [clean-room exercise](clean-room-implementation.md) runs both the abstract delegation and raw-authority lifecycle paths and explicitly checks an always-deny false-success case; it does not establish composed runtime delegated-agent authorization.

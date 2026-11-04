@@ -74,6 +74,8 @@ commands = [
     [sys.executable, "scripts/gaam.py", "validate-package", "conformance-kit/starter"],
     [sys.executable, "scripts/gaam.py", "validate-claim", "conformance-kit/starter/artifacts/conformance-claim.json"],
     [sys.executable, "scripts/gaam.py", "run-vectors", sys.executable, "conformance-kit/reference_adapter.py"],
+    [sys.executable, "scripts/gaam.py", "run-vectors", "--pattern", "delegation-*.json", sys.executable, "conformance-kit/reference_adapter.py"],
+    [sys.executable, "scripts/gaam.py", "run-vectors", "--suite", "v2", sys.executable, "conformance-kit/reference_adapter.py"],
 ]
 for command in commands:
     result = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
@@ -82,6 +84,48 @@ for command in commands:
             "clean-room command failed: " + " ".join(command) +
             f"\nstdout={result.stdout[-500:]}\nstderr={result.stderr[-500:]}"
         )
+
+
+# Check both positive and negative expectations through the public CLI.
+# These are separate repository-authored adapter surfaces, not composed runtime enforcement.
+required = (
+    (commands[3], {"delegation-attenuated-valid": True,
+                   "delegation-amplification-rejected": False,
+                   "delegation-parent-revoked-rejected": False}, "delegation"),
+    (commands[4], {"authority-raw-active-valid": True,
+                   "authority-raw-expired-rejected": False,
+                   "authority-raw-not-effective-rejected": False,
+                   "authority-raw-revoked-rejected": False,
+                   "authority-raw-scope-rejected": False}, "raw-authority"),
+)
+for command, expectations, label in required:
+    run = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, timeout=90)
+    try:
+        data = json.loads(run.stdout)
+        checks = {entry["id"]: entry for entry in data["checks"]}
+        for case_id, admitted in expectations.items():
+            check = checks.get(case_id, {})
+            if (check.get("status") != "pass" or
+                    f"expected={admitted}; actual={admitted}" not in check.get("detail", "")):
+                errors.append(f"{label}: expected admitted={admitted} result for {case_id}")
+        if run.returncode or data.get("status") != "pass":
+            errors.append(f"{label}: public runner did not PASS its declared fixture set")
+    except (ValueError, KeyError, TypeError):
+        errors.append(f"{label}: no usable machine-readable vector results")
+
+# A trivial always-denying adapter must not generate a false success.
+false_success = subprocess.run([
+    sys.executable, "scripts/gaam.py", "run-vectors", "--suite", "v2",
+    "--pattern", "authority-raw-active-valid.json", sys.executable,
+    "-c", 'print(\'{"valid": false, "reason": "AUTH_REVOKED"}\')',
+], cwd=ROOT, text=True, capture_output=True, timeout=20)
+try:
+    data = json.loads(false_success.stdout)
+    if (false_success.returncode == 0 or data.get("status") != "fail" or
+            not any(x.get("status") == "fail" for x in data["checks"])):
+        errors.append("always-deny false-success probe unexpectedly passed")
+except (ValueError, KeyError, TypeError):
+    errors.append("always-deny probe lacked a machine-readable failed check")
 
 if errors:
     print("GAAM clean-room validation failed:")
@@ -92,5 +136,5 @@ if errors:
 print(
     "GAAM clean-room validation: PASS "
     f"({len(reported_requirements)}/{len(foundation_requirements)} Foundation requirements "
-    "bounded by a synthetic self-assessed report; 3 portable commands passed)"
+    "bounded by a synthetic self-assessed report; 5 portable commands and positive/negative/false-success probes passed)"
 )
