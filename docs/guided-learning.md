@@ -55,6 +55,18 @@ flowchart LR
 
 **Completion test:** the review can reproduce the applicable requirement set, inspect test coverage, locate evidence, identify exceptions and record an accountable disposition.
 
+## Apply each role to one bounded gateway decision
+
+The [Delegated Agent Purchasing gateway exercise](../examples/delegated-agent-purchase/adopter-gateway-exercise.md) is a **repository-controlled, informative** common case for these three audiences. It evaluates a delegated agent's request to make a consequential purchase. It is **not** independent implementation evidence, a production gateway, proof of source authenticity, a completed effect, or comprehensive profile conformance.
+
+| Reader | Use the existing exercise to answer | Confirm before treating the route as complete |
+| --- | --- | --- |
+| Governance designer | Who is the originating principal, acting agent, governing authority, policy owner and accountable party? Which effect is in scope, and who decides disputes or remedies? | Trace the ten-element table to applicable GAAM requirements; distinguish a named authority source from independently established authority, and identify unresolved policy precedence and affected-party controls. |
+| Implementer | Can published commands reproduce the request, delegated-scope comparison, time/status checks, negative and indeterminate results, and schema-valid decision receipt? | Run `python examples/delegated-agent-purchase/adopter_gateway.py < examples/delegated-agent-purchase/adopter-gateway-case.json` and `python -m pytest tests/test_adopter_gateway.py -q`; verify `effectExecuted: false`. The local scope comparator and observation conventions are **not** GAAM-wide normative semantics. |
+| Reviewer | Which ten elements are demonstrated, partially demonstrated, or unverified, and what evidence would falsify the remaining claims? | Inspect the [normative requirements index](../matrices/normative-requirements-index.md), the exercise's F-102-A–E findings and the [implementation-report evidence boundary](../implementation-reports/README.md). A digest or synthetic PASS is not source authenticity, E2 evidence or cross-implementation interoperability. |
+
+**Limits of this reader exercise:** these paths can be followed using public repository files, but no independent first-time reader study has been performed. External actor/source verification, policy authority, multi-source conflicts, operational enforcement and durable attributable evidence remain outside the demonstration. Report a missing or ambiguous normative expression as a finding under GAAM change control; do not promote the scenario's informative OAuth/MCP references or experimental schemas into mandatory rules.
+
 ## Normative reading rule
 
 Informative guidance explains how to apply GAAM but does not replace the normative specification, profiles, schemas or conformance requirements. Record the exact version and profile used whenever making a conformance or assurance claim.
