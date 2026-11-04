@@ -20,4 +20,6 @@ Use this route to understand what GAAM is, choose the shortest path for your rol
 | Assess requirements, tests, threats or evidence | [Test & Assure](test-and-assure.md) |
 | Understand project status, releases or evolution | [Project & Evolution](project-and-evolution.md) |
 
+For the same delegated-agent purchase scenario viewed by a governance designer, implementer and reviewer, follow the [role-specific gateway decision paths](guided-learning.md#apply-each-role-to-one-bounded-gateway-decision). They lead to a reproducible example and explicitly identify what remains unverified.
+
 GAAM separates normative requirements from implementation guidance and from evidence. A passing repository check is not independent assurance.

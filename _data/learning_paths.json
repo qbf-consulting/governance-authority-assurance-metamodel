@@ -22,6 +22,10 @@
         {
           "file": "examples/index.md",
           "outcome": "Apply the model to representative systems"
+        },
+        {
+          "file": "examples/delegated-agent-purchase/adopter-gateway-exercise.md",
+          "outcome": "Identify consequential effect, authority and accountable decision boundaries from the ten-element evidence disposition"
         }
       ]
     },
@@ -49,6 +53,10 @@
         {
           "file": "conformance/index.md",
           "outcome": "Produce conformance evidence"
+        },
+        {
+          "file": "examples/delegated-agent-purchase/adopter-gateway-exercise.md",
+          "outcome": "Reproduce the local gateway decision and test its denial, indeterminate and non-execution boundaries"
         }
       ]
     },
@@ -76,6 +84,10 @@
         {
           "file": "matrices/threat-control-test-matrix.md",
           "outcome": "Trace threats through controls to tests"
+        },
+        {
+          "file": "examples/delegated-agent-purchase/adopter-gateway-exercise.md",
+          "outcome": "Differentiate demonstrated E1 behavior from unverified source provenance, enforcement and independent E2/E3 evidence"
         }
       ]
     },
