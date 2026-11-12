@@ -7,7 +7,7 @@ nav_order: 6
 artifact_type: Informative cross-system alignment
 normative_status: Informative
 ---
-# Temporal Governance: Cross-System Assurance Alignment
+# Temporal Governance Cross-System Alignment
 
 {% include gaam-meta.html %}
 
