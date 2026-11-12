@@ -44,7 +44,7 @@ def base_input():
         "authority": authority,
         "delegation": delegation,
         "policy": {"revision": "demo-policy-1", "state": "current", "prohibited": False},
-        "evidence": {"state": "current", "observedAt": "2026-07-30T11:59:00Z",
+        "evidence": {"state": "current", "replayed": False, "observedAt": "2026-07-30T11:59:00Z",
                      "freshUntil": "2026-07-30T12:05:00Z",
                      "references": ["urn:gaam:evidence:basic-governed-decision:current"]},
         "revocation": {"state": "active"},
@@ -85,7 +85,7 @@ def contract_complete(p):
             return False
         if d["status"] not in ("active", "revoked", "suspended", "expired"):
             return False
-        if ev["state"] not in ("current", "stale"):
+        if ev["state"] not in ("current", "stale") or type(ev["replayed"]) is not bool:
             return False
         if rev["state"] not in ("active", "revoked", "suspended"):
             return False
@@ -175,6 +175,16 @@ def main():
         unavailable = evaluate(base_input(), "/nonexistent/opa")
         if unavailable["status"] != "indeterminate" or unavailable["predicateResult"] is not None:
             failures.append({"id": "engine-unavailable", "failure": "unexpected success"})
+        # False success from undefined JSON or evaluator failure must also be impossible.
+        with tempfile.TemporaryDirectory() as td:
+            for label, script in (("engine-undefined", "#!/bin/sh\nprintf '{}'"),
+                                  ("engine-error", "#!/bin/sh\nexit 3")):
+                fake_opa = Path(td) / label
+                fake_opa.write_text(script + "\n", encoding="utf-8")
+                fake_opa.chmod(0o700)
+                result = evaluate(base_input(), str(fake_opa))
+                if result["status"] != "indeterminate" or result["predicateResult"] is not None:
+                    failures.append({"id": label, "failure": "false success"})
         print(json.dumps({"caseCount": len(cases), "failures": failures, "engineUnavailable": unavailable["status"],
                           "authorizationClaims": 0}, sort_keys=True))
         return int(bool(failures))
