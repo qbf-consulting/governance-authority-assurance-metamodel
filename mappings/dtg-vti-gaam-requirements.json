@@ -1,0 +1,427 @@
+{
+  "id": "gaam:expressivity:dtg-vti:2026-11-13",
+  "normativeStatus": "informative",
+  "assessmentType": "metamodel-expressivity",
+  "gaamNormativeVersion": "0.9.0",
+  "gaamSourceCommit": "a1db5f905dd60f5ea0c17df84171d6da41947d8a",
+  "vtiSourceCommit": "416899c37f8a1b88a47dbeab378e227c6d4742e1",
+  "vtiSourceStatus": "working-draft",
+  "assessmentDate": "2026-11-13",
+  "selectionRule": "Purposive governance-relevant VTI requirements spanning six issue domains and cross-cutting assurance; not exhaustive; technical-only requirements excluded.",
+  "classificationVocabulary": [
+    "direct",
+    "specialization",
+    "ambiguous",
+    "not-expressible",
+    "outside-scope",
+    "indeterminate"
+  ],
+  "findings": [
+    {
+      "vti": "VTI-CTX-001",
+      "chapter": "03-trust-contexts.md",
+      "gaam": [
+        "GAAM-CTX-001",
+        "GAAM-AUTH-002"
+      ],
+      "classification": "direct",
+      "interpretation": "Resource-to-context affiliation supplies a governance-context input, not permission."
+    },
+    {
+      "vti": "VTI-CTX-017",
+      "chapter": "03-trust-contexts.md",
+      "gaam": [
+        "GAAM-CTX-001",
+        "GAAM-AUTH-002",
+        "GAAM-POL-001"
+      ],
+      "classification": "specialization",
+      "interpretation": "VTI segment-aware ancestry is a domain-specific authority scope rule; not generic GAAM inheritance."
+    },
+    {
+      "vti": "VTI-CTX-020",
+      "chapter": "03-trust-contexts.md",
+      "gaam": [
+        "GAAM-AUTH-002",
+        "GAAM-EFF-002"
+      ],
+      "classification": "direct",
+      "interpretation": "Context creation is a governed effect requiring current scoped authority."
+    },
+    {
+      "vti": "VTI-ACL-001",
+      "chapter": "03a-access-control.md",
+      "gaam": [
+        "GAAM-ART-001",
+        "GAAM-AUTH-003"
+      ],
+      "classification": "direct",
+      "interpretation": "An access entry can encode bounded authority; technical entry existence alone does not prove legitimate origin."
+    },
+    {
+      "vti": "VTI-ACL-010",
+      "chapter": "03a-access-control.md",
+      "gaam": [
+        "GAAM-AUTH-002",
+        "GAAM-CORE-003"
+      ],
+      "classification": "direct",
+      "interpretation": "Roles impose authority ceilings rather than unconditional grants."
+    },
+    {
+      "vti": "VTI-ACL-030",
+      "chapter": "03a-access-control.md",
+      "gaam": [
+        "GAAM-AUTH-004",
+        "GAAM-ART-005"
+      ],
+      "classification": "direct",
+      "interpretation": "Effective rights derive from role, capability, scope, policy and live authority intersection."
+    },
+    {
+      "vti": "VTI-ACL-070",
+      "chapter": "03a-access-control.md",
+      "gaam": [
+        "GAAM-DEL-001",
+        "GAAM-ART-004"
+      ],
+      "classification": "direct",
+      "interpretation": "Delegation is a sourced, scoped and terminable grant, not mere client registration."
+    },
+    {
+      "vti": "VTI-ACL-071",
+      "chapter": "03a-access-control.md",
+      "gaam": [
+        "GAAM-DEL-003",
+        "GAAM-ART-005"
+      ],
+      "classification": "direct",
+      "interpretation": "Child authority cannot amplify the valid parent authority."
+    },
+    {
+      "vti": "VTI-ACL-073",
+      "chapter": "03a-access-control.md",
+      "gaam": [
+        "GAAM-DEL-002",
+        "GAAM-DEL-010"
+      ],
+      "classification": "direct",
+      "interpretation": "Redelegation needs explicit permission and validated ancestry."
+    },
+    {
+      "vti": "VTI-ACL-080",
+      "chapter": "03a-access-control.md",
+      "gaam": [
+        "GAAM-LIFE-004",
+        "GAAM-RUN-003"
+      ],
+      "classification": "specialization",
+      "interpretation": "VTI next-decision withdrawal is a lifecycle enforcement specialization; it does not undo past effects."
+    },
+    {
+      "vti": "VTI-ACL-090",
+      "chapter": "03a-access-control.md",
+      "gaam": [
+        "GAAM-GF-006",
+        "GAAM-AUTH-001"
+      ],
+      "classification": "specialization",
+      "interpretation": "VTA custody and context authority are assigned technical roles, not institutional legitimacy or VTC membership powers."
+    },
+    {
+      "vti": "VTI-VTC-012",
+      "chapter": "11-vtc.md",
+      "gaam": [
+        "GAAM-GF-006",
+        "GAAM-CORE-003"
+      ],
+      "classification": "specialization",
+      "interpretation": "VTC decision powers and their separation from VTA decisions are specific authority-role assignments."
+    },
+    {
+      "vti": "VTI-VTC-022",
+      "chapter": "11-vtc.md",
+      "gaam": [
+        "GAAM-POL-002",
+        "GAAM-AUTH-001"
+      ],
+      "classification": "direct",
+      "interpretation": "Community policy constrains rather than independently generates authority."
+    },
+    {
+      "vti": "VTI-MEM-010",
+      "chapter": "12-vtc-lifecycle.md",
+      "gaam": [
+        "GAAM-AUTH-002",
+        "GAAM-LIFE-002"
+      ],
+      "classification": "direct",
+      "interpretation": "Admission is an authorized membership transition; joining a protocol is insufficient."
+    },
+    {
+      "vti": "VTI-MEM-031",
+      "chapter": "12-vtc-lifecycle.md",
+      "gaam": [
+        "GAAM-LIFE-004",
+        "GAAM-PRIV-001",
+        "GAAM-RED-007"
+      ],
+      "classification": "specialization",
+      "interpretation": "Departure and erasure are distinct effects with community privacy and evidence-retention constraints."
+    },
+    {
+      "vti": "VTI-VOT-010",
+      "chapter": "12b-vtc-voting.md",
+      "gaam": [
+        "GAAM-GF-007",
+        "GAAM-POL-003"
+      ],
+      "classification": "specialization",
+      "interpretation": "Election manifest instantiates community collective-decision procedure and applicable policy, not a generic metamodel ballot."
+    },
+    {
+      "vti": "VTI-VOT-021",
+      "chapter": "12b-vtc-voting.md",
+      "gaam": [
+        "GAAM-CORE-003",
+        "GAAM-EVID-001"
+      ],
+      "classification": "direct",
+      "interpretation": "Eligibility and evidence for a ticket confer no general community authority."
+    },
+    {
+      "vti": "VTI-VOT-071",
+      "chapter": "12b-vtc-voting.md",
+      "gaam": [
+        "GAAM-ASSUR-001",
+        "GAAM-DEC-001"
+      ],
+      "classification": "direct",
+      "interpretation": "Certification is attributable and evidence-based, not itself an unlimited grant."
+    },
+    {
+      "vti": "VTI-VOT-081",
+      "chapter": "12b-vtc-voting.md",
+      "gaam": [
+        "GAAM-GF-007",
+        "GAAM-POL-002",
+        "GAAM-EFF-002"
+      ],
+      "classification": "specialization",
+      "interpretation": "Binding collective procedure is an authority condition, separate from execution and technical tally."
+    },
+    {
+      "vti": "VTI-VTN-002",
+      "chapter": "11a-vtn.md",
+      "gaam": [
+        "GAAM-CORE-002",
+        "GAAM-GF-006"
+      ],
+      "classification": "direct",
+      "interpretation": "Network owner and public policy establish attributable governance role, not universal recognition."
+    },
+    {
+      "vti": "VTI-VTN-010",
+      "chapter": "11a-vtn.md",
+      "gaam": [
+        "GAAM-GRAPH-001",
+        "GAAM-REL-001"
+      ],
+      "classification": "specialization",
+      "interpretation": "Unsolicited listing is a unilateral attributed assertion, not consent or membership."
+    },
+    {
+      "vti": "VTI-VTN-012",
+      "chapter": "11a-vtn.md",
+      "gaam": [
+        "GAAM-GRAPH-008",
+        "GAAM-REG-004",
+        "GAAM-RED-004"
+      ],
+      "classification": "specialization",
+      "interpretation": "Repudiation is a contestation state linked to the original assertion, not automatic historical erasure."
+    },
+    {
+      "vti": "VTI-VTN-020",
+      "chapter": "11a-vtn.md",
+      "gaam": [
+        "GAAM-DEC-002",
+        "GAAM-REG-001"
+      ],
+      "classification": "direct",
+      "interpretation": "VTN listing cannot itself establish operative standing."
+    },
+    {
+      "vti": "VTI-VTN-052",
+      "chapter": "11a-vtn.md",
+      "gaam": [
+        "GAAM-REL-002",
+        "GAAM-GRAPH-002"
+      ],
+      "classification": "direct",
+      "interpretation": "Endorsement is scoped evidence and not an authority delegation."
+    },
+    {
+      "vti": "VTI-REG-002",
+      "chapter": "13-registries.md",
+      "gaam": [
+        "GAAM-REG-003",
+        "GAAM-REL-001"
+      ],
+      "classification": "direct",
+      "interpretation": "Registry statement is bound to its governing framework and declared semantics."
+    },
+    {
+      "vti": "VTI-REG-003",
+      "chapter": "13-registries.md",
+      "gaam": [
+        "GAAM-AUTH-003",
+        "GAAM-REG-001"
+      ],
+      "classification": "direct",
+      "interpretation": "Registry statement cannot grant more than the framework explicitly asserts."
+    },
+    {
+      "vti": "VTI-REG-011",
+      "chapter": "13-registries.md",
+      "gaam": [
+        "GAAM-EVID-003",
+        "GAAM-RUN-003"
+      ],
+      "classification": "direct",
+      "interpretation": "Time-bounded registry evidence is not permanent current authority."
+    },
+    {
+      "vti": "VTI-REG-023",
+      "chapter": "13-registries.md",
+      "gaam": [
+        "GAAM-CTX-002",
+        "GAAM-REG-006"
+      ],
+      "classification": "direct",
+      "interpretation": "Foreign role mapping is explicit local policy subject to local standing ceilings."
+    },
+    {
+      "vti": "VTI-REG-024",
+      "chapter": "13-registries.md",
+      "gaam": [
+        "GAAM-GRAPH-006",
+        "GAAM-GRAPH-007"
+      ],
+      "classification": "direct",
+      "interpretation": "Recognition is directional and non-transitive absent explicit local decision."
+    },
+    {
+      "vti": "VTI-CMP-020",
+      "chapter": "14-composition.md",
+      "gaam": [
+        "GAAM-EFF-002",
+        "GAAM-OUT-003"
+      ],
+      "classification": "direct",
+      "interpretation": "Protocol success is separate from authorized effect and observed completion."
+    },
+    {
+      "vti": "VTI-CMP-030",
+      "chapter": "14-composition.md",
+      "gaam": [
+        "GAAM-ASSUR-001",
+        "GAAM-DEC-002"
+      ],
+      "classification": "direct",
+      "interpretation": "Proof verification is decision evidence, not the decision."
+    },
+    {
+      "vti": "VTI-CMP-032",
+      "chapter": "14-composition.md",
+      "gaam": [
+        "GAAM-RUN-003",
+        "GAAM-EVID-003"
+      ],
+      "classification": "direct",
+      "interpretation": "Current operative authority has temporal and freshness conditions."
+    },
+    {
+      "vti": "VTI-CMP-050",
+      "chapter": "14-composition.md",
+      "gaam": [
+        "GAAM-DEL-003",
+        "GAAM-DEL-013"
+      ],
+      "classification": "direct",
+      "interpretation": "Combined components cannot amplify effective authority."
+    },
+    {
+      "vti": "VTI-CMP-080",
+      "chapter": "14-composition.md",
+      "gaam": [
+        "GAAM-RUN-002",
+        "GAAM-EVID-004"
+      ],
+      "classification": "direct",
+      "interpretation": "Indeterminate evidence must not become fictitious success."
+    },
+    {
+      "vti": "VTI-CMP-111",
+      "chapter": "14-composition.md",
+      "gaam": [
+        "GAAM-AGT-019",
+        "GAAM-EFF-002"
+      ],
+      "classification": "direct",
+      "interpretation": "Human approval is action-bound; delegated client cannot substitute unrelated approval."
+    },
+    {
+      "vti": "VTI-AUD-002",
+      "chapter": "03c-audit.md",
+      "gaam": [
+        "GAAM-EVT-002",
+        "GAAM-OUT-003"
+      ],
+      "classification": "direct",
+      "interpretation": "Action attribution and evidence allow decision reconstruction; logs are not legitimacy."
+    },
+    {
+      "vti": "VTI-OPR-020",
+      "chapter": "15-operational.md",
+      "gaam": [
+        "GAAM-RUN-009",
+        "GAAM-LIFE-004"
+      ],
+      "classification": "direct",
+      "interpretation": "Emergency withdrawal is a governed lifecycle effect, distinct from successful containment."
+    },
+    {
+      "vti": "VTI-OPR-032",
+      "chapter": "15-operational.md",
+      "gaam": [
+        "GAAM-EVT-002",
+        "GAAM-LIFE-005"
+      ],
+      "classification": "direct",
+      "interpretation": "Historical evidence reconstructs operative past state without substituting present state."
+    },
+    {
+      "vti": "VTI-CNF-020",
+      "chapter": "95-conformance.md",
+      "gaam": [
+        "GAAM-CONF-001",
+        "GAAM-ASSUR-002"
+      ],
+      "classification": "direct",
+      "interpretation": "Assessor authority is evidence scope only; cannot supersede VTI normative authority."
+    }
+  ],
+  "disposition": "adequate-with-specialization",
+  "coverage": {
+    "sampled": 39,
+    "direct": 30,
+    "specialization": 9
+  },
+  "limitations": [
+    "Semantic mapping only, no deployment tests or independent assurance.",
+    "VTI remains a Working Draft with provisional VTN target and unresolved suite governance.",
+    "VTI-specific rules for context ancestry, collective procedure, and listing acknowledgment are domain specializations.",
+    "This sample does not establish completeness for the entire VTI requirement set."
+  ]
+}
