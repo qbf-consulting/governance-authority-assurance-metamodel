@@ -17,7 +17,7 @@ normative_status: Informative
 
 The frozen GAAM v0.9.0 contracts already represent effective validity in Authority/Delegation, evidence collection in Evidence, an event timestamp in Governance Event and decision time in Decision Receipt. Those roles are not interchangeable. None alone establishes historical authoritative recording cutoffs, complete source histories or contemporaneous reliance. A naive extension of those canonical schemas would be potentially breaking because each is `additionalProperties: false`.
 
-TRQP issue #79 and ARPA issue #119 provide separately governed examples of the distinction, not a mandate to adopt either field vocabulary. The [experimental cases](../../../experimental/temporal-governance/README.md) show modeled positives and fail-closed negatives for retroactive changes and multi-source composition. This is local implementation evidence only; external E2/E3 reports and authentic provenance/clock assurances have not been obtained.
+TRQP issue #79 and ARPA issue #119 provide separately governed examples of the distinction, not a mandate to adopt either field vocabulary. The [experimental cases](../../experimental/temporal-governance/README.md) show modeled positives and fail-closed negatives for retroactive changes and multi-source composition. This is local implementation evidence only; external E2/E3 reports and authentic provenance/clock assurances have not been obtained.
 
 ## Disposition against existing promotion process
 
