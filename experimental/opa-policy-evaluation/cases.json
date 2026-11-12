@@ -190,6 +190,23 @@
       "mutations": {
         "evaluationTime": "2026-07-29T11:59:59Z"
       }
+    },
+    {
+      "id": "overbroad-delegation-allowed-action",
+      "expected": "not-satisfied",
+      "mutations": {
+        "delegation.delegatedScope.effects": [
+          "execute-within-scope",
+          "execute-outside-scope"
+        ]
+      }
+    },
+    {
+      "id": "replayed-evidence",
+      "expected": "not-satisfied",
+      "mutations": {
+        "evidence.replayed": true
+      }
     }
   ]
 }

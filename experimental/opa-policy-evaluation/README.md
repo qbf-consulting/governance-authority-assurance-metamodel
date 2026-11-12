@@ -15,7 +15,7 @@ python experimental/opa-policy-evaluation/experiment.py --case fake-verification
 
 The dedicated CI workflow downloads the official v1.22.3 Linux binary from the OPA GitHub release and verifies SHA-256 **b6e7796ca71c22bffebeb0d58074170830d436a148d0490387e387d2d36d764b** before use. There are no Python dependencies beyond the standard library and no server, externally hosted policy registry or private credentials.
 
-The test runner reuses the actual Basic Governed Decision authority and delegation fixtures; it constructs an *explicitly synthetic* request, applicable policy, observation time, evidence state and revocation state. The 26 scenarios mutate these inputs. They are not evidence of live authority, independent authentication, governance consent, or a real effect.
+The test runner reuses the actual Basic Governed Decision authority and delegation fixtures; it constructs an *explicitly synthetic* request, applicable policy, observation time, evidence state and revocation state. The 28 scenarios mutate these inputs. They are not evidence of live authority, independent authentication, governance consent, or a real effect.
 
 ## Source-to-evaluator mapping
 
@@ -36,7 +36,7 @@ The output deliberately contains **authorityEstablished: false**, **enforcementA
 
 ## What is actually tested
 
-The [scenario matrix](cases.json) exercises a positive bounded effect, out-of-scope and amplified authority, revoked/suspended/expired parent, revoked delegation, unauthorized redelegation, current/superseded/prohibited policy, stale/missing/conflicting evidence, missing authority-source claim, unknown/unavailable revocation, actor mismatch, unrecognized policy/contract versions, malformed time, and deliberate false verification flags.
+The [scenario matrix](cases.json) exercises a positive bounded effect, out-of-scope and amplified authority (including an overbroad dormant child grant), replayed evidence, revoked/suspended/expired parent, revoked delegation, unauthorized redelegation, current/superseded/prohibited policy, stale/missing/conflicting evidence, missing authority-source claim, unknown/unavailable revocation, actor mismatch, unrecognized policy/contract versions, malformed time, and deliberate false verification flags.
 
 A successful CI run proves only that the **pinned OPA release** evaluates the sample Rego policy as expected and the wrapper preserves the distinction between false, unknown and true predicate results. Local policy and input digests make the record reproducible, but do not authenticate who approved a rule or its legal authority. This cannot satisfy [independent implementation issue #20](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/issues/20) or [cross-implementation evidence issue #21](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/issues/21).
 

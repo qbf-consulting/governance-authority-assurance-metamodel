@@ -12,6 +12,11 @@ candidate_eligible if {
     input.request.effect in input.authority.permittedEffects
     not input.request.effect in input.authority.prohibitedEffects
     input.request.effect in input.delegation.delegatedScope.effects
+    # Every delegated effect must be authorized, even when not requested now.
+    every effect in input.delegation.delegatedScope.effects {
+        effect in input.authority.permittedEffects
+        not effect in input.authority.prohibitedEffects
+    }
     input.authority.id == input.delegation.parentAuthority
     input.authority.subject == input.delegation.delegate
     input.authority.delegationPermitted == true
@@ -23,6 +28,7 @@ candidate_eligible if {
     input.delegation.effectiveFrom <= input.evaluationTime
     input.evaluationTime < input.delegation.effectiveUntil
     input.evidence.state == "current"
+    input.evidence.replayed == false
     input.evidence.observedAt <= input.evaluationTime
     input.evaluationTime < input.evidence.freshUntil
     input.revocation.state == "active"
