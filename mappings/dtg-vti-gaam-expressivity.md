@@ -37,6 +37,22 @@ normative_status: "Informative"
 | Registry and credential | Issuer source, typed assertion, status/freshness, relying-party determination | Valid assertion or registry entry is not operative authority on its own. |
 | Operations and remedy | Proposed effect, contextual decision, enforcement, actual outcome, recorded challenge and remedy | Successful protocol execution cannot prove correct authorization or completed effect. |
 
+## Conceptual governance flow
+
+The diagram separates the governance questions GAAM can express from the infrastructure-specific controls VTI defines. It is an **informative responsibility and evidence flow**, not an additional VTI protocol, required service topology, or state machine.
+
+```mermaid
+flowchart TD
+  G["Governing framework<br/>Authority sources and policies"] --> A["Bounded authority<br/>Roles, scope, delegation and recognition"]
+  A --> D["Contextual governance decision<br/>Current authority, policy, evidence and constraints"]
+  D --> E["VTI enforcement<br/>Component-specific controls"]
+  E --> O["Observed effect<br/>Outcome distinct from decision"]
+  D -. "Decision basis" .-> R["Accountability and remedy<br/>Decision, evidence, review and correction"]
+  O --> R
+```
+
+**How to read it.** GAAM models the authority basis, the conditions for a decision, and the attribution of results and remedies. VTI defines the mechanisms that may enforce these decisions within its component and composition requirements. A verified credential or registry entry is evidence, not itself permission; a permitted decision is not proof that the effect occurred. Delegation, recognition, withdrawal and challenge are governed relationships or events, not implied additional protocol steps. Accountability can be engaged by a decision or refusal even when no effect occurs.
+
 **Authority path.** A governing institution or community framework sources authority → a principal or authorized community role holds scoped decision rights → a VTA or VTC expresses technical grants within its own decision boundary → an authorized delegate performs a requested operation → the relevant decision owner applies current policy, status, evidence and constraints → the enforcement result and the observed effect are recorded separately → accountable actors preserve challenge and correction paths. This is a semantic responsibility decomposition, **not** an asserted VTI deployment topology or a new protocol.
 
 **Collective governance.** VTI voting expressly does not supply a new authority model; elections decide only within their manifest and subsequent changes still use the authorization model. GAAM's framework authority, roles, collective decision formation, constraints and consequential-effect constructs can represent the institutional condition under which a result becomes binding. Exact eligibility, quorum, secrecy, tally and election protocol rules remain community/VTI specializations. Absence of a GAAM-specific `BallotBox` class is not a model deficiency.
