@@ -37,6 +37,9 @@ GAAM mapping documents are informative artifacts. They explain source provenance
 - [AI Governance Source-to-GAAM Crosswalk](ai-governance-source-to-gaam.md)  
   Tests AI-governance and agentic-AI concerns against GAAM v0.9.0 and distinguishes existing coverage, AI-profile constraints, external mappings and genuine core gaps.
 
+- [DTG/VTI Governance Expressivity Assessment](dtg-vti-gaam-expressivity.md)  
+  Informative metamodel expressivity case study with a [structured requirement matrix](dtg-vti-gaam-requirements.json) and [semantic boundary cases](dtg-vti-gaam-boundary-cases.md). Not an implementation-readiness or conformance assessment.
+
 ## Interpretation rule
 
 A mapping or source citation does not make an external specification normative for GAAM. Only requirements and artifacts designated normative within the GAAM repository establish GAAM conformance obligations.
