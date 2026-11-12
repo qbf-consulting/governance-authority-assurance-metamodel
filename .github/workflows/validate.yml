@@ -62,6 +62,9 @@ jobs:
       - name: Generate bounded gateway E1 evidence dossier
         run: python scripts/generate_gateway_evidence.py
 
+      - name: Pressure-test informative temporal governance semantics
+        run: python scripts/test_temporal_governance_alignment.py
+
       - name: Run Python regression tests
         run: python -m pytest tests -q
 

@@ -22,3 +22,7 @@ Assured components do not automatically produce an assured system, and a qualifi
 - Is a draft profile, experimental schema, vocabulary, or behavioural vector necessary?
 - What privacy, security, affected-party, market, and continuity consequences arise?
 - What evidence would justify normative promotion?
+
+## Temporal composition
+
+A set of individually qualified claims cannot automatically become a qualified composite decision when their competent recording cutoffs, governing policy versions or historical coverage are incompatible. A relevant [experimental scenario](../../../experimental/temporal-governance/README.md) tests this non-amplification boundary. Compatible timestamps are necessary in some domains but not sufficient for actual authority or independent assurance; the governing composition policy remains material.

@@ -20,3 +20,7 @@ Experimental artefacts:
 - use identifiers under the `/experimental/0.9.0-research/` namespace.
 
 See the [catalogue](catalog.json) for the complete inventory.
+
+## Temporal governance research cases
+
+The [temporal governance case set](temporal-governance/README.md) is a standalone, standard-library-only semantic pressure test. It is intentionally **not** added to the canonical experimental schema catalogue because it defines no reusable schema or vocabulary and makes no v0.9.0 conformance claim.
