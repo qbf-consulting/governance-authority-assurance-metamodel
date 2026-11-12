@@ -106,3 +106,7 @@ Downstream projects MAY project this model into protocol-specific contracts whil
 ## Assurance expectation
 
 Implementations claiming this concept SHOULD provide executable evidence for AAC-01 through AAC-08. Narrative assertion alone is insufficient for consequential positive claims.
+
+## Temporal reconstruction and original decisions
+
+A later examination must separately identify the material commitment time, authoritative evidence cutoff, original receipt/decision time, and reconstruction time. Later-recorded corrections can change the retrospective assessment without silently rewriting the contemporaneous decision receipt. A source record's historical availability does not prove the relying party observed it or was entitled to rely on it. See [Temporal Governance](temporal-governance.md) and [cross-system assurance alignment](../temporal-governance-alignment.md). This is an informative clarification of the future-evolution concept, not a new normative obligation.

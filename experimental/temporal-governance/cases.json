@@ -1,0 +1,850 @@
+{
+  "id": "gaam-temporal-governance-alignment-0.1",
+  "status": "experimental",
+  "normativeStatus": "non-normative",
+  "semanticOwner": "GAAM",
+  "fixtureAssumptions": [
+    "authenticated and completeThrough are modeled preconditions, not attested runtime facts",
+    "each scenario is synthetic, no independent implementer or legal reliance is established"
+  ],
+  "vectors": [
+    {
+      "id": "TG-01-as-known-at-before-correction",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "permit",
+        "reason": "supported_by_qualified_record"
+      }
+    },
+    {
+      "id": "TG-02-after-retroactive-correction",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-20T00:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "deny",
+        "reason": "competent_negative_assertion"
+      }
+    },
+    {
+      "id": "TG-03-prospective-revocation-not-backdated",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-20T00:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-15T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "permit",
+        "reason": "supported_by_qualified_record"
+      }
+    },
+    {
+      "id": "TG-04-history-incomplete",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-20T00:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-10T13:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "insufficient_authoritative_history"
+      }
+    },
+    {
+      "id": "TG-05-recording-time-missing",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "recording_provenance_missing"
+      }
+    },
+    {
+      "id": "TG-06-conflict-without-supersession",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-20T00:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1"
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "unresolved_competent_conflict"
+      }
+    },
+    {
+      "id": "TG-07-competence-unproven",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": false,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "source_competence_or_authenticity_unverified"
+      }
+    },
+    {
+      "id": "TG-08-composite-qualified",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        },
+        {
+          "key": "issuer-competence",
+          "source": "framework-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        },
+        "framework-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        },
+        {
+          "id": "competence",
+          "key": "issuer-competence",
+          "source": "framework-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        }
+      ],
+      "expected": {
+        "outcome": "permit",
+        "reason": "supported_by_qualified_record"
+      }
+    },
+    {
+      "id": "TG-09-composite-incompatible-cutoffs",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority",
+          "evidenceAsOf": "2026-10-10T13:00:00Z"
+        },
+        {
+          "key": "issuer-competence",
+          "source": "framework-authority",
+          "evidenceAsOf": "2026-10-20T00:00:00Z"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        },
+        "framework-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        },
+        {
+          "id": "competence",
+          "key": "issuer-competence",
+          "source": "framework-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "incompatible_temporal_context"
+      }
+    },
+    {
+      "id": "TG-10-composite-policy-version-mismatch",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        },
+        {
+          "key": "issuer-competence",
+          "source": "framework-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        },
+        "framework-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        },
+        {
+          "id": "competence",
+          "key": "issuer-competence",
+          "source": "framework-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v2"
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "policy_version_incompatible"
+      }
+    },
+    {
+      "id": "TG-11-unknown-supersession",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-20T00:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "absent-record"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "unresolved_supersession"
+      }
+    },
+    {
+      "id": "TG-12-source-provenance-mismatch",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "unqualified-source",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "source_provenance_mismatch"
+      }
+    },
+    {
+      "id": "TG-13-cutoff-after-evaluation",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-11-01T00:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "invalid_temporal_order"
+      }
+    },
+    {
+      "id": "TG-14-no-positive-evidence",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "required_claim_not_established"
+      }
+    },
+    {
+      "id": "TG-15-retrospective-receipt-preserved",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-20T00:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "receipt": {
+        "id": "decision-10-oct",
+        "decisionAt": "2026-10-10T12:00:00Z",
+        "originalOutcome": "permit",
+        "evidenceCutoff": "2026-10-10T13:00:00Z"
+      },
+      "requiredReceiptOutcome": "permit",
+      "expected": {
+        "outcome": "deny",
+        "reason": "competent_negative_assertion"
+      }
+    },
+    {
+      "id": "TG-16-source-observation-not-recording",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "observedAt": "2026-10-10T13:00:00Z"
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "recording_provenance_missing"
+      }
+    },
+    {
+      "id": "TG-17-effective-denial-not-yet-known",
+      "context": {
+        "effectiveAt": "2026-10-10T12:00:00Z",
+        "evidenceAsOf": "2026-10-10T13:00:00Z",
+        "evaluationAt": "2026-10-21T00:00:00Z",
+        "policyVersion": "framework-v1"
+      },
+      "requirements": [
+        {
+          "key": "mandate",
+          "source": "registry-authority"
+        }
+      ],
+      "sources": {
+        "registry-authority": {
+          "authenticated": true,
+          "completeThrough": "2026-10-20T00:00:00Z"
+        }
+      },
+      "records": [
+        {
+          "id": "grant",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "affirm",
+          "effectiveFrom": "2026-10-15T00:00:00Z",
+          "recordedAt": "2026-10-01T00:00:00Z",
+          "policyVersion": "framework-v1"
+        },
+        {
+          "id": "revocation",
+          "key": "mandate",
+          "source": "registry-authority",
+          "value": "deny",
+          "effectiveFrom": "2026-10-08T00:00:00Z",
+          "recordedAt": "2026-10-15T00:00:00Z",
+          "policyVersion": "framework-v1",
+          "supersedes": [
+            "grant"
+          ]
+        }
+      ],
+      "expected": {
+        "outcome": "indeterminate",
+        "reason": "required_claim_not_established"
+      }
+    }
+  ]
+}

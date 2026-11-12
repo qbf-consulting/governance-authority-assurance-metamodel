@@ -24,6 +24,8 @@ An opaque `delegatedScope` object is not an executable attenuation proof. Compar
 
 Freshness requires observation provenance, a usable evaluation clock and a policy-bound maximum age. `bounded-delay` without a numeric bound does not prove a timely revocation response. Reference vectors and candidate fields do not attest an actual registry read or trusted clock.
 
+An [informative temporal governance analysis](future-evolution/temporal-governance-alignment.md) now distinguishes effective applicability, authoritative recording, client observation, decision time and subsequent reconstruction. The experimental cases test the danger of treating a collection timestamp as source-recording proof and combining incompatible temporal cutoffs. This adds no new GAAM v0.9.0 requirement or independent authenticity claim.
+
 ## Profiles, test references and normative source defects
 
 The specification's §14 lists seven named profiles, while the governed manifests include a runtime-governance manifest. This needs controlled editorial resolution before the normative text is represented as explicitly enumerating all eight. The label `foundation-or-contextual` in derived matrices does not itself establish applicability; claimants must resolve actual selected manifest membership and dependencies. An unresolved contextual obligation is not a PASS.

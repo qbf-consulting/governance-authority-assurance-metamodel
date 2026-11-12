@@ -22,3 +22,7 @@ Controlled degradation states may include read-only, no-new-issuance, status-onl
 - Is a draft profile, experimental schema, vocabulary, or behavioural vector necessary?
 - What privacy, security, affected-party, market, and continuity consequences arise?
 - What evidence would justify normative promotion?
+
+## Temporal boundary
+
+Source effective time, competent recording time, replica observation and actual enforcement are different predicates. A complete as-known-at reconstruction does not prove revocation propagation or enforcement convergence; a bounded-delay claim needs independently supported timing and acknowledgement evidence. The [temporal governance model](temporal-governance.md) preserves this distinction without prescribing a particular cache, replication or event mechanism.

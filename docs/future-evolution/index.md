@@ -20,6 +20,8 @@ GAAM v0.9.0 is the unchanged candidate specification. This section records futur
 | [Delivery Roadmap](delivery-roadmap.md) | Four-commit evidence-led development sequence |
 | [Evidence-Gated Promotion](promotion-governance.md) | Rules and evidence gates for any later research-to-normative transition |
 | [Candidate Concepts](concepts/index.md) | Detailed future-facing governance concepts for implementation testing |
+| [Temporal Governance Cross-System Alignment](temporal-governance-alignment.md) | Semantics and non-implication boundaries across GAAM, TRQP, ARPA, TSMM and TIS |
+| [Temporal Governance Research Disposition](temporal-governance-disposition.md) | Experimental evidence, limits and decision against premature normative promotion |
 
 The machine-readable [future enhancement register](../../governance/future-enhancement-register.json) is the authoritative programme inventory. A listed item is not approved merely because it appears in the register. Research dispositions are explicitly separated from normative promotion, which is governed by the [promotion controls](../../governance/promotion/README.md).
 

@@ -7,6 +7,12 @@ normative_status: "Release record"
 ---
 # Changelog
 
+## Unreleased: temporal governance semantic alignment (informative)
+
+- Refine GAAM-owned temporal governance roles, temporal non-amplification and evidentiary boundaries without adopting TRQP or ARPA wire models or changing the frozen v0.9.0 normative edition.
+- Add cross-system GAAM–TRQP–ARPA–TSMM/TIS alignment analysis, 17 synthetic cases and six false-success probes wired into CI; explicitly retain synthetic provenance and E1-like limitations.
+- Synchronize existing future-evolution concepts, documentation navigation, evidence interpretation and an evidence-gated normative disposition. Candidate distribution v0.9.5, canonical schemas, profiles, requirement IDs and published releases remain unchanged.
+
 ## [0.9.5] - 2026-11-04
 
 ### Version identity and publication

@@ -22,3 +22,7 @@ A succession plan should identify triggers, successor designation, interim custo
 - Is a draft profile, experimental schema, vocabulary, or behavioural vector necessary?
 - What privacy, security, affected-party, market, and continuity consequences arise?
 - What evidence would justify normative promotion?
+
+## Historical competence versus current responsibility
+
+An institutional transition may change the effective competence to issue, record or revoke assertions while evidence custody and present remedial responsibility transfer on different dates. The [temporal governance model](temporal-governance.md) requires those roles to remain distinguishable when evaluating predecessor authority, successor competence and historical records. Present custody does not automatically confer historical issuing authority, and past competence does not establish today's accountability.

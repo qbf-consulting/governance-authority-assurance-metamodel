@@ -181,13 +181,19 @@
       "dependencies": [],
       "implementationEvidenceRequired": [
         "event-order tests",
-        "clock uncertainty scenarios"
+        "clock uncertainty scenarios",
+        "cross-source temporal-context mismatch vectors",
+        "retroactive correction and authoritative recording cutoff vectors"
       ],
       "normativeImpact": "none",
       "promotionStatus": "retain-as-experimental",
       "researchAssets": [
         "experimental/schemas/obligation.schema.json",
-        "examples/post-decision-obligation-lifecycle/"
+        "examples/post-decision-obligation-lifecycle/",
+        "docs/future-evolution/concepts/temporal-governance.md",
+        "docs/future-evolution/temporal-governance-alignment.md",
+        "experimental/temporal-governance/cases.json",
+        "docs/future-evolution/temporal-governance-disposition.md"
       ],
       "assessmentEvidence": [
         "governance/reviews/evidence/future-evolution/normative-impact-analysis.md",
