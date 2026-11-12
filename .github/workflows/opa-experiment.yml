@@ -1,0 +1,41 @@
+name: Informative OPA evaluation experiment
+
+on:
+  pull_request:
+    paths:
+      - "experimental/opa-policy-evaluation/**"
+      - ".github/workflows/opa-experiment.yml"
+      - "examples/basic-governed-decision/authority.valid.json"
+      - "examples/basic-governed-decision/delegation.valid.json"
+  push:
+    branches: [main]
+    paths:
+      - "experimental/opa-policy-evaluation/**"
+      - ".github/workflows/opa-experiment.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Fetch checksum-pinned OPA v1.22.3 experiment dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error --retry 3 \
+            "https://github.com/open-policy-agent/opa/releases/download/v1.22.3/opa_linux_amd64" \
+            --output /tmp/opa
+          echo "b6e7796ca71c22bffebeb0d58074170830d436a148d0490387e387d2d36d764b  /tmp/opa" | sha256sum --check
+          chmod +x /tmp/opa
+          /tmp/opa version
+      - name: Check Rego compilation and strict policy diagnostics
+        run: /tmp/opa check --strict experimental/opa-policy-evaluation/policy.rego
+      - name: Run positive, negative, uncertainty and false-success cases
+        run: python experimental/opa-policy-evaluation/experiment.py --opa /tmp/opa --all
