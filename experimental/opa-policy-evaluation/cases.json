@@ -1,0 +1,195 @@
+{
+  "cases": [
+    {
+      "id": "positive",
+      "expected": "satisfied",
+      "mutations": {}
+    },
+    {
+      "id": "out-of-scope",
+      "expected": "not-satisfied",
+      "mutations": {
+        "request.effect": "execute-outside-scope"
+      }
+    },
+    {
+      "id": "child-amplification",
+      "expected": "not-satisfied",
+      "mutations": {
+        "delegation.delegatedScope.effects": [
+          "execute-within-scope",
+          "execute-outside-scope"
+        ],
+        "request.effect": "execute-outside-scope"
+      }
+    },
+    {
+      "id": "revoked-parent",
+      "expected": "not-satisfied",
+      "mutations": {
+        "authority.status": "revoked"
+      }
+    },
+    {
+      "id": "suspended-parent",
+      "expected": "not-satisfied",
+      "mutations": {
+        "authority.status": "suspended"
+      }
+    },
+    {
+      "id": "expired-parent",
+      "expected": "not-satisfied",
+      "mutations": {
+        "evaluationTime": "2027-07-29T12:00:00Z"
+      }
+    },
+    {
+      "id": "revoked-delegation",
+      "expected": "not-satisfied",
+      "mutations": {
+        "delegation.status": "revoked"
+      }
+    },
+    {
+      "id": "forbidden-redelegation",
+      "expected": "not-satisfied",
+      "mutations": {
+        "delegation.redelegation": "allowed"
+      }
+    },
+    {
+      "id": "explicit-policy-prohibition",
+      "expected": "not-satisfied",
+      "mutations": {
+        "policy.prohibited": true
+      }
+    },
+    {
+      "id": "policy-not-current",
+      "expected": "not-satisfied",
+      "mutations": {
+        "policy.state": "superseded"
+      }
+    },
+    {
+      "id": "revocation-status-unknown",
+      "expected": "indeterminate",
+      "mutations": {
+        "revocation.state": "unknown"
+      }
+    },
+    {
+      "id": "revocation-status-unavailable",
+      "expected": "indeterminate",
+      "mutations": {
+        "revocation.state": "unavailable"
+      }
+    },
+    {
+      "id": "stale-evidence",
+      "expected": "not-satisfied",
+      "mutations": {
+        "evidence.freshUntil": "2026-07-29T12:00:00Z"
+      }
+    },
+    {
+      "id": "missing-evidence",
+      "expected": "indeterminate",
+      "mutations": {
+        "evidence": null
+      }
+    },
+    {
+      "id": "conflicting-evidence",
+      "expected": "indeterminate",
+      "mutations": {
+        "evidence.state": "conflicting"
+      }
+    },
+    {
+      "id": "missing-authority-source",
+      "expected": "indeterminate",
+      "mutations": {
+        "authority.authoritySource": null
+      }
+    },
+    {
+      "id": "conflicting-policy",
+      "expected": "indeterminate",
+      "mutations": {
+        "policy.state": "conflicting"
+      }
+    },
+    {
+      "id": "unsupported-contract",
+      "expected": "indeterminate",
+      "mutations": {
+        "contractVersion": "2"
+      }
+    },
+    {
+      "id": "unsupported-policy-version",
+      "expected": "indeterminate",
+      "mutations": {
+        "policy.revision": "demo-policy-2"
+      }
+    },
+    {
+      "id": "malformed-clock",
+      "expected": "indeterminate",
+      "mutations": {
+        "evaluationTime": "not-a-time"
+      }
+    },
+    {
+      "id": "fake-verification-flags-revoked",
+      "expected": "not-satisfied",
+      "mutations": {
+        "authority.status": "revoked",
+        "sourceVerified": true,
+        "parentActive": true,
+        "scopeValid": true,
+        "evidenceFresh": true
+      }
+    },
+    {
+      "id": "fake-verification-flags-active",
+      "expected": "satisfied",
+      "mutations": {
+        "sourceVerified": true,
+        "parentActive": true,
+        "scopeValid": true,
+        "evidenceFresh": true
+      }
+    },
+    {
+      "id": "wrong-actor",
+      "expected": "not-satisfied",
+      "mutations": {
+        "request.actor": "urn:gaam:actor:other"
+      }
+    },
+    {
+      "id": "delegation-parent-mismatch",
+      "expected": "not-satisfied",
+      "mutations": {
+        "delegation.parentAuthority": "urn:gaam:authority:unrelated"
+      }
+    },
+    {
+      "id": "unavailable-policy",
+      "expected": "indeterminate",
+      "mutations": {
+        "policy": null
+      }
+    },
+    {
+      "id": "clock-before-authority",
+      "expected": "not-satisfied",
+      "mutations": {
+        "evaluationTime": "2026-07-29T11:59:59Z"
+      }
+    }
+  ]
+}
