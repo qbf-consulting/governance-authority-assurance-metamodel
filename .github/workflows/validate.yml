@@ -121,7 +121,7 @@ jobs:
       - name: Validate Mermaid diagrams
         run: npm run validate:mermaid
 
-      - uses: ruby/setup-ruby@de492cf36cbab201753d720ce4f4e336cd688c94 # v1 branch observed 2026-09-07
+      - uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1 branch observed 2026-09-07
         with:
           ruby-version: "3.3"
           bundler-cache: true
