@@ -9,7 +9,7 @@ grand_parent: Start Here
 ---
 # Guided Learning Paths
 
-GAAM is a concept-to-conformance specification. Readers should first understand the semantic model, then select a profile, implement machine-verifiable artifacts and finally produce evidence against normative requirements. Choose the route aligned to your authority and review role.
+GAAM is a concept-to-conformance specification. Readers should first understand the semantic model, then select a profile, implement machine-verifiable artifacts and finally produce evidence against normative requirements. Choose the route aligned to your authority and review role. If the immediate question is conceptual rather than role-specific, the [question-led visual guide](../diagrams/architecture-diagrams.md#find-a-diagram-by-governance-question) links existing diagrams to scenarios and source boundaries without creating another required learning route.
 
 ```mermaid
 flowchart LR

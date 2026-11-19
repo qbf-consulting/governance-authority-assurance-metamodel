@@ -11,7 +11,20 @@ nav_order: 2
 
 {% include gaam-meta.html %}
 
-These diagrams are informative and use Mermaid syntax.
+These diagrams are informative and use Mermaid syntax. They illustrate selected GAAM responsibilities and dependencies; they are not a substitute for the [normative specification](../specification/governance-authority-assurance-metamodel.md), the selected profiles, or implementation evidence.
+
+## Find a diagram by governance question
+
+The eleven diagrams below are **complementary views of existing GAAM semantics**, not separate models to reconcile. Use the question first, follow the relevant example and source, then check the limit of the illustrated claim.
+
+| Governance question | Existing visual views | Apply to an existing case | What the visual does not establish |
+| --- | --- | --- | --- |
+| **Who may delegate an effect, and what happens when a parent grant changes?** | [Multi-hop delegation](#3-multi-hop-delegation), [delegation fan-out and revocation](#8-delegation-fan-out-convergence-and-revocation-impact), [artifact lifecycles](../docs/lifecycle-model.md) | [Authority and revocation examples](../examples/authority-lifecycle-and-revocation/index.md), [canonical authority and delegation schemas](../schemas/index.md) | An actor's identity or connected delegation path does not prove operative source authority, current parent status, or permitted scope. |
+| **When is a requested action permitted, and what effect actually occurred?** | [Core decision chain](#1-core-decision-chain), [runtime governance](#4-runtime-governance), [independent authority and assurance gates](#11-authority-and-assurance-are-independent-gates) | [Basic Governed Decision walkthrough](../examples/basic-governed-decision/walkthrough.md), [delegated-agent purchasing gateway exercise](../examples/delegated-agent-purchase/adopter-gateway-exercise.md) | A permit or valid decision receipt is not evidence of enforcement, external execution, legal validity, or a completed effect. |
+| **Which evidence supports assurance, and when must a claim be reassessed?** | [Continuous assurance and intervention](#7-continuous-assurance-and-runtime-intervention), [profile composition and evidence](#10-profile-composition-and-conformance-evidence), [authority and assurance gates](#11-authority-and-assurance-are-independent-gates) | [Independent Assurance Assessment pattern](../examples/independent-assurance-assessment/index.md), [conformance and assurance guide](../docs/conformance-guide.md), [requirement evidence coverage](../docs/requirement-evidence-coverage.md) | A schema-valid artifact, test pass, or assurance label does not independently establish evidence sufficiency, live applicability, or authority to act. |
+
+For the source of a normative obligation, use the [Candidate specification](../specification/governance-authority-assurance-metamodel.md) and relevant [profile](../profiles/index.md). To test what an example actually demonstrates, inspect the [conformance kit](../conformance-kit/README.md) and its evidence limits. Diagram arrows indicate **illustrated relationships**, not automatic transitivity or authorization; real-world governance outcomes require the relevant authority, evidence, decision, enforcement and effect conditions to be separately established.
+
 
 ## 1. Core decision chain
 
