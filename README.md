@@ -63,8 +63,7 @@ The validator generates `validation/validation-report.json`, `VALIDATION_REPORT.
 | v0.9.0 | Original Candidate semantic and canonical-artifact baseline |
 | v0.9.1 | Candidate implementation-enablement maintenance release; v0.9.0 semantics retained |
 | v0.9.2 | Ecosystem validation evidence, preserving v0.9.0 semantics |
-| **v0.9.5** | **Current Candidate maintenance and assurance-hardening release; v0.9.0 semantic/canonical identifiers retained** |
-| v0.9.5 | Candidate adopter-integrity and gateway-evidence maintenance release; v0.9.0 semantics retained |
+| **v0.9.5** | **Current Candidate distribution and test-suite maintenance release, including assurance hardening, adopter-integrity and gateway-evidence improvements; v0.9.0 semantics and canonical identifiers retained** |
 | v1.0.0 | Stable Initial Release, subject to candidate exit criteria |
 
 ## Source relationship
