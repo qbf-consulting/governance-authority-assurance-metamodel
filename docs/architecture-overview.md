@@ -13,6 +13,8 @@ nav_order: 1
 
 GAAM is an effect-centred governance metamodel. It models how authority, policy, evidence and assurance combine to determine whether a proposed effect may occur and who remains accountable for the result.
 
+To explore one mechanism visually, start with the [question-led architecture diagram guide](../diagrams/architecture-diagrams.md#find-a-diagram-by-governance-question). Its existing delegation, runtime-decision, and assurance views lead to source artifacts, worked cases and explicit non-claims. The diagrams remain informative; the [normative specification](../specification/governance-authority-assurance-metamodel.md) governs the corresponding requirements.
+
 ## Architectural layers
 
 ### Institutional layer
