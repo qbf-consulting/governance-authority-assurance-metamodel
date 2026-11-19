@@ -32,6 +32,8 @@ flowchart LR
 
 **Completion test:** you can identify the source of authority, delegation scope, enforcement and revocation mechanisms, evidence obligations and accountable assurance decision.
 
+For a cross-institutional public-service interpretation, read [independently governed institutions](architecture-overview.md#independently-governed-institutions) and the [illustrative consequence trace](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/main/examples/high-impact-multi-agent-service/README.md#illustrative-cross-institutional-consequence-trace). These informative sections distinguish the authority to submit a request, the receiving institution's competence, actual execution, affected-party impact, and accountable remedy. They do not assert that any real deployment satisfies the model.
+
 ## Route 2: architect, profile author or implementer
 
 1. [Normative specification](../specification/index.md)

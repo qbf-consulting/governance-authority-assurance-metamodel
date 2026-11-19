@@ -102,6 +102,14 @@ flowchart LR
 
 A decision receipt establishes the recorded decision and its grounds within its claimed scope. The implementation must not treat it as evidence that the enforcement point acted or that the intended effect occurred unless separately supported. For detailed engineering stages, see the [Implementation Guide](implementation-guide.md).
 
+## Independently governed institutions
+
+In a cross-institutional service, an individual's authority to appoint an agent, an institution's competence to accept representations, and that institution's power to perform a consequential act are separate propositions. For example, a citizen may delegate the submission of an eligibility update to a software agent. The receiving public-service institution must still establish whether the delegation applies to that request, whether its own governing instrument permits the proposed update, and which authority can review or correct the result. Neither an agent identifier nor a technically valid delegation creates institutional competence.
+
+The originating principal, delegator, agent, receiving institution, policy owner, enforcement point, affected person and remedy authority may belong to different governance domains. Recognition of another domain's identity or grant does not imply wholesale recognition of its permissions or an automatic transfer of accountability. Conflicting or unavailable authority evidence remains an unresolved decision condition, not permission.
+
+See the [high-impact multi-agent service](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/tree/main/examples/high-impact-multi-agent-service) for the existing composed implementation pattern and its [informative consequence trace](https://github.com/qbf-consulting/governance-authority-assurance-metamodel/blob/main/examples/high-impact-multi-agent-service/README.md#illustrative-cross-institutional-consequence-trace). That hypothetical trace distinguishes an authorization control failure from any observed external effect and from a subsequent impact on an affected person; the applicable institutional or legal basis must be established by the real deployment.
+
 ## Boundary rule
 
 GAAM defines governance semantics, not protocol mechanics. Implementations may use different identity, credential, registry, policy, graph and agent protocols while remaining conformant, provided they preserve the required semantics and evidence.
